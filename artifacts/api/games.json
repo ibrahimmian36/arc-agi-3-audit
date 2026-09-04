@@ -1,0 +1,458 @@
+[
+ {
+  "baseline_actions": [
+   32,
+   50,
+   75,
+   37,
+   89,
+   159,
+   233,
+   73
+  ],
+  "class_name": "Ar25",
+  "default_fps": 5,
+  "game_id": "ar25-0c556536",
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "AR25"
+ },
+ {
+  "baseline_actions": [
+   21,
+   48,
+   44,
+   38,
+   33,
+   87,
+   86,
+   131,
+   163
+  ],
+  "class_name": "Bp35",
+  "default_fps": 5,
+  "game_id": "bp35-0a0ad940",
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "BP35"
+ },
+ {
+  "baseline_actions": [
+   55,
+   8,
+   41,
+   21,
+   23,
+   23
+  ],
+  "class_name": "Cd82",
+  "default_fps": 5,
+  "game_id": "cd82-fb555c5d",
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "CD82"
+ },
+ {
+  "baseline_actions": [
+   29,
+   54,
+   85,
+   300,
+   208,
+   113
+  ],
+  "class_name": "Cn04",
+  "default_fps": 5,
+  "game_id": "cn04-2fe56bfb",
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "CN04"
+ },
+ {
+  "baseline_actions": [
+   59,
+   102,
+   67,
+   98,
+   324,
+   578
+  ],
+  "class_name": "Dc22",
+  "default_fps": 5,
+  "game_id": "dc22-fdcac232",
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "DC22"
+ },
+ {
+  "baseline_actions": [
+   43,
+   12,
+   23,
+   28,
+   65,
+   37
+  ],
+  "class_name": "Ft09",
+  "default_fps": 5,
+  "game_id": "ft09-0d8bbf25",
+  "tags": [],
+  "title": "FT09"
+ },
+ {
+  "baseline_actions": [
+   78,
+   175,
+   179,
+   230,
+   96,
+   54,
+   67
+  ],
+  "class_name": "G50t",
+  "default_fps": 5,
+  "game_id": "g50t-5849a774",
+  "tags": [
+   "keyboard"
+  ],
+  "title": "G50T"
+ },
+ {
+  "baseline_actions": [
+   28,
+   109,
+   51,
+   51,
+   33,
+   132,
+   326
+  ],
+  "class_name": "Ka59",
+  "default_fps": 5,
+  "game_id": "ka59-38d34dbb",
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "KA59"
+ },
+ {
+  "baseline_actions": [
+   32,
+   81,
+   60,
+   71,
+   205,
+   148,
+   244,
+   109,
+   164,
+   225
+  ],
+  "class_name": "Lf52",
+  "default_fps": 5,
+  "game_id": "lf52-271a04aa",
+  "tags": [
+   "click"
+  ],
+  "title": "LF52"
+ },
+ {
+  "baseline_actions": [
+   17,
+   38,
+   31,
+   16,
+   41,
+   60,
+   26,
+   159
+  ],
+  "class_name": "Lp85",
+  "default_fps": 5,
+  "game_id": "lp85-305b61c3",
+  "tags": [
+   "click"
+  ],
+  "title": "LP85"
+ },
+ {
+  "baseline_actions": [
+   22,
+   123,
+   73,
+   84,
+   96,
+   192,
+   186
+  ],
+  "class_name": "Ls20",
+  "default_fps": 5,
+  "game_id": "ls20-9607627b",
+  "tags": [
+   "keyboard"
+  ],
+  "title": "LS20"
+ },
+ {
+  "baseline_actions": [
+   30,
+   111,
+   203,
+   26,
+   500,
+   237
+  ],
+  "class_name": "M0r0",
+  "default_fps": 5,
+  "game_id": "m0r0-492f87ba",
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "M0R0"
+ },
+ {
+  "baseline_actions": [
+   22,
+   33,
+   51,
+   26,
+   52,
+   49
+  ],
+  "class_name": "R11l",
+  "default_fps": 5,
+  "game_id": "r11l-495a7899",
+  "tags": [
+   "click"
+  ],
+  "title": "R11L"
+ },
+ {
+  "baseline_actions": [
+   26,
+   42,
+   86,
+   108,
+   189,
+   139,
+   424,
+   241
+  ],
+  "class_name": "Re86",
+  "default_fps": 5,
+  "game_id": "re86-8af5384d",
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "RE86"
+ },
+ {
+  "baseline_actions": [
+   20,
+   89,
+   106,
+   54,
+   162,
+   38,
+   86,
+   83
+  ],
+  "class_name": "S5i5",
+  "default_fps": 5,
+  "game_id": "s5i5-18d95033",
+  "tags": [
+   "click"
+  ],
+  "title": "S5I5"
+ },
+ {
+  "baseline_actions": [
+   18,
+   28,
+   18,
+   19,
+   31,
+   23,
+   58,
+   18
+  ],
+  "class_name": "Sb26",
+  "default_fps": 5,
+  "game_id": "sb26-7fbdac44",
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "SB26"
+ },
+ {
+  "baseline_actions": [
+   36,
+   6,
+   32,
+   83,
+   143,
+   50
+  ],
+  "class_name": "Sc25",
+  "default_fps": 5,
+  "game_id": "sc25-635fd71a",
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "SC25"
+ },
+ {
+  "baseline_actions": [
+   61,
+   177,
+   101,
+   103,
+   230,
+   181,
+   125,
+   92
+  ],
+  "class_name": "Sk48",
+  "default_fps": 5,
+  "game_id": "sk48-d8078629",
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "SK48"
+ },
+ {
+  "baseline_actions": [
+   39,
+   58,
+   25,
+   148,
+   96,
+   152
+  ],
+  "class_name": "Sp80",
+  "default_fps": 5,
+  "game_id": "sp80-589a99af",
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "SP80"
+ },
+ {
+  "baseline_actions": [
+   22,
+   42,
+   26,
+   115,
+   36,
+   31,
+   8,
+   40,
+   41
+  ],
+  "class_name": "Su15",
+  "default_fps": 5,
+  "game_id": "su15-1944f8ab",
+  "tags": [
+   "click"
+  ],
+  "title": "SU15"
+ },
+ {
+  "baseline_actions": [
+   32,
+   72,
+   26,
+   40,
+   30,
+   55,
+   62
+  ],
+  "class_name": "Tn36",
+  "default_fps": 5,
+  "game_id": "tn36-ef4dde99",
+  "tags": [
+   "click"
+  ],
+  "title": "TN36"
+ },
+ {
+  "baseline_actions": [
+   54,
+   58,
+   40,
+   45,
+   71,
+   146
+  ],
+  "class_name": "Tr87",
+  "default_fps": 5,
+  "game_id": "tr87-cd924810",
+  "tags": [
+   "keyboard"
+  ],
+  "title": "TR87"
+ },
+ {
+  "baseline_actions": [
+   19,
+   16,
+   34,
+   42,
+   123,
+   80,
+   14,
+   23,
+   111
+  ],
+  "class_name": "Tu93",
+  "default_fps": 5,
+  "game_id": "tu93-0768757b",
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "TU93"
+ },
+ {
+  "baseline_actions": [
+   7,
+   18,
+   44,
+   61,
+   131,
+   34,
+   152
+  ],
+  "class_name": "Vc33",
+  "default_fps": 5,
+  "game_id": "vc33-5430563c",
+  "tags": [
+   "click"
+  ],
+  "title": "VC33"
+ },
+ {
+  "baseline_actions": [
+   71,
+   119,
+   183,
+   98,
+   368,
+   68,
+   79,
+   442,
+   415
+  ],
+  "class_name": "Wa30",
+  "default_fps": 5,
+  "game_id": "wa30-ee6fef47",
+  "tags": [
+   "keyboard"
+  ],
+  "title": "WA30"
+ }
+]

@@ -1,0 +1,201 @@
+{
+ "card": {
+  "actions": [
+   7
+  ],
+  "actions_by_level": [
+   []
+  ],
+  "game_id": "ls20-9607627b",
+  "guids": [
+   "guid-1"
+  ],
+  "levels_completed": [
+   0
+  ],
+  "resets": [
+   1
+  ],
+  "states": [
+   "NOT_FINISHED"
+  ],
+  "total_actions": 7,
+  "total_plays": 1
+ },
+ "environment_score": {
+  "actions": 7,
+  "completed": false,
+  "id": "ls20-9607627b",
+  "level_count": 7,
+  "levels_completed": 0,
+  "resets": 1,
+  "runs": [
+   {
+    "actions": 7,
+    "completed": false,
+    "guid": "guid-2",
+    "level_actions": [
+     7,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "level_baseline_actions": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "level_scores": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "levels_completed": 0,
+    "resets": 1,
+    "score": 0.0,
+    "state": "NOT_FINISHED"
+   }
+  ],
+  "score": 0.0
+ },
+ "game": "ls20-9607627b",
+ "ours": {
+  "full_resets_observed": 0,
+  "non_reset_actions": 6,
+  "resets": 1,
+  "total_including_resets": 7
+ },
+ "parity": {
+  "card_total": 7,
+  "counts_agree": true,
+  "ours_minus_new_play_resets": 7,
+  "ours_total": 7
+ },
+ "script": [
+  "ACTION1",
+  "ACTION2",
+  "ACTION3",
+  "ACTION4",
+  "RESET",
+  "ACTION1",
+  "ACTION5"
+ ],
+ "seed": 0,
+ "steps": [
+  {
+   "action": "(make: initial RESET inside the wrapper)",
+   "available_actions": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "full_reset": true,
+   "i": 0,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION1",
+   "available_actions": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 1,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION2",
+   "available_actions": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 2,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 3,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "available_actions": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 4,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "RESET",
+   "available_actions": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 5,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION1",
+   "available_actions": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 6,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION5",
+   "available_actions": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 7,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  }
+ ]
+}

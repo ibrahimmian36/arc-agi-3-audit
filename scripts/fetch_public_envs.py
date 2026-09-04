@@ -42,6 +42,8 @@ def main(argv: list[str] | None = None) -> int:
     for e in arc.available_environments:
         d = json.loads(e.model_dump_json())
         d.pop("date_downloaded", None)
+        # Designer-side fields the public docs do not advertise; not retained.
+        d.pop("private_tags", None); d.pop("level_tags", None)
         listing.append(d)
     listing.sort(key=lambda d: d["game_id"])
     (ROOT / "artifacts" / "api").mkdir(parents=True, exist_ok=True)

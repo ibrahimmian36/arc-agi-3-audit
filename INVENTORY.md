@@ -19,11 +19,42 @@ Scope: the 25 PUBLIC environments only. The semi-private and private sets are ou
 
 ## API listing (`/api/games`)
 
-BLOCKED: not fetched in this repository yet. The anonymous key unlocks only 3 of 25 public games (docs: available-games); a registered key is needed for the full public set. Run `scripts/fetch_public_envs.py` with `ARC_API_KEY` set.
+25 entries saved in `artifacts/api/games.json`. Fields present: ['baseline_actions', 'class_name', 'default_fps', 'game_id', 'level_tags', 'private_tags', 'tags', 'title']. `baseline_actions` present in listing: 25/25.
 
 ## Fetched public environments
 
-BLOCKED: no `environment_files/` on disk. Nothing has been downloaded or executed. Selection per the preregistered rule waits for the fetch.
+| game_id | title | levels | baseline_actions | source | non-blank LOC | runs OFFLINE |
+|---|---|---|---|---|---|---|
+| ar25-0c556536 | AR25 | 8 | [32, 50, 75, 37, 89, 159, 233, 73] | environment_files/ar25/0c556536/ar25.py | 1777 | yes |
+| bp35-0a0ad940 | BP35 | 9 | [21, 48, 44, 38, 33, 87, 86, 131, 163] | environment_files/bp35/0a0ad940/bp35.py | 3994 | yes |
+| cd82-fb555c5d | CD82 | 6 | [55, 8, 41, 21, 23, 23] | environment_files/cd82/fb555c5d/cd82.py | 722 | yes |
+| cn04-2fe56bfb | CN04 | 6 | [29, 54, 85, 300, 208, 113] | environment_files/cn04/2fe56bfb/cn04.py | 1134 | yes |
+| dc22-fdcac232 | DC22 | 6 | [59, 102, 67, 98, 324, 578] | environment_files/dc22/fdcac232/dc22.py | 10816 | yes |
+| ft09-0d8bbf25 | FT09 | 6 | [43, 12, 23, 28, 65, 37] | environment_files/ft09/0d8bbf25/ft09.py | 2443 | yes |
+| g50t-5849a774 | G50T | 7 | [78, 175, 179, 230, 96, 54, 67] | environment_files/g50t/5849a774/g50t.py | 2684 | yes |
+| ka59-38d34dbb | KA59 | 7 | [28, 109, 51, 51, 33, 132, 326] | environment_files/ka59/38d34dbb/ka59.py | 41408 | yes |
+| lf52-271a04aa | LF52 | 10 | [32, 81, 60, 71, 205, 148, 244, 109, 164, 225] | environment_files/lf52/271a04aa/lf52.py | 5155 | yes |
+| lp85-305b61c3 | LP85 | 8 | [17, 38, 31, 16, 41, 60, 26, 159] | environment_files/lp85/305b61c3/lp85.py | 21391 | yes |
+| ls20-9607627b | LS20 | 7 | [22, 123, 73, 84, 96, 192, 186] | environment_files/ls20/9607627b/ls20.py | 1987 | yes |
+| m0r0-492f87ba | M0R0 | 6 | [30, 111, 203, 26, 500, 237] | environment_files/m0r0/492f87ba/m0r0.py | 880 | yes |
+| r11l-495a7899 | R11L | 6 | [22, 33, 51, 26, 52, 49] | environment_files/r11l/495a7899/r11l.py | 1783 | yes |
+| re86-8af5384d | RE86 | 8 | [26, 42, 86, 108, 189, 139, 424, 241] | environment_files/re86/8af5384d/re86.py | 2093 | yes |
+| s5i5-18d95033 | S5I5 | 8 | [20, 89, 106, 54, 162, 38, 86, 83] | environment_files/s5i5/18d95033/s5i5.py | 2190 | yes |
+| sb26-7fbdac44 | SB26 | 8 | [18, 28, 18, 19, 31, 23, 58, 18] | environment_files/sb26/7fbdac44/sb26.py | 1094 | yes |
+| sc25-635fd71a | SC25 | 6 | [36, 6, 32, 83, 143, 50] | environment_files/sc25/635fd71a/sc25.py | 2686 | yes |
+| sk48-d8078629 | SK48 | 8 | [61, 177, 101, 103, 230, 181, 125, 92] | environment_files/sk48/d8078629/sk48.py | 932 | yes |
+| sp80-589a99af | SP80 | 6 | [39, 58, 25, 148, 96, 152] | environment_files/sp80/589a99af/sp80.py | 807 | yes |
+| su15-1944f8ab | SU15 | 9 | [22, 42, 26, 115, 36, 31, 8, 40, 41] | environment_files/su15/1944f8ab/su15.py | 2085 | yes |
+| tn36-ef4dde99 | TN36 | 7 | [32, 72, 26, 40, 30, 55, 62] | environment_files/tn36/ef4dde99/tn36.py | 2465 | yes |
+| tr87-cd924810 | TR87 | 6 | [54, 58, 40, 45, 71, 146] | environment_files/tr87/cd924810/tr87.py | 1078 | yes |
+| tu93-0768757b | TU93 | 9 | [19, 16, 34, 42, 123, 80, 14, 23, 111] | environment_files/tu93/0768757b/tu93.py | 1199 | yes |
+| vc33-5430563c | VC33 | 7 | [7, 18, 44, 61, 131, 34, 152] | environment_files/vc33/5430563c/vc33.py | 2052 | yes |
+| wa30-ee6fef47 | WA30 | 9 | [71, 119, 183, 98, 368, 68, 79, 442, 415] | environment_files/wa30/ee6fef47/wa30.py | 1173 | yes |
+
+## Selection (preregistered rule: fewest non-blank LOC with >= 6 levels and a documented mechanic)
+
+Candidate order by LOC: cd82-fb555c5d (722), sp80-589a99af (807), m0r0-492f87ba (880), sk48-d8078629 (932), tr87-cd924810 (1078), sb26-7fbdac44 (1094), cn04-2fe56bfb (1134), wa30-ee6fef47 (1173).
+Selected by the rule: **cd82-fb555c5d** (722 LOC, 6 levels). The 'documented mechanic' criterion is checked by hand and recorded in docs/DECISIONS.md before modelling.
 
 
-Counts: fetched=0, listed=0.
+Counts: fetched=25, listed=25.
