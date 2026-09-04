@@ -81,3 +81,15 @@ boundary exhibited at 93 and 94. Random and exhaustive instruments agree on
 `ls20` level 1 at 129.
 
 Peak RSS under 800 MB, no network, artefacts grew well under the 2 MB ceiling.
+
+## 2026-09-04 — Phase 12: what the resets cost a policy that simply plays
+
+Ran `scripts/random_agent_tax.py`, smoke first then 60 paired runs over six
+blind-playable environments and ten seeds. The tax is small and the outcome
+result is null: `median_forced_share_of_counted=0.006267806000000001`,
+`max_forced_share_of_counted=0.010526316`, `runs_where_a_level_differs=0`,
+`total_extra_actions_when_uncharged=70` — exactly the number of forced resets.
+`ls20` is the only environment that never incurs one, agreeing with the
+death-cost measurement that it cannot be lost inside its budget.
+
+Peak RSS 350 MB against a 900 MB ceiling, 35 seconds of run time, no network.

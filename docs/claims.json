@@ -971,5 +971,40 @@
   "log": "../artifacts/deathcost/exhaustive.log",
   "pattern": "^EXHAUSTIVE ls20 L1",
   "by": "scripts/death_cost.py"
+ },
+ {
+  "value": "median_forced_share_of_counted=0.006267806000000001",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/tax/tax.log",
+  "pattern": "^TAX runs=60",
+  "by": "scripts/random_agent_tax.py"
+ },
+ {
+  "value": "max_forced_share_of_counted=0.010526316",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/tax/tax.log",
+  "pattern": "^TAX runs=60",
+  "by": "scripts/random_agent_tax.py"
+ },
+ {
+  "value": "runs_where_a_level_differs=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/tax/tax.log",
+  "pattern": "^OUTCOME",
+  "by": "scripts/random_agent_tax.py"
+ },
+ {
+  "value": "runs_where_exit_differs=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/tax/tax.log",
+  "pattern": "^OUTCOME",
+  "by": "scripts/random_agent_tax.py"
+ },
+ {
+  "value": "total_extra_actions_when_uncharged=70",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/tax/tax.log",
+  "pattern": "^OUTCOME",
+  "by": "scripts/random_agent_tax.py"
  }
 ]

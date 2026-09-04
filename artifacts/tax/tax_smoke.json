@@ -1,0 +1,111 @@
+{
+ "runs": [
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.010526316,
+   "forced_share_of_max_actions": 0.0004329,
+   "game": "tu93",
+   "level_tax": [
+    {
+     "budget": 95,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.010526316
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 0,
+   "shipped": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     95
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 94,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.18
+   },
+   "uncharged": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     96
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 95,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.15
+   }
+  }
+ ]
+}

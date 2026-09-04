@@ -1,0 +1,4 @@
+RUN tu93 seed=0 max_actions=2310 chosen=94 forced=1 forced_share_of_counted=0.010526316 extra_when_uncharged=1 shipped_levels=0 uncharged_levels=0 levels_differ=[] exit_differs=False same_chosen_actions=True exit=ACTION_BUDGET seconds=0.18
+TAX runs=1 games=1 seeds=1 median_forced_share_of_counted=0.010526316 max_forced_share_of_counted=0.010526316 levels_with_a_forced_reset=1 median_level_share=0.010526316 max_level_share=0.010526316
+OUTCOME runs=1 runs_where_a_level_differs=0 runs_where_exit_differs=0 total_extra_actions_when_uncharged=1 all_pairs_same_chosen_actions=True
+SUMMARY elapsed_seconds=0.4 peak_rss_mb=184.0 peak_rss_mb_under_900=True MODE=smoke

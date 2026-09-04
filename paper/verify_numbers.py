@@ -23,6 +23,14 @@ ART = HERE.parent / "artifacts"
 
 # (phrase as printed in the paper, value it asserts, log file, regex capturing it)
 CLAIMS: list[tuple[str, str, Path, str]] = [
+    # --- what the forced resets cost a policy that simply plays ---
+    ("sixty paired runs over six environments and ten seeds", "60",
+     ART / "tax/tax.log", r"^TAX runs=(\d+)"),
+    ("the maximum is 1.05%", "0.010526316", ART / "tax/tax.log",
+     r"^TAX .*max_forced_share_of_counted=([0-9.]+)"),
+    ("No level's completion and no run's exit reason differs", "0",
+     ART / "tax/tax.log", r"^OUTCOME .*runs_where_a_level_differs=(\d+)"),
+
     # --- the denial on a real public level, at its real budget ---
     ("scores 0.087046682", "0.087046682", ART / "realdenial/realdenial.log",
      r"^PAIR tu93 .*chosen=95 .*counterfactual:[^|]*score=([0-9.]+)"),

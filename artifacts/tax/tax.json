@@ -1,0 +1,5994 @@
+{
+ "runs": [
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.005128205,
+   "forced_share_of_max_actions": 0.000455063,
+   "game": "g50t",
+   "level_tax": [
+    {
+     "budget": 390,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.005128205
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 0,
+   "shipped": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     390
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 388,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.91
+   },
+   "uncharged": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     392
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 390,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.97
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.005128205,
+   "forced_share_of_max_actions": 0.000455063,
+   "game": "g50t",
+   "level_tax": [
+    {
+     "budget": 390,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.005128205
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 1,
+   "shipped": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     390
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 388,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.91
+   },
+   "uncharged": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     392
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 390,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.99
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.005128205,
+   "forced_share_of_max_actions": 0.000455063,
+   "game": "g50t",
+   "level_tax": [
+    {
+     "budget": 390,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.005128205
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 2,
+   "shipped": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     390
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 388,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.89
+   },
+   "uncharged": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     392
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 390,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.91
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.005128205,
+   "forced_share_of_max_actions": 0.000455063,
+   "game": "g50t",
+   "level_tax": [
+    {
+     "budget": 390,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.005128205
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 3,
+   "shipped": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     390
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 388,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.96
+   },
+   "uncharged": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     392
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 390,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.92
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.005128205,
+   "forced_share_of_max_actions": 0.000455063,
+   "game": "g50t",
+   "level_tax": [
+    {
+     "budget": 390,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.005128205
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 4,
+   "shipped": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     390
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 388,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.93
+   },
+   "uncharged": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     392
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 390,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.94
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.005128205,
+   "forced_share_of_max_actions": 0.000455063,
+   "game": "g50t",
+   "level_tax": [
+    {
+     "budget": 390,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.005128205
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 5,
+   "shipped": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     390
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 388,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.92
+   },
+   "uncharged": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     392
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 390,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.96
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.005128205,
+   "forced_share_of_max_actions": 0.000455063,
+   "game": "g50t",
+   "level_tax": [
+    {
+     "budget": 390,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.005128205
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 6,
+   "shipped": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     390
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 388,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.96
+   },
+   "uncharged": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     392
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 390,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.92
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.005128205,
+   "forced_share_of_max_actions": 0.000455063,
+   "game": "g50t",
+   "level_tax": [
+    {
+     "budget": 390,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.005128205
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 7,
+   "shipped": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     390
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 388,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.95
+   },
+   "uncharged": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     392
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 390,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.94
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.005128205,
+   "forced_share_of_max_actions": 0.000455063,
+   "game": "g50t",
+   "level_tax": [
+    {
+     "budget": 390,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.005128205
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 8,
+   "shipped": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     390
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 388,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 1.04
+   },
+   "uncharged": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     392
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 390,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.95
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.005128205,
+   "forced_share_of_max_actions": 0.000455063,
+   "game": "g50t",
+   "level_tax": [
+    {
+     "budget": 390,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.005128205
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 9,
+   "shipped": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     390
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 388,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.88
+   },
+   "uncharged": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     392
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 390,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.92
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ls20",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 0,
+   "shipped": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.1
+   },
+   "uncharged": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.1
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ls20",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 1,
+   "shipped": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.09
+   },
+   "uncharged": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.18
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ls20",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 2,
+   "shipped": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.09
+   },
+   "uncharged": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.09
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ls20",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 3,
+   "shipped": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.1
+   },
+   "uncharged": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.14
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ls20",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 4,
+   "shipped": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.09
+   },
+   "uncharged": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.09
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ls20",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 5,
+   "shipped": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.09
+   },
+   "uncharged": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.09
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ls20",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 6,
+   "shipped": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.14
+   },
+   "uncharged": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.09
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ls20",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 7,
+   "shipped": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.09
+   },
+   "uncharged": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.1
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ls20",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 8,
+   "shipped": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.15
+   },
+   "uncharged": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.1
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ls20",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 9,
+   "shipped": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.11
+   },
+   "uncharged": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.11
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.007692308,
+   "forced_share_of_max_actions": 0.000159363,
+   "game": "re86",
+   "level_tax": [
+    {
+     "budget": 130,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.007692308
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 0,
+   "shipped": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     130
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 129,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.12
+   },
+   "uncharged": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     131
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 130,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.007692308,
+   "forced_share_of_max_actions": 0.000159363,
+   "game": "re86",
+   "level_tax": [
+    {
+     "budget": 130,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.007692308
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 1,
+   "shipped": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     130
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 129,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   },
+   "uncharged": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     131
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 130,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.007692308,
+   "forced_share_of_max_actions": 0.000159363,
+   "game": "re86",
+   "level_tax": [
+    {
+     "budget": 130,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.007692308
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 2,
+   "shipped": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     130
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 129,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   },
+   "uncharged": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     131
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 130,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.007692308,
+   "forced_share_of_max_actions": 0.000159363,
+   "game": "re86",
+   "level_tax": [
+    {
+     "budget": 130,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.007692308
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 3,
+   "shipped": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     130
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 129,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.13
+   },
+   "uncharged": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     131
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 130,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.007692308,
+   "forced_share_of_max_actions": 0.000159363,
+   "game": "re86",
+   "level_tax": [
+    {
+     "budget": 130,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.007692308
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 4,
+   "shipped": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     130
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 129,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   },
+   "uncharged": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     131
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 130,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.007692308,
+   "forced_share_of_max_actions": 0.000159363,
+   "game": "re86",
+   "level_tax": [
+    {
+     "budget": 130,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.007692308
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 5,
+   "shipped": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     130
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 129,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   },
+   "uncharged": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     131
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 130,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.12
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.007692308,
+   "forced_share_of_max_actions": 0.000159363,
+   "game": "re86",
+   "level_tax": [
+    {
+     "budget": 130,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.007692308
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 6,
+   "shipped": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     130
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 129,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   },
+   "uncharged": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     131
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 130,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.007692308,
+   "forced_share_of_max_actions": 0.000159363,
+   "game": "re86",
+   "level_tax": [
+    {
+     "budget": 130,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.007692308
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 7,
+   "shipped": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     130
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 129,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   },
+   "uncharged": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     131
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 130,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.007692308,
+   "forced_share_of_max_actions": 0.000159363,
+   "game": "re86",
+   "level_tax": [
+    {
+     "budget": 130,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.007692308
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 8,
+   "shipped": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     130
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 129,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   },
+   "uncharged": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     131
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 130,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.13
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.007692308,
+   "forced_share_of_max_actions": 0.000159363,
+   "game": "re86",
+   "level_tax": [
+    {
+     "budget": 130,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.007692308
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 9,
+   "shipped": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     130
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 129,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   },
+   "uncharged": {
+    "baselines": [
+     26,
+     42,
+     86,
+     108,
+     189,
+     139,
+     424,
+     241
+    ],
+    "budgets": [
+     130,
+     210,
+     430,
+     540,
+     945,
+     695,
+     2120,
+     1205
+    ],
+    "card_actions": [
+     131
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 130,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 6275,
+    "seconds": 0.07
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.007407407,
+   "forced_share_of_max_actions": 0.000966184,
+   "game": "tr87",
+   "level_tax": [
+    {
+     "budget": 270,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.007407407
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 0,
+   "shipped": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     270
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 268,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.18
+   },
+   "uncharged": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     272
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 270,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.23
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.007407407,
+   "forced_share_of_max_actions": 0.000966184,
+   "game": "tr87",
+   "level_tax": [
+    {
+     "budget": 270,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.007407407
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 1,
+   "shipped": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     270
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 268,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.18
+   },
+   "uncharged": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     272
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 270,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.23
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.007407407,
+   "forced_share_of_max_actions": 0.000966184,
+   "game": "tr87",
+   "level_tax": [
+    {
+     "budget": 270,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.007407407
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 2,
+   "shipped": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     270
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 268,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.18
+   },
+   "uncharged": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     272
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 270,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.24
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.007407407,
+   "forced_share_of_max_actions": 0.000966184,
+   "game": "tr87",
+   "level_tax": [
+    {
+     "budget": 270,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.007407407
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 3,
+   "shipped": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     270
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 268,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.18
+   },
+   "uncharged": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     272
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 270,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.18
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.007407407,
+   "forced_share_of_max_actions": 0.000966184,
+   "game": "tr87",
+   "level_tax": [
+    {
+     "budget": 270,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.007407407
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 4,
+   "shipped": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     270
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 268,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.24
+   },
+   "uncharged": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     272
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 270,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.18
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.007407407,
+   "forced_share_of_max_actions": 0.000966184,
+   "game": "tr87",
+   "level_tax": [
+    {
+     "budget": 270,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.007407407
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 5,
+   "shipped": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     270
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 268,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.23
+   },
+   "uncharged": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     272
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 270,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.18
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.007407407,
+   "forced_share_of_max_actions": 0.000966184,
+   "game": "tr87",
+   "level_tax": [
+    {
+     "budget": 270,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.007407407
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 6,
+   "shipped": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     270
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 268,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.18
+   },
+   "uncharged": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     272
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 270,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.24
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.007407407,
+   "forced_share_of_max_actions": 0.000966184,
+   "game": "tr87",
+   "level_tax": [
+    {
+     "budget": 270,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.007407407
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 7,
+   "shipped": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     270
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 268,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.18
+   },
+   "uncharged": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     272
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 270,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.23
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.007407407,
+   "forced_share_of_max_actions": 0.000966184,
+   "game": "tr87",
+   "level_tax": [
+    {
+     "budget": 270,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.007407407
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 8,
+   "shipped": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     270
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 268,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.18
+   },
+   "uncharged": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     272
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 270,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.18
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.007407407,
+   "forced_share_of_max_actions": 0.000966184,
+   "game": "tr87",
+   "level_tax": [
+    {
+     "budget": 270,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.007407407
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 9,
+   "shipped": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     270
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 268,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.24
+   },
+   "uncharged": {
+    "baselines": [
+     54,
+     58,
+     40,
+     45,
+     71,
+     146
+    ],
+    "budgets": [
+     270,
+     290,
+     200,
+     225,
+     355,
+     730
+    ],
+    "card_actions": [
+     272
+    ],
+    "card_resets": [
+     2
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 270,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2070,
+    "seconds": 0.18
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.010526316,
+   "forced_share_of_max_actions": 0.0004329,
+   "game": "tu93",
+   "level_tax": [
+    {
+     "budget": 95,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.010526316
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 0,
+   "shipped": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     95
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 94,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.21
+   },
+   "uncharged": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     96
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 95,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.2
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.010526316,
+   "forced_share_of_max_actions": 0.0004329,
+   "game": "tu93",
+   "level_tax": [
+    {
+     "budget": 95,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.010526316
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 1,
+   "shipped": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     95
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 94,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.13
+   },
+   "uncharged": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     96
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 95,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.19
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.010526316,
+   "forced_share_of_max_actions": 0.0004329,
+   "game": "tu93",
+   "level_tax": [
+    {
+     "budget": 95,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.010526316
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 2,
+   "shipped": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     95
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 94,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.13
+   },
+   "uncharged": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     96
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 95,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.19
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.010526316,
+   "forced_share_of_max_actions": 0.0004329,
+   "game": "tu93",
+   "level_tax": [
+    {
+     "budget": 95,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.010526316
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 3,
+   "shipped": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     95
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 94,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.15
+   },
+   "uncharged": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     96
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 95,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.2
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.010526316,
+   "forced_share_of_max_actions": 0.0004329,
+   "game": "tu93",
+   "level_tax": [
+    {
+     "budget": 95,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.010526316
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 4,
+   "shipped": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     95
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 94,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.14
+   },
+   "uncharged": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     96
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 95,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.2
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.010526316,
+   "forced_share_of_max_actions": 0.0004329,
+   "game": "tu93",
+   "level_tax": [
+    {
+     "budget": 95,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.010526316
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 5,
+   "shipped": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     95
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 94,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.14
+   },
+   "uncharged": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     96
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 95,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.2
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.010526316,
+   "forced_share_of_max_actions": 0.0004329,
+   "game": "tu93",
+   "level_tax": [
+    {
+     "budget": 95,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.010526316
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 6,
+   "shipped": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     95
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 94,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.21
+   },
+   "uncharged": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     96
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 95,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.16
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.010526316,
+   "forced_share_of_max_actions": 0.0004329,
+   "game": "tu93",
+   "level_tax": [
+    {
+     "budget": 95,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.010526316
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 7,
+   "shipped": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     95
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 94,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.19
+   },
+   "uncharged": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     96
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 95,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.18
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.010526316,
+   "forced_share_of_max_actions": 0.0004329,
+   "game": "tu93",
+   "level_tax": [
+    {
+     "budget": 95,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.010526316
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 8,
+   "shipped": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     95
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 94,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.12
+   },
+   "uncharged": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     96
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 95,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.17
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.010526316,
+   "forced_share_of_max_actions": 0.0004329,
+   "game": "tu93",
+   "level_tax": [
+    {
+     "budget": 95,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.010526316
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 9,
+   "shipped": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     95
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 94,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.16
+   },
+   "uncharged": {
+    "baselines": [
+     19,
+     16,
+     34,
+     42,
+     123,
+     80,
+     14,
+     23,
+     111
+    ],
+    "budgets": [
+     95,
+     80,
+     170,
+     210,
+     615,
+     400,
+     70,
+     115,
+     555
+    ],
+    "card_actions": [
+     96
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 95,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 2310,
+    "seconds": 0.22
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 0,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.17
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.23
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 1,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.17
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.22
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 2,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.18
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.23
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 3,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.18
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.23
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 4,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.17
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.24
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 5,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.18
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.17
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 6,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.22
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.17
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 7,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.18
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.24
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 8,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.22
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.23
+   }
+  },
+  {
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 9,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.17
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.18
+   }
+  }
+ ]
+}
