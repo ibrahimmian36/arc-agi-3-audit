@@ -1,4 +1,4 @@
-// Dafny program ls20_level1.dfy compiled into JavaScript
+// Dafny program ls20_level2.dfy compiled into JavaScript
 // Copyright by the contributors to the Dafny Project
 // SPDX-License-Identifier: MIT
 
@@ -1186,36 +1186,54 @@ let _System = (function() {
 
   return $module;
 })(); // end of module _System
-let Ls20Level1 = (function() {
+let Ls20Level2 = (function() {
   let $module = {};
 
   $module.__default = class __default {
     constructor () {
-      this._tname = "Ls20Level1._default";
+      this._tname = "Ls20Level2._default";
     }
     _parentTraits() {
       return [];
     }
     static IsWall(x, y) {
-      return ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(_dafny.ZERO))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(5))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(6))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(7))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(8))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(5))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(6))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(7))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(8))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(new BigNumber(8))))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(8))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(new BigNumber(6))))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(new BigNumber(7))))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(new BigNumber(8))))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(6))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(6))) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(new BigNumber(6))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(6))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(8))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(8))) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(new BigNumber(8))) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(new BigNumber(8))) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(new BigNumber(8))) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(new BigNumber(8))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(8))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(9))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(9))) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(new BigNumber(9))) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(new BigNumber(9))) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(new BigNumber(9))) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(new BigNumber(9))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(9))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(5))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(6))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(7))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(8))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(5))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(6))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(7))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(8))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(11))));
+      return ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(_dafny.ZERO))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(5))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(6))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(7))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(8))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(_dafny.ZERO)) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(5))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(6))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(7))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(8))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(_dafny.ONE)) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(new BigNumber(5))))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(new BigNumber(6))))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(new BigNumber(7))))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(new BigNumber(8))))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(3))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(5))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(6))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(7))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(8))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(4))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(new BigNumber(5))))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(new BigNumber(6))))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(5))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(6))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(6))) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(new BigNumber(6))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(6))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(new BigNumber(7))))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(new BigNumber(8))))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(8))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(8))) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(new BigNumber(8))) && ((y).isEqualTo(new BigNumber(5))))) || (((x).isEqualTo(new BigNumber(8))) && ((y).isEqualTo(new BigNumber(6))))) || (((x).isEqualTo(new BigNumber(8))) && ((y).isEqualTo(new BigNumber(7))))) || (((x).isEqualTo(new BigNumber(8))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(9))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(9))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(6))))) || (((x).isEqualTo(new BigNumber(10))) && ((y).isEqualTo(new BigNumber(11))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(_dafny.ZERO)))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(_dafny.ONE)))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(2))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(3))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(4))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(5))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(6))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(7))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(8))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(9))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(10))))) || (((x).isEqualTo(new BigNumber(11))) && ((y).isEqualTo(new BigNumber(11))));
     };
     static EnergyIndex(x, y) {
-      return new BigNumber(-1);
+      if (((x).isEqualTo(new BigNumber(2))) && ((y).isEqualTo(new BigNumber(3)))) {
+        return _dafny.ZERO;
+      } else if (((x).isEqualTo(new BigNumber(7))) && ((y).isEqualTo(new BigNumber(10)))) {
+        return _dafny.ONE;
+      } else {
+        return new BigNumber(-1);
+      }
     };
     static EatenLegal(m) {
-      return (m).isEqualTo(_dafny.ZERO);
+      return ((((m).isEqualTo(_dafny.ZERO)) || ((m).isEqualTo(_dafny.ONE))) || ((m).isEqualTo(new BigNumber(2)))) || ((m).isEqualTo(new BigNumber(3)));
     };
     static AddBit(m, i) {
-      return m;
+      if ((i).isEqualTo(_dafny.ZERO)) {
+        return (m).plus(_dafny.ONE);
+      } else if ((i).isEqualTo(_dafny.ONE)) {
+        return (m).plus(new BigNumber(2));
+      } else {
+        return m;
+      }
     };
     static HasBit(m, i) {
-      return false;
+      if ((i).isEqualTo(_dafny.ZERO)) {
+        return ((_dafny.EuclideanDivision(m, _dafny.ONE)).mod(new BigNumber(2))).isEqualTo(_dafny.ONE);
+      } else if ((i).isEqualTo(_dafny.ONE)) {
+        return ((_dafny.EuclideanDivision(m, new BigNumber(2))).mod(new BigNumber(2))).isEqualTo(_dafny.ONE);
+      } else {
+        return false;
+      }
     };
     static Legal(s) {
-      return ((((((((_dafny.ZERO).isLessThanOrEqualTo((s).dtor_x)) && (((s).dtor_x).isLessThan(Ls20Level1.__default.W))) && (((_dafny.ZERO).isLessThanOrEqualTo((s).dtor_y)) && (((s).dtor_y).isLessThan(Ls20Level1.__default.H)))) && (!(Ls20Level1.__default.IsWall((s).dtor_x, (s).dtor_y)))) && (((_dafny.ZERO).isLessThanOrEqualTo((s).dtor_rot)) && (((s).dtor_rot).isLessThan(new BigNumber(4))))) && (((_dafny.ONE).isLessThanOrEqualTo((s).dtor_lives)) && (((s).dtor_lives).isLessThanOrEqualTo(Ls20Level1.__default.LIVES)))) && ((((_dafny.ZERO).minus(Ls20Level1.__default.DEC)).isLessThanOrEqualTo((s).dtor_steps)) && (((s).dtor_steps).isLessThanOrEqualTo(Ls20Level1.__default.STEPS)))) && (Ls20Level1.__default.EatenLegal((s).dtor_eaten));
+      return ((((((((_dafny.ZERO).isLessThanOrEqualTo((s).dtor_x)) && (((s).dtor_x).isLessThan(Ls20Level2.__default.W))) && (((_dafny.ZERO).isLessThanOrEqualTo((s).dtor_y)) && (((s).dtor_y).isLessThan(Ls20Level2.__default.H)))) && (!(Ls20Level2.__default.IsWall((s).dtor_x, (s).dtor_y)))) && (((_dafny.ZERO).isLessThanOrEqualTo((s).dtor_rot)) && (((s).dtor_rot).isLessThan(new BigNumber(4))))) && (((_dafny.ONE).isLessThanOrEqualTo((s).dtor_lives)) && (((s).dtor_lives).isLessThanOrEqualTo(Ls20Level2.__default.LIVES)))) && ((((_dafny.ZERO).minus(Ls20Level2.__default.DEC)).isLessThanOrEqualTo((s).dtor_steps)) && (((s).dtor_steps).isLessThanOrEqualTo(Ls20Level2.__default.STEPS)))) && (Ls20Level2.__default.EatenLegal((s).dtor_eaten));
     };
     static Start() {
-      return Ls20Level1.S.create_S(Ls20Level1.__default.START__X, Ls20Level1.__default.START__Y, Ls20Level1.__default.START__ROT, Ls20Level1.__default.LIVES, Ls20Level1.__default.STEPS, _dafny.ZERO, Ls20Level1.Status.create_Play());
+      return Ls20Level2.S.create_S(Ls20Level2.__default.START__X, Ls20Level2.__default.START__Y, Ls20Level2.__default.START__ROT, Ls20Level2.__default.LIVES, Ls20Level2.__default.STEPS, _dafny.ZERO, Ls20Level2.Status.create_Play());
     };
     static Delta(a) {
       if ((a).isEqualTo(_dafny.ONE)) {
@@ -1231,57 +1249,57 @@ let Ls20Level1 = (function() {
       }
     };
     static Matches(rot) {
-      return (rot).isEqualTo(Ls20Level1.__default.GOAL__ROT);
+      return (rot).isEqualTo(Ls20Level2.__default.GOAL__ROT);
     };
     static Step(s, a) {
-      if (((!_dafny.areEqual((s).dtor_status, Ls20Level1.Status.create_Play())) || ((a).isLessThan(_dafny.ONE))) || ((new BigNumber(4)).isLessThan(a))) {
+      if (((!_dafny.areEqual((s).dtor_status, Ls20Level2.Status.create_Play())) || ((a).isLessThan(_dafny.ONE))) || ((new BigNumber(4)).isLessThan(a))) {
         return s;
       } else {
-        let _0_d = Ls20Level1.__default.Delta(a);
+        let _0_d = Ls20Level2.__default.Delta(a);
         let _1_tx = ((s).dtor_x).plus((_0_d)[0]);
         let _2_ty = ((s).dtor_y).plus((_0_d)[1]);
-        let _3_isWall = Ls20Level1.__default.IsWall(_1_tx, _2_ty);
-        let _4_isGoal = ((_1_tx).isEqualTo(Ls20Level1.__default.GOAL__X)) && ((_2_ty).isEqualTo(Ls20Level1.__default.GOAL__Y));
-        let _5_isRot = ((_1_tx).isEqualTo(Ls20Level1.__default.ROT__TILE__X)) && ((_2_ty).isEqualTo(Ls20Level1.__default.ROT__TILE__Y));
-        let _6_ei = Ls20Level1.__default.EnergyIndex(_1_tx, _2_ty);
-        let _7_gotEnergy = (((!(_3_isWall)) && ((_dafny.ZERO).isLessThanOrEqualTo(_6_ei))) && ((_6_ei).isLessThan(Ls20Level1.__default.NE))) && (!(Ls20Level1.__default.HasBit((s).dtor_eaten, _6_ei)));
+        let _3_isWall = Ls20Level2.__default.IsWall(_1_tx, _2_ty);
+        let _4_isGoal = ((_1_tx).isEqualTo(Ls20Level2.__default.GOAL__X)) && ((_2_ty).isEqualTo(Ls20Level2.__default.GOAL__Y));
+        let _5_isRot = ((_1_tx).isEqualTo(Ls20Level2.__default.ROT__TILE__X)) && ((_2_ty).isEqualTo(Ls20Level2.__default.ROT__TILE__Y));
+        let _6_ei = Ls20Level2.__default.EnergyIndex(_1_tx, _2_ty);
+        let _7_gotEnergy = (((!(_3_isWall)) && ((_dafny.ZERO).isLessThanOrEqualTo(_6_ei))) && ((_6_ei).isLessThan(Ls20Level2.__default.NE))) && (!(Ls20Level2.__default.HasBit((s).dtor_eaten, _6_ei)));
         let _8_rot_k = (((!(_3_isWall)) && (_5_isRot)) ? ((((s).dtor_rot).plus(_dafny.ONE)).mod(new BigNumber(4))) : ((s).dtor_rot));
-        let _9_flash = (((!(_3_isWall)) && (_4_isGoal)) && (!(Ls20Level1.__default.Matches((s).dtor_rot)))) || ((((Ls20Level1.__default.TILE__FLASH) && (!(_3_isWall))) && (_5_isRot)) && (Ls20Level1.__default.Matches(_8_rot_k)));
-        let _10_blocked = (_3_isWall) || ((_4_isGoal) && (!(Ls20Level1.__default.Matches((s).dtor_rot))));
+        let _9_flash = (((!(_3_isWall)) && (_4_isGoal)) && (!(Ls20Level2.__default.Matches((s).dtor_rot)))) || ((((Ls20Level2.__default.TILE__FLASH) && (!(_3_isWall))) && (_5_isRot)) && (Ls20Level2.__default.Matches(_8_rot_k)));
+        let _10_blocked = (_3_isWall) || ((_4_isGoal) && (!(Ls20Level2.__default.Matches((s).dtor_rot))));
         let _11_x_k = ((_10_blocked) ? ((s).dtor_x) : (_1_tx));
         let _12_y_k = ((_10_blocked) ? ((s).dtor_y) : (_2_ty));
-        let _13_eaten_k = ((_7_gotEnergy) ? (Ls20Level1.__default.AddBit((s).dtor_eaten, _6_ei)) : ((s).dtor_eaten));
+        let _13_eaten_k = ((_7_gotEnergy) ? (Ls20Level2.__default.AddBit((s).dtor_eaten, _6_ei)) : ((s).dtor_eaten));
         if (_9_flash) {
-          return Ls20Level1.S.create_S(_11_x_k, _12_y_k, _8_rot_k, (s).dtor_lives, (s).dtor_steps, _13_eaten_k, Ls20Level1.Status.create_Play());
+          return Ls20Level2.S.create_S(_11_x_k, _12_y_k, _8_rot_k, (s).dtor_lives, (s).dtor_steps, _13_eaten_k, Ls20Level2.Status.create_Play());
         } else if (_7_gotEnergy) {
-          return Ls20Level1.S.create_S(_11_x_k, _12_y_k, _8_rot_k, (s).dtor_lives, Ls20Level1.__default.STEPS, _13_eaten_k, Ls20Level1.Status.create_Play());
+          return Ls20Level2.S.create_S(_11_x_k, _12_y_k, _8_rot_k, (s).dtor_lives, Ls20Level2.__default.STEPS, _13_eaten_k, Ls20Level2.Status.create_Play());
         } else {
-          let _14_steps_k = (((_dafny.ZERO).isLessThanOrEqualTo((s).dtor_steps)) ? (((s).dtor_steps).minus(Ls20Level1.__default.DEC)) : ((s).dtor_steps));
+          let _14_steps_k = (((_dafny.ZERO).isLessThanOrEqualTo((s).dtor_steps)) ? (((s).dtor_steps).minus(Ls20Level2.__default.DEC)) : ((s).dtor_steps));
           let _15_ranOut = (_14_steps_k).isLessThan(_dafny.ZERO);
-          let _16_won = (((_11_x_k).isEqualTo(Ls20Level1.__default.GOAL__X)) && ((_12_y_k).isEqualTo(Ls20Level1.__default.GOAL__Y))) && (Ls20Level1.__default.Matches(_8_rot_k));
+          let _16_won = (((_11_x_k).isEqualTo(Ls20Level2.__default.GOAL__X)) && ((_12_y_k).isEqualTo(Ls20Level2.__default.GOAL__Y))) && (Ls20Level2.__default.Matches(_8_rot_k));
           if (_16_won) {
-            return Ls20Level1.S.create_S(_11_x_k, _12_y_k, _8_rot_k, (s).dtor_lives, _14_steps_k, _13_eaten_k, Ls20Level1.Status.create_Win());
+            return Ls20Level2.S.create_S(_11_x_k, _12_y_k, _8_rot_k, (s).dtor_lives, _14_steps_k, _13_eaten_k, Ls20Level2.Status.create_Win());
           } else if (_15_ranOut) {
             if ((((s).dtor_lives).minus(_dafny.ONE)).isEqualTo(_dafny.ZERO)) {
-              return Ls20Level1.S.create_S(_11_x_k, _12_y_k, _8_rot_k, _dafny.ZERO, _14_steps_k, _13_eaten_k, Ls20Level1.Status.create_Over());
+              return Ls20Level2.S.create_S(_11_x_k, _12_y_k, _8_rot_k, _dafny.ZERO, _14_steps_k, _13_eaten_k, Ls20Level2.Status.create_Over());
             } else {
-              return Ls20Level1.S.create_S(Ls20Level1.__default.START__X, Ls20Level1.__default.START__Y, Ls20Level1.__default.START__ROT, ((s).dtor_lives).minus(_dafny.ONE), Ls20Level1.__default.STEPS, _dafny.ZERO, Ls20Level1.Status.create_Play());
+              return Ls20Level2.S.create_S(Ls20Level2.__default.START__X, Ls20Level2.__default.START__Y, Ls20Level2.__default.START__ROT, ((s).dtor_lives).minus(_dafny.ONE), Ls20Level2.__default.STEPS, _dafny.ZERO, Ls20Level2.Status.create_Play());
             }
           } else {
-            return Ls20Level1.S.create_S(_11_x_k, _12_y_k, _8_rot_k, (s).dtor_lives, _14_steps_k, _13_eaten_k, Ls20Level1.Status.create_Play());
+            return Ls20Level2.S.create_S(_11_x_k, _12_y_k, _8_rot_k, (s).dtor_lives, _14_steps_k, _13_eaten_k, Ls20Level2.Status.create_Play());
           }
         }
       }
     };
     static Reset(s) {
-      return Ls20Level1.__default.Start();
+      return Ls20Level2.__default.Start();
     };
     static RunFrom(s, path, i) {
       TAIL_CALL_START: while (true) {
         if ((i).isEqualTo(new BigNumber((path).length))) {
           return s;
         } else {
-          let _in0 = Ls20Level1.__default.Step(s, (path)[i]);
+          let _in0 = Ls20Level2.__default.Step(s, (path)[i]);
           let _in1 = path;
           let _in2 = (i).plus(_dafny.ONE);
           s = _in0;
@@ -1292,22 +1310,31 @@ let Ls20Level1 = (function() {
       }
     };
     static Run(s, path) {
-      return Ls20Level1.__default.RunFrom(s, path, _dafny.ZERO);
+      return Ls20Level2.__default.RunFrom(s, path, _dafny.ZERO);
     };
     static LegalOrOver(s) {
-      return (Ls20Level1.__default.Legal(s)) || ((_dafny.areEqual((s).dtor_status, Ls20Level1.Status.create_Over())) && (((s).dtor_lives).isEqualTo(_dafny.ZERO)));
+      return (Ls20Level2.__default.Legal(s)) || ((_dafny.areEqual((s).dtor_status, Ls20Level2.Status.create_Over())) && (((s).dtor_lives).isEqualTo(_dafny.ZERO)));
     };
     static Chunk0(s) {
-      return Ls20Level1.__default.Step(Ls20Level1.__default.Step(Ls20Level1.__default.Step(Ls20Level1.__default.Step(Ls20Level1.__default.Step(Ls20Level1.__default.Step(Ls20Level1.__default.Step(Ls20Level1.__default.Step(Ls20Level1.__default.Step(Ls20Level1.__default.Step(s, new BigNumber(3)), new BigNumber(3)), new BigNumber(3)), _dafny.ONE), _dafny.ONE), _dafny.ONE), _dafny.ONE), new BigNumber(4)), new BigNumber(4)), new BigNumber(4));
+      return Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(s, _dafny.ONE), new BigNumber(4)), _dafny.ONE), _dafny.ONE), _dafny.ONE), _dafny.ONE), _dafny.ONE), new BigNumber(4)), new BigNumber(4)), new BigNumber(2));
     };
     static Chunk1(s) {
-      return Ls20Level1.__default.Step(Ls20Level1.__default.Step(Ls20Level1.__default.Step(s, _dafny.ONE), _dafny.ONE), _dafny.ONE);
+      return Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(s, new BigNumber(4)), new BigNumber(2)), new BigNumber(2)), new BigNumber(2)), new BigNumber(2)), new BigNumber(2)), new BigNumber(2)), _dafny.ONE), new BigNumber(2)), new BigNumber(2));
+    };
+    static Chunk2(s) {
+      return Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(s, new BigNumber(3)), new BigNumber(3)), new BigNumber(4)), _dafny.ONE), new BigNumber(4)), _dafny.ONE), _dafny.ONE), _dafny.ONE), _dafny.ONE), _dafny.ONE);
+    };
+    static Chunk3(s) {
+      return Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(s, _dafny.ONE), _dafny.ONE), new BigNumber(3)), new BigNumber(3)), new BigNumber(3)), new BigNumber(3)), new BigNumber(3)), new BigNumber(3)), new BigNumber(2)), new BigNumber(3));
+    };
+    static Chunk4(s) {
+      return Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(Ls20Level2.__default.Step(s, new BigNumber(2)), new BigNumber(2)), new BigNumber(2)), new BigNumber(2)), new BigNumber(2));
     };
     static PlayWitness(s) {
-      return Ls20Level1.__default.Chunk1(Ls20Level1.__default.Chunk0(s));
+      return Ls20Level2.__default.Chunk4(Ls20Level2.__default.Chunk3(Ls20Level2.__default.Chunk2(Ls20Level2.__default.Chunk1(Ls20Level2.__default.Chunk0(s)))));
     };
     static Apply(x, y, rot, lives, steps, eaten, status, a) {
-      return Ls20Level1.__default.Step(Ls20Level1.S.create_S(x, y, rot, lives, steps, eaten, (((status).isEqualTo(_dafny.ZERO)) ? (Ls20Level1.Status.create_Play()) : ((((status).isEqualTo(_dafny.ONE)) ? (Ls20Level1.Status.create_Win()) : (Ls20Level1.Status.create_Over()))))), a);
+      return Ls20Level2.__default.Step(Ls20Level2.S.create_S(x, y, rot, lives, steps, eaten, (((status).isEqualTo(_dafny.ZERO)) ? (Ls20Level2.Status.create_Play()) : ((((status).isEqualTo(_dafny.ONE)) ? (Ls20Level2.Status.create_Win()) : (Ls20Level2.Status.create_Over()))))), a);
     };
     static StatusCode(s) {
       let _source0 = (s).dtor_status;
@@ -1326,7 +1353,7 @@ let Ls20Level1 = (function() {
       }
     };
     static get NE() {
-      return _dafny.ZERO;
+      return new BigNumber(2);
     };
     static get W() {
       return new BigNumber(12);
@@ -1338,40 +1365,40 @@ let Ls20Level1 = (function() {
       return new BigNumber(3);
     };
     static get DEC() {
-      return _dafny.ONE;
+      return new BigNumber(2);
     };
     static get STEPS() {
       return new BigNumber(42);
     };
     static get START__X() {
-      return new BigNumber(6);
+      return new BigNumber(5);
     };
     static get START__Y() {
-      return new BigNumber(9);
+      return new BigNumber(8);
     };
     static get START__ROT() {
-      return new BigNumber(3);
-    };
-    static get GOAL__ROT() {
       return _dafny.ZERO;
     };
-    static get GOAL__X() {
-      return new BigNumber(6);
-    };
-    static get GOAL__Y() {
-      return new BigNumber(2);
-    };
-    static get ROT__TILE__X() {
+    static get GOAL__ROT() {
       return new BigNumber(3);
     };
+    static get GOAL__X() {
+      return new BigNumber(2);
+    };
+    static get GOAL__Y() {
+      return new BigNumber(8);
+    };
+    static get ROT__TILE__X() {
+      return new BigNumber(9);
+    };
     static get ROT__TILE__Y() {
-      return new BigNumber(6);
+      return new BigNumber(9);
     };
     static get TILE__FLASH() {
-      return true;
+      return false;
     };
     static get WITNESS() {
-      return _dafny.Seq.of(new BigNumber(3), new BigNumber(3), new BigNumber(3), _dafny.ONE, _dafny.ONE, _dafny.ONE, _dafny.ONE, new BigNumber(4), new BigNumber(4), new BigNumber(4), _dafny.ONE, _dafny.ONE, _dafny.ONE);
+      return _dafny.Seq.of(_dafny.ONE, new BigNumber(4), _dafny.ONE, _dafny.ONE, _dafny.ONE, _dafny.ONE, _dafny.ONE, new BigNumber(4), new BigNumber(4), new BigNumber(2), new BigNumber(4), new BigNumber(2), new BigNumber(2), new BigNumber(2), new BigNumber(2), new BigNumber(2), new BigNumber(2), _dafny.ONE, new BigNumber(2), new BigNumber(2), new BigNumber(3), new BigNumber(3), new BigNumber(4), _dafny.ONE, new BigNumber(4), _dafny.ONE, _dafny.ONE, _dafny.ONE, _dafny.ONE, _dafny.ONE, _dafny.ONE, _dafny.ONE, new BigNumber(3), new BigNumber(3), new BigNumber(3), new BigNumber(3), new BigNumber(3), new BigNumber(3), new BigNumber(2), new BigNumber(3), new BigNumber(2), new BigNumber(2), new BigNumber(2), new BigNumber(2), new BigNumber(2));
     };
   };
 
@@ -1404,11 +1431,11 @@ let Ls20Level1 = (function() {
     }
     toString() {
       if (this.$tag === 0) {
-        return "Ls20Level1.Status.Play";
+        return "Ls20Level2.Status.Play";
       } else if (this.$tag === 1) {
-        return "Ls20Level1.Status.Win";
+        return "Ls20Level2.Status.Win";
       } else if (this.$tag === 2) {
-        return "Ls20Level1.Status.Over";
+        return "Ls20Level2.Status.Over";
       } else  {
         return "<unexpected>";
       }
@@ -1427,7 +1454,7 @@ let Ls20Level1 = (function() {
       }
     }
     static Default() {
-      return Ls20Level1.Status.create_Play();
+      return Ls20Level2.Status.create_Play();
     }
     static Rtd() {
       return class {
@@ -1463,7 +1490,7 @@ let Ls20Level1 = (function() {
     get dtor_status() { return this.status; }
     toString() {
       if (this.$tag === 0) {
-        return "Ls20Level1.S.S" + "(" + _dafny.toString(this.x) + ", " + _dafny.toString(this.y) + ", " + _dafny.toString(this.rot) + ", " + _dafny.toString(this.lives) + ", " + _dafny.toString(this.steps) + ", " + _dafny.toString(this.eaten) + ", " + _dafny.toString(this.status) + ")";
+        return "Ls20Level2.S.S" + "(" + _dafny.toString(this.x) + ", " + _dafny.toString(this.y) + ", " + _dafny.toString(this.rot) + ", " + _dafny.toString(this.lives) + ", " + _dafny.toString(this.steps) + ", " + _dafny.toString(this.eaten) + ", " + _dafny.toString(this.status) + ")";
       } else  {
         return "<unexpected>";
       }
@@ -1478,7 +1505,7 @@ let Ls20Level1 = (function() {
       }
     }
     static Default() {
-      return Ls20Level1.S.create_S(_dafny.ZERO, _dafny.ZERO, _dafny.ZERO, _dafny.ZERO, _dafny.ZERO, _dafny.ZERO, Ls20Level1.Status.Default());
+      return Ls20Level2.S.create_S(_dafny.ZERO, _dafny.ZERO, _dafny.ZERO, _dafny.ZERO, _dafny.ZERO, _dafny.ZERO, Ls20Level2.Status.Default());
     }
     static Rtd() {
       return class {
@@ -1489,11 +1516,11 @@ let Ls20Level1 = (function() {
     }
   }
   return $module;
-})(); // end of module Ls20Level1
+})(); // end of module Ls20Level2
 let _module = (function() {
   let $module = {};
 
   return $module;
 })(); // end of module _module
 
-module.exports = { Ls20Level1, _dafny };
+module.exports = { Ls20Level2, _dafny };

@@ -1,48 +1,89 @@
 /**
- * Edge-by-edge differential for an environment level model.
+ * Edge-by-edge differential for an environment level model, STREAMING.
+ *
  * Argv: oraclePath edgesPath moduleName
- * edges file: {nodes:[{i,status,abs:{cx,cy,rot,lives,steps,status}}], edges:[[src,action,dst],...]}
- * For every edge, apply the MODEL's transition to the source's abstract state
- * and compare with the destination's abstract state recorded from the SHIPPED
- * game. Stdout LAST line: __DIFF__{loaded, rows:[{edge, agree, why, model, shipped}], n}
+ * edgesPath: gzipped JSONL, one edge per line:
+ *     {"i":srcId,"j":dstId,"a":action,"s":srcVec,"t":dstVec}
+ *   vec = [cx, cy, rot, color, shape, lives, steps, status, goalsDone[]]
+ *
+ * For every edge the MODEL's transition is applied to the source vector and
+ * compared with the destination vector recorded from the SHIPPED game. Neither
+ * side ever holds the edge list: the file is read line by line and only
+ * counters plus a bounded sample of rows are kept.
+ *
+ * Reject-only. Stdout, LAST line, prefixed __DIFF__.
  */
-const fs = require("fs"); const path = require("path");
-function main() {
+const fs = require("fs");
+const path = require("path");
+const zlib = require("zlib");
+const readline = require("readline");
+
+const FIELDS = ["cx", "cy", "rot", "lives", "steps", "eaten", "status"];
+const MAX_ROWS = 50;
+
+function toState(v) {
+  return { cx: v[0], cy: v[1], rot: v[2], color: v[3], shape: v[4], lives: v[5], steps: v[6],
+           status: v[7], goals: v[8], eaten: v[9] === undefined ? 0 : v[9] };
+}
+
+async function main() {
   const [oraclePath, edgesPath, modName] = process.argv.slice(2);
-  const realLog = console.log; const silent = () => {};
+  const realLog = console.log;
+  const silent = () => {};
   console.log = silent; console.error = silent; console.warn = silent; console.info = silent;
-  let oracle = null, err = null;
-  try { oracle = require(path.resolve(oraclePath)); } catch (e) { err = String(e && e.message).slice(0, 160); }
-  if (!oracle || !oracle[modName] || !oracle._dafny) { realLog("__DIFF__" + JSON.stringify({ loaded: false, error: err || "module missing", rows: [] })); return; }
+
+  let oracle = null, loadError = null;
+  try { oracle = require(path.resolve(oraclePath)); } catch (e) { loadError = String(e && e.message).slice(0, 160); }
+  if (!oracle || !oracle[modName] || !oracle._dafny) {
+    realLog("__DIFF__" + JSON.stringify({ loaded: false, error: loadError || `module ${modName} missing`, rows: [] }));
+    return;
+  }
   const BigNumber = require(path.resolve(path.dirname(oraclePath), "node_modules", "bignumber.js"));
   const M = oracle[modName].__default;
-  const g = JSON.parse(fs.readFileSync(edgesPath, "utf8"));
-  const code = (s) => s === "PLAY" ? 0 : s === "WIN" ? 1 : 2;
   const num = (b) => Number(b.toString());
-  const rows = []; let disagreements = 0, winEdges = 0;
-  for (const [src, a, dst] of g.edges) {
-    const s = g.nodes[src].abs, t = g.nodes[dst].abs;
+
+  let n = 0, disagreements = 0, winEdges = 0, modelErrors = 0;
+  const rows = [];
+  const stream = readline.createInterface({
+    input: fs.createReadStream(edgesPath).pipe(zlib.createGunzip()),
+    crlfDelay: Infinity,
+  });
+
+  for await (const line of stream) {
+    if (!line) continue;
+    const e = JSON.parse(line);
+    const s = toState(e.s), t = toState(e.t);
+    n++;
     let model = null, why = "";
     try {
-      const r = M.Apply(new BigNumber(s.cx), new BigNumber(s.cy), new BigNumber(s.rot), new BigNumber(s.lives), new BigNumber(s.steps), new BigNumber(code(s.status)), new BigNumber(a));
-      model = { cx: num(r.dtor_x), cy: num(r.dtor_y), rot: num(r.dtor_rot), lives: num(r.dtor_lives), steps: num(r.dtor_steps), status: num(M.StatusCode(r)) };
-    } catch (e) { why = "model threw: " + String(e && e.message).slice(0, 100); }
-    const shipped = { cx: t.cx, cy: t.cy, rot: t.rot, lives: t.lives, steps: t.steps, status: code(t.status) };
-    // A lost-life or GAME_OVER transition is compared on lives/status/position; the
-    // shipped game reports lives=0 only via GAME_OVER.
-    // Scope: the model covers ONE level. On a transition both sides call a WIN,
-    // the shipped game has already loaded the next level (its start position,
-    // steps and lives), which is outside the model; such edges are compared on
-    // status only and counted separately.
-    let agree, winEdge = model !== null && model.status === 1 && shipped.status === 1;
-    if (winEdge) { agree = true; winEdges++; }
-    else {
-      agree = model !== null && ["cx", "cy", "rot", "lives", "steps", "status"].every((k) => model[k] === shipped[k]);
-      if (model !== null && !agree) why = ["cx", "cy", "rot", "lives", "steps", "status"].filter((k) => model[k] !== shipped[k]).join(",");
+      const r = M.Apply(new BigNumber(s.cx), new BigNumber(s.cy), new BigNumber(s.rot),
+                        new BigNumber(s.lives), new BigNumber(s.steps), new BigNumber(s.eaten),
+                        new BigNumber(s.status), new BigNumber(e.a));
+      model = { cx: num(r.dtor_x), cy: num(r.dtor_y), rot: num(r.dtor_rot),
+                lives: num(r.dtor_lives), steps: num(r.dtor_steps), eaten: num(r.dtor_eaten),
+                status: num(M.StatusCode(r)) };
+    } catch (err) {
+      why = "model threw: " + String(err && err.message).slice(0, 100);
+      modelErrors++;
     }
-    if (!agree) disagreements++;
-    if (!agree || rows.length < 5) rows.push({ src, a, dst, agree, why, model, shipped, from: s });
+    // Scope: the model covers ONE level. Where both sides call a WIN the shipped
+    // game has already loaded the NEXT level (its start cell, steps and lives),
+    // which is outside the model; such edges are compared on status only and
+    // counted separately.
+    let agree;
+    if (model !== null && model.status === 1 && t.status === 1) { agree = true; winEdges++; }
+    else {
+      agree = model !== null && FIELDS.every((k) => model[k] === t[k]);
+      if (model !== null && !agree) why = FIELDS.filter((k) => model[k] !== t[k]).join(",");
+    }
+    if (!agree) {
+      disagreements++;
+      if (rows.length < MAX_ROWS) rows.push({ i: e.i, j: e.j, a: e.a, why, from: s, model, shipped: t });
+    }
   }
-  realLog("__DIFF__" + JSON.stringify({ loaded: true, n: g.edges.length, disagreements, win_edges_status_only: winEdges, rows }));
+  realLog("__DIFF__" + JSON.stringify({ loaded: true, n, disagreements, win_edges_status_only: winEdges, model_errors: modelErrors, rows }));
 }
-try { main(); } catch (e) { process.stdout.write("__DIFF__" + JSON.stringify({ loaded: false, error: String(e && e.message).slice(0, 160), rows: [] }) + "\n"); }
+
+main().catch((e) => {
+  process.stdout.write("__DIFF__" + JSON.stringify({ loaded: false, error: String(e && e.message).slice(0, 160), rows: [] }) + "\n");
+});

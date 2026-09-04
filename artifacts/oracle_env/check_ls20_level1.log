@@ -7,11 +7,12 @@
 == dafny verify
   dafny version: 4.11.0
   
-  Dafny program verifier finished with 12 verified, 0 errors
-  VERIFY_SUMMARY: verified=12 errors=0 rc=0
+  Dafny program verifier finished with 17 verified, 0 errors
+  TIMEOUTS: 0
+  VERIFY_SUMMARY: verified=17 errors=0 rc=0
 == dafny build --target:js
   
   Dafny program verifier did not attempt verification
   oracle loads: ok
-  sha256 3ccf8b0293b25ba53b0834ab5737db9d8b6a1b9f169ed28aef433eec344cc598  artifacts/oracle_env/ls20_level1.js
+  sha256 fd64fc578b0b90d953695f9e954dd8beee79768ae10e370a5110cb10bce4d552  artifacts/oracle_env/ls20_level1.js
 MODEL CHECK: PASS

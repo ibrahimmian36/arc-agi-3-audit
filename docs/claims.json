@@ -371,31 +371,143 @@
   "by": "scripts/state_graph.py"
  },
  {
-  "value": "verified=12 errors=0",
+  "value": "verified=17 errors=0",
   "report": "../FINDINGS.md",
-  "log": "../artifacts/oracle_env/check_model.log",
+  "log": "../artifacts/oracle_env/check_ls20_level1.log",
   "pattern": "VERIFY_SUMMARY",
   "by": "scripts/check_model.sh"
  },
  {
-  "value": "3ccf8b0293b25ba53b0834ab5737db9d8b6a1b9f169ed28aef433eec344cc598",
+  "value": "verified=17 errors=0",
   "report": "../FINDINGS.md",
-  "log": "../artifacts/oracle_env/check_model.log",
-  "pattern": "sha256",
+  "log": "../artifacts/oracle_env/check_ls20_level1.log",
+  "pattern": "VERIFY_SUMMARY",
   "by": "scripts/check_model.sh"
  },
  {
   "value": "GRAPH_EDGES n=56772 disagreements=0 win_edges_status_only=96",
   "report": "../FINDINGS.md",
-  "log": "../artifacts/env/ls20/env.log",
+  "log": "../artifacts/env/ls20/env_L1.log",
   "pattern": "^GRAPH_EDGES",
   "by": "scripts/env_probe.py"
  },
  {
   "value": "TRACES traces=30 steps=3208 disagreements=0 win_edges_status_only=3",
   "report": "../FINDINGS.md",
-  "log": "../artifacts/env/ls20/env.log",
+  "log": "../artifacts/env/ls20/env_L1.log",
   "pattern": "^TRACES",
   "by": "scripts/env_probe.py"
+ },
+ {
+  "value": "\"states\": 34739",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L2.json",
+  "pattern": "\"states\"",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"edges\": 133788",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L2.json",
+  "pattern": "\"edges\"",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"game_over_states\": 1291",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L2.json",
+  "pattern": "game_over_states",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"shortest_win_depth\": 45",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L2.json",
+  "pattern": "shortest_win_depth",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"reset_returns_to_start\": 500",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L2.json",
+  "pattern": "reset_returns_to_start",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"reset_checked\": 500",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L2.json",
+  "pattern": "reset_checked",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"double_advance_actions\": 0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L2.json",
+  "pattern": "double_advance_actions",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "verified=26 errors=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/oracle_env/check_ls20_level2.log",
+  "pattern": "VERIFY_SUMMARY",
+  "by": "scripts/check_model.sh"
+ },
+ {
+  "value": "TIMEOUTS: 0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/oracle_env/check_ls20_level2.log",
+  "pattern": "TIMEOUTS",
+  "by": "scripts/check_model.sh"
+ },
+ {
+  "value": "GRAPH_EDGES n=133788 disagreements=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/env_L2.log",
+  "pattern": "^GRAPH_EDGES",
+  "by": "scripts/env_probe.py"
+ },
+ {
+  "value": "TRACES traces=30 steps=1903 disagreements=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/env_L2.log",
+  "pattern": "^TRACES",
+  "by": "scripts/env_probe.py"
+ },
+ {
+  "value": "rule_by_lives={'3': 4732, '2': 4731, '1': 4731, '0': 143}",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/granularity.log",
+  "pattern": "^L1 ",
+  "by": "scripts/state_granularity.py"
+ },
+ {
+  "value": "rule_by_lives={'3': 7400, '2': 7399, '1': 7399, '0': 630}",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/granularity.log",
+  "pattern": "^L2 ",
+  "by": "scripts/state_granularity.py"
+ },
+ {
+  "value": "key_by_lives={'0': 1291, '1': 13024, '2': 13024, '3': 7400}",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/granularity.log",
+  "pattern": "^L2 ",
+  "by": "scripts/state_granularity.py"
+ },
+ {
+  "value": "rule_symmetric=True",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/granularity.log",
+  "pattern": "^L1 ",
+  "by": "scripts/state_granularity.py"
+ },
+ {
+  "value": "\"max_rss_mb_cap\": 3500.0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L2.json",
+  "pattern": "max_rss_mb_cap",
+  "by": "scripts/state_graph.py"
  }
 ]

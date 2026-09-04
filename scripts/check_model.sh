@@ -9,7 +9,7 @@ MODEL="${1:-$ROOT/model/scoring.dfy}"
 OUT="$(cd "$(dirname "${2:-$ROOT/artifacts/oracle}")" 2>/dev/null && pwd)/$(basename "${2:-$ROOT/artifacts/oracle}")"
 mkdir -p "$OUT"
 STEM="$(basename "$MODEL" .dfy)"
-LOG="$OUT/check_model.log"
+LOG="$OUT/check_${STEM}.log"
 DAFNY="${DAFNY_BIN:-$(command -v dafny || true)}"
 mkdir -p "$OUT"
 : > "$LOG"
@@ -28,6 +28,11 @@ echo "== dafny verify" | tee -a "$LOG"
 VOUT=$("$DAFNY" verify "$MODEL" 2>&1); rc=$?
 echo "$VOUT" | tail -3 | sed 's/^/  /' | tee -a "$LOG"
 SUMMARY=$(echo "$VOUT" | grep -oE '[0-9]+ verified, [0-9]+ error' | tail -1)
+# "N verified, 0 errors, 2 time outs" must never read as a pass: an obligation
+# that timed out is unknown, not discharged.
+TIMEOUTS=$(echo "$VOUT" | grep -c 'time out' || true)
+echo "  TIMEOUTS: $TIMEOUTS" | tee -a "$LOG"
+[ "$TIMEOUTS" -eq 0 ] || fail=1
 NV=$(echo "$SUMMARY" | awk '{print $1}'); NE=$(echo "$SUMMARY" | awk '{print $3}')
 echo "  VERIFY_SUMMARY: verified=${NV:-0} errors=${NE:-?} rc=$rc" | tee -a "$LOG"
 { [ "$rc" -eq 0 ] && [ "${NE:-1}" = "0" ] && [ "${NV:-0}" -gt 0 ]; } || fail=1

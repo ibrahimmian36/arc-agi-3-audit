@@ -5,20 +5,20 @@
   "error": null,
   "loaded": true,
   "model_errors": 0,
-  "n": 56772,
+  "n": 133788,
   "rows": [],
-  "win_edges_status_only": 96
+  "win_edges_status_only": 54
  },
- "level": 1,
+ "level": 2,
  "oracle_present": true,
  "traces": {
   "disagreements": 0,
   "error": null,
   "loaded": true,
   "model_errors": 0,
-  "n": 3208,
+  "n": 1903,
   "rows": [],
-  "steps": 3208,
+  "steps": 1903,
   "traces": 30,
   "win_edges_status_only": 3
  }

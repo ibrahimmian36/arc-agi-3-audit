@@ -1,11 +1,21 @@
 # FINDINGS — ARC-AGI-3 public-set audit, Phase 0 (scorer, harness, machinery)
 
 Millennium Research, 2026-09-03 (scorer, harness) and 2026-09-04 (environment
-ls20 level 1). Status: the scoring rule (reference 3), the benchmarking
-harness's action budget, and one level of one public environment (reference
+ls20 levels 1 and 2). Status: the scoring rule (reference 3), the benchmarking
+harness's action budget, and two levels of one public environment (reference
 1) are audited and written up below; the per-level baselines (reference 2)
-are recovered and characterised; levels 2–7 of ls20, the other 24 public
-environments and the human-replay check are Phase 1 (see "Not done").
+are recovered and characterised; ls20 levels 3–7, the other 24 public
+environments and the human-replay check are not done (see "Not done").
+
+Related work, checked before building and not duplicated: Rudakov, Shock and
+Cowley (arXiv 2512.24156, December 2025) build hash-identified state graphs to
+*solve* ARC-AGI-3 environments, reporting no state counts, no win probability
+and no verification; Rodionov (arXiv 2605.05138v2, June 2026) builds executable
+Python world models for all 25 public games, checked against recordings rather
+than machine-verified, and does not audit for defects. What is new here is a
+machine-verified model of an environment's rules, compared against the shipped
+implementation on every reachable transition, and used to check the benchmark's
+own published claim about that environment.
 
 **Scope.** In scope: the 25 public demonstration environments, the public
 toolkit `arcprize/ARC-AGI` (f12822c), the public harness
@@ -38,8 +48,14 @@ certifies the scorer.
 | Dafny model | 50 obligations | `verified=50 errors=0`; oracle sha256 `189d2bd85136764c809070276b76d4b6b333d18e77158e306b21ded3ba4e25e0` | `artifacts/oracle/check_model.log` |
 | ls20 level 1: reachable state graph from the shipped game | `"states": 14337`, `"edges": 56772`, complete | three life-copies (`"3": 4732`, `"2": 4731`, `"1": 4731`) + `"game_over_states": 143` + `"win_states": 1`; `"shortest_win_depth": 13` (human baseline 22); `"reset_returns_to_start": 500` of `"reset_checked": 500` | `artifacts/env/ls20/graph_L1.json` |
 | ls20 level 1: documented claim "P_win exactly 1 in 355" | 1 | `0.002813847150161035`, i.e. 1 in `355.38533070027296` under a uniform random policy | `artifacts/env/ls20/graph_L1.json` |
-| ls20 level 1: Dafny model (generated from the shipped level data) | 12 obligations | `verified=12 errors=0` (E1 winnable by the 13-action witness, E2 closure, E3 reset); oracle sha256 `3ccf8b0293b25ba53b0834ab5737db9d8b6a1b9f169ed28aef433eec344cc598` | `artifacts/oracle_env/check_model.log` |
-| ls20 level 1: model vs shipped implementation | every edge of the graph + 30 traces | `GRAPH_EDGES n=56772 disagreements=0 win_edges_status_only=96`; `TRACES traces=30 steps=3208 disagreements=0 win_edges_status_only=3` | `artifacts/env/ls20/env.log` |
+| ls20 level 1: Dafny model (generated from the shipped level data) | 17 obligations | `verified=17 errors=0` with `TIMEOUTS: 0` (E1 winnable by the 13-action witness, E2 closure, E3 reset) | `artifacts/oracle_env/check_ls20_level1.log` |
+| ls20 level 1: model vs shipped implementation | every edge of the graph + 30 traces | `GRAPH_EDGES n=56772 disagreements=0 win_edges_status_only=96`; `TRACES traces=30 steps=3208 disagreements=0 win_edges_status_only=3` | `artifacts/env/ls20/env_L1.log` |
+| ls20 level 2: reachable state graph | `"states": 34739`, `"edges": 133788`, complete | one WIN state, `"game_over_states": 1291`, `"shortest_win_depth": 45` (human baseline 123), `"reset_returns_to_start": 500` of `"reset_checked": 500` | `artifacts/env/ls20/graph_L2.json` |
+| ls20 level 2: Dafny model | 26 obligations | `verified=26 errors=0` with `TIMEOUTS: 0` | `artifacts/oracle_env/check_ls20_level2.log` |
+| ls20 level 2: model vs shipped implementation | every edge of the graph + 30 traces | `GRAPH_EDGES n=133788 disagreements=0`; `TRACES traces=30 steps=1903 disagreements=0` | `artifacts/env/ls20/env_L2.log` |
+| ls20: rule-level state space symmetric across the three lives | 2 levels | `rule_symmetric=True` on both | `artifacts/env/ls20/granularity.log` |
+| Double-advance (finding F3) reachability | every transition of both levels | `"double_advance_actions": 0` on each | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
+| Peak memory of the enumeration | 2 levels | under 300 MB on both, against `"max_rss_mb_cap": 3500.0`; the exact figure varies run to run and is checked as a bound, not a literal | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Re-run byte identity | scorer, harness, recorder | identical (`tests/test_scorer_probe.py`, `tests/test_harness_probe.py`, `tests/test_recorder.py::test_m8_byte_identity`) | suite |
 
 The shipped scorer implements the rule as the report's prose and the docs
@@ -129,41 +145,74 @@ baseline as the upper-median first-time player, not the optimum, so an agent
 can score above 100% on this level (up to the 115% cap at 20 or fewer
 actions); this is the designed behaviour.
 
-## Reference 1 — ls20 level 1: what was checked and found consistent
+## Reference 1 — ls20 levels 1 and 2: what was checked and found consistent
 
-Model: `model/ls20_level1.dfy`, generated by `scripts/gen_level_model.py` from
-`artifacts/env/ls20/level1.json` (walls, start, goal, rotation tile, step
-budget, decrement, lives, all read from the shipped level object by
-`scripts/extract_level.py`); the rules are hand-written from the shipped
-`step()` at the rule level: walls block; the goal blocks unless the piece's
-rotation matches, and then completes the level; the rotation tile cycles the
-rotation; a move ending in a "flash" (goal mismatch, or a rotation into a
-match) costs no step; every other move, blocked or not, costs one step; 43
-costed moves exhaust a life and restore the start layout; three lives.
+Models: `model/ls20_level1.dfy` and `model/ls20_level2.dfy`, generated by
+`scripts/gen_level_model.py` from `artifacts/env/ls20/level<k>.json` (walls,
+start, goal, rotation tile, energy pickups, step budget, decrement, lives, all
+read from the shipped level object by `scripts/extract_level.py`). The rules
+are hand-written from the shipped `step()` at the rule level: walls block and
+end the collision scan; the goal blocks unless the piece's rotation matches, and
+then completes the level; the rotation tile cycles the rotation; a move ending
+in a "flash" costs no step; an energy pickup refills the counter and skips that
+move's decrement entirely; every other move, blocked or not, costs one
+decrement; exhausting the counter costs a life and restores the start layout;
+three lives; and an action outside the movement set changes nothing, so the
+model is total in the action.
 
-- E1 (winnable): the 13-action path found by enumerating the shipped game is
-  replayed through the model and reaches WIN (`verified=12 errors=0`).
+Two rules differ between the levels and are taken from the source, not guessed.
+Cycling a tile into a match is a free move on level 1 only, because the shipped
+check returns false once the level index is above zero. Level 1 decrements the
+counter by one per move and level 2 by two. These are undocumented, as every
+ARC-AGI-3 environment rule is by design, and are not reported as defects.
+
+- E1 (winnable): the shortest winning path found by enumerating the shipped
+  game (13 actions on level 1, 45 on level 2) is replayed through the model,
+  and at every step the model's state is asserted equal to the state the
+  shipped game is actually in. The lemma therefore says far more than "the run
+  ends in a win": if model and implementation parted company anywhere along the
+  winning path it would not verify.
 - E2 (closure): from a legal state every action yields a legal state or a
   terminal GAME_OVER; the extracted wall set contains the whole lattice border
   and the player is never on a wall cell.
 - E3 (reset restores the start): by definition in the model; on the shipped
-  game, RESET from 500 of 500 probed PLAY states (across all three lives, with
-  steps spent and the rotation changed) returns exactly to the start state,
-  including the hidden step counter. No state leaks across a level reset on
-  this level.
+  game, RESET from 500 of 500 probed PLAY states on each level (across all three
+  lives, with steps spent, the rotation changed and pickups consumed) returns
+  exactly to the start state, including the hidden step counter and the
+  restored pickups. No state leaks across a level reset on either level.
 - E4 (determinism): two fresh instances on the same 60-action trace reach the
   same state; the enumeration's transitions are functions.
 - Differential: the compiled model agrees with the shipped implementation on
-  all 56,772 transitions of the complete reachable graph and on all 3,208
-  steps of 30 traces (10 scripted, 20 random with seeds 0–19). The 96 (and 3)
-  winning transitions are compared on status only, because the shipped game
-  has already loaded level 2 at that point (`docs/DECISIONS.md`).
+  every transition of both complete reachable graphs (56,772 and 133,788) and
+  on every step of 30 traces per level (10 scripted, 20 random with seeds
+  0–19). Winning transitions are compared on status only, because the shipped
+  game has already loaded the next level at that point (`docs/DECISIONS.md`).
+- F3 reachability, dynamic: no single action advanced the level counter by two
+  anywhere in either level's complete graph (`"double_advance_actions": 0`),
+  so the scorer edge is unreachable on the two levels enumerated so far.
 - F3 reachability, static: every one of the 25 public sources has exactly one
   `next_level()` call site, none inside a loop. In 11 of 25 (ar25, cn04, dc22,
   ft09, g50t, lf52, lp85, ls20, su15, tn36, tr87) the call is immediately
   followed by `complete_action(); return`, which rules out a second advance in
   the same action; for the other 14 a second advance within one action is not
   excluded statically and is a Phase 1 dynamic check.
+
+**Observation, not a finding — a state count depends on what counts as a
+state.** The three-life mechanic should give three copies of the same rule-level
+state space, and at the rule level it does. Level 1 is symmetric under both
+measures (`rule_by_lives={'3': 4732, '2': 4731, '1': 4731, '0': 143}`, equal to
+its key counts). Level 2 is symmetric at the rule level
+(`rule_by_lives={'3': 7400, '2': 7399, '1': 7399, '0': 630}`) but not under our
+enumerator's raw key (`key_by_lives={'0': 1291, '1': 13024, '2': 13024, '3': 7400}`).
+The cause was found and confirmed directly: when a life is lost the shipped game
+re-appends previously consumed pickups to the end of the level's sprite list, so
+a run that ate a pickup and a run that did not are distinguishable by sprite
+order while rendering identically. Level 1 has no pickups, which is why it is
+unaffected. This changes no transition (zero disagreements on all 133,788
+level-2 edges) and no absorption probability, but it is a caveat on any
+published state count for these environments, our own included: the number
+depends on the granularity of the identity function, and a frame hash, an
+engine-state hash and a rule-level abstraction give three different answers.
 
 ## Negatives (checked, found consistent)
 
@@ -209,11 +258,11 @@ the observed state is that they agree.
 
 ## Not done, and why
 
-- Reference 1 beyond ls20 level 1: levels 2–7 add energy pickups, pushers,
-  patrolling objects, colour/shape tiles and fog; the generator covers
-  walls/goal/rotation-tile levels only. The other 24 public environments are
-  identifier-obfuscated and undocumented; the preregistered rule selected ls20
-  (`INVENTORY.md`). Phase 1.
+- Reference 1 beyond ls20 level 2: the generator refuses levels 3–7 and names
+  why — pushers (3–7), colour tiles (3–7), shape tiles (4–7), patrol areas
+  (5–7), two goals (6), fog (7). Nothing is claimed about those levels. The
+  other 24 public environments are identifier-obfuscated and undocumented; the
+  preregistered rule selected ls20 (`INVENTORY.md`).
 - Reference 2 (baselines): recovered for all 25 environments (`INVENTORY.md`;
   the API listing and every `metadata.json` agree, 25/25). The statistic is
   documented (upper median of first-time players; report v1 said second-best).
@@ -235,20 +284,22 @@ the observed state is that they agree.
    disagreement could always be our model being wrong. Where our own
    arithmetic or scripts were wrong (three test literals, H1/H2/H6's
    initial-reset assumption) it is recorded in `docs/DECISIONS.md`.
-4. The harness probe replaces the model call with a scripted stub; the loop,
+4. The two levels audited are 2 of ls20's 7 and 2 of the public set's roughly
+   170; nothing here supports a statement about ARC-AGI-3 as a whole.
+5. The harness probe replaces the model call with a scripted stub; the loop,
    `is_done`, `_sync_level_progress`, forced RESET handling and
    `choose_action` are the harness's own code.
-5. The fixture game `bt11` is the toolkit's test environment, not a public
+6. The fixture game `bt11` is the toolkit's test environment, not a public
    benchmark environment; the only public environment claims are about ls20
-   level 1, whose model we wrote from obfuscated source at the rule level.
-   A rule we did not see (the model matched the implementation on every
-   reachable transition, so any such rule is unreachable on this level or
-   invisible in position/rotation/lives/steps/status).
-6. Every number in this file is registered in `docs/claims.json` and checked
+   levels 1 and 2, whose models we wrote from obfuscated source at the rule
+   level. A rule we did not see would be one the model matched anyway on every
+   reachable transition, so it is either unreachable on these levels or
+   invisible in position, rotation, lives, steps, pickups and status.
+7. Every number in this file is registered in `docs/claims.json` and checked
    by `../audit-kit/scripts/report_check.sh`; scripts and artefacts ship in
    this repository; the audited origins have Software Heritage save requests
    accepted (`artifacts/intake/swh_snapshot.log`).
-7. What a reader must still trust: Dafny 4.11.0 and its JavaScript backend,
+8. What a reader must still trust: Dafny 4.11.0 and its JavaScript backend,
    Node 24, the vendored toolkit at the pinned commit, and our reading of the
    English in the report and docs.
 
@@ -260,10 +311,13 @@ scripts/check_model.sh
 .venv/bin/python scripts/scorer_probe.py
 .venv/bin/python scripts/harness_probe.py --environments-dir vendor/ARC-AGI/test_environment_files
 scripts/run_machinery.sh
-.venv/bin/python scripts/extract_level.py --game ls20 --level 1
-.venv/bin/python scripts/state_graph.py --game ls20 --level 1 --max-states 400000 --max-seconds 2400
-.venv/bin/python scripts/gen_level_model.py --game ls20 --level 1 && scripts/check_model.sh model/ls20_level1.dfy artifacts/oracle_env
-.venv/bin/python scripts/env_probe.py --game ls20 --level 1
+for L in 1 2; do
+  .venv/bin/python scripts/extract_level.py --game ls20 --level $L
+  .venv/bin/python scripts/state_graph.py --game ls20 --level $L --max-states 400000 --max-seconds 1500 --max-rss-mb 3500
+  .venv/bin/python scripts/gen_level_model.py --game ls20 --level $L
+  scripts/check_model.sh model/ls20_level$L.dfy artifacts/oracle_env
+  .venv/bin/python scripts/env_probe.py --game ls20 --level $L
+done
 ../audit-kit/scripts/report_check.sh docs/claims.json
 ```
 

@@ -1,0 +1,2 @@
+L1 key_by_lives={'0': 143, '1': 4731, '2': 4731, '3': 4732} rule_by_lives={'3': 4732, '2': 4731, '1': 4731, '0': 143} rule_symmetric=True key_total=14337 rule_total=14337
+L2 key_by_lives={'0': 1291, '1': 13024, '2': 13024, '3': 7400} rule_by_lives={'3': 7400, '2': 7399, '1': 7399, '0': 630} rule_symmetric=True key_total=34739 rule_total=22828

@@ -1,0 +1,36 @@
+{
+ "L1": {
+  "key_states": 14337,
+  "key_states_by_lives": {
+   "0": 143,
+   "1": 4731,
+   "2": 4731,
+   "3": 4732
+  },
+  "rule_states": 14337,
+  "rule_states_by_lives": {
+   "0": 143,
+   "1": 4731,
+   "2": 4731,
+   "3": 4732
+  },
+  "rule_symmetric_across_lives": true
+ },
+ "L2": {
+  "key_states": 34739,
+  "key_states_by_lives": {
+   "0": 1291,
+   "1": 13024,
+   "2": 13024,
+   "3": 7400
+  },
+  "rule_states": 22828,
+  "rule_states_by_lives": {
+   "0": 630,
+   "1": 7399,
+   "2": 7399,
+   "3": 7400
+  },
+  "rule_symmetric_across_lives": true
+ }
+}

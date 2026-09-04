@@ -57,7 +57,23 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 50 | `"1": 4731` | `../artifacts/env/ls20/graph_L1.json` | `^ +"1": ` | scripts/state_graph.py |
 | 51 | `"game_over_states": 143` | `../artifacts/env/ls20/graph_L1.json` | `game_over_states` | scripts/state_graph.py |
 | 52 | `"win_states": 1` | `../artifacts/env/ls20/graph_L1.json` | `win_states` | scripts/state_graph.py |
-| 53 | `verified=12 errors=0` | `../artifacts/oracle_env/check_model.log` | `VERIFY_SUMMARY` | scripts/check_model.sh |
-| 54 | `3ccf8b0293b25ba53b0834ab5737db9d8b6a1b9f169ed28aef433eec344cc598` | `../artifacts/oracle_env/check_model.log` | `sha256` | scripts/check_model.sh |
-| 55 | `GRAPH_EDGES n=56772 disagreements=0 win_edges_status_only=96` | `../artifacts/env/ls20/env.log` | `^GRAPH_EDGES` | scripts/env_probe.py |
-| 56 | `TRACES traces=30 steps=3208 disagreements=0 win_edges_status_only=3` | `../artifacts/env/ls20/env.log` | `^TRACES` | scripts/env_probe.py |
+| 53 | `verified=17 errors=0` | `../artifacts/oracle_env/check_ls20_level1.log` | `VERIFY_SUMMARY` | scripts/check_model.sh |
+| 54 | `verified=17 errors=0` | `../artifacts/oracle_env/check_ls20_level1.log` | `VERIFY_SUMMARY` | scripts/check_model.sh |
+| 55 | `GRAPH_EDGES n=56772 disagreements=0 win_edges_status_only=96` | `../artifacts/env/ls20/env_L1.log` | `^GRAPH_EDGES` | scripts/env_probe.py |
+| 56 | `TRACES traces=30 steps=3208 disagreements=0 win_edges_status_only=3` | `../artifacts/env/ls20/env_L1.log` | `^TRACES` | scripts/env_probe.py |
+| 57 | `"states": 34739` | `../artifacts/env/ls20/graph_L2.json` | `"states"` | scripts/state_graph.py |
+| 58 | `"edges": 133788` | `../artifacts/env/ls20/graph_L2.json` | `"edges"` | scripts/state_graph.py |
+| 59 | `"game_over_states": 1291` | `../artifacts/env/ls20/graph_L2.json` | `game_over_states` | scripts/state_graph.py |
+| 60 | `"shortest_win_depth": 45` | `../artifacts/env/ls20/graph_L2.json` | `shortest_win_depth` | scripts/state_graph.py |
+| 61 | `"reset_returns_to_start": 500` | `../artifacts/env/ls20/graph_L2.json` | `reset_returns_to_start` | scripts/state_graph.py |
+| 62 | `"reset_checked": 500` | `../artifacts/env/ls20/graph_L2.json` | `reset_checked` | scripts/state_graph.py |
+| 63 | `"double_advance_actions": 0` | `../artifacts/env/ls20/graph_L2.json` | `double_advance_actions` | scripts/state_graph.py |
+| 64 | `verified=26 errors=0` | `../artifacts/oracle_env/check_ls20_level2.log` | `VERIFY_SUMMARY` | scripts/check_model.sh |
+| 65 | `TIMEOUTS: 0` | `../artifacts/oracle_env/check_ls20_level2.log` | `TIMEOUTS` | scripts/check_model.sh |
+| 66 | `GRAPH_EDGES n=133788 disagreements=0` | `../artifacts/env/ls20/env_L2.log` | `^GRAPH_EDGES` | scripts/env_probe.py |
+| 67 | `TRACES traces=30 steps=1903 disagreements=0` | `../artifacts/env/ls20/env_L2.log` | `^TRACES` | scripts/env_probe.py |
+| 68 | `rule_by_lives={'3': 4732, '2': 4731, '1': 4731, '0': 143}` | `../artifacts/env/ls20/granularity.log` | `^L1 ` | scripts/state_granularity.py |
+| 69 | `rule_by_lives={'3': 7400, '2': 7399, '1': 7399, '0': 630}` | `../artifacts/env/ls20/granularity.log` | `^L2 ` | scripts/state_granularity.py |
+| 70 | `key_by_lives={'0': 1291, '1': 13024, '2': 13024, '3': 7400}` | `../artifacts/env/ls20/granularity.log` | `^L2 ` | scripts/state_granularity.py |
+| 71 | `rule_symmetric=True` | `../artifacts/env/ls20/granularity.log` | `^L1 ` | scripts/state_granularity.py |
+| 72 | `"max_rss_mb_cap": 3500.0` | `../artifacts/env/ls20/graph_L2.json` | `max_rss_mb_cap` | scripts/state_graph.py |
