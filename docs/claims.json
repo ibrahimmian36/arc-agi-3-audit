@@ -656,5 +656,61 @@
   "log": "../artifacts/play/summary.log",
   "pattern": "^SUMMARY",
   "by": "scripts/play_probe.py"
+ },
+ {
+  "value": "levels_checked=18",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/minactions/summary.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/min_actions.py"
+ },
+ {
+  "value": "consistent=6",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/minactions/summary.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/min_actions.py"
+ },
+ {
+  "value": "impossible=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/minactions/summary.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/min_actions.py"
+ },
+ {
+  "value": "not_established=12",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/minactions/summary.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/min_actions.py"
+ },
+ {
+  "value": "located=False",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/availability.log",
+  "pattern": "^REPLAYS",
+  "by": "scripts/replay_availability.py"
+ },
+ {
+  "value": "announced_link_status=403",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/availability.log",
+  "pattern": "^REPLAYS",
+  "by": "scripts/replay_availability.py"
+ },
+ {
+  "value": "github_repos=10",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/availability.log",
+  "pattern": "^REPLAYS",
+  "by": "scripts/replay_availability.py"
+ },
+ {
+  "value": "huggingface_datasets=3",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/availability.log",
+  "pattern": "^REPLAYS",
+  "by": "scripts/replay_availability.py"
  }
 ]

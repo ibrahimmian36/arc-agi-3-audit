@@ -1,0 +1,28 @@
+{
+ "baseline": 16,
+ "completed_depth": 16,
+ "depth_bound": 17,
+ "edges": 1380,
+ "game": "tu93-0768757b",
+ "level": 2,
+ "min_actions_lower_bound": null,
+ "optimum": 10,
+ "peak_rss_mb": 102.4,
+ "reason": "optimum 10 <= baseline 16",
+ "states": 397,
+ "truncated_reason": "max_depth",
+ "verdict": "consistent",
+ "wall_seconds": 0.9,
+ "witness": [
+  1,
+  4,
+  4,
+  2,
+  4,
+  4,
+  1,
+  4,
+  4,
+  1
+ ]
+}

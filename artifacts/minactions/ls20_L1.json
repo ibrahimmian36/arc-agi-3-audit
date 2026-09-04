@@ -1,0 +1,31 @@
+{
+ "baseline": 22,
+ "completed_depth": 22,
+ "depth_bound": 23,
+ "edges": 6968,
+ "game": "ls20-9607627b",
+ "level": 1,
+ "min_actions_lower_bound": null,
+ "optimum": 13,
+ "peak_rss_mb": 146.5,
+ "reason": "optimum 13 <= baseline 22",
+ "states": 1887,
+ "truncated_reason": "max_depth",
+ "verdict": "consistent",
+ "wall_seconds": 13.8,
+ "witness": [
+  3,
+  3,
+  3,
+  1,
+  1,
+  1,
+  1,
+  4,
+  4,
+  4,
+  1,
+  1,
+  1
+ ]
+}

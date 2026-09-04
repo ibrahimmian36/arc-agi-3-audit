@@ -1,0 +1,3 @@
+REPLAYS checked_on=2026-09-04 github_repos=10 github_keyword_hits=0 huggingface_datasets=3 huggingface_agi3_datasets=0 huggingface_keyword_hits=0 announced_link_status=403 located=False
+GITHUB ['ARC-AGI', 'ARC-AGI-2', 'ARC-AGI-3-Agents', 'ARC-AGI-3-Kaggle-Starter', 'ARC-AGI-Community-Leaderboard', 'ARCEngine', 'arc-agi-3-benchmarking', 'arc-agi-benchmarking', 'docs', 'hierarchical-reasoning-model-analysis']
+HUGGINGFACE ['arcprize/arc_agi_2_human_testing', 'arcprize/arc_agi_v1_public_eval', 'arcprize/arc_agi_v2_public_eval']

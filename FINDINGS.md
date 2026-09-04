@@ -2,7 +2,8 @@
 
 Millennium Research, 2026-09-03 (scorer, harness) and 2026-09-04 (environment
 ls20 levels 1 and 2, then a breadth sweep of level 1 across the public set,
-then a play-based probe of all 25). Status: the scoring rule (reference 3), the benchmarking
+then a play-based probe of all 25, then a lower-bound check on the published
+human baselines). Status: the scoring rule (reference 3), the benchmarking
 harness's action budget, and two levels of one public environment (reference
 1) are audited and written up below; the per-level baselines (reference 2)
 are recovered and characterised; ls20 levels 3–7, the other 24 public
@@ -63,6 +64,8 @@ certifies the scorer.
 | Play probe: RESET restores the frame the level began with | 18,663 probes in all 25 environments | `reset_frame_ok=18663` of `reset_probes=18663`; `reset_frame_mismatch=[]` | `artifacts/play/summary.log` |
 | Play probe: RESET restores all internal engine state | the same 18,663 probes | `reset_state_ok=15440`; 7 environments differ | `artifacts/play/summary.log` |
 | Play probe: one action advancing the level counter by two | `actions_taken=479040` in all 25 | `double_advance_actions=0`, `level_regressions=0` | `artifacts/play/summary.log` |
+| Baselines: is any published baseline below the level's optimum? | 18 levels attempted | `consistent=6 impossible=0 not_established=12` | `artifacts/minactions/summary.log` |
+| The 342 human replays announced 2026-04-14 | GitHub org and HuggingFace author | `located=False`; `announced_link_status=403` | `artifacts/replays/availability.log` |
 | Double-advance (finding F3) reachability | every transition of both levels | `"double_advance_actions": 0` on each | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Peak memory of the enumeration | 2 levels | under 300 MB on both, against `"max_rss_mb_cap": 3500.0`; the exact figure varies run to run and is checked as a bound, not a literal | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Re-run byte identity | scorer, harness, recorder | identical (`tests/test_scorer_probe.py`, `tests/test_harness_probe.py`, `tests/test_recorder.py::test_m8_byte_identity`) | suite |
@@ -326,6 +329,61 @@ vc33; after the fix all three probe clean. Second, numpy scalars were hashed by
 type rather than value, which merged states in g50t and wa30. Both now have
 tests, and the whole sweep was re-run after each.
 
+## Reference 2 — the human baselines
+
+Every ARC-AGI-3 score is a ratio against `baseline_actions[level]`, documented
+as the upper-median action count of first-time human players. Two checks were
+possible.
+
+**A lower-bound check that needs no replay.** A human cannot finish a level in
+fewer actions than the level's optimum, so a published baseline must be at
+least that optimum. Breadth-first search supplies it, and supplies a sound bound
+even when it does not finish: expanding every state at depth d without reaching
+a win proves no solution exists in d + 1 actions or fewer. Before running
+anything, two things were confirmed from the shipped code and the numbers
+themselves: the scorer pairs `baseline_actions[level_idx]` with that level's own
+action count, and the published values are not monotone (ar25 is
+`[32, 50, 75, 37, 89, 159, 233, 73]`), so they are per level and not cumulative.
+A contradiction would therefore have been real.
+
+There is none. Of `levels_checked=18` attempted across the six enumerable
+environments, `consistent=6`, `impossible=0`, `not_established=12`.
+
+| environment | level | optimum | published baseline |
+|---|---|---|---|
+| ls20 | 1 | 13 | 22 |
+| ls20 | 2 | 45 | 123 |
+| ls20 | 3 | 39 | 73 |
+| tu93 | 1 | 18 | 19 |
+| tu93 | 2 | 10 | 16 |
+| tu93 | 3 | 19 | 34 |
+
+Every optimum is replayed through the shipped game by the test suite and shown
+actually to complete its level, so these are witnessed numbers rather than
+search artefacts. The twelve remaining levels were stopped by the time or memory
+cap, having completed depths between 8 and 16 against baselines between 26 and
+183; that establishes nothing either way and is reported as such.
+
+Worth noting rather than flagging: tu93 level 1 has an optimum of 18 and a
+published baseline of 19, so the upper-median first-time human played within one
+action of optimal on an environment whose rules are not stated anywhere. It is
+consistent, and it is the tightest margin in the set.
+
+**The replays could not be located.** The 2026-04-14 announcement says the
+Foundation open-sourced the Public Demo dataset including 342 human step-by-step
+replays. Checked on 2026-09-04: the `arcprize` GitHub organisation lists
+`github_repos=10`, none of them a human-replay dataset; the `arcprize`
+HuggingFace author lists `huggingface_datasets=3`, of which the only
+human-testing one is for ARC-AGI-2; and the single link the announcement gives is a shortener that did
+not resolve for us (`announced_link_status=403`, and 429 on an earlier attempt).
+`located=False`.
+
+That is a statement about what these checks found on that date, not a claim that
+the data does not exist. It is worth passing on because a broken or rate-limited
+link is the kind of thing an owner would want to fix, and because until the
+replays are reachable the baselines that every score depends on cannot be
+checked against the plays that produced them.
+
 ## Negatives (checked, found consistent)
 
 - Scorer equals the documented prose rule on P1, P2a, P2b, P2c, P3a, P3b (no
@@ -385,11 +443,12 @@ the observed state is that they agree.
   (5–7), two goals (6), fog (7). Nothing is claimed about those levels. The
   other 24 public environments are identifier-obfuscated and undocumented; the
   preregistered rule selected ls20 (`INVENTORY.md`).
-- Reference 2 (baselines): recovered for all 25 environments (`INVENTORY.md`;
-  the API listing and every `metadata.json` agree, 25/25). The statistic is
-  documented (upper median of first-time players; report v1 said second-best).
-  The 342 human replays announced on 2026-04-14 were not located or
-  downloaded; replaying them is Phase 1.
+- Reference 2, the replay check itself: the 342 replays were not located (see
+  above), so no baseline has been compared against the plays that produced it.
+  Only the lower-bound check was possible.
+- The lower-bound check on the twelve levels where the search was capped, and on
+  every level of the nineteen click-based environments, where the method does
+  not apply at all.
 - F3's dynamic reachability in the 14 environments where the static scan does
   not exclude it.
 - The HN thread on a "misleading scorecard" (item 49556467) could not be
@@ -410,25 +469,29 @@ the observed state is that they agree.
    sweep covers level 1 of six environments, two of them exhaustively. Nothing
    here supports a statement about ARC-AGI-3 as a whole, and in particular the
    nineteen click-based environments are untouched by it.
-5. The play probe is random and shallow: it won nothing anywhere and mostly
+5. The optima are proved against the SHIPPED LOCAL environment at the pinned
+   version. That is not necessarily the environment the human study measured,
+   and a baseline consistent with the local optimum says nothing about how the
+   number was gathered.
+6. The play probe is random and shallow: it won nothing anywhere and mostly
    stayed on level 1, so its negatives cover the states it visited and no more.
-6. A truncated enumeration is a sample of a larger graph, not a survey of it:
+7. A truncated enumeration is a sample of a larger graph, not a survey of it:
    the sweep's negatives hold over the states actually reached, which for four
    environments is the first 150,000 that depth-first search happened to visit.
-7. The harness probe replaces the model call with a scripted stub; the loop,
+8. The harness probe replaces the model call with a scripted stub; the loop,
    `is_done`, `_sync_level_progress`, forced RESET handling and
    `choose_action` are the harness's own code.
-8. The fixture game `bt11` is the toolkit's test environment, not a public
+9. The fixture game `bt11` is the toolkit's test environment, not a public
    benchmark environment; the only public environment claims are about ls20
    levels 1 and 2, whose models we wrote from obfuscated source at the rule
    level. A rule we did not see would be one the model matched anyway on every
    reachable transition, so it is either unreachable on these levels or
    invisible in position, rotation, lives, steps, pickups and status.
-9. Every number in this file is registered in `docs/claims.json` and checked
+10. Every number in this file is registered in `docs/claims.json` and checked
    by `../audit-kit/scripts/report_check.sh`; scripts and artefacts ship in
    this repository; the audited origins have Software Heritage save requests
    accepted (`artifacts/intake/swh_snapshot.log`).
-10. What a reader must still trust: Dafny 4.11.0 and its JavaScript backend,
+11. What a reader must still trust: Dafny 4.11.0 and its JavaScript backend,
    Node 24, the vendored toolkit at the pinned commit, and our reading of the
    English in the report and docs.
 
@@ -450,6 +513,8 @@ done
 .venv/bin/python scripts/action_census.py
 .venv/bin/python scripts/sweep.py --level 1 --search dfs --max-states 150000 --max-seconds 1200 --max-rss-mb 2500
 .venv/bin/python scripts/play_probe.py --max-actions 20000 --max-seconds 60 --seed 0
+.venv/bin/python scripts/min_actions.py --levels 1 2 3 --max-states 400000 --max-seconds 120 --max-rss-mb 2500
+.venv/bin/python scripts/replay_availability.py
 ../audit-kit/scripts/report_check.sh docs/claims.json
 ```
 

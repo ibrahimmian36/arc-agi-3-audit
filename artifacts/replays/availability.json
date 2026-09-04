@@ -1,0 +1,34 @@
+{
+ "announced_link": "https://dub.link/vfwCqvb",
+ "announced_link_result": {
+  "final_url": "https://dub.link/vfwCqvb",
+  "status": "403"
+ },
+ "announcement": "https://arcprize.org/blog/arc-agi-3-human-dataset",
+ "checked_on": "2026-09-04",
+ "github_keyword_hits": [],
+ "github_org": "arcprize",
+ "github_repo_count": 10,
+ "github_repos": [
+  "arc-agi-3-benchmarking",
+  "ARC-AGI-2",
+  "ARC-AGI-3-Agents",
+  "ARC-AGI",
+  "ARC-AGI-3-Kaggle-Starter",
+  "ARC-AGI-Community-Leaderboard",
+  "docs",
+  "arc-agi-benchmarking",
+  "ARCEngine",
+  "hierarchical-reasoning-model-analysis"
+ ],
+ "huggingface_agi3_datasets": [],
+ "huggingface_author": "arcprize",
+ "huggingface_datasets": [
+  "arcprize/arc_agi_v1_public_eval",
+  "arcprize/arc_agi_v2_public_eval",
+  "arcprize/arc_agi_2_human_testing"
+ ],
+ "huggingface_keyword_hits": [],
+ "located": false,
+ "note": "A hit requires both an ARC-AGI-3 reference and a human/replay reference. arc_agi_2_human_testing is ARC-AGI-2, and arc-agi-benchmarking's description mentions baseline LLMs, not human baselines."
+}

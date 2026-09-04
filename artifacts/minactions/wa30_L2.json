@@ -1,0 +1,17 @@
+{
+ "baseline": 119,
+ "completed_depth": 16,
+ "depth_bound": 120,
+ "edges": 175000,
+ "game": "wa30-ee6fef47",
+ "level": 2,
+ "min_actions_lower_bound": 18,
+ "optimum": null,
+ "peak_rss_mb": 1150.0,
+ "reason": "search stopped by max_seconds after completing depth 16, baseline 119",
+ "states": 69362,
+ "truncated_reason": "max_seconds",
+ "verdict": "not established",
+ "wall_seconds": 134.1,
+ "witness": null
+}

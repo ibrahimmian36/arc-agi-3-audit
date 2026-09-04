@@ -331,6 +331,7 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
     parent: dict[int, tuple[int, int]] = {}
     max_frontier = 1
     max_stack = 1
+    completed_depth = -1   # deepest BFS layer fully expanded; -1 = none
 
     def probe_reset(nid: int, g) -> None:
         nonlocal reset_checked, reset_ok
@@ -399,7 +400,7 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
 
     try:
         if search == "bfs":
-            while frontier and truncated is None:
+            while frontier and truncated is None and depth < max_depth:
                 nxt: list[tuple[int, object, list]] = []
                 for nid, g, av in frontier:
                     if depth > 0:
@@ -414,11 +415,20 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
                     truncated = over_states() or (over_clock() if checked % progress_every == 0 else None)
                     if truncated:
                         break
+                if truncated is None:
+                    # Every state at this depth was expanded, so the search has
+                    # PROVED there is no win in `depth + 1` actions or fewer
+                    # unless one was recorded above. That guarantee is the whole
+                    # basis of the minimum-actions bound, so it is only advanced
+                    # when the layer completed without hitting a cap.
+                    completed_depth = depth
                 frontier = nxt
                 max_frontier = max(max_frontier, len(frontier))
                 depth += 1
                 if truncated is None:
                     truncated = over_clock()
+            if truncated is None and depth >= max_depth and frontier:
+                truncated = "max_depth"
         else:
             # Depth-first: the stack holds the objects along one path only.
             stack: list[tuple[int, object, list, int, iter]] = [(0, g0, vec(a0), 0, iter(list(ACTIONS)))]
@@ -464,7 +474,17 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
                 unhandled_types=sorted(UNHANDLED),
                 win_established=win_established,
                 win_reachable=(bool(win_nodes) if win_established else None),
-                first_win_depth=first_win_depth, max_frontier=max_frontier, max_stack=max_stack, states=N, edges=n_edges,
+                first_win_depth=first_win_depth, max_frontier=max_frontier, max_stack=max_stack,
+                completed_depth=(completed_depth if search == "bfs" else None),
+                # Sound lower bound on the optimum. Expanding layer d discovers
+                # EVERY state at depth d + 1, so completing layers 0..d without a
+                # win proves no solution exists in d + 1 actions or fewer, and
+                # the optimum is therefore at least d + 2. Off by one in the
+                # first version, caught by the bt11 test: its optimum is 4 and a
+                # bound of 3 would have been reported as 3.
+                min_actions_lower_bound=((completed_depth + 2) if (search == "bfs" and not win_nodes
+                                                                  and completed_depth >= 0) else None),
+                max_depth_bound=max_depth, states=N, edges=n_edges,
                 truncated=bool(truncated), truncated_reason=truncated, max_states=max_states,
                 win_states=len(win_nodes), game_over_states=over_nodes,
                 shortest_win_depth=(shortest_win_depth if search == "bfs" else None),

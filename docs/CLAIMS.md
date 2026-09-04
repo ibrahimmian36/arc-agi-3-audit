@@ -98,3 +98,11 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 91 | `level_regressions=0` | `../artifacts/play/summary.log` | `^TOTALS` | scripts/play_probe.py |
 | 92 | `reset_frame_mismatch=[]` | `../artifacts/play/summary.log` | `^SUMMARY` | scripts/play_probe.py |
 | 93 | `reset_state_mismatch=['cd82', 'ft09', 'm0r0', 'r11l', 'sb26', 'sc25', 'sp80']` | `../artifacts/play/summary.log` | `^SUMMARY` | scripts/play_probe.py |
+| 94 | `levels_checked=18` | `../artifacts/minactions/summary.log` | `^SUMMARY` | scripts/min_actions.py |
+| 95 | `consistent=6` | `../artifacts/minactions/summary.log` | `^SUMMARY` | scripts/min_actions.py |
+| 96 | `impossible=0` | `../artifacts/minactions/summary.log` | `^SUMMARY` | scripts/min_actions.py |
+| 97 | `not_established=12` | `../artifacts/minactions/summary.log` | `^SUMMARY` | scripts/min_actions.py |
+| 98 | `located=False` | `../artifacts/replays/availability.log` | `^REPLAYS` | scripts/replay_availability.py |
+| 99 | `announced_link_status=403` | `../artifacts/replays/availability.log` | `^REPLAYS` | scripts/replay_availability.py |
+| 100 | `github_repos=10` | `../artifacts/replays/availability.log` | `^REPLAYS` | scripts/replay_availability.py |
+| 101 | `huggingface_datasets=3` | `../artifacts/replays/availability.log` | `^REPLAYS` | scripts/replay_availability.py |

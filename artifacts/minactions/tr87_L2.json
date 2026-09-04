@@ -1,0 +1,17 @@
+{
+ "baseline": 58,
+ "completed_depth": 8,
+ "depth_bound": 59,
+ "edges": 80000,
+ "game": "tr87-cd924810",
+ "level": 2,
+ "min_actions_lower_bound": 10,
+ "optimum": null,
+ "peak_rss_mb": 2477.5,
+ "reason": "search stopped by max_seconds after completing depth 8, baseline 58",
+ "states": 55525,
+ "truncated_reason": "max_seconds",
+ "verdict": "not established",
+ "wall_seconds": 130.0,
+ "witness": null
+}
