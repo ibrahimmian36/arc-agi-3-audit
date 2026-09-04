@@ -1,0 +1,6 @@
+vendor/*/
+!vendor/PINS.json
+environment_files/
+recordings/
+__pycache__/
+.venv/

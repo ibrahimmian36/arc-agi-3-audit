@@ -1,0 +1,9 @@
+{
+  "pinned": "2026-09-02",
+  "depth": 1,
+  "commits": {
+    "ARC-AGI": "f12822c4d550121c35a275008d964afbbed47d2f",
+    "arc-agi-3-benchmarking": "1aa78da7e3058e0ead572ede7cd97065d1e5befc",
+    "ARC-AGI-3-Agents": "4743e7d0aaae0ded0d98a89a7e282e63564cd58b"
+  }
+}
