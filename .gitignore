@@ -12,3 +12,4 @@ paper/main.txt
 paper/*.aux
 paper/*.log
 paper/*.out
+artifacts/*/run*.log
