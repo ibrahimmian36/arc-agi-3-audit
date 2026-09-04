@@ -119,3 +119,10 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 112 | `RETRY isolated=True` | `../artifacts/wire/wire.log` | `^RETRY` | scripts/wire_probe.py |
 | 113 | `one_environment_call_per_counted_action=True` | `../artifacts/wire/wire.log` | `^SUMMARY` | scripts/wire_probe.py |
 | 114 | `construction=1` | `../artifacts/wire/wire.log` | `^W1 ` | scripts/wire_probe.py |
+| 115 | `max_attempts_per_intended_action=1` | `../artifacts/limits/limits.log` | `^SUMMARY` | scripts/limits_probe.py |
+| 116 | `configs=12` | `../artifacts/limits/limits.log` | `^LIMITS` | scripts/limits_probe.py |
+| 117 | `runtime_overrides=['None']` | `../artifacts/limits/limits.log` | `^LIMITS` | scripts/limits_probe.py |
+| 118 | `animation_overrides=['None']` | `../artifacts/limits/limits.log` | `^LIMITS` | scripts/limits_probe.py |
+| 119 | `uniform_multiplier=True` | `../artifacts/limits/limits.log` | `^LIMITS` | scripts/limits_probe.py |
+| 120 | `always_keeps_last=True` | `../artifacts/limits/limits.log` | `^FRAMES` | scripts/limits_probe.py |
+| 121 | `TIME_BUDGET` | `../artifacts/limits/limits.log` | `^T-zero` | scripts/limits_probe.py |

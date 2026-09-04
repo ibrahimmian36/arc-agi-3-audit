@@ -5,7 +5,7 @@ ls20 levels 1 and 2, then a breadth sweep of level 1 across the public set,
 then a play-based probe of all 25, then a lower-bound check on the published
 human baselines, then a probe of the scoring pipeline that feeds the formula, then a probe of how
 far its aggregation defect reaches, then a ledger of what the client puts on the
-wire). Status: the scoring rule (reference 3), the benchmarking
+wire, then the run-level policies around a run). Status: the scoring rule (reference 3), the benchmarking
 harness's action budget, and two levels of one public environment (reference
 1) are audited and written up below; the per-level baselines (reference 2)
 are recovered and characterised; ls20 levels 3–7, the other 24 public
@@ -75,6 +75,8 @@ certifies the scorer.
 | A game id differing only by version | 1 planted scorecard | the environment scores `0.0` with `No Matching EnvironmentInfo found` | `artifacts/aggregation/aggregation.log` |
 | Resets the harness issues on the agent's behalf, and what they cost | 7 scripted harness runs | an agent that chose 16 actions is counted 19: `forced=3 chosen=16`, `harness_counter=19` | `artifacts/wire/wire.log` |
 | A retried model call reaching the environment twice | the harness's own retry path plus 7 runs | `RETRY isolated=True`; `one_environment_call_per_counted_action=True` | `artifacts/wire/wire.log` |
+| One intended action reaching the server twice | 4 failure modes of the remote wrapper | `max_attempts_per_intended_action=1` | `artifacts/limits/limits.log` |
+| Run-level limits varying between entrants | all 12 shipped configurations | `configs=12`, `runtime_overrides=['None']`, `animation_overrides=['None']`, `uniform_multiplier=True` | `artifacts/limits/limits.log` |
 | Double-advance (finding F3) reachability | every transition of both levels | `"double_advance_actions": 0` on each | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Peak memory of the enumeration | 2 levels | under 300 MB on both, against `"max_rss_mb_cap": 3500.0`; the exact figure varies run to run and is checked as a bound, not a literal | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Re-run byte identity | scorer, harness, recorder | identical (`tests/test_scorer_probe.py`, `tests/test_harness_probe.py`, `tests/test_recorder.py::test_m8_byte_identity`) | suite |
@@ -513,6 +515,39 @@ reaches the server, so the natural reading is that it begins the play there too.
 We record the traffic (`construction=1` in every run, `on_wire` exceeding
 `harness_counter` by exactly one) and leave the server's treatment unknown.
 
+**Negative worth keeping: one intended action is sent exactly once.** The
+classic way a client inflates its own action count is to resend after a lost
+response, which would have the server count two actions for one intent. The
+remote wrapper does not. Driven with a transport that records every attempt and
+opens no socket, it makes exactly one attempt under a connection error, a read
+timeout after the request was sent, a server error, and a well-formed empty
+response: `max_attempts_per_intended_action=1`. On the three failures it returns
+nothing rather than retrying, which ends that environment's run with an API
+error. Whether a server would deduplicate a resend is not observable and is not
+claimed; the point is that the client never produces one.
+
+**Negative worth keeping: the run-level limits are the same for every shipped
+entrant.** Besides the action budget, a run also stops on a wall-clock limit.
+That limit is not in the report. It is, however, uniform: across
+`configs=12` shipped model configurations, `runtime_overrides=['None']` and
+`animation_overrides=['None']`, and every configuration sets the same action
+multiplier (`uniform_multiplier=True`), so the base value of twelve hours per
+environment applies to all of them. A cutoff that differed between entrants
+would matter a great deal; one that is uniform and set at twelve hours for a
+single environment is unlikely to bind. We exercised the branch by setting the
+limit rather than by waiting: at zero the run exits on `TIME_BUDGET` having
+taken no actions. Reported as an undocumented limit that we could not show has
+an effect, rather than as a finding.
+
+**Negative worth keeping: the frame cap subsamples, it does not truncate.** The
+harness shows the agent at most seven frames per action. It selects them evenly
+across the animation and always includes the last, so the settled frame an agent
+must reason about is never dropped: `always_keeps_last=True` across every
+combination probed, including a cap of one against twenty frames. Whether the
+humans who set the baselines saw more is not establishable from the published
+material, which does not describe what they were shown, so we do not make the
+comparison.
+
 **Negative worth keeping: a retried model call never reaches the environment.**
 The harness retries a failed model call up to three times, which would spend
 budget if a retry re-sent the action. It does not. The retry loop contains no
@@ -670,6 +705,7 @@ done
 .venv/bin/python scripts/score_pipeline_probe.py
 .venv/bin/python scripts/aggregation_probe.py
 .venv/bin/python scripts/wire_probe.py
+.venv/bin/python scripts/limits_probe.py
 ../audit-kit/scripts/report_check.sh docs/claims.json
 ```
 

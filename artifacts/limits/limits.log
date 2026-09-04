@@ -1,0 +1,10 @@
+LIMITS configs=12 base_runtime_seconds=43200 runtime_overrides=['None'] animation_overrides=['None'] multiplier_values=['5.0'] uniform_multiplier=True
+T-zero       runtime_seconds=0.0 exit=TIME_BUDGET actions=0 score=0.0
+T-negative   runtime_seconds=-1.0 exit=TIME_BUDGET actions=0 score=0.0
+T-ample      runtime_seconds=3600.0 exit=AGENT_ERROR actions=4 score=6.666666667
+RESEND connection_error     attempts=1 returned_none=True
+RESEND timeout_after_send   attempts=1 returned_none=True
+RESEND server_error         attempts=1 returned_none=True
+RESEND empty_ok             attempts=1 returned_none=False
+FRAMES max_dropped=19 (produced=20 cap=1 shown=1) always_keeps_last=True
+SUMMARY max_attempts_per_intended_action=1 peak_rss_mb_under_500=True

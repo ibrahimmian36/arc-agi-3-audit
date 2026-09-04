@@ -803,5 +803,54 @@
   "log": "../artifacts/wire/wire.log",
   "pattern": "^W1 ",
   "by": "scripts/wire_probe.py"
+ },
+ {
+  "value": "max_attempts_per_intended_action=1",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/limits/limits.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/limits_probe.py"
+ },
+ {
+  "value": "configs=12",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/limits/limits.log",
+  "pattern": "^LIMITS",
+  "by": "scripts/limits_probe.py"
+ },
+ {
+  "value": "runtime_overrides=['None']",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/limits/limits.log",
+  "pattern": "^LIMITS",
+  "by": "scripts/limits_probe.py"
+ },
+ {
+  "value": "animation_overrides=['None']",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/limits/limits.log",
+  "pattern": "^LIMITS",
+  "by": "scripts/limits_probe.py"
+ },
+ {
+  "value": "uniform_multiplier=True",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/limits/limits.log",
+  "pattern": "^LIMITS",
+  "by": "scripts/limits_probe.py"
+ },
+ {
+  "value": "always_keeps_last=True",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/limits/limits.log",
+  "pattern": "^FRAMES",
+  "by": "scripts/limits_probe.py"
+ },
+ {
+  "value": "TIME_BUDGET",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/limits/limits.log",
+  "pattern": "^T-zero",
+  "by": "scripts/limits_probe.py"
  }
 ]

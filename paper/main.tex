@@ -302,14 +302,30 @@ level the agent died on beyond the loss of progress itself. It compounds
 \S\ref{sec:resets}: the human baselines' treatment of resets is unknown, and
 here the agent is additionally charged for resets it never chose.
 
-Three negatives from the same instrument are worth recording. A retried model
-call never reaches the environment: the harness's retry path contains no call
-that does, and across every scripted run the number of environment calls equals
-the number of actions counted. A level that advances on the last action the
-budget permits is not cut off. And the reset the wrapper issues when the
-environment is constructed goes on the wire but is counted by neither the
-harness nor the local scorer, which treats it as beginning a play; the server's
-treatment of it is unknown.
+Several negatives from the same instruments are worth recording, because each
+rules out a way a client can distort its own score. A retried model call never
+reaches the environment: the harness's retry path contains no call that does,
+and across every scripted run the number of environment calls equals the number
+of actions counted. One intended action is sent exactly once: driven with a
+transport that records every attempt and opens no socket, the remote wrapper
+makes a single attempt under a connection error, a read timeout after the
+request was sent, a server error and an empty response, so it never has the
+server count two actions for one intent. A level that advances on the last
+action the budget permits is not cut off. The frame cap subsamples evenly rather
+than truncating and always keeps the last frame, so the settled frame is never
+dropped; whether the humans who set the baselines saw more is not establishable
+from the published material and we do not compare. And the reset the wrapper
+issues when the environment is constructed goes on the wire but is counted by
+neither the harness nor the local scorer, which treats it as beginning a play;
+the server's treatment of it is unknown.
+
+One further limit deserves mention without being a finding. Besides the action
+budget, a run also stops on a wall-clock limit that the report does not describe.
+It is uniform: none of the twelve shipped model configurations overrides it or
+the frame cap, and all set the same action multiplier, so the base of twelve
+hours for a single environment applies to every entrant. We entered the branch
+by setting the limit to zero rather than by waiting, and confirmed it ends a run,
+but at twelve hours per environment we could not show it binds.
 
 \subsection{An unreached edge in the scorer}
 

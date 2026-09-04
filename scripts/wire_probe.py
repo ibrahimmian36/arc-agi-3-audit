@@ -46,7 +46,7 @@ LOSE_L1 = ["ACTION4"] * 4           # and lost by four ACTION4
 
 
 def run(script: list[str], budget_multiplier: float = MULT,
-        budgets: list[int] | None = None) -> dict:
+        budgets: list[int] | None = None, runtime_seconds: float | None = None) -> dict:
     """Drive the harness's real loop and record the wire ledger."""
     lg = logging.getLogger("wire"); lg.setLevel(logging.CRITICAL)
     logging.getLogger("benchmarking").setLevel(logging.CRITICAL)
@@ -68,6 +68,11 @@ def run(script: list[str], budget_multiplier: float = MULT,
     if budgets is not None:
         agent._level_action_budgets = list(budgets)
         agent.MAX_ACTIONS = sum(budgets)
+    if runtime_seconds is not None:
+        # The wall-clock cutoff is entered by setting the limit, never by
+        # waiting: a probe that sleeps spends the machine's time proving that a
+        # clock advances.
+        agent.MAX_RUNTIME_SECONDS = runtime_seconds
 
     # Tag each action by who chose it, using the harness's own rule. Wrap
     # _resolve_action, which runs exactly once per action: wrapping
@@ -111,6 +116,7 @@ def run(script: list[str], budget_multiplier: float = MULT,
                   forced=sum(1 for w in ledger if w["kind"] == "forced"),
                   chosen=sum(1 for w in ledger if w["kind"] == "chosen"))
     return dict(budgets=agent._level_action_budgets, counts=counts,
+                runtime_seconds=agent.MAX_RUNTIME_SECONDS,
                 harness_action_counter=agent.action_counter,
                 take_action_calls=env_calls["take_action"],
                 card_actions=card["actions"], card_resets=card["resets"],
