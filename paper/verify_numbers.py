@@ -91,6 +91,13 @@ CLAIMS: list[tuple[str, str, Path, str]] = [
     ("a factor of\n45.0", "45.0", ART / "pipeline/pipeline.log", r"^Q2 .*ratio=([0-9.]+)"),
     ("from 100 to\n83.801652893", "83.801652893", ART / "pipeline/pipeline.log",
      r"^Q4 .*toolkit_total=([0-9.]+)"),
+    # --- aggregation scope ---
+    ("remote fetch (server supplies the scorecard)", "remote fetch (server supplies the scorecard)",
+     ART / "aggregation/aggregation.log", r"^MODE online\s+score_produced_by=(.+)$"),
+    ("gives a total of 100.0 where the documented rule over four gives 75.0",
+     "100.0", ART / "aggregation/aggregation.log", r"^D3 .*toolkit_total=([0-9.]+)"),
+    ("over four gives 75.0", "75.0", ART / "aggregation/aggregation.log",
+     r"^D3 .*documented_total=([0-9.]+)"),
     # --- replays ---
     ("lists ten repositories", "10", ART / "replays/availability.log", r"github_repos=(\d+)"),
     ("lists three\ndatasets", "3", ART / "replays/availability.log", r"huggingface_datasets=(\d+)"),

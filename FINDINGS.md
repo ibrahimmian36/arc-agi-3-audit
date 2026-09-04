@@ -3,8 +3,8 @@
 Millennium Research, 2026-09-03 (scorer, harness) and 2026-09-04 (environment
 ls20 levels 1 and 2, then a breadth sweep of level 1 across the public set,
 then a play-based probe of all 25, then a lower-bound check on the published
-human baselines, then a probe of the scoring pipeline that feeds the formula).
-Status: the scoring rule (reference 3), the benchmarking
+human baselines, then a probe of the scoring pipeline that feeds the formula, then a probe of how
+far its aggregation defect reaches). Status: the scoring rule (reference 3), the benchmarking
 harness's action budget, and two levels of one public environment (reference
 1) are audited and written up below; the per-level baselines (reference 2)
 are recovered and characterised; ls20 levels 3–7, the other 24 public
@@ -69,6 +69,9 @@ certifies the scorer.
 | The 342 human replays announced 2026-04-14 | GitHub org and HuggingFace author | `located=False`; `announced_link_status=403` | `artifacts/replays/availability.log` |
 | Aggregation denominator: 3 environments played of a 135-environment set | 1 planted scorecard | toolkit reports `toolkit_total=100.0`, the documented rule gives `documented_total=2.222222222`, a `ratio=45.0` | `artifacts/pipeline/pipeline.log` |
 | A level RESET charged to the agent's per-level action count | 1 planted scorecard | four resets take an otherwise perfect environment from 100 to `83.801652893` | `artifacts/pipeline/pipeline.log` |
+| Which code path scores a run | 4 operation modes | offline and normal compute locally; `online` and `competition` are `remote fetch (server supplies the scorecard)` | `artifacts/aggregation/aggregation.log` |
+| An environment that produces no card leaves the denominator | 1 planted scorecard | three of four played gives `toolkit_total=100.0` against `documented_total=75.0` | `artifacts/aggregation/aggregation.log` |
+| A game id differing only by version | 1 planted scorecard | the environment scores `0.0` with `No Matching EnvironmentInfo found` | `artifacts/aggregation/aggregation.log` |
 | Double-advance (finding F3) reachability | every transition of both levels | `"double_advance_actions": 0` on each | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Peak memory of the enumeration | 2 levels | under 300 MB on both, against `"max_rss_mb_cap": 3500.0`; the exact figure varies run to run and is checked as a bound, not a literal | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Re-run byte identity | scorer, harness, recorder | identical (`tests/test_scorer_probe.py`, `tests/test_harness_probe.py`, `tests/test_recorder.py::test_m8_byte_identity`) | suite |
@@ -156,17 +159,48 @@ toolkit reports `toolkit_total=100.0` where the documented rule gives
 agree exactly.
 
 This is the first finding in this audit that changes a number rather than a
-document, and it needs three qualifications stated in the same breath. The
-official leaderboard is computed server-side and is not observable to us; we
-make no claim about it. The official harness plays the full set by default
-(`games = full_games[:]` unless `--game` is passed), so an official run is not
-exposed. And the documentation presents local scorecards as a convenience rather
-than a benchmark submission. The exposure is therefore to anyone who runs a
-subset of environments and quotes the toolkit's `score` field as a benchmark
-number, which the report's own definition would place 45 times lower in the case
-above. Classification: scorer defect in the public toolkit, or a naming
-collision between two documented quantities, depending on whether the field is
-meant to be the benchmark metric. Either way a reader can be badly misled.
+document, and its scope is now measured rather than assumed. Running
+`Arcade.get_scorecard` under each operation mode with a transport that refuses
+to open a socket shows where the number comes from: `offline` and `normal`
+compute it locally through this arithmetic, while `online` and `competition`
+are a `remote fetch (server supplies the scorecard)`. The official benchmarking
+harness constructs the toolkit as
+`Arcade(operation_mode=OperationMode.ONLINE)`, so this arithmetic never runs for
+an official run. That is a stronger and more accurate reason than the one we
+first gave, which was that the harness plays the whole set.
+
+The exposure is to the local path, and it is not hypothetical: the toolkit's own
+minimal example in its README constructs `Arcade()` --- the default, which is
+`normal` --- plays a single environment and prints `scorecard.score`. Following
+the quickstart on one environment prints that environment's score where the
+report's definition gives it divided by the number of environments in the set.
+
+We make no claim about the server-side scorer, the official leaderboard, or any
+particular published result; none of them is observable to us. Classification:
+scorer defect on the local path of the public toolkit, or a naming collision
+between two documented quantities, depending on whether that field is meant to
+be the benchmark metric. Either way a reader can be badly misled.
+
+**F10 --- The denominator loses an environment that fails, not one that scores
+zero.** Our first statement of F8 supposed that a run covering the whole set is
+safe. It is not, on the local path, because the divisor counts environments that
+produced a card. Planting three environments played perfectly and a fourth that
+produced no card at all --- a failure, a skip, a filtered id --- gives
+`toolkit_total=100.0` where the documented rule over the four gives
+`documented_total=75.0`. An environment that produces a card and completes
+nothing, and one that is opened but never played, both stay in the divisor and
+give `75.0` correctly. So the boundary is between a card that exists and one
+that does not, and only the second inflates the total. Same scope as F8: the
+local path only.
+
+**F11 --- A version-only difference in a game id scores the environment zero.**
+Environment information is matched by full game id including version. A
+scorecard recorded against `aa00-v1` and scored against a listing containing
+`aa00-v2` scores that environment `0.0`, with the message `No Matching
+EnvironmentInfo found`. The control, matching ids, scores `100.0`. This one
+moves a score down rather than up, and it is a plausible accident: an
+environment version refreshing between a run and its scoring would silently zero
+it. The scorer does say so in a message, which a caller may not read.
 
 **F9 — Documentation gap with a score effect: resets are charged to the agent,
 and the human side is unknown.** `Card.inc_reset_count` increments both the reset
@@ -442,6 +476,12 @@ the documentation says the overall score is the average of the best score for
 each environment, so nothing is miscomputed; the pairing displayed alongside it
 is simply not from one run.
 
+**Negative worth keeping: reusing a guid does not merge two plays.** The card
+resolves a guid by scanning its list backwards, which could have merged two runs
+into one and mixed their action counts. Two plays sharing a guid are still
+recorded as two plays with separate action counts, and the environment scores
+the same as the control with distinct guids.
+
 ## Negatives (checked, found consistent)
 
 - Scorer equals the documented prose rule on P1, P2a, P2b, P2c, P3a, P3b (no
@@ -579,6 +619,7 @@ done
 .venv/bin/python scripts/min_actions.py --levels 1 2 3 --max-states 400000 --max-seconds 120 --max-rss-mb 2500
 .venv/bin/python scripts/replay_availability.py
 .venv/bin/python scripts/score_pipeline_probe.py
+.venv/bin/python scripts/aggregation_probe.py
 ../audit-kit/scripts/report_check.sh docs/claims.json
 ```
 

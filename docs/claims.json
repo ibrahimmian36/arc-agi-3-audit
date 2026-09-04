@@ -740,5 +740,33 @@
   "log": "../artifacts/pipeline/pipeline.log",
   "pattern": "^Q4 ",
   "by": "scripts/score_pipeline_probe.py"
+ },
+ {
+  "value": "remote fetch (server supplies the scorecard)",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/aggregation/aggregation.log",
+  "pattern": "^MODE online",
+  "by": "scripts/aggregation_probe.py"
+ },
+ {
+  "value": "toolkit_total=100.0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/aggregation/aggregation.log",
+  "pattern": "^D3 ",
+  "by": "scripts/aggregation_probe.py"
+ },
+ {
+  "value": "documented_total=75.0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/aggregation/aggregation.log",
+  "pattern": "^D3 ",
+  "by": "scripts/aggregation_probe.py"
+ },
+ {
+  "value": "No Matching EnvironmentInfo found",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/aggregation/aggregation.log",
+  "pattern": "^S1 ",
+  "by": "scripts/aggregation_probe.py"
  }
 ]

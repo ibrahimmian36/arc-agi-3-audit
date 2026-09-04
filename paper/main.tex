@@ -30,11 +30,14 @@ reads each disagreement before it is called anything.
 
 We find no defective environment, and the level-scoring formula computes what its
 prose defines. We do find one arithmetic defect above that formula and four
-documentation problems. The public toolkit averages environment scores over the
-environments a scorecard contains, where the report defines the total as a sum
-over environment scores divided by the total number of environments: a scorecard
-covering three environments of a 135-environment set reports $100\%$ where the
-documented rule gives $2.22\%$. The
+documentation problems. On the toolkit's local scoring path --- the one its own quickstart uses ---
+environment scores are averaged over the environments a scorecard contains,
+where the report defines the total as divided by the total number of
+environments: a scorecard covering three environments of a 135-environment set
+reports $100\%$ where the documented rule gives $2.22\%$, and an environment
+that fails leaves the divisor rather than scoring zero. The official harness
+runs the toolkit in a mode where the server supplies the scorecard, so that
+arithmetic does not run for an official run. The
 technical report's Equation~(1) caps the efficiency ratio before squaring,
 permitting a per-level score of $132.25\%$, where its own prose, the
 documentation and the code all cap the score at $115\%$. The five-times action
@@ -220,15 +223,39 @@ total of $100.0$ where the documented rule gives $2.222222222$, a factor of
 $45.0$. Played over a whole set the two agree exactly, so the difference is
 precisely the partial-coverage case.
 
-Three qualifications belong in the same breath. The official leaderboard is
-computed server-side, is not observable to us, and is not claimed to match. The
-official harness plays the whole set unless told otherwise, so an official run is
-not exposed to this. And the documentation presents local scorecards as a
-convenience rather than a submission. What remains is that a reader who runs a
-subset --- during development, or to report a result on the public environments
-alone --- and quotes the toolkit's score field has a number the report's own
-definition would place far lower. This is the one finding in this audit that
-changes an arithmetic result rather than a document.
+Which runs this reaches is measured rather than assumed. Calling
+\code{Arcade.get\_scorecard} under each operation mode, with a transport that
+refuses to open a socket, identifies where the number comes from: \code{offline}
+and \code{normal} compute it locally through this arithmetic, while
+\code{online} and \code{competition} take a
+\emph{remote fetch (server supplies the scorecard)}. The official benchmarking
+harness constructs the toolkit as
+\code{Arcade(operation\_mode=OperationMode.ONLINE)}, so this arithmetic does not
+run for an official run at all. The server-side scorer is not observable to us
+and we make no claim about it, about the official leaderboard, or about any
+published result.
+
+The exposure is the local path, and it is not hypothetical. The toolkit's own
+minimal example constructs \code{Arcade()} --- the default mode is
+\code{normal} --- plays a single environment and prints \code{scorecard.score}.
+Following the quickstart on one environment prints that environment's score
+where the report's definition gives it divided by the size of the set.
+
+A second aspect sharpens it. Our first reading supposed that covering the whole
+set is safe; on the local path it is not, because the divisor counts
+environments that produced a card. Three environments played perfectly plus a
+fourth that produced no card --- a failure, a skip, an id that did not match ---
+gives a total of $100.0$ where the documented rule over four gives $75.0$. An
+environment that produces a card and completes nothing, and one opened but never
+played, both remain in the divisor and give $75.0$ correctly. The boundary is
+between a card that exists and one that does not.
+
+Relatedly, environment information is matched by full game identifier including
+version. A scorecard recorded against one version and scored against a listing
+carrying another scores that environment $0.0$, with the message
+\emph{No Matching EnvironmentInfo found}. That moves a score down rather than
+up, and a version refreshing between a run and its scoring would silently zero
+it.
 
 \subsection{Resets are charged to the agent, and the human side is unknown}
 \label{sec:resets}

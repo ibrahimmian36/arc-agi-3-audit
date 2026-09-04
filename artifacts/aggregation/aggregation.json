@@ -1,0 +1,176 @@
+{
+ "denominator": [
+  {
+   "documented_total": 100.0,
+   "environment_scores": {
+    "aa00": 100.0,
+    "bb00": 100.0,
+    "cc00": 100.0
+   },
+   "environments_in_scorecard": 3,
+   "id": "D1",
+   "messages": {
+    "aa00": null,
+    "bb00": null,
+    "cc00": null
+   },
+   "note": "three environments played perfectly, set size 3 (the Phase 5 baseline)",
+   "set_size": 3,
+   "toolkit_total": 100.0
+  },
+  {
+   "documented_total": 2.222222222,
+   "environment_scores": {
+    "aa00": 100.0,
+    "bb00": 100.0,
+    "cc00": 100.0
+   },
+   "environments_in_scorecard": 3,
+   "id": "D2",
+   "messages": {
+    "aa00": null,
+    "bb00": null,
+    "cc00": null
+   },
+   "note": "the same three, but the set has 135 environments",
+   "set_size": 135,
+   "toolkit_total": 100.0
+  },
+  {
+   "documented_total": 75.0,
+   "environment_scores": {
+    "aa00": 100.0,
+    "bb00": 100.0,
+    "cc00": 100.0
+   },
+   "environments_in_scorecard": 3,
+   "id": "D3",
+   "messages": {
+    "aa00": null,
+    "bb00": null,
+    "cc00": null
+   },
+   "note": "three of four played; the fourth never produced a card (a failure or a skip)",
+   "set_size": 4,
+   "toolkit_total": 100.0
+  },
+  {
+   "documented_total": 75.0,
+   "environment_scores": {
+    "aa00": 100.0,
+    "bb00": 100.0,
+    "cc00": 100.0,
+    "dd00": 0.0
+   },
+   "environments_in_scorecard": 4,
+   "id": "D4",
+   "messages": {
+    "aa00": null,
+    "bb00": null,
+    "cc00": null,
+    "dd00": null
+   },
+   "note": "four played; the fourth completed nothing",
+   "set_size": 4,
+   "toolkit_total": 75.0
+  },
+  {
+   "documented_total": 75.0,
+   "environment_scores": {
+    "aa00": 100.0,
+    "bb00": 100.0,
+    "cc00": 100.0,
+    "dd00": 0.0
+   },
+   "environments_in_scorecard": 4,
+   "id": "D5",
+   "messages": {
+    "aa00": null,
+    "bb00": null,
+    "cc00": null,
+    "dd00": null
+   },
+   "note": "four opened; the fourth's play never began",
+   "set_size": 4,
+   "toolkit_total": 75.0
+  }
+ ],
+ "modes": [
+  {
+   "detail": 0.0,
+   "mode": "offline",
+   "score_produced_by": "local computation (EnvironmentScorecard.from_scorecard)"
+  },
+  {
+   "detail": 0.0,
+   "mode": "normal",
+   "score_produced_by": "local computation (EnvironmentScorecard.from_scorecard)"
+  },
+  {
+   "detail": "GET /api/scorecard",
+   "mode": "online",
+   "score_produced_by": "remote fetch (server supplies the scorecard)"
+  },
+  {
+   "detail": "GET /api/scorecard",
+   "mode": "competition",
+   "score_produced_by": "remote fetch (server supplies the scorecard)"
+  }
+ ],
+ "secondary": [
+  {
+   "environments": {
+    "aa00-v1": 0.0
+   },
+   "id": "S1",
+   "messages": {
+    "aa00-v1": "No Matching EnvironmentInfo found for aa00-v1"
+   },
+   "note": "the scorecard's game id differs from the listing only by version",
+   "total": 0.0
+  },
+  {
+   "environments": {
+    "aa00-v1": 100.0
+   },
+   "id": "S2",
+   "messages": {
+    "aa00-v1": null
+   },
+   "note": "the same game id in both, as a control",
+   "total": 100.0
+  },
+  {
+   "actions": [
+    50,
+    20
+   ],
+   "environments": {
+    "aa00": 100.0
+   },
+   "guids": [
+    "shared",
+    "shared"
+   ],
+   "id": "S3",
+   "levels_completed": [
+    5,
+    2
+   ],
+   "note": "two plays sharing one guid",
+   "total": 100.0,
+   "total_plays": 2
+  },
+  {
+   "environments": {
+    "aa00": 100.0
+   },
+   "id": "S4",
+   "messages": {
+    "aa00": null
+   },
+   "note": "two plays with distinct guids, as a control",
+   "total": 100.0
+  }
+ ]
+}

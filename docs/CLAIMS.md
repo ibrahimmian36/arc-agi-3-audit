@@ -110,3 +110,7 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 103 | `documented_total=2.222222222` | `../artifacts/pipeline/pipeline.log` | `^Q2 ` | scripts/score_pipeline_probe.py |
 | 104 | `ratio=45.0` | `../artifacts/pipeline/pipeline.log` | `^Q2 ` | scripts/score_pipeline_probe.py |
 | 105 | `83.801652893` | `../artifacts/pipeline/pipeline.log` | `^Q4 ` | scripts/score_pipeline_probe.py |
+| 106 | `remote fetch (server supplies the scorecard)` | `../artifacts/aggregation/aggregation.log` | `^MODE online` | scripts/aggregation_probe.py |
+| 107 | `toolkit_total=100.0` | `../artifacts/aggregation/aggregation.log` | `^D3 ` | scripts/aggregation_probe.py |
+| 108 | `documented_total=75.0` | `../artifacts/aggregation/aggregation.log` | `^D3 ` | scripts/aggregation_probe.py |
+| 109 | `No Matching EnvironmentInfo found` | `../artifacts/aggregation/aggregation.log` | `^S1 ` | scripts/aggregation_probe.py |

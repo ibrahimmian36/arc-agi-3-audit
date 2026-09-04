@@ -1,0 +1,14 @@
+MODE offline     score_produced_by=local computation (EnvironmentScorecard.from_scorecard)
+MODE normal      score_produced_by=local computation (EnvironmentScorecard.from_scorecard)
+MODE online      score_produced_by=remote fetch (server supplies the scorecard)
+MODE competition score_produced_by=remote fetch (server supplies the scorecard)
+D1   in_scorecard=3 set_size=3 toolkit_total=100.0 documented_total=100.0 :: three environments played perfectly, set size 3 (the Phase 5 baseline)
+D2   in_scorecard=3 set_size=135 toolkit_total=100.0 documented_total=2.222222222 :: the same three, but the set has 135 environments
+D3   in_scorecard=3 set_size=4 toolkit_total=100.0 documented_total=75.0 :: three of four played; the fourth never produced a card (a failure or a skip)
+D4   in_scorecard=4 set_size=4 toolkit_total=75.0 documented_total=75.0 :: four played; the fourth completed nothing
+D5   in_scorecard=4 set_size=4 toolkit_total=75.0 documented_total=75.0 :: four opened; the fourth's play never began
+S1   total=0.0 envs={'aa00-v1': 0.0} messages={'aa00-v1': 'No Matching EnvironmentInfo found for aa00-v1'} :: the scorecard's game id differs from the listing only by version
+S2   total=100.0 envs={'aa00-v1': 100.0} messages={'aa00-v1': None} :: the same game id in both, as a control
+S3   total=100.0 envs={'aa00': 100.0} plays=2 actions=[50, 20] :: two plays sharing one guid
+S4   total=100.0 envs={'aa00': 100.0} messages={'aa00': None} :: two plays with distinct guids, as a control
+SUMMARY modes=4 denominator_probes=5 secondary_probes=4 peak_rss_mb_under_500=True
