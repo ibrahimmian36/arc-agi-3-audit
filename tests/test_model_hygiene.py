@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL = ROOT / "model" / "scoring.dfy"
-LOG = ROOT / "artifacts" / "oracle" / "check_model.log"
+LOG = ROOT / "artifacts" / "oracle" / "check_scoring.log"
 
 
 def test_no_escape_constructs():
@@ -20,4 +20,5 @@ def test_check_model_passes_and_verified_count_positive():
     log = LOG.read_text()
     m = re.search(r"VERIFY_SUMMARY: verified=(\d+) errors=(\d+)", log)
     assert m and int(m.group(1)) > 0 and int(m.group(2)) == 0, log
+    assert re.search(r"TIMEOUTS: 0", log), "a timed-out obligation is unknown, not discharged"
     assert "MODEL CHECK: PASS" in log
