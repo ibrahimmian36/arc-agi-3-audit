@@ -1,9 +1,0 @@
-g50t   states=219424 edges=270000 win_reachable=None win_depth=None baseline=78 reset=500/500 double_advance=0 truncated=max_seconds peak_rss_mb=211.8 wall_s=301.0
-ls20   states=14337 edges=56772 win_reachable=True win_depth=130 baseline=22 reset=500/500 double_advance=0 truncated=None peak_rss_mb=211.8 wall_s=104.2
-re86   states=291625 edges=1125000 win_reachable=None win_depth=None baseline=26 reset=500/500 double_advance=0 truncated=max_seconds peak_rss_mb=211.8 wall_s=300.5
-tr87   states=167049 edges=275000 win_reachable=None win_depth=None baseline=54 reset=500/500 double_advance=0 truncated=max_seconds peak_rss_mb=211.8 wall_s=301.7
-tu93   states=2609 edges=10180 win_reachable=True win_depth=50 baseline=19 reset=500/500 double_advance=0 truncated=None peak_rss_mb=211.8 wall_s=2.9
-wa30   states=400637 edges=525000 win_reachable=None win_depth=None baseline=71 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=275.2 wall_s=204.5
-tu93   states=2609 edges=10180 win_reachable=True win_depth=50 baseline=19 reset=500/500 double_advance=0 truncated=None peak_rss_mb=211.8 wall_s=2.9
-vc33   SKIPPED advertises the click action, 4096 successors per state
-wa30   states=400637 edges=525000 win_reachable=None win_depth=None baseline=71 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=275.2 wall_s=204.5

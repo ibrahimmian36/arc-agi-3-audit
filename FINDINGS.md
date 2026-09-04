@@ -58,8 +58,8 @@ certifies the scorer.
 | Breadth: environments whose action space can be enumerated at all | 25 | `enumerable=6`, `skipped_click=19` | `artifacts/sweep/summary_L1.log` |
 | Breadth: level-1 enumeration within budget | 6 | `complete=2` (ls20, tu93); 4 stopped at exactly 150,000 states | `artifacts/sweep/sweep_L1.log` |
 | Breadth: RESET restores the level's start state | 3,000 probes across 6 environments | `reset_probes=3000 reset_returns_to_start=3000` | `artifacts/sweep/summary_L1.log` |
-| Breadth: one action advancing the level counter by two (finding F3) | 1,247,448 transitions | `double_advance_actions=0` | `artifacts/sweep/summary_L1.log` |
-| Breadth: peak memory | 6 environments | `peak_rss_mb_max=211.8` against a 2500 MB cap | `artifacts/sweep/summary_L1.log` |
+| Breadth: one action advancing the level counter by two (finding F3) | 1,245,427 transitions | `double_advance_actions=0` | `artifacts/sweep/summary_L1.log` |
+| Breadth: peak memory | 6 environments | `peak_rss_mb_max=202.3` against a 2500 MB cap | `artifacts/sweep/summary_L1.log` |
 | Double-advance (finding F3) reachability | every transition of both levels | `"double_advance_actions": 0` on each | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Peak memory of the enumeration | 2 levels | under 300 MB on both, against `"max_rss_mb_cap": 3500.0`; the exact figure varies run to run and is checked as a bound, not a literal | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Re-run byte identity | scorer, harness, recorder | identical (`tests/test_scorer_probe.py`, `tests/test_harness_probe.py`, `tests/test_recorder.py::test_m8_byte_identity`) | suite |
@@ -195,7 +195,7 @@ ARC-AGI-3 environment rule is by design, and are not reported as defects.
   game has already loaded the next level at that point (`docs/DECISIONS.md`).
 - F3 reachability, dynamic: no single action advanced the level counter by two
   anywhere in either ls20 level's complete graph, nor anywhere in the breadth
-  sweep (`double_advance_actions=0` over 1,247,448 transitions in six
+  sweep (`double_advance_actions=0` over 1,245,427 transitions in six
   environments), so the scorer edge is unreachable everywhere it could be
   checked.
 - F3 reachability, static: every one of the 25 public sources has exactly one
@@ -249,7 +249,7 @@ and the artefacts say so: `win_reachable` is null and no win probability is
 reported when a run was truncated without finding a win.
 
 **Findings: none.** Across `states_examined=616946` states and
-`transitions_examined=1247448` transitions in six environments:
+`transitions_examined=1245427` transitions in six environments:
 
 - No level 1 was shown unwinnable. Both completed environments are winnable.
 - RESET returned exactly to the level's start state on every probe:
@@ -259,6 +259,9 @@ reported when a run was truncated without finding a win.
 - No single action advanced the level counter by two:
   `double_advance_actions=0`. The scorer edge behind finding F3 is unreachable
   everywhere it could be checked.
+- Every environment reports `"unhandled_types": []`: the state key read every
+  attribute of every game by value, so it cannot have merged two states that
+  the game itself distinguishes.
 
 **Why those negatives are worth reading.** A negative only means something if
 the detector could have fired. Both are tested against deliberately broken

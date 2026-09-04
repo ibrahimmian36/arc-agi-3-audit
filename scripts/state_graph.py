@@ -114,6 +114,14 @@ def canon(v, h, depth: int = 0, seen: frozenset = frozenset()) -> None:
     if v is None or isinstance(v, (bool, int, float, str, bytes)):
         h.update(repr(v).encode())
         return
+    if isinstance(v, np.generic):
+        # A numpy scalar (int8, float32, bool_, ...). Read out by value: these
+        # come straight out of the frame arrays, and hashing one by type name
+        # would merge states that differ only in it -- under-fine, which hides
+        # transitions. Found by a reproducibility check that reported int8 as
+        # unhandled.
+        h.update(f"np:{v.dtype.str}:{v.item()!r}".encode())
+        return
     if isinstance(v, np.ndarray):
         h.update(b"ndarray"); h.update(repr(v.shape).encode()); h.update(v.tobytes())
         return
@@ -277,6 +285,7 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
     global ACTIONS
     full_id, g0 = make_game(game, level_index, environments_dir)
     register_module(g0)
+    UNHANDLED.clear()   # per enumeration, or one game's gap is reported against another
     if actions is not None:
         ACTIONS = list(actions)
     t0 = time.time()

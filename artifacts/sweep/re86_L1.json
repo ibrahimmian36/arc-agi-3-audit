@@ -21,7 +21,7 @@
  "max_states": 150000,
  "one_over_states": 6.666666666666667e-06,
  "p_win_random_policy": null,
- "peak_rss_mb": 197.7,
+ "peak_rss_mb": 202.3,
  "reset_checked": 500,
  "reset_mismatches": [],
  "reset_returns_to_start": 500,
@@ -39,7 +39,7 @@
   "status": "PLAY",
   "steps": null
  },
- "rss_at_start_mb": 188.9,
+ "rss_at_start_mb": 185.5,
  "search": "dfs",
  "shortest_win_depth": null,
  "shortest_win_path": null,
@@ -49,10 +49,8 @@
  },
  "truncated": true,
  "truncated_reason": "max_states",
- "unhandled_types": [
-  "int8"
- ],
- "wall_seconds": 145.1,
+ "unhandled_types": [],
+ "wall_seconds": 152.3,
  "win_established": false,
  "win_over_states": 0.0,
  "win_path_found": null,

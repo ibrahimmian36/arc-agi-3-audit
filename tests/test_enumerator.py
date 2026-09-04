@@ -152,3 +152,28 @@ def test_enumeration_is_byte_identical_on_rerun(tmp_path, fixture_actions):
             continue
         assert a[k] == b[k], k
     assert (tmp_path / "a.gz").read_bytes() == (tmp_path / "b.gz").read_bytes()
+
+
+def test_numpy_scalar_attributes_are_hashed_by_value(fixture_actions):
+    """A numpy scalar stored on the game must change the state key. Hashing it
+    by type name would merge states that differ only in it, which hides
+    transitions -- the dangerous direction. A reproducibility check reported
+    exactly this gap for int8."""
+    import numpy as np
+    _, g = SG.make_game("bt11", 0, FIXTURE_ENVS)
+    SG.register_module(g)
+    g._probe = np.int8(1)
+    k1 = SG.state_key(g)
+    g._probe = np.int8(2)
+    k2 = SG.state_key(g)
+    assert k1 != k2, "a numpy scalar attribute did not affect the state key"
+    assert "int8" not in SG.UNHANDLED
+    g._probe = np.float32(1.5)
+    assert SG.state_key(g) not in (k1, k2)
+
+
+def test_unhandled_types_are_reported_not_swallowed(tmp_path, fixture_actions):
+    """Anything the canonicaliser cannot read by value is recorded, so an
+    under-fine key is visible in the artefact instead of silent."""
+    r = enum_fixture(tmp_path)
+    assert "unhandled_types" in r and isinstance(r["unhandled_types"], list)

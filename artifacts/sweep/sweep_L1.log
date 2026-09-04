@@ -1,4 +1,25 @@
-tr87   states=150000 edges=244924 win_reachable=None win_depth=None baseline=54 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=148.0 wall_s=276.2
-g50t   states=150000 edges=185594 win_reachable=None win_depth=None baseline=78 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=186.2 wall_s=193.3
-re86   states=150000 edges=548620 win_reachable=None win_depth=None baseline=26 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=197.7 wall_s=145.1
-wa30   states=150000 edges=201358 win_reachable=None win_depth=None baseline=71 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=197.7 wall_s=79.4
+ar25   SKIPPED advertises the click action, 4102 successors per state
+bp35   SKIPPED advertises the click action, 4099 successors per state
+cd82   SKIPPED advertises the click action, 4101 successors per state
+cn04   SKIPPED advertises the click action, 4101 successors per state
+dc22   SKIPPED advertises the click action, 4100 successors per state
+ft09   SKIPPED advertises the click action, 4096 successors per state
+g50t   states=150000 edges=183483 win_reachable=None win_depth=None baseline=78 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=182.4 wall_s=200.3
+ka59   SKIPPED advertises the click action, 4100 successors per state
+lf52   SKIPPED advertises the click action, 4101 successors per state
+lp85   SKIPPED advertises the click action, 4096 successors per state
+ls20   states=14337 edges=56772 win_reachable=True win_depth=130 baseline=22 reset=500/500 double_advance=0 truncated=None peak_rss_mb=185.5 wall_s=104.5
+m0r0   SKIPPED advertises the click action, 4101 successors per state
+r11l   SKIPPED advertises the click action, 4096 successors per state
+re86   states=150000 edges=548620 win_reachable=None win_depth=None baseline=26 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=202.3 wall_s=152.3
+s5i5   SKIPPED advertises the click action, 4096 successors per state
+sb26   SKIPPED advertises the click action, 4098 successors per state
+sc25   SKIPPED advertises the click action, 4100 successors per state
+sk48   SKIPPED advertises the click action, 4101 successors per state
+sp80   SKIPPED advertises the click action, 4101 successors per state
+su15   SKIPPED advertises the click action, 4097 successors per state
+tn36   SKIPPED advertises the click action, 4096 successors per state
+tr87   states=150000 edges=244924 win_reachable=None win_depth=None baseline=54 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=202.3 wall_s=282.5
+tu93   states=2609 edges=10180 win_reachable=True win_depth=50 baseline=19 reset=500/500 double_advance=0 truncated=None peak_rss_mb=202.3 wall_s=3.1
+vc33   SKIPPED advertises the click action, 4096 successors per state
+wa30   states=150000 edges=201448 win_reachable=None win_depth=None baseline=71 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=202.3 wall_s=81.4

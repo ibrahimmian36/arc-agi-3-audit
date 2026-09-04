@@ -539,7 +539,7 @@
   "by": "scripts/sweep.py"
  },
  {
-  "value": "transitions_examined=1247448",
+  "value": "transitions_examined=1245427",
   "report": "../FINDINGS.md",
   "log": "../artifacts/sweep/summary_L1.log",
   "pattern": "^TOTALS",
@@ -560,7 +560,7 @@
   "by": "scripts/sweep.py"
  },
  {
-  "value": "peak_rss_mb_max=211.8",
+  "value": "peak_rss_mb_max=202.3",
   "report": "../FINDINGS.md",
   "log": "../artifacts/sweep/summary_L1.log",
   "pattern": "^TOTALS",
@@ -586,5 +586,12 @@
   "log": "../artifacts/sweep/tr87_L1.json",
   "pattern": "\"states\"",
   "by": "scripts/sweep.py"
+ },
+ {
+  "value": "\"unhandled_types\": []",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/sweep/g50t_L1.json",
+  "pattern": "\"unhandled_types\"",
+  "by": "scripts/state_graph.py"
  }
 ]

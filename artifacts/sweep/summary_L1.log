@@ -1,2 +1,2 @@
 SUMMARY level=1 environments=25 complete=2 unwinnable=[] reset_mismatch=[] double_advance=[] truncated=['g50t', 're86', 'tr87', 'wa30'] skipped=19 errored=[]
-TOTALS enumerable=6 skipped_click=19 complete=2 states_examined=616946 transitions_examined=1247448 reset_probes=3000 reset_returns_to_start=3000 double_advance_actions=0 peak_rss_mb_max=211.8
+TOTALS enumerable=6 skipped_click=19 complete=2 states_examined=616946 transitions_examined=1245427 reset_probes=3000 reset_returns_to_start=3000 double_advance_actions=0 peak_rss_mb_max=202.3
