@@ -8,3 +8,7 @@ artifacts/oracle/node_modules/
 artifacts/oracle/*.dtr
 artifacts/*/node_modules/
 artifacts/*/*.dtr
+paper/main.txt
+paper/*.aux
+paper/*.log
+paper/*.out

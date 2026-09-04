@@ -1,0 +1,566 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1.2in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\code}[1]{\texttt{#1}}
+
+\title{Auditing the ARC-AGI-3 Public Benchmark:\\
+Scoring Rule, Environments, and Human Baselines}
+\author{Ibrahim Mian \qquad Shayaan Siddique\\[2pt]
+\normalsize Millennium Research\\[2pt]
+\normalsize \texttt{\{ibby,shayaan\}@millenniumresearch.ai}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+ARC-AGI-3 evaluates agents on interactive environments by comparing their
+action counts against per-level human baselines. We audit the public half of
+that apparatus: the 25 public demonstration environments, the open toolkit and
+benchmarking harness, and the published scoring rule. Our method is
+reject-only. We write a machine-verified model of the rule under audit, compile
+it, and run it differentially against the shipped implementation; every
+component either reports a disagreement or reports no disagreement, and a human
+reads each disagreement before it is called anything.
+
+We find no error in what the scorer computes and no defective environment. We do
+find four documentation problems that a careful implementer would trip over. The
+technical report's Equation~(1) caps the efficiency ratio before squaring,
+permitting a per-level score of $132.25\%$, where its own prose, the
+documentation and the code all cap the score at $115\%$. The five-times action
+budget the report describes exists only in the benchmarking harness; the scorer
+applies no cutoff, so a scorecard produced by any other agent is scored without
+it. The published \code{/api/games} schema omits a field the endpoint returns
+and the toolkit reads. And the 342 human replays announced as open source in
+April 2026 could not be located through the Foundation's own public channels.
+We also report one unreached robustness edge in the scorer, and a definitional
+point: for a level whose graph we enumerate exhaustively, the report's stated
+win probability of ``exactly 1 in 355'' matches our computation to three
+significant figures under a random-policy reading it does not state.
+
+Positively, we verify two levels of the public environment \code{ls20} in Dafny
+and find the models and the shipped implementation agree on every one of
+$190{,}560$ transitions; we probe reset behaviour in all 25 environments and
+find that a level reset restores the frame an agent observes on all $18{,}663$
+probes; and we check the published human baselines against exact optima, finding
+all six resolvable levels consistent. Everything is reproducible from a public
+repository at pinned commits.
+\end{abstract}
+
+\section{Introduction}
+
+ARC-AGI-3 \cite{arcagi3} is an interactive-reasoning benchmark: an agent is
+placed in a turn-based environment whose rules are stated nowhere, and must
+discover them. Scores are efficiency ratios. For each level of each environment,
+the agent's action count is compared against a human baseline, the ratio is
+squared and capped, the level scores are weighted by level index, and the
+environment scores are averaged. The benchmark is unusual among evaluation
+suites in how much of it is public: the toolkit, the harness, the example
+agents, 25 of the 135 environments, and a technical report describing the
+scoring rule in detail.
+
+That openness makes an audit possible, and an audit worthwhile. A score under
+this rule depends on three artefacts being what they claim: the environments,
+the human baselines they are measured against, and the scoring code. This paper
+checks all three, as far as each admits checking.
+
+Our position is not adversarial. Benchmarks are infrastructure, and the useful
+service an outside reader can perform is to say precisely which parts have been
+checked, by what method, and what survived. Where we found nothing wrong we say
+so at the same length as where we found something.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+\item A machine-verified model of the published scoring rule, compiled and run
+      differentially against the shipped scorer on preregistered planted traces
+      (Section~\ref{sec:scoring}). The scorer implements the rule as the report's
+      prose states it; four documentation problems and one unreached code edge
+      are reported.
+\item Machine-verified models of two levels of a public environment, agreeing
+      with the shipped implementation on every transition of their complete
+      reachable state graphs (Section~\ref{sec:env}). We also give the first
+      published exhaustive state counts for those levels and check the report's
+      own stated win probability against them.
+\item A measurement of which environments admit state-graph methods at all
+      (six of 25), and reset and level-accounting probes covering all 25
+      (Sections~\ref{sec:sweep} and~\ref{sec:play}).
+\item A check on the published human baselines that requires no access to the
+      human data: a baseline cannot be below the level's optimum, and
+      breadth-first search bounds that optimum from below
+      (Section~\ref{sec:baselines}).
+\end{enumerate}
+
+\section{Scope, and what we did not do}
+
+In scope: the 25 public demonstration environments, the toolkit
+\code{arcprize/ARC-AGI} at commit \code{f12822c}, the harness
+\code{arcprize/arc-agi-3-benchmarking} at \code{1aa78da}, the example agents
+\code{arcprize/ARC-AGI-3-Agents} at \code{4743e7d} (all MIT-licensed), the
+technical report, and the public documentation.
+
+Out of scope, deliberately and throughout: the 55 semi-private and 55 private
+environments. We made no attempt to recover, probe, scrape or infer them. All
+environment execution was local and offline. No component of this work is an
+agent whose purpose is to score on the benchmark; the random player of
+Section~\ref{sec:play} is an instrument for probing reset semantics and never
+attempts to win, and did not win anything.
+
+We audit the \emph{shipped local} artefacts at the pinned commits. The
+server-side scorer that produces the official leaderboard is not observable to
+us, and we make no claim about it.
+
+\section{Method}
+
+Four commitments shape everything below.
+
+\paragraph{Reject-only.} No automated component of this work emits a verdict of
+correctness. Each either reports a disagreement or reports that it found none,
+and a human reads every disagreement and classifies it before it is called
+anything. ``No disagreement on $N$ fixtures'' is a statement about $N$ fixtures.
+
+\paragraph{Preregistration.} The bar, the predictions, and the reading of each
+possible outcome were written down and committed before each measurement.
+Deviations are dated in a decisions file and disclosed. One preregistered
+prediction was wrong and is reported as such in Section~\ref{sec:scoring}.
+
+\paragraph{Machine-verified models, run differentially.} For each rule under
+audit we write a model in Dafny \cite{dafny} whose properties are proved rather
+than tested, compile it to JavaScript, and compare it against the shipped
+implementation on traces recorded from that implementation. A model carries no
+\code{assume}, \code{\{:axiom\}}, \code{\{:verify false\}} or \code{\{:extern\}},
+and a proof obligation that times out is treated as unknown, never as
+discharged. The models of Section~\ref{sec:env} are generated from the shipped
+level data by a script, so a hand edit fails the test suite.
+
+\paragraph{Claims discipline.} Every number in this paper is produced by a
+script into an artefact and registered in a claims file, and a checker verifies
+that each value appears both in the text and on a matching line of the log that
+produced it. The repository ships the scripts, the artefacts and the checker.
+
+\section{The scoring rule}
+\label{sec:scoring}
+
+\subsection{What the rule says}
+
+Report v2 \S4.1 defines the level efficiency score for level $l$ of environment
+$e$, with $a_{l,e}$ the agent's action count and $h_{l,e}$ the human baseline,
+and gives the environment score as a level-index-weighted average subject to a
+cap at the weighted fraction of levels completed. The human baseline is the
+upper-median action count of first-time human players; report v1 said
+second-best, and the change is documented in an April 2026 post
+\cite{humandataset}.
+
+\subsection{An inconsistency between the equation and the prose}
+
+The report typesets the level score as
+\[
+S_{l,e} \;=\; \min\!\left(1.15,\ \frac{h_{l,e}}{a_{l,e}}\right)^{\!2},
+\]
+which caps the \emph{ratio} before squaring and therefore admits a per-level
+score of $1.15^2 = 1.3225$. The same section's prose says the per-level
+efficiency is capped ``at 1.15x human baseline'' and that a level score lies
+between $0\%$ and $115\%$; the documentation says the same; the toolkit's
+changelog records the change from a $100\%$ cap to a $115\%$ cap; and the
+shipped code applies \code{min(score, 115.0)} after squaring. Every artefact
+except the equation caps the score.
+
+The difference is observable. Our planted trace \code{P2c} has one level solved
+in $5$ actions against a baseline of $10$ and three solved in $12$: the shipped
+scorer returns an environment score of \code{49.333333}, the prose reading
+returns the same, and the equation reading returns \code{50.483333}. A level
+solved in $9$ actions against a baseline of $10$ scores \code{115.0} in the
+shipped code and $123.46$ under the equation.
+
+\subsection{The action budget is not part of the scoring rule}
+
+Report v2 \S4.3.1 states an action budget of five times the human baseline per
+level, after which the agent is terminated. We find that budget implemented only
+in the benchmarking harness, where every shipped model configuration sets a
+multiplier of $5.0$ and the per-level budget is enforced in the agent's
+termination test. The scorer applies no cutoff at all. Our planted trace
+\code{P3b}, a level completed in $51$ actions against a baseline of $10$, is
+scored \code{93.589645} by the shipped scorer, where treating the budget as part
+of the rule gives \code{0.000000}.
+
+Neither the documentation's methodology page nor its competition-mode page
+mentions the budget. The consequence is narrow but real: a scorecard computed by
+the toolkit from a run that did not use the official harness --- an example
+agent, a human session, a third-party agent --- is scored without the cutoff the
+report describes.
+
+We verified separately that the harness enforces the budget exactly. Across six
+scripted runs against the toolkit in offline mode, driving the harness's own
+control loop with a scripted model, no level ever exceeded its budget, the
+harness's action counter and the scorecard's agreed on every run, and two runs
+exited on the budget precisely at its boundary.
+
+\subsection{An unreached edge in the scorer}
+
+The engine permits a game to advance the level counter twice within a single
+action. Where that happens, the scorer pairs the $k$-th recorded level
+transition with level $k$ and scores the final level as not completed even
+though the play ends in a win: our trace \code{P8} returns \code{66.666667}
+where the documented rule gives \code{100.000000}.
+
+We then asked whether any public environment can trigger it. Statically, all 25
+sources contain exactly one \code{next\_level()} call site and none is inside a
+loop. Dynamically, we found no such action anywhere: not in either complete
+state graph of Section~\ref{sec:env}, not in the $1{,}245{,}427$ transitions
+enumerated in Section~\ref{sec:sweep}, and not in the $479{,}040$ actions played
+in Section~\ref{sec:play}. We report it as a robustness edge that a guard would
+close, not as a defect with consequences.
+
+\subsection{What the scorer gets right}
+
+On 14 preregistered planted traces --- 13 of which have an oracle value, the
+fourteenth exercising a case the rule leaves undefined --- the shipped scorer
+agrees with our verified model of the prose rule on 12, both on environment
+scores and on every per-level score, disagreeing on one: the double-advance edge
+above. The
+agreements include the $115$ cap, one-indexed level weights, the environment cap
+at the weighted completed fraction, best-of-plays selection, and a level solved
+in exactly the baseline. The model itself discharges 50 proof obligations with
+no errors and no timeouts.
+
+Two smaller documentation items: the code comments beside the cap still say
+``max 100'', predating the change to $115$; and the published response schema for
+\code{/api/games} omits \code{baseline\_actions}, a field the endpoint does
+return and the toolkit reads from it.
+
+\paragraph{A wrong prediction, disclosed.} We preregistered that the harness
+would issue and count an initial reset, making it one action stricter than the
+scorer on the first level. It does not: both toolkit wrappers issue that reset
+inside environment construction, and neither the harness nor the scorecard
+counts it. We added a further probe to exercise the boundary the original one
+had missed, and report the corrected picture: the two counts agree.
+
+\section{Environment models}
+\label{sec:env}
+
+\subsection{Method}
+
+We selected one public environment by a rule fixed in advance: the fewest lines
+of transition logic among environments with at least six levels and a mechanic
+described in the report or documentation. Only \code{ls20} satisfies the last
+clause --- the report shows its first level as a state graph and states a win
+probability for it --- so it was selected even though eleven environments have
+smaller sources. All 25 environment sources are identifier-obfuscated, so the
+models are written from behaviour and structure rather than from names.
+
+For each level we extract the constants from the shipped level object by script
+(walls, start, goal, modifier tiles, energy pickups, step budget, decrement,
+lives), hand-write the transition rules from the shipped step function at the
+rule level, and generate a Dafny model. We then enumerate the level's reachable
+state graph directly from the shipped game, and compare the compiled model
+against the implementation on every transition of that graph and on 30 recorded
+traces.
+
+\subsection{Results}
+
+Table~\ref{tab:ls20} summarises. Both models verify with no errors and no
+timeouts, and agree with the shipped implementation everywhere.
+
+\begin{table}[t]
+\centering
+\begin{tabular}{lrr}
+\toprule
+& \code{ls20} level 1 & \code{ls20} level 2 \\
+\midrule
+States in the complete reachable graph & 14{,}337 & 34{,}739 \\
+Transitions & 56{,}772 & 133{,}788 \\
+Minimum actions to complete & 13 & 45 \\
+Published human baseline & 22 & 123 \\
+Proof obligations discharged (0 errors) & 17 & 26 \\
+Disagreements, model vs implementation, all transitions & 0 & 0 \\
+Trace steps compared (30 traces) & 3{,}208 & 1{,}903 \\
+Disagreements on traces & 0 & 0 \\
+\code{RESET} returns to the level start & 500/500 & 500/500 \\
+Actions advancing the level counter by two & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\caption{Two levels of the public environment \code{ls20}, audited against
+machine-verified models of their transition rules.}
+\label{tab:ls20}
+\end{table}
+
+The verified properties are: the level is winnable from its own start state,
+witnessed by the shortest action sequence the enumeration found and replayed
+through the model with every intermediate state asserted equal to the state the
+shipped game is actually in; no action leaves the legal state space; and reset
+restores the start. The first is a stronger statement than ``the run ends in a
+win'': if model and implementation parted company anywhere along the winning
+path, it would not verify.
+
+\subsection{The report's stated win probability}
+
+Figure~3 of the report shows the first level of \code{ls20} as a graph, notes
+``three repeating states -- an artifact of the three-life mechanic'', and states
+that the win probability for that level is ``exactly 1 in 355''. The term is not
+defined. Our exhaustive enumeration gives a graph that is indeed three copies of
+one structure, one per remaining life, and under the reading that seems intended
+--- the probability that a uniformly random policy over the four movement
+actions reaches the win before a game over, starting from the level's reset
+state --- we compute \code{0.002813847150161035}, that is 1 in
+\code{355.38533070027296}. That agrees to three significant figures; ``exactly''
+is a rounding. Two other readings we computed, one over the number of states and
+the winning fraction of states, both give 1 in $14{,}337$. We report this as a
+definitional gap rather than an error: the environment agrees with the claim
+under its natural reading.
+
+\subsection{What counts as a state}
+
+A state count depends on the identity function used, and the choice is not
+neutral. At the rule level the three-life structure is symmetric on both levels:
+distinct states by remaining life are $4732/4731/4731$ on level~1 and
+$7400/7399/7399$ on level~2. Our enumerator's raw key, which is deliberately
+finer than the rendered frame, reports $7400/13024/13024$ on level~2. The cause
+is that a life loss re-appends previously consumed pickups to the end of the
+level's sprite list, so a run that consumed one and a run that did not are
+distinguishable by internal ordering while rendering identically; level~1 has no
+pickups and is symmetric under both measures. This changes no transition and no
+absorption probability, but it is a caveat on any published state count for
+these environments, including the report's figure and our own: a frame hash, an
+engine-state hash and a rule-level abstraction give three different answers.
+
+\section{Which environments admit state-graph methods}
+\label{sec:sweep}
+
+Before enumerating anything we measured what is enumerable. Nineteen of the 25
+public environments advertise the click action, whose $x$ and $y$ each range
+over $0$ to $63$, giving at least $4{,}096$ successors per state. Exhaustive
+enumeration is out of reach for those within any reasonable budget. The
+remaining six --- \code{ls20}, \code{tr87}, \code{tu93}, \code{g50t},
+\code{re86}, \code{wa30} --- advertise four or five simple actions.
+
+This is a measured property of the advertised action space, taken from the
+shipped games, and it bounds any state-graph method applied to ARC-AGI-3, ours
+and the published ones alike.
+
+For those six we enumerated level 1 by depth-first search, which holds only the
+objects along one path and so is bounded by depth rather than by the width of a
+search layer. Two completed within budget, \code{ls20} at $14{,}337$ states and
+\code{tu93} at $2{,}609$; the other four stopped at a deterministic cap of
+$150{,}000$ states, which establishes nothing about reachability either way and
+is reported as such. Across $616{,}946$ states and $1{,}245{,}427$ transitions:
+no level was shown unwinnable, \code{RESET} returned to the level's start on all
+$3{,}000$ probes, and no action advanced the level counter by two.
+
+\section{Reset behaviour across all 25 environments}
+\label{sec:play}
+
+Two of the three questions the enumeration answers need no state graph, so they
+can be asked of the nineteen environments enumeration cannot reach: does
+\code{RESET} restore the state the level began in, and can one action advance
+the level counter by two. We answer both by playing each environment at random
+inside its own advertised action set, sampling click coordinates uniformly
+within the declared bounds, and probing as we go.
+
+We measure the reset question twice, because two different relations are at
+stake. \emph{Frame identity} asks whether the rendered grid an agent observes
+returns to the level's opening frame. \emph{Engine-state identity} asks whether
+the game object does. Conflating them turns a property of the instrument into a
+claim about an environment.
+
+Across $18{,}663$ probes in all 25 environments, the rendered frame after a level
+reset was identical to the frame the level began with every single time. Engine
+state matched on $15{,}440$ of the same probes; in seven environments
+(\code{cd82}, \code{ft09}, \code{m0r0}, \code{r11l}, \code{sb26}, \code{sc25},
+\code{sp80}) a small number of the game object's own attributes survive a level
+reset. Several are read back by the games' own code, so they could in principle
+influence later behaviour, but none is visible in the frame at reset time.
+
+We do not report this as a defect. ARC-AGI-3 states no rules for any environment
+by design, so an environment that leaves an internal counter alone contradicts
+nothing. It does bear on a documented assumption: the report's own graph
+construction begins ``from the reset state of a selected level'', and published
+graph-based agents identify states by hashing the frame. Frame identity and
+engine-state identity are not the same relation, and in seven of 25 public
+environments they disagree about whether a reset returns to a canonical state.
+Anyone building on ``the reset state of a level'' should say which they mean.
+
+Over $479{,}040$ actions in all 25 environments, no action advanced the level
+counter by two and none moved it backwards outside a full reset.
+
+\paragraph{Why these negatives are readable.} A detector that cannot fire proves
+nothing. Both are tested against deliberately broken games: with state injected
+that a reset does not restore, the probe reports a mismatch while the frame
+still matches; with a reset made to leave a visible change, the frame counter
+falls; and with the engine made to advance two levels in one action, the
+detector catches it.
+
+\section{The human baselines}
+\label{sec:baselines}
+
+\subsection{A check that needs no human data}
+
+Every ARC-AGI-3 score is a ratio against \code{baseline\_actions[l]}. A human
+cannot complete a level in fewer actions than the level's optimum, so a
+published baseline must be at least that optimum. Breadth-first search supplies
+the optimum, and supplies a sound bound on it even when it does not finish:
+having expanded every state at depth $d$ without reaching a win, it has proved
+no solution exists in $d+1$ actions or fewer.
+
+Two things were settled before measuring, either of which would have made a
+contradiction spurious. The scorer pairs \code{baseline\_actions[level\_idx]}
+with that level's own action count, computed as a difference between cumulative
+counts, so the published values are per level. And the published values are not
+monotone --- \code{ar25} is $[32, 50, 75, 37, 89, 159, 233, 73]$ --- so they
+cannot be cumulative.
+
+\subsection{Result}
+
+Of 18 levels attempted across the six enumerable environments, six resolved and
+all six are consistent; none is impossible; twelve were stopped by a time or
+memory cap after completing depths between 8 and 16 against baselines between 26
+and 183, and establish nothing either way.
+
+\begin{table}[t]
+\centering
+\begin{tabular}{llrr}
+\toprule
+Environment & Level & Minimum actions & Published baseline \\
+\midrule
+\code{ls20} & 1 & 13 & 22 \\
+\code{ls20} & 2 & 45 & 123 \\
+\code{ls20} & 3 & 39 & 73 \\
+\code{tu93} & 1 & 18 & 19 \\
+\code{tu93} & 2 & 10 & 16 \\
+\code{tu93} & 3 & 19 & 34 \\
+\bottomrule
+\end{tabular}
+\caption{Exact optima against published human baselines, for the levels where
+the search completed. Every optimum is replayed through the shipped game and
+shown to complete its level.}
+\label{tab:baselines}
+\end{table}
+
+Table~\ref{tab:baselines} gives the resolved levels. The tightest margin is
+\code{tu93} level 1, where the upper-median first-time human used one action
+more than the optimum on an environment whose rules are stated nowhere.
+
+These optima are proved against the shipped local environment at the pinned
+version. That is not necessarily the environment the human study measured, and
+consistency with a local optimum says nothing about how the number was gathered.
+
+\subsection{The replays could not be located}
+
+An April 2026 post \cite{humandataset} states that the Foundation open-sourced
+the Public Demo dataset, ``which includes 342 human step-by-step replays'' across
+the 25 public environments. We were unable to find them. Checked on 4 September
+2026: the \code{arcprize} GitHub organisation lists ten repositories, none a
+human-replay dataset; the \code{arcprize} HuggingFace author lists three
+datasets, of which the only human-testing one is for ARC-AGI-2; and the single
+link the announcement provides is a shortener that did not resolve for us,
+returning HTTP 429 and then 403.
+
+This is a statement about what these checks found on that date, not a claim that
+the data does not exist; it may well be reachable by a route we did not try. We
+report it because a link that does not resolve is worth an owner's attention,
+and because until the replays are reachable the baselines that every score
+depends on cannot be checked against the plays that produced them.
+
+\section{Limitations}
+
+A reader should hold the following in mind.
+
+\begin{enumerate}
+\item Everything here concerns the public toolkit, harness and documents at the
+      pinned commits. The server-side scorer behind the official leaderboard is
+      not observable to us and is not claimed to match.
+\item ``No disagreement'' is over the fixtures and transitions we ran, chosen by
+      us. It is not a proof of correctness.
+\item Our Dafny models encode our reading of the report and the shipped source.
+      A disagreement could always be the model being wrong, and we treated that
+      as the default explanation throughout.
+\item Two levels of one environment are audited with verified models. The
+      breadth results cover level 1 of six environments, two exhaustively. The
+      nineteen click-based environments have no reachability result at all.
+\item The random play probe won nothing and mostly stayed on level 1, so its
+      negatives cover the states it visited.
+\item A capped enumeration is a sample of a larger graph. Four of the six
+      enumerable environments are represented by the first $150{,}000$ states
+      a depth-first search happened to visit.
+\item Several of our own errors were found during the work and are recorded in
+      the repository's decisions file rather than quietly fixed: a state key
+      that ignored non-\code{ls20} game state, two hashing gaps that merged or
+      spuriously split states, an off-by-one in the lower bound, and a
+      peak-memory guard that let one heavy environment mark later ones as
+      capped. Each invalidated results that were re-run.
+\item What a reader must still trust: Dafny and its JavaScript backend, Node,
+      the vendored toolkit at the pinned commit, and our reading of the English
+      in the report and documentation.
+\end{enumerate}
+
+\section{Related work}
+
+Rudakov, Shock and Cowley \cite{graphexplore} build hash-identified state graphs
+over ARC-AGI-3 environments in order to \emph{solve} them, reporting no state
+counts, no win probabilities and no verification. Rodionov \cite{worldmodels}
+builds executable Python world models for all 25 public games, checked against
+recorded observations rather than machine-verified, and does not audit
+environments for defects. To our knowledge this is the first machine-verified
+model of an ARC-AGI-3 environment's rules, the first exhaustive state counts
+published for specific levels, and the first check of the published human
+baselines against proved optima.
+
+The broader practice this paper belongs to --- auditing a benchmark's reference
+artefacts against what they claim, rather than competing on it --- follows work
+on formal-statement benchmarks where reference defects were found and fixed by
+their owners.
+
+\section{Reproducibility and disclosure}
+
+The audit repository, released with this paper at \textbf{[REPOSITORY URL]},
+contains the preregistrations, the decisions file recording
+every deviation and every error of ours, a dated ledger, the generated models,
+the scripts, the artefacts, a test suite, and a claims file with a checker that
+verifies each number in this paper against the log that produced it. Environment
+sources are not redistributed; they are fetched from the ARC API by a script.
+The three audited repositories were archived at Software Heritage at intake.
+
+Findings were reported to the ARC Prize Foundation at
+\code{team@arcprize.org} on \textbf{[DATE]}, before publication.
+
+\section*{Acknowledgements}
+
+The ARC Prize Foundation publishes the toolkit, harness, agents, technical
+report and documentation openly and under permissive licences. That is what
+makes an audit like this possible from outside, and it is not the norm. We thank
+them for it, and note that the great majority of what we checked was exactly
+what it claimed to be.
+
+\begin{thebibliography}{9}
+
+\bibitem{arcagi3}
+ARC Prize Foundation.
+\emph{ARC-AGI-3: A New Challenge for Frontier Agentic Intelligence}.
+arXiv:2603.24621, v2, April 2026.
+
+\bibitem{humandataset}
+ARC Prize Foundation.
+\emph{Measuring Human Performance on ARC-AGI-3}.
+\url{https://arcprize.org/blog/arc-agi-3-human-dataset}, 14 April 2026.
+
+\bibitem{graphexplore}
+E. Rudakov, J. Shock, and B. U. Cowley.
+\emph{Graph-Based Exploration for ARC-AGI-3 Interactive Reasoning Tasks}.
+arXiv:2512.24156, December 2025.
+
+\bibitem{worldmodels}
+S. Rodionov.
+\emph{Executable World Models for ARC-AGI-3 in the Era of Coding Agents}.
+arXiv:2605.05138, v2, June 2026.
+
+\bibitem{dafny}
+K. R. M. Leino.
+\emph{Dafny: An Automatic Program Verifier for Functional Correctness}.
+LPAR-16, 2010.
+
+\end{thebibliography}
+
+\end{document}
