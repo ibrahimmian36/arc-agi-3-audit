@@ -4,8 +4,8 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 
 | # | value | artefact | line pattern | produced by |
 |---|---|---|---|---|
-| 0 | `verified=50 errors=0` | `../artifacts/oracle/check_model.log` | `VERIFY_SUMMARY` | scripts/check_model.sh |
-| 1 | `189d2bd85136764c809070276b76d4b6b333d18e77158e306b21ded3ba4e25e0` | `../artifacts/oracle/check_model.log` | `sha256` | scripts/check_model.sh |
+| 0 | `verified=50 errors=0` | `../artifacts/oracle/check_scoring.log` | `VERIFY_SUMMARY` | scripts/check_model.sh |
+| 1 | `189d2bd85136764c809070276b76d4b6b333d18e77158e306b21ded3ba4e25e0` | `../artifacts/oracle/check_scoring.log` | `sha256` | scripts/check_model.sh |
 | 2 | `probes=14` | `../artifacts/scorer/probes.log` | `^SUMMARY` | scripts/scorer_probe.py |
 | 3 | `agree_primary=12` | `../artifacts/scorer/probes.log` | `^SUMMARY` | scripts/scorer_probe.py |
 | 4 | `levels_agree_primary=12` | `../artifacts/scorer/probes.log` | `^SUMMARY` | scripts/scorer_probe.py |

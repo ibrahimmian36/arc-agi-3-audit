@@ -2,14 +2,14 @@
  {
   "value": "verified=50 errors=0",
   "report": "../FINDINGS.md",
-  "log": "../artifacts/oracle/check_model.log",
+  "log": "../artifacts/oracle/check_scoring.log",
   "pattern": "VERIFY_SUMMARY",
   "by": "scripts/check_model.sh"
  },
  {
   "value": "189d2bd85136764c809070276b76d4b6b333d18e77158e306b21ded3ba4e25e0",
   "report": "../FINDINGS.md",
-  "log": "../artifacts/oracle/check_model.log",
+  "log": "../artifacts/oracle/check_scoring.log",
   "pattern": "sha256",
   "by": "scripts/check_model.sh"
  },

@@ -8,6 +8,7 @@
   dafny version: 4.11.0
   
   Dafny program verifier finished with 50 verified, 0 errors
+  TIMEOUTS: 0
   VERIFY_SUMMARY: verified=50 errors=0 rc=0
 == dafny build --target:js
   
