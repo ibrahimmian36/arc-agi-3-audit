@@ -15,6 +15,20 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# Public environments whose MECHANIC is described in the technical report v2 or the
+# docs (checked by hand against artifacts/docs/report_v2.txt, 2026-09-04). A mention
+# of a score or an action count is not a mechanic description.
+DOCUMENTED = {
+    "ls20": "report v2 Fig. 2 (screenshot), Fig. 3 (level-1 state graph, three-life mechanic, P_win = 1/355), Fig. 8 (actions by level)",
+}
+UNDOCUMENTED_MENTIONS = {
+    "tr87": "report v2 §3.3: harness-sensitivity result (0.0% vs 97.1%), no mechanic",
+    "bp35": "report v2 §3.3: 0.0% under both harnesses, no mechanic",
+    "vc33": "report v2 §4.2: level 6 needs ~10x the actions of level 1, no mechanic",
+    "re86": "report v2 Fig. 4: human action progression, no mechanic",
+    "ft09": "report v2 §3.3: harness target, no mechanic",
+}
+
 
 def env_rows(env_dir: Path, run_offline: bool) -> list[dict]:
     rows = []
@@ -80,11 +94,18 @@ def main(argv: list[str] | None = None) -> int:
         cands = [r for r in rows if r["levels"] >= 6 and r["loc"] is not None]
         cands.sort(key=lambda r: (r["loc"], r["game_id"]))
         L.append("## Selection (preregistered rule: fewest non-blank LOC with >= 6 levels and a documented mechanic)\n")
-        if cands:
-            L.append(f"Candidate order by LOC: {', '.join(f'{r['game_id']} ({r['loc']})' for r in cands[:8])}.")
-            L.append(f"Selected by the rule: **{cands[0]['game_id']}** ({cands[0]['loc']} LOC, {cands[0]['levels']} levels). The 'documented mechanic' criterion is checked by hand and recorded in docs/DECISIONS.md before modelling.\n")
+        L.append(f"Order by LOC (>= 6 levels): {', '.join(f'{r['game_id']} ({r['loc']})' for r in cands)}.\n")
+        L.append("Documented mechanic (hand check of report v2 and docs):\n")
+        for k, v in DOCUMENTED.items():
+            L.append(f"- {k}: YES — {v}")
+        for k, v in UNDOCUMENTED_MENTIONS.items():
+            L.append(f"- {k}: mentioned, NO mechanic — {v}")
+        L.append("- all others: not mentioned.\n")
+        doc = [r for r in cands if r["game_id"].split("-")[0] in DOCUMENTED]
+        if doc:
+            L.append(f"Selected by the rule: **{doc[0]['game_id']}** ({doc[0]['loc']} LOC, {doc[0]['levels']} levels, baselines {doc[0]['baseline_actions']}). Cheaper candidates ({', '.join(r['game_id'].split('-')[0] for r in cands if r['loc'] < doc[0]['loc'])}) have no documented mechanic and are Phase 1 candidates.\n")
         else:
-            L.append("No fetched environment has >= 6 levels; the rule does not select. Recorded, not resolved by hand.\n")
+            L.append("No fetched environment satisfies all three clauses; the rule does not select.\n")
     L.append(f"\nCounts: fetched={len(rows)}, listed={len(games) if games else 0}.\n")
     a.out.write_text("\n".join(L))
     print(f"wrote {a.out} (fetched={len(rows)}, listed={len(games) if games else 0})")
