@@ -289,7 +289,11 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
                     edges_path: Path | None = None, environments_dir: Path | None = None,
                     progress_every: int = 5000, actions: list[int] | None = None,
                     search: str = "bfs", max_depth: int = 100_000) -> dict:
-    """search="bfs" keeps a whole layer of game objects alive, which is what a
+    """search="dldfs" is depth-limited depth-first with shallowest-depth
+    memoisation: the same completeness guarantee as breadth-first to a stated
+    depth, holding only the objects along one path.
+
+    search="bfs" keeps a whole layer of game objects alive, which is what a
     shortest-path witness needs and what the model work uses. search="dfs" keeps
     only the objects along the current path: memory becomes O(depth) rather than
     O(layer width), which is the difference between finishing and hitting the
@@ -332,6 +336,8 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
     max_frontier = 1
     max_stack = 1
     completed_depth = -1   # deepest BFS layer fully expanded; -1 = none
+    explicit_path: list[int] | None = None
+    explored_to: int | None = None   # deepest d with EVERY state within d visited
 
     def probe_reset(nid: int, g) -> None:
         nonlocal reset_checked, reset_ok
@@ -346,8 +352,9 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
             reset_bad.append(dict(node=nid, after_reset=abstract(c, level_index)))
 
     def expand(nid: int, g, av: list, a: int, d: int):
-        """One action from one state. Returns (child_id, child_game_or_None,
-        child_vec, child_status). The caller decides whether to keep the game."""
+        """One action from one state. Returns (child_id, child_game, child_vec,
+        child_status, whether_the_state_was_new, child_key). The caller decides
+        whether to keep the game."""
         nonlocal n_edges, over_nodes, shortest_win_depth, first_win_depth
         c = fast_copy(g)
         before_levels = c._score
@@ -378,7 +385,7 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
             out.write(json.dumps({"i": nid, "j": known, "a": a, "s": av, "t": cv},
                                  separators=(",", ":")) + "\n")
         n_edges += 1
-        return known, c, cv, ab["status"], fresh
+        return known, c, cv, ab["status"], fresh, ck
 
     def over_states() -> str | None:
         """Cheap enough to check on every expansion, and it must be: checking it
@@ -406,7 +413,7 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
                     if depth > 0:
                         probe_reset(nid, g)
                     for a in ACTIONS:
-                        known, c, cv, st, fresh = expand(nid, g, av, a, depth)
+                        known, c, cv, st, fresh, _ = expand(nid, g, av, a, depth)
                         if fresh and st == "PLAY":
                             nxt.append((known, c, cv))
                         else:
@@ -416,6 +423,7 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
                     if truncated:
                         break
                 if truncated is None:
+                    explored_to = depth + 1
                     # Every state at this depth was expanded, so the search has
                     # PROVED there is no win in `depth + 1` actions or fewer
                     # unless one was recorded above. That guarantee is the whole
@@ -429,7 +437,7 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
                     truncated = over_clock()
             if truncated is None and depth >= max_depth and frontier:
                 truncated = "max_depth"
-        else:
+        elif search == "dfs":
             # Depth-first: the stack holds the objects along one path only.
             stack: list[tuple[int, object, list, int, iter]] = [(0, g0, vec(a0), 0, iter(list(ACTIONS)))]
             while stack and truncated is None:
@@ -438,7 +446,7 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
                 if a is None:
                     stack.pop()
                     continue
-                known, c, cv, st, fresh = expand(nid, g, av, a, d)
+                known, c, cv, st, fresh, _ = expand(nid, g, av, a, d)
                 if fresh and st == "PLAY" and d + 1 < max_depth:
                     probe_reset(known, c)
                     stack.append((known, c, cv, d + 1, iter(list(ACTIONS))))
@@ -448,12 +456,79 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
                     del c
                 checked += 1
                 truncated = over_states() or (over_clock() if checked % progress_every == 0 else None)
+        elif search in ("dldfs", "iddfs"):
+            # Depth-limited depth-first search with shallowest-depth memoisation.
+            #
+            # A plain visited set is UNSOUND here: a state first reached at depth
+            # 5 and later reachable at depth 3 would be pruned, and a shorter
+            # solution through it missed. So the map records the SHALLOWEST depth
+            # at which each state has been reached, and a state reached shallower
+            # than recorded is expanded again. Reaching one at a depth the map
+            # already matches or betters is pruned, because everything reachable
+            # from it within the remaining budget was already reachable within a
+            # budget at least as large.
+            #
+            # Completing a pass to limit D without a win proves no solution
+            # exists within D actions -- the same guarantee breadth-first gives --
+            # while holding only the objects along one path.
+            #
+            # "iddfs" runs those passes at increasing limits. A single pass to a
+            # deep limit is all or nothing: on tr87 at limit 54 it spent its whole
+            # time budget and completed no depth at all, so it proved nothing.
+            # Deepening one step at a time banks a guarantee after every pass.
+            win_depth: int | None = None
+            win_path: list[int] | None = None
+            explored_to = 0   # the root is within zero actions and has been visited
+            limits = range(1, max_depth + 1) if search == "iddfs" else (max_depth,)
+            for limit in limits:
+                if truncated is not None or win_depth is not None:
+                    break
+                best_depth: dict[bytes, int] = {root: 0}
+                stack_d: list = [(0, g0, vec(a0), 0, iter(list(ACTIONS)), ())] if limit > 0 else []
+                while stack_d and truncated is None:
+                    nid, g, av, d, it, path_so_far = stack_d[-1]
+                    a = next(it, None)
+                    if a is None:
+                        stack_d.pop()
+                        continue
+                    known, c, cv, st, fresh, ck = expand(nid, g, av, a, d)
+                    nd = d + 1
+                    prev = best_depth.get(ck)
+                    if prev is not None and prev <= nd:
+                        del c
+                    else:
+                        best_depth[ck] = nd
+                        if st == "WIN":
+                            if win_depth is None or nd < win_depth:
+                                win_depth, win_path = nd, list(path_so_far) + [a]
+                            del c
+                        elif st == "PLAY" and nd < limit:
+                            stack_d.append((known, c, cv, nd, iter(list(ACTIONS)),
+                                            tuple(path_so_far) + (a,)))
+                            max_stack = max(max_stack, len(stack_d))
+                            depth = max(depth, nd)
+                        else:
+                            del c
+                    checked += 1
+                    truncated = over_states() or (over_clock() if checked % progress_every == 0 else None)
+                if truncated is None:
+                    # This pass visited every state within `limit` actions.
+                    explored_to = limit
+                    completed_depth = limit - 1
+                del best_depth
+            if win_depth is not None:
+                shortest_win_depth = win_depth
+                first_win_depth = win_depth
+                # Recorded separately: the parent-pointer reconstruction below
+                # follows the SEARCH TREE, which for a depth-first search is the
+                # route by which a state was first reached, not the shortest one.
+                explicit_path = list(win_path or [])
     finally:
         if out is not None:
             out.close()
 
     N = len(index)
-    # Win witness along the search tree.
+    # Win witness along the search tree, used when the search did not record one.
     path = None
     if win_nodes:
         best = min(win_nodes, key=lambda i: meta[i][1])
@@ -463,32 +538,45 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
             p, a = parent[cur]
             path.append(a); cur = p
         path.reverse()
+    if explicit_path is not None:
+        path = explicit_path
     # (a) random-policy win probability, exact only on a complete graph.
     # A truncated run must not report a probability it cannot know.
     p_random = None
     if win_nodes and truncated is None:
         p_random = random_policy_win_probability(esrc, edst, meta, N, len(ACTIONS))
-    # A capped run that found no win has NOT shown the level unwinnable.
-    win_established = bool(win_nodes) or truncated is None
+    # A capped run that found no win has NOT shown the level unwinnable. Neither
+    # has a DEPTH-BOUNDED one that completed its limit: it proved only that no
+    # win exists that short. Reporting False there was the overclaim this whole
+    # audit exists to avoid, and a completed dldfs pass hit it exactly.
+    depth_bounded = search in ("dldfs", "iddfs") or (search == "bfs" and max_depth < 100_000)
+    win_established = bool(win_nodes) or (truncated is None and not depth_bounded)
     return dict(game=full_id, level=level_index + 1, actions=list(ACTIONS), search=search,
                 unhandled_types=sorted(UNHANDLED),
                 win_established=win_established,
                 win_reachable=(bool(win_nodes) if win_established else None),
                 first_win_depth=first_win_depth, max_frontier=max_frontier, max_stack=max_stack,
-                completed_depth=(completed_depth if search == "bfs" else None),
+                completed_depth=(completed_depth if search in ("bfs", "dldfs", "iddfs") else None),
+                # The deepest d such that EVERY state within d actions was
+                # visited. Breadth-first expanding layers 0..k discovers every
+                # state at depth k+1; a completed depth-limited search to D
+                # visits every state within D.
+                explored_to_depth=explored_to,
                 # Sound lower bound on the optimum. Expanding layer d discovers
                 # EVERY state at depth d + 1, so completing layers 0..d without a
                 # win proves no solution exists in d + 1 actions or fewer, and
                 # the optimum is therefore at least d + 2. Off by one in the
                 # first version, caught by the bt11 test: its optimum is 4 and a
                 # bound of 3 would have been reported as 3.
-                min_actions_lower_bound=((completed_depth + 2) if (search == "bfs" and not win_nodes
-                                                                  and completed_depth >= 0) else None),
+                # No win within `explored_to` actions puts the optimum at
+                # `explored_to + 1` or more.
+                min_actions_lower_bound=((explored_to + 1)
+                                         if (explored_to is not None and not win_nodes) else None),
                 max_depth_bound=max_depth, states=N, edges=n_edges,
                 truncated=bool(truncated), truncated_reason=truncated, max_states=max_states,
                 win_states=len(win_nodes), game_over_states=over_nodes,
-                shortest_win_depth=(shortest_win_depth if search == "bfs" else None),
-                shortest_win_path=(path if search == "bfs" else None),
+                shortest_win_depth=(shortest_win_depth if search in ("bfs", "dldfs", "iddfs") else None),
+                shortest_win_path=(path if search in ("bfs", "dldfs", "iddfs") else None),
                 win_path_found=path,
                 states_by_lives=dict(sorted(lives_hist.items(), reverse=True)),
                 p_win_random_policy=p_random, one_over_states=(1.0 / N), win_over_states=(len(win_nodes) / N),
@@ -529,7 +617,7 @@ def main(argv=None) -> int:
     ap.add_argument("--out", type=Path, default=None)
     ap.add_argument("--actions", default=None, help="comma-separated action ids; default is the game's own advertised set minus complex (click) actions")
     ap.add_argument("--no-edges", action="store_true", help="do not write the edge file (the sweep does not need it)")
-    ap.add_argument("--search", choices=("bfs", "dfs"), default="bfs")
+    ap.add_argument("--search", choices=("bfs", "dfs", "dldfs", "iddfs"), default="bfs")
     ap.add_argument("--max-depth", type=int, default=100_000)
     a = ap.parse_args(argv)
     out = a.out or (ROOT / "artifacts" / "env" / a.game)

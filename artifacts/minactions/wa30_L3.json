@@ -7,11 +7,11 @@
  "level": 3,
  "min_actions_lower_bound": 13,
  "optimum": null,
- "peak_rss_mb": 1180.1,
+ "peak_rss_mb": 1180.8,
  "reason": "search stopped by max_seconds after completing depth 11, baseline 183",
  "states": 43195,
  "truncated_reason": "max_seconds",
  "verdict": "not established",
- "wall_seconds": 129.3,
+ "wall_seconds": 126.4,
  "witness": null
 }

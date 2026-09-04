@@ -571,6 +571,21 @@ Table~\ref{tab:baselines} gives the resolved levels. The tightest margin is
 \code{tu93} level 1, where the upper-median first-time human used one action
 more than the optimum on an environment whose rules are stated nowhere.
 
+We then attempted to resolve the remaining levels by changing the search, and
+could not. Breadth-first holds a whole layer of game objects, so memory was the
+obvious suspect; we added depth-limited depth-first search with shallowest-depth
+memoisation, which gives the same completeness guarantee to a stated depth while
+holding only the objects along one path, and an iterative-deepening form that
+banks a bound after each completed depth. Memory fell by roughly a factor of
+seven on the level we compared. It resolved nothing: in the same time budget
+breadth-first reached a greater depth on both levels compared, because deepening
+re-explores, and on levels breadth-first can finish it is strictly better. The
+binding constraint is not memory but the size of the state space at the depths
+these baselines occupy, and no exhaustive search we can write reaches depth 26,
+let alone 183. Settling these levels would need the human replays, which we could
+not locate, or a solver for these environments, which this audit's own scope
+excludes.
+
 These optima are proved against the shipped local environment at the pinned
 version. That is not necessarily the environment the human study measured, and
 consistency with a local optimum says nothing about how the number was gathered.

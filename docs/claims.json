@@ -852,5 +852,12 @@
   "log": "../artifacts/limits/limits.log",
   "pattern": "^T-zero",
   "by": "scripts/limits_probe.py"
+ },
+ {
+  "value": "reached_further=bfs",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/searchcmp/search_comparison.log",
+  "pattern": "^VERDICT g50t",
+  "by": "scripts/search_comparison.py"
  }
 ]

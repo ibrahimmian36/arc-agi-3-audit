@@ -1,0 +1,76 @@
+{
+ "rows": [
+  {
+   "baseline": 22,
+   "depth_bound": 23,
+   "game": "ls20",
+   "level": 1,
+   "runs": [
+    {
+     "explored_to_depth": 23,
+     "lower_bound": null,
+     "optimum": 13,
+     "peak_rss_mb": 145.9,
+     "search": "bfs",
+     "states": 1887,
+     "truncated_reason": "max_depth",
+     "wall_seconds": 14.2
+    },
+    {
+     "explored_to_depth": 13,
+     "lower_bound": null,
+     "optimum": 13,
+     "peak_rss_mb": 109.1,
+     "search": "iddfs",
+     "states": 544,
+     "truncated_reason": null,
+     "wall_seconds": 14.9
+    }
+   ]
+  },
+  {
+   "baseline": 78,
+   "depth_bound": 79,
+   "game": "g50t",
+   "level": 1,
+   "runs": [
+    {
+     "explored_to_depth": 10,
+     "lower_bound": 11,
+     "optimum": null,
+     "peak_rss_mb": 1051.1,
+     "search": "bfs",
+     "states": 35652,
+     "truncated_reason": "max_seconds",
+     "wall_seconds": 93.6
+    },
+    {
+     "explored_to_depth": 9,
+     "lower_bound": 10,
+     "optimum": null,
+     "peak_rss_mb": 138.3,
+     "search": "iddfs",
+     "states": 24448,
+     "truncated_reason": "max_seconds",
+     "wall_seconds": 91.5
+    }
+   ]
+  }
+ ],
+ "verdicts": [
+  {
+   "game": "ls20",
+   "level": 1,
+   "memory_ratio": 1.34,
+   "reached_further": "bfs",
+   "used_less_memory": "iddfs"
+  },
+  {
+   "game": "g50t",
+   "level": 1,
+   "memory_ratio": 7.6,
+   "reached_further": "bfs",
+   "used_less_memory": "iddfs"
+  }
+ ]
+}

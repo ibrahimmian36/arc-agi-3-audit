@@ -126,3 +126,4 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 119 | `uniform_multiplier=True` | `../artifacts/limits/limits.log` | `^LIMITS` | scripts/limits_probe.py |
 | 120 | `always_keeps_last=True` | `../artifacts/limits/limits.log` | `^FRAMES` | scripts/limits_probe.py |
 | 121 | `TIME_BUDGET` | `../artifacts/limits/limits.log` | `^T-zero` | scripts/limits_probe.py |
+| 122 | `reached_further=bfs` | `../artifacts/searchcmp/search_comparison.log` | `^VERDICT g50t` | scripts/search_comparison.py |

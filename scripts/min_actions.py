@@ -72,7 +72,7 @@ def run_one_level(game: str, level: int, actions: list[int], depth_bound: int, a
     tmp = Path(tempfile.mkdtemp(prefix="minact-"))
     try:
         cmd = [sys.executable, str(STATE_GRAPH), "--game", game, "--level", str(level),
-               "--search", "bfs", "--no-edges", "--max-states", str(a.max_states),
+               "--search", a.search, "--no-edges", "--max-states", str(a.max_states),
                "--max-seconds", str(a.max_seconds), "--max-rss-mb", str(a.max_rss_mb),
                "--max-depth", str(depth_bound), "--actions", ",".join(str(x) for x in actions),
                # The reset probe belongs to the sweep, not here; it costs a deep
@@ -105,6 +105,10 @@ def main(argv=None) -> int:
     ap.add_argument("--census", type=Path, default=ROOT / "artifacts" / "sweep" / "action_census.json")
     ap.add_argument("--environments-dir", type=Path, default=ROOT / "environment_files")
     ap.add_argument("--out", type=Path, default=ROOT / "artifacts" / "minactions")
+    ap.add_argument("--search", choices=("bfs", "dldfs", "iddfs"), default="iddfs",
+                    help="iddfs by default: the same completeness guarantee to a stated depth, "
+                         "holding only the objects along one path, and banking a bound after "
+                         "every completed depth rather than all-or-nothing")
     ap.add_argument("--force", action="store_true")
     a = ap.parse_args(argv)
     a.out.mkdir(parents=True, exist_ok=True)

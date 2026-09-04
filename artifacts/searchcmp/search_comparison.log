@@ -1,0 +1,6 @@
+ls20   L1 bfs    optimum=13 explored_to=23 bound=None states=1887 peak_rss_mb=145.9 stopped=max_depth wall_s=14.2
+ls20   L1 iddfs  optimum=13 explored_to=13 bound=None states=544 peak_rss_mb=109.1 stopped=None wall_s=14.9
+g50t   L1 bfs    optimum=None explored_to=10 bound=11 states=35652 peak_rss_mb=1051.1 stopped=max_seconds wall_s=93.6
+g50t   L1 iddfs  optimum=None explored_to=9 bound=10 states=24448 peak_rss_mb=138.3 stopped=max_seconds wall_s=91.5
+VERDICT ls20 L1 reached_further=bfs used_less_memory=iddfs bfs_over_iddfs_memory=1.34x
+VERDICT g50t L1 reached_further=bfs used_less_memory=iddfs bfs_over_iddfs_memory=7.6x

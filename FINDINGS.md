@@ -5,7 +5,8 @@ ls20 levels 1 and 2, then a breadth sweep of level 1 across the public set,
 then a play-based probe of all 25, then a lower-bound check on the published
 human baselines, then a probe of the scoring pipeline that feeds the formula, then a probe of how
 far its aggregation defect reaches, then a ledger of what the client puts on the
-wire, then the run-level policies around a run). Status: the scoring rule (reference 3), the benchmarking
+wire, then the run-level policies around a run, then an attempt to resolve the
+remaining baselines with a different search). Status: the scoring rule (reference 3), the benchmarking
 harness's action budget, and two levels of one public environment (reference
 1) are audited and written up below; the per-level baselines (reference 2)
 are recovered and characterised; ls20 levels 3–7, the other 24 public
@@ -450,6 +451,29 @@ search artefacts. The twelve remaining levels were stopped by the time or memory
 cap, having completed depths between 8 and 16 against baselines between 26 and
 183; that establishes nothing either way and is reported as such.
 
+We then tried to resolve them by changing the search, and could not. The bound
+needs a search complete to a stated depth, and breadth-first holds a whole layer
+of game objects, so the obvious suspect was memory. We added depth-limited
+depth-first search with shallowest-depth memoisation, which gives the same
+guarantee while holding only the objects along one path, and an
+iterative-deepening form that banks a bound after each completed depth. Memory
+duly collapsed: on `g50t` level 1 the peak fell from about a gigabyte to under
+150 MB, roughly sevenfold. The exact ratio varies between runs and is not quoted
+as a figure. It resolved nothing. In the same time budget breadth-first reached
+a greater depth than iterative deepening on both levels compared
+(`reached_further=bfs`), because deepening re-explores. On levels breadth-first can finish it is strictly better:
+both find `ls20` level 1's optimum of 13, and on level 2 breadth-first finds 45
+where deepening times out at depth 28.
+
+So the premise was wrong. The binding constraint is not memory but the size of
+the state space at the depths these baselines live at, and no exhaustive search
+we can write reaches depth 26, let alone 183. The twelve unresolved levels are
+unresolved for a reason rather than for want of effort, and settling them would
+need the human replays we could not locate, or a solver for these environments,
+which is outside this audit's scope by its own rules. Breadth-first remains the
+default because it resolves more; the depth-first modes stay available for a
+level where memory rather than time is the wall.
+
 Worth noting rather than flagging: tu93 level 1 has an optimum of 18 and a
 published baseline of 19, so the upper-median first-time human played within one
 action of optimal on an environment whose rules are not stated anywhere. It is
@@ -706,6 +730,7 @@ done
 .venv/bin/python scripts/aggregation_probe.py
 .venv/bin/python scripts/wire_probe.py
 .venv/bin/python scripts/limits_probe.py
+.venv/bin/python scripts/search_comparison.py --games ls20 g50t --level 1
 ../audit-kit/scripts/report_check.sh docs/claims.json
 ```
 

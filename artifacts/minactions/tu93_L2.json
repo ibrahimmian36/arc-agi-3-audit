@@ -12,7 +12,7 @@
  "states": 397,
  "truncated_reason": "max_depth",
  "verdict": "consistent",
- "wall_seconds": 0.9,
+ "wall_seconds": 0.8,
  "witness": [
   1,
   4,
