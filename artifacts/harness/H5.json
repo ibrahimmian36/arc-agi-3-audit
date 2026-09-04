@@ -1,0 +1,381 @@
+{
+ "any_level_over_budget": false,
+ "baselines": [
+  4,
+  8,
+  16,
+  20,
+  24
+ ],
+ "budgets": [
+  20,
+  40,
+  80,
+  100,
+  120
+ ],
+ "card": {
+  "actions": [
+   44
+  ],
+  "actions_by_level": [
+   [
+    [
+     1,
+     4
+    ]
+   ]
+  ],
+  "game_id": "bt11-fd9df0622a1a",
+  "guids": [
+   "guid-1"
+  ],
+  "levels_completed": [
+   1
+  ],
+  "resets": [
+   8
+  ],
+  "states": [
+   "GAME_OVER"
+  ],
+  "total_actions": 44,
+  "total_plays": 1
+ },
+ "environment_score": {
+  "actions": 44,
+  "completed": false,
+  "id": "bt11-fd9df0622a1a",
+  "level_count": 5,
+  "levels_completed": 1,
+  "resets": 8,
+  "runs": [
+   {
+    "actions": 44,
+    "completed": false,
+    "guid": "guid-1",
+    "level_actions": [
+     4,
+     40,
+     0,
+     0,
+     0
+    ],
+    "level_baseline_actions": [
+     4,
+     8,
+     16,
+     20,
+     24
+    ],
+    "level_scores": [
+     100.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "levels_completed": 1,
+    "resets": 8,
+    "score": 6.666666666666667,
+    "state": "GAME_OVER"
+   }
+  ],
+  "score": 6.666666666666667
+ },
+ "executed": [
+  {
+   "action": "ACTION3",
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "RESET",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "RESET",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "RESET",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "RESET",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "RESET",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "RESET",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "RESET",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "RESET",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "levels_completed": 1,
+   "state": "GAME_OVER"
+  }
+ ],
+ "game": "bt11-fd9df0622a1a",
+ "harness": {
+  "action_counter": 44,
+  "error": null,
+  "exit_reason": "ACTION_BUDGET",
+  "final_levels_completed": 1,
+  "final_state": "GAME_OVER",
+  "last_levels_completed": 1,
+  "level_action_counter": 40,
+  "script_actions_consumed": 44
+ },
+ "id": "H5",
+ "note": "level 2, one action over budget",
+ "per_level_executed": {
+  "0": {
+   "budget": 20,
+   "executed": 4,
+   "over_budget": false
+  },
+  "1": {
+   "budget": 40,
+   "executed": 40,
+   "over_budget": false
+  }
+ },
+ "script": [
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION4",
+  "ACTION4",
+  "ACTION4",
+  "RESET",
+  "ACTION4",
+  "ACTION4",
+  "ACTION4",
+  "RESET",
+  "ACTION4",
+  "ACTION4",
+  "ACTION4",
+  "RESET",
+  "ACTION4",
+  "ACTION4",
+  "ACTION4",
+  "RESET",
+  "ACTION4",
+  "ACTION4",
+  "ACTION4",
+  "RESET",
+  "ACTION4",
+  "ACTION4",
+  "ACTION4",
+  "RESET",
+  "ACTION4",
+  "ACTION4",
+  "ACTION4",
+  "RESET",
+  "ACTION4",
+  "ACTION4",
+  "ACTION4",
+  "RESET",
+  "ACTION4",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3"
+ ],
+ "script_len": 45
+}

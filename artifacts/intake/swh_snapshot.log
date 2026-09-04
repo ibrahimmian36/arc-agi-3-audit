@@ -1,0 +1,14 @@
+=== SWH save request: https://github.com/arcprize/ARC-AGI ===
+  status: accepted / task: pending
+  record: https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://github.com/arcprize/ARC-AGI
+=== SWH save request: https://github.com/arcprize/arc-agi-3-benchmarking ===
+  status: accepted / task: pending
+  record: https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://github.com/arcprize/arc-agi-3-benchmarking
+=== SWH save request: https://github.com/arcprize/ARC-AGI-3-Agents ===
+  status: accepted / task: pending
+  record: https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://github.com/arcprize/ARC-AGI-3-Agents
+
+Zenodo (manual, at publication): create a deposition from the GitHub release
+(Zenodo-GitHub integration: enable the repo at zenodo.org/account/settings/
+github, then cut a release — Zenodo mints a DOI automatically). Record the
+DOI in the report and CITATION.cff.

@@ -1,0 +1,131 @@
+{
+ "card": {
+  "actions": [
+   3
+  ],
+  "actions_by_level": [
+   []
+  ],
+  "game_id": "bt11-fd9df0622a1a",
+  "guids": [
+   "guid-1"
+  ],
+  "levels_completed": [
+   0
+  ],
+  "resets": [
+   0
+  ],
+  "states": [
+   "NOT_FINISHED"
+  ],
+  "total_actions": 3,
+  "total_plays": 1
+ },
+ "environment_score": {
+  "actions": 3,
+  "completed": false,
+  "id": "bt11-fd9df0622a1a",
+  "level_count": 5,
+  "levels_completed": 0,
+  "resets": 0,
+  "runs": [
+   {
+    "actions": 3,
+    "completed": false,
+    "guid": "guid-2",
+    "level_actions": [
+     3,
+     0,
+     0,
+     0,
+     0
+    ],
+    "level_baseline_actions": [
+     4,
+     8,
+     16,
+     20,
+     24
+    ],
+    "level_scores": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "levels_completed": 0,
+    "resets": 0,
+    "score": 0.0,
+    "state": "NOT_FINISHED"
+   }
+  ],
+  "score": 0.0
+ },
+ "game": "bt11-fd9df0622a1a",
+ "ours": {
+  "full_resets_observed": 0,
+  "non_reset_actions": 3,
+  "resets": 0,
+  "total_including_resets": 3
+ },
+ "parity": {
+  "card_total": 3,
+  "counts_agree": true,
+  "ours_minus_new_play_resets": 3,
+  "ours_total": 3
+ },
+ "script": [
+  "ACTION1",
+  "ACTION2",
+  "ACTION5"
+ ],
+ "seed": 0,
+ "steps": [
+  {
+   "action": "(make: initial RESET inside the wrapper)",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": true,
+   "i": 0,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION1",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 1,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION2",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 2,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION5",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 3,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  }
+ ]
+}

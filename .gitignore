@@ -4,3 +4,5 @@ environment_files/
 recordings/
 __pycache__/
 .venv/
+artifacts/oracle/node_modules/
+artifacts/oracle/*.dtr

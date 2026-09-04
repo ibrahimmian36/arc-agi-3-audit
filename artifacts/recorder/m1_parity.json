@@ -1,0 +1,392 @@
+{
+ "card": {
+  "actions": [
+   24
+  ],
+  "actions_by_level": [
+   [
+    [
+     1,
+     7
+    ],
+    [
+     2,
+     18
+    ]
+   ]
+  ],
+  "game_id": "bt11-fd9df0622a1a",
+  "guids": [
+   "guid-1"
+  ],
+  "levels_completed": [
+   2
+  ],
+  "resets": [
+   2
+  ],
+  "states": [
+   "NOT_FINISHED"
+  ],
+  "total_actions": 24,
+  "total_plays": 1
+ },
+ "environment_score": {
+  "actions": 24,
+  "completed": false,
+  "id": "bt11-fd9df0622a1a",
+  "level_count": 5,
+  "levels_completed": 2,
+  "resets": 2,
+  "runs": [
+   {
+    "actions": 24,
+    "completed": false,
+    "guid": "guid-2",
+    "level_actions": [
+     7,
+     11,
+     6,
+     0,
+     0
+    ],
+    "level_baseline_actions": [
+     4,
+     8,
+     16,
+     20,
+     24
+    ],
+    "level_scores": [
+     32.6530612244898,
+     52.892561983471076,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "levels_completed": 2,
+    "resets": 2,
+    "score": 9.229212346095464,
+    "state": "NOT_FINISHED"
+   }
+  ],
+  "score": 9.229212346095464
+ },
+ "game": "bt11-fd9df0622a1a",
+ "ours": {
+  "full_resets_observed": 0,
+  "non_reset_actions": 22,
+  "resets": 2,
+  "total_including_resets": 24
+ },
+ "parity": {
+  "card_total": 24,
+  "counts_agree": true,
+  "ours_minus_new_play_resets": 24,
+  "ours_total": 24
+ },
+ "script": [
+  "ACTION3",
+  "ACTION3",
+  "RESET",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "RESET",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION3",
+  "ACTION4",
+  "ACTION4",
+  "ACTION4",
+  "ACTION4",
+  "ACTION4",
+  "ACTION4"
+ ],
+ "seed": 0,
+ "steps": [
+  {
+   "action": "(make: initial RESET inside the wrapper)",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": true,
+   "i": 0,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 1,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 2,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "RESET",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 3,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 4,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 5,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 6,
+   "levels_completed": 0,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 7,
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 8,
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 9,
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "RESET",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 10,
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 11,
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 12,
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 13,
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 14,
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 15,
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 16,
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 17,
+   "levels_completed": 1,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION3",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 18,
+   "levels_completed": 2,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 19,
+   "levels_completed": 2,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 20,
+   "levels_completed": 2,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 21,
+   "levels_completed": 2,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 22,
+   "levels_completed": 2,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 23,
+   "levels_completed": 2,
+   "state": "NOT_FINISHED"
+  },
+  {
+   "action": "ACTION4",
+   "available_actions": [
+    3,
+    4
+   ],
+   "full_reset": false,
+   "i": 24,
+   "levels_completed": 2,
+   "state": "NOT_FINISHED"
+  }
+ ]
+}

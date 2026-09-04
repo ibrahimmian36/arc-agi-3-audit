@@ -1,0 +1,7 @@
+H1  budgets=[20, 40, 80, 100, 120] executed_per_level={'0': 20} harness_actions=20 exit=AGENT_ERROR final_levels=1 card_actions=[20] card_levels=[1] score=0.2666666666666667 over_budget=False :: level 1, 20 scripted actions (preregistered as 'one over'; see DECISIONS 2026-09-03)
+H1b budgets=[20, 40, 80, 100, 120] executed_per_level={'0': 20} harness_actions=20 exit=ACTION_BUDGET final_levels=0 card_actions=[20] card_levels=[0] score=0.0 over_budget=False :: level 1, one action over budget (added 2026-09-03 after H1 showed the initial RESET is not counted)
+H2  budgets=[20, 40, 80, 100, 120] executed_per_level={'0': 19} harness_actions=19 exit=AGENT_ERROR final_levels=1 card_actions=[19] card_levels=[1] score=0.2954755309325946 over_budget=False :: level 1, solving action is the 20th
+H4  budgets=[20, 40, 80, 100, 120] executed_per_level={'0': 4, '1': 40} harness_actions=44 exit=AGENT_ERROR final_levels=2 card_actions=[44] card_levels=[2] score=7.2 over_budget=False :: level 2, solving action is the 40th of level 2
+H5  budgets=[20, 40, 80, 100, 120] executed_per_level={'0': 4, '1': 40} harness_actions=44 exit=ACTION_BUDGET final_levels=1 card_actions=[44] card_levels=[1] score=6.666666666666667 over_budget=False :: level 2, one action over budget
+H6  budgets=[20, 40, 80, 100, 120] executed_per_level={'0': 9} harness_actions=9 exit=AGENT_ERROR final_levels=1 card_actions=[9] card_levels=[1] score=1.316872427983539 over_budget=False :: GAME_OVER then forced RESET then solve
+SUMMARY probes=6 any_over_budget=False counts_equal=6 budget_exits=2

@@ -1,0 +1,289 @@
+[
+ {
+  "value": "verified=50 errors=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/oracle/check_model.log",
+  "pattern": "VERIFY_SUMMARY",
+  "by": "scripts/check_model.sh"
+ },
+ {
+  "value": "189d2bd85136764c809070276b76d4b6b333d18e77158e306b21ded3ba4e25e0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/oracle/check_model.log",
+  "pattern": "sha256",
+  "by": "scripts/check_model.sh"
+ },
+ {
+  "value": "probes=14",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "agree_primary=12",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "levels_agree_primary=12",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "disagreements_primary=1",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "ids=['P8']",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "115.0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^P2a ",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "49.333333",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^P2c ",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "50.483333",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^P2c ",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "93.589645",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^P3b ",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "0.000000",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^P3b ",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "66.666667",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^P8 ",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "100.000000",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^P8 ",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "44.444444444",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^P4 ",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "6.666667",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^P5 ",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "66.666667",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^P2b ",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "66.666667",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^P6 ",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "100.000000",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/scorer/probes.log",
+  "pattern": "^P10 ",
+  "by": "scripts/scorer_probe.py"
+ },
+ {
+  "value": "probes=6",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "any_over_budget=False",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "counts_equal=6",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "budget_exits=2",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "[20, 40, 80, 100, 120]",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^H1 ",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "[4, 8, 16, 20, 24]",
+  "report": "../FINDINGS.md",
+  "log": "../vendor/ARC-AGI/test_environment_files/game1/metadata.json",
+  "pattern": "baseline_actions",
+  "by": "toolkit fixture"
+ },
+ {
+  "value": "executed_per_level={'0': 20}",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^H1b ",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "ACTION_BUDGET",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^H1b ",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "{'0': 4, '1': 40}",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^H5 ",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "final_levels=2",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^H4 ",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "harness_actions=20",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^H1 ",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "card_actions=[20]",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^H1 ",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "harness_actions=19",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^H2 ",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "card_actions=[19]",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^H2 ",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "harness_actions=44",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^H4 ",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "card_actions=[44]",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^H5 ",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "harness_actions=9",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^H6 ",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "card_actions=[9]",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/harness/harness.log",
+  "pattern": "^H6 ",
+  "by": "scripts/harness_probe.py"
+ },
+ {
+  "value": "traces=7",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/recorder/machinery.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/run_machinery.sh"
+ },
+ {
+  "value": "parity_all_agree=True",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/recorder/machinery.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/run_machinery.sh"
+ },
+ {
+  "value": "counts_agree",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/recorder/m1_parity.json",
+  "pattern": "\"counts_agree\": true",
+  "by": "scripts/run_machinery.sh"
+ },
+ {
+  "value": "\"card_total\": 3",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/recorder/machinery.log",
+  "pattern": "^m6_unavailable_action ",
+  "by": "scripts/run_machinery.sh"
+ }
+]

@@ -1,0 +1,17 @@
+== hygiene scan of scoring.dfy
+  pattern 'assume': 0
+  pattern '{:axiom': 0
+  pattern '{:verify false': 0
+  pattern '{:extern': 0
+  pattern 'expect ': 0
+== dafny verify
+  dafny version: 4.11.0
+  
+  Dafny program verifier finished with 50 verified, 0 errors
+  VERIFY_SUMMARY: verified=50 errors=0 rc=0
+== dafny build --target:js
+  
+  Dafny program verifier did not attempt verification
+  oracle loads: ok
+  sha256 189d2bd85136764c809070276b76d4b6b333d18e77158e306b21ded3ba4e25e0  artifacts/oracle/scoring.js
+MODEL CHECK: PASS
