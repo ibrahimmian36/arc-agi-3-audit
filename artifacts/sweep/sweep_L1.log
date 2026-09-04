@@ -1,0 +1,4 @@
+tr87   states=150000 edges=244924 win_reachable=None win_depth=None baseline=54 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=148.0 wall_s=276.2
+g50t   states=150000 edges=185594 win_reachable=None win_depth=None baseline=78 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=186.2 wall_s=193.3
+re86   states=150000 edges=548620 win_reachable=None win_depth=None baseline=26 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=197.7 wall_s=145.1
+wa30   states=150000 edges=201358 win_reachable=None win_depth=None baseline=71 reset=500/500 double_advance=0 truncated=max_states peak_rss_mb=197.7 wall_s=79.4

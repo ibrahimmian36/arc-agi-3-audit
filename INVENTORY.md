@@ -67,5 +67,41 @@ Documented mechanic (hand check of report v2 and docs):
 
 Selected by the rule: **ls20-9607627b** (1987 LOC, 7 levels, baselines [22, 123, 73, 84, 96, 192, 186]). Cheaper candidates (cd82, sp80, m0r0, sk48, tr87, sb26, cn04, wa30, tu93, ar25, r11l) have no documented mechanic and are Phase 1 candidates.
 
+## Action space and level-1 enumeration (generated; scripts/action_census.py, scripts/sweep.py)
+
+A game that advertises the click action has 64x64 targets per state, so its reachable
+state graph cannot be enumerated exhaustively within any sane budget. That is a measured
+property of the action space, not a judgement about the environment.
+
+| game | actions | branching | enumerable | L1 status | states | win reachable | reset probe | double advance |
+|---|---|---|---|---|---|---|---|---|
+| ar25 | [1, 2, 3, 4, 5, 6, 7] | 4102 | no | skipped | - | not established | - | - |
+| bp35 | [3, 4, 6, 7] | 4099 | no | skipped | - | not established | - | - |
+| cd82 | [1, 2, 3, 4, 5, 6] | 4101 | no | skipped | - | not established | - | - |
+| cn04 | [1, 2, 3, 4, 5, 6] | 4101 | no | skipped | - | not established | - | - |
+| dc22 | [1, 2, 3, 4, 6] | 4100 | no | skipped | - | not established | - | - |
+| ft09 | [6] | 4096 | no | skipped | - | not established | - | - |
+| g50t | [1, 2, 3, 4, 5] | 5 | yes | truncated | 150000 | not established | 500/500 | 0 |
+| ka59 | [1, 2, 3, 4, 6] | 4100 | no | skipped | - | not established | - | - |
+| lf52 | [1, 2, 3, 4, 6, 7] | 4101 | no | skipped | - | not established | - | - |
+| lp85 | [6] | 4096 | no | skipped | - | not established | - | - |
+| ls20 | [1, 2, 3, 4] | 4 | yes | complete | 14337 | yes | 500/500 | 0 |
+| m0r0 | [1, 2, 3, 4, 5, 6] | 4101 | no | skipped | - | not established | - | - |
+| r11l | [6] | 4096 | no | skipped | - | not established | - | - |
+| re86 | [1, 2, 3, 4, 5] | 5 | yes | truncated | 150000 | not established | 500/500 | 0 |
+| s5i5 | [6] | 4096 | no | skipped | - | not established | - | - |
+| sb26 | [5, 6, 7] | 4098 | no | skipped | - | not established | - | - |
+| sc25 | [1, 2, 3, 4, 6] | 4100 | no | skipped | - | not established | - | - |
+| sk48 | [1, 2, 3, 4, 6, 7] | 4101 | no | skipped | - | not established | - | - |
+| sp80 | [1, 2, 3, 4, 5, 6] | 4101 | no | skipped | - | not established | - | - |
+| su15 | [6, 7] | 4097 | no | skipped | - | not established | - | - |
+| tn36 | [6] | 4096 | no | skipped | - | not established | - | - |
+| tr87 | [1, 2, 3, 4] | 4 | yes | truncated | 150000 | not established | 500/500 | 0 |
+| tu93 | [1, 2, 3, 4] | 4 | yes | complete | 2609 | yes | 500/500 | 0 |
+| vc33 | [6] | 4096 | no | skipped | - | not established | - | - |
+| wa30 | [1, 2, 3, 4, 5] | 5 | yes | truncated | 150000 | not established | 500/500 | 0 |
+
+Enumerable action space: 6 of 25. Level-1 enumeration complete within budget: 2 (ls20, tu93); the rest stopped at a stated cap and establish nothing about reachability either way.
+
 
 Counts: fetched=25, listed=25.

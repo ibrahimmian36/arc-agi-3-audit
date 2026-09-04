@@ -1,0 +1,10 @@
+{
+ "actions": [
+  6
+ ],
+ "branching_factor": 4096,
+ "game": "lp85-305b61c3",
+ "level": 1,
+ "reason": "advertises the click action, 4096 successors per state",
+ "skipped": true
+}

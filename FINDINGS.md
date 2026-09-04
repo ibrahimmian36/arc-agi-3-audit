@@ -1,7 +1,8 @@
 # FINDINGS — ARC-AGI-3 public-set audit, Phase 0 (scorer, harness, machinery)
 
 Millennium Research, 2026-09-03 (scorer, harness) and 2026-09-04 (environment
-ls20 levels 1 and 2). Status: the scoring rule (reference 3), the benchmarking
+ls20 levels 1 and 2, then a breadth sweep of level 1 across the public set).
+Status: the scoring rule (reference 3), the benchmarking
 harness's action budget, and two levels of one public environment (reference
 1) are audited and written up below; the per-level baselines (reference 2)
 are recovered and characterised; ls20 levels 3–7, the other 24 public
@@ -54,6 +55,11 @@ certifies the scorer.
 | ls20 level 2: Dafny model | 26 obligations | `verified=26 errors=0` with `TIMEOUTS: 0` | `artifacts/oracle_env/check_ls20_level2.log` |
 | ls20 level 2: model vs shipped implementation | every edge of the graph + 30 traces | `GRAPH_EDGES n=133788 disagreements=0`; `TRACES traces=30 steps=1903 disagreements=0` | `artifacts/env/ls20/env_L2.log` |
 | ls20: rule-level state space symmetric across the three lives | 2 levels | `rule_symmetric=True` on both | `artifacts/env/ls20/granularity.log` |
+| Breadth: environments whose action space can be enumerated at all | 25 | `enumerable=6`, `skipped_click=19` | `artifacts/sweep/summary_L1.log` |
+| Breadth: level-1 enumeration within budget | 6 | `complete=2` (ls20, tu93); 4 stopped at exactly 150,000 states | `artifacts/sweep/sweep_L1.log` |
+| Breadth: RESET restores the level's start state | 3,000 probes across 6 environments | `reset_probes=3000 reset_returns_to_start=3000` | `artifacts/sweep/summary_L1.log` |
+| Breadth: one action advancing the level counter by two (finding F3) | 1,247,448 transitions | `double_advance_actions=0` | `artifacts/sweep/summary_L1.log` |
+| Breadth: peak memory | 6 environments | `peak_rss_mb_max=211.8` against a 2500 MB cap | `artifacts/sweep/summary_L1.log` |
 | Double-advance (finding F3) reachability | every transition of both levels | `"double_advance_actions": 0` on each | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Peak memory of the enumeration | 2 levels | under 300 MB on both, against `"max_rss_mb_cap": 3500.0`; the exact figure varies run to run and is checked as a bound, not a literal | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Re-run byte identity | scorer, harness, recorder | identical (`tests/test_scorer_probe.py`, `tests/test_harness_probe.py`, `tests/test_recorder.py::test_m8_byte_identity`) | suite |
@@ -188,8 +194,10 @@ ARC-AGI-3 environment rule is by design, and are not reported as defects.
   0–19). Winning transitions are compared on status only, because the shipped
   game has already loaded the next level at that point (`docs/DECISIONS.md`).
 - F3 reachability, dynamic: no single action advanced the level counter by two
-  anywhere in either level's complete graph (`"double_advance_actions": 0`),
-  so the scorer edge is unreachable on the two levels enumerated so far.
+  anywhere in either ls20 level's complete graph, nor anywhere in the breadth
+  sweep (`double_advance_actions=0` over 1,247,448 transitions in six
+  environments), so the scorer edge is unreachable everywhere it could be
+  checked.
 - F3 reachability, static: every one of the 25 public sources has exactly one
   `next_level()` call site, none inside a loop. In 11 of 25 (ar25, cn04, dc22,
   ft09, g50t, lf52, lp85, ls20, su15, tn36, tr87) the call is immediately
@@ -213,6 +221,50 @@ level-2 edges) and no absorption probability, but it is a caveat on any
 published state count for these environments, our own included: the number
 depends on the granularity of the identity function, and a frame hash, an
 engine-state hash and a rule-level abstraction give three different answers.
+
+## Breadth sweep — level 1 across the public set
+
+Method: enumerate the reachable state graph of level 1 from the shipped game,
+with no model and no differential. That alone answers three audit questions per
+environment: is the level winnable from its own start state, does RESET restore
+that start state, and can one action advance the level counter by two. Search is
+depth-first, which holds only the objects along one path, so memory is bounded
+by depth rather than by the width of a search layer.
+
+**What is enumerable at all.** Six of the 25 public environments
+(`enumerable=6`): ls20, tr87, tu93, g50t, re86, wa30. The other nineteen
+(`skipped_click=19`) advertise the click action, whose x and y each range over
+0 to 63, giving at least 4,096 successors per state. Exhaustive enumeration is
+out of reach for those within any sane budget. This is a measured property of
+the advertised action space, taken from the shipped games themselves, not a
+judgement about the environments. It is also a limit on any state-graph method
+applied to ARC-AGI-3, ours and the published ones alike.
+
+**What completed.** Level 1 finished inside the budget for two environments
+(`complete=2`): ls20 at `"states": 14337` and tu93 at `"states": 2609`. The
+other four stopped at exactly `"states": 150000`, a deterministic cap chosen so
+the artefacts are reproducible; a wall-clock cap stops at a different place on
+every run and cannot carry a claim. A capped run establishes nothing about reachability either way,
+and the artefacts say so: `win_reachable` is null and no win probability is
+reported when a run was truncated without finding a win.
+
+**Findings: none.** Across `states_examined=616946` states and
+`transitions_examined=1247448` transitions in six environments:
+
+- No level 1 was shown unwinnable. Both completed environments are winnable.
+- RESET returned exactly to the level's start state on every probe:
+  `reset_probes=3000 reset_returns_to_start=3000`, 500 per environment, taken
+  from states with actions spent and progress made. No state leaked across a
+  level reset anywhere.
+- No single action advanced the level counter by two:
+  `double_advance_actions=0`. The scorer edge behind finding F3 is unreachable
+  everywhere it could be checked.
+
+**Why those negatives are worth reading.** A negative only means something if
+the detector could have fired. Both are tested against deliberately broken
+games: with RESET stubbed out the probe reports a mismatch, and with the engine
+made to advance two levels in one action the detector catches it
+(`tests/test_sweep.py`). The sweep's zeros are therefore evidence, not silence.
 
 ## Negatives (checked, found consistent)
 
@@ -258,6 +310,12 @@ the observed state is that they agree.
 
 ## Not done, and why
 
+- Levels 2 and above of the other five enumerable environments, and level 1 of
+  the four that were capped at 150,000 states. Continuing them is a matter of
+  compute, not of method; a capped command is in the status note.
+- Any state-graph result for the nineteen click-based environments. Their
+  branching factor rules the method out, which is stated rather than worked
+  around.
 - Reference 1 beyond ls20 level 2: the generator refuses levels 3–7 and names
   why — pushers (3–7), colour tiles (3–7), shape tiles (4–7), patrol areas
   (5–7), two goals (6), fog (7). Nothing is claimed about those levels. The
@@ -284,22 +342,27 @@ the observed state is that they agree.
    disagreement could always be our model being wrong. Where our own
    arithmetic or scripts were wrong (three test literals, H1/H2/H6's
    initial-reset assumption) it is recorded in `docs/DECISIONS.md`.
-4. The two levels audited are 2 of ls20's 7 and 2 of the public set's roughly
-   170; nothing here supports a statement about ARC-AGI-3 as a whole.
-5. The harness probe replaces the model call with a scripted stub; the loop,
+4. The levels audited with a verified model are 2 of ls20's 7. The breadth
+   sweep covers level 1 of six environments, two of them exhaustively. Nothing
+   here supports a statement about ARC-AGI-3 as a whole, and in particular the
+   nineteen click-based environments are untouched by it.
+5. A truncated enumeration is a sample of a larger graph, not a survey of it:
+   the sweep's negatives hold over the states actually reached, which for four
+   environments is the first 150,000 that depth-first search happened to visit.
+6. The harness probe replaces the model call with a scripted stub; the loop,
    `is_done`, `_sync_level_progress`, forced RESET handling and
    `choose_action` are the harness's own code.
-6. The fixture game `bt11` is the toolkit's test environment, not a public
+7. The fixture game `bt11` is the toolkit's test environment, not a public
    benchmark environment; the only public environment claims are about ls20
    levels 1 and 2, whose models we wrote from obfuscated source at the rule
    level. A rule we did not see would be one the model matched anyway on every
    reachable transition, so it is either unreachable on these levels or
    invisible in position, rotation, lives, steps, pickups and status.
-7. Every number in this file is registered in `docs/claims.json` and checked
+8. Every number in this file is registered in `docs/claims.json` and checked
    by `../audit-kit/scripts/report_check.sh`; scripts and artefacts ship in
    this repository; the audited origins have Software Heritage save requests
    accepted (`artifacts/intake/swh_snapshot.log`).
-8. What a reader must still trust: Dafny 4.11.0 and its JavaScript backend,
+9. What a reader must still trust: Dafny 4.11.0 and its JavaScript backend,
    Node 24, the vendored toolkit at the pinned commit, and our reading of the
    English in the report and docs.
 
@@ -318,6 +381,8 @@ for L in 1 2; do
   scripts/check_model.sh model/ls20_level$L.dfy artifacts/oracle_env
   .venv/bin/python scripts/env_probe.py --game ls20 --level $L
 done
+.venv/bin/python scripts/action_census.py
+.venv/bin/python scripts/sweep.py --level 1 --search dfs --max-states 150000 --max-seconds 1200 --max-rss-mb 2500
 ../audit-kit/scripts/report_check.sh docs/claims.json
 ```
 

@@ -1,0 +1,277 @@
+{
+ "complete": 2,
+ "environments": 25,
+ "flags": {
+  "double_advance": [],
+  "errored": [],
+  "reset_mismatch": [],
+  "skipped": [
+   "ar25",
+   "bp35",
+   "cd82",
+   "cn04",
+   "dc22",
+   "ft09",
+   "ka59",
+   "lf52",
+   "lp85",
+   "m0r0",
+   "r11l",
+   "s5i5",
+   "sb26",
+   "sc25",
+   "sk48",
+   "sp80",
+   "su15",
+   "tn36",
+   "vc33"
+  ],
+  "truncated": [
+   "g50t",
+   "re86",
+   "tr87",
+   "wa30"
+  ],
+  "unwinnable_complete": [],
+  "win_not_established": [
+   "g50t",
+   "re86",
+   "tr87",
+   "wa30"
+  ]
+ },
+ "level": 1,
+ "rows": [
+  {
+   "game": "ar25",
+   "reason": "advertises the click action, 4102 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "bp35",
+   "reason": "advertises the click action, 4099 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "cd82",
+   "reason": "advertises the click action, 4101 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "cn04",
+   "reason": "advertises the click action, 4101 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "dc22",
+   "reason": "advertises the click action, 4100 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "ft09",
+   "reason": "advertises the click action, 4096 successors per state",
+   "status": "skipped"
+  },
+  {
+   "baseline_actions_level": 78,
+   "double_advance_actions": 0,
+   "edges": 185594,
+   "first_win_depth": null,
+   "game": "g50t",
+   "inverse_p_win_random": null,
+   "peak_rss_mb": 186.2,
+   "reset_checked": 500,
+   "reset_mismatch": false,
+   "reset_returns_to_start": 500,
+   "search": "dfs",
+   "states": 150000,
+   "status": "truncated",
+   "truncated_reason": "max_states",
+   "unhandled_types": [
+    "int8"
+   ],
+   "win_established": false,
+   "win_reachable": null
+  },
+  {
+   "game": "ka59",
+   "reason": "advertises the click action, 4100 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "lf52",
+   "reason": "advertises the click action, 4101 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "lp85",
+   "reason": "advertises the click action, 4096 successors per state",
+   "status": "skipped"
+  },
+  {
+   "baseline_actions_level": 22,
+   "double_advance_actions": 0,
+   "edges": 56772,
+   "first_win_depth": 130,
+   "game": "ls20",
+   "inverse_p_win_random": 355.38533070027296,
+   "peak_rss_mb": 211.8,
+   "reset_checked": 500,
+   "reset_mismatch": false,
+   "reset_returns_to_start": 500,
+   "search": "dfs",
+   "states": 14337,
+   "status": "complete",
+   "truncated_reason": null,
+   "unhandled_types": [
+    "int8"
+   ],
+   "win_established": true,
+   "win_reachable": true
+  },
+  {
+   "game": "m0r0",
+   "reason": "advertises the click action, 4101 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "r11l",
+   "reason": "advertises the click action, 4096 successors per state",
+   "status": "skipped"
+  },
+  {
+   "baseline_actions_level": 26,
+   "double_advance_actions": 0,
+   "edges": 548620,
+   "first_win_depth": null,
+   "game": "re86",
+   "inverse_p_win_random": null,
+   "peak_rss_mb": 197.7,
+   "reset_checked": 500,
+   "reset_mismatch": false,
+   "reset_returns_to_start": 500,
+   "search": "dfs",
+   "states": 150000,
+   "status": "truncated",
+   "truncated_reason": "max_states",
+   "unhandled_types": [
+    "int8"
+   ],
+   "win_established": false,
+   "win_reachable": null
+  },
+  {
+   "game": "s5i5",
+   "reason": "advertises the click action, 4096 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "sb26",
+   "reason": "advertises the click action, 4098 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "sc25",
+   "reason": "advertises the click action, 4100 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "sk48",
+   "reason": "advertises the click action, 4101 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "sp80",
+   "reason": "advertises the click action, 4101 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "su15",
+   "reason": "advertises the click action, 4097 successors per state",
+   "status": "skipped"
+  },
+  {
+   "game": "tn36",
+   "reason": "advertises the click action, 4096 successors per state",
+   "status": "skipped"
+  },
+  {
+   "baseline_actions_level": 54,
+   "double_advance_actions": 0,
+   "edges": 244924,
+   "first_win_depth": null,
+   "game": "tr87",
+   "inverse_p_win_random": null,
+   "peak_rss_mb": 148.0,
+   "reset_checked": 500,
+   "reset_mismatch": false,
+   "reset_returns_to_start": 500,
+   "search": "dfs",
+   "states": 150000,
+   "status": "truncated",
+   "truncated_reason": "max_states",
+   "unhandled_types": [],
+   "win_established": false,
+   "win_reachable": null
+  },
+  {
+   "baseline_actions_level": 19,
+   "double_advance_actions": 0,
+   "edges": 10180,
+   "first_win_depth": 50,
+   "game": "tu93",
+   "inverse_p_win_random": 6991.710939564944,
+   "peak_rss_mb": 211.8,
+   "reset_checked": 500,
+   "reset_mismatch": false,
+   "reset_returns_to_start": 500,
+   "search": "dfs",
+   "states": 2609,
+   "status": "complete",
+   "truncated_reason": null,
+   "unhandled_types": [
+    "int8"
+   ],
+   "win_established": true,
+   "win_reachable": true
+  },
+  {
+   "game": "vc33",
+   "reason": "advertises the click action, 4096 successors per state",
+   "status": "skipped"
+  },
+  {
+   "baseline_actions_level": 71,
+   "double_advance_actions": 0,
+   "edges": 201358,
+   "first_win_depth": null,
+   "game": "wa30",
+   "inverse_p_win_random": null,
+   "peak_rss_mb": 197.7,
+   "reset_checked": 500,
+   "reset_mismatch": false,
+   "reset_returns_to_start": 500,
+   "search": "dfs",
+   "states": 150000,
+   "status": "truncated",
+   "truncated_reason": "max_states",
+   "unhandled_types": [
+    "int8"
+   ],
+   "win_established": false,
+   "win_reachable": null
+  }
+ ],
+ "totals": {
+  "complete": 2,
+  "double_advance_actions": 0,
+  "enumerable": 6,
+  "environments": 25,
+  "peak_rss_mb_max": 211.8,
+  "reset_probes": 3000,
+  "reset_returns_to_start": 3000,
+  "skipped_click": 19,
+  "states_examined": 616946,
+  "transitions_examined": 1247448
+ }
+}

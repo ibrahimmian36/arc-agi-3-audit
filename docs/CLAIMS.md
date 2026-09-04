@@ -77,3 +77,14 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 70 | `key_by_lives={'0': 1291, '1': 13024, '2': 13024, '3': 7400}` | `../artifacts/env/ls20/granularity.log` | `^L2 ` | scripts/state_granularity.py |
 | 71 | `rule_symmetric=True` | `../artifacts/env/ls20/granularity.log` | `^L1 ` | scripts/state_granularity.py |
 | 72 | `"max_rss_mb_cap": 3500.0` | `../artifacts/env/ls20/graph_L2.json` | `max_rss_mb_cap` | scripts/state_graph.py |
+| 73 | `enumerable=6` | `../artifacts/sweep/summary_L1.log` | `^TOTALS` | scripts/sweep.py |
+| 74 | `skipped_click=19` | `../artifacts/sweep/summary_L1.log` | `^TOTALS` | scripts/sweep.py |
+| 75 | `complete=2` | `../artifacts/sweep/summary_L1.log` | `^TOTALS` | scripts/sweep.py |
+| 76 | `states_examined=616946` | `../artifacts/sweep/summary_L1.log` | `^TOTALS` | scripts/sweep.py |
+| 77 | `transitions_examined=1247448` | `../artifacts/sweep/summary_L1.log` | `^TOTALS` | scripts/sweep.py |
+| 78 | `reset_probes=3000 reset_returns_to_start=3000` | `../artifacts/sweep/summary_L1.log` | `^TOTALS` | scripts/sweep.py |
+| 79 | `double_advance_actions=0` | `../artifacts/sweep/summary_L1.log` | `^TOTALS` | scripts/sweep.py |
+| 80 | `peak_rss_mb_max=211.8` | `../artifacts/sweep/summary_L1.log` | `^TOTALS` | scripts/sweep.py |
+| 81 | `"states": 14337` | `../artifacts/sweep/ls20_L1.json` | `"states"` | scripts/sweep.py |
+| 82 | `"states": 2609` | `../artifacts/sweep/tu93_L1.json` | `"states"` | scripts/sweep.py |
+| 83 | `"states": 150000` | `../artifacts/sweep/tr87_L1.json` | `"states"` | scripts/sweep.py |

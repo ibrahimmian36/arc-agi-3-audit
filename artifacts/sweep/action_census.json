@@ -1,0 +1,871 @@
+[
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "baseline_actions": [
+   32,
+   50,
+   75,
+   37,
+   89,
+   159,
+   233,
+   73
+  ],
+  "branching_factor": 4102,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "ar25",
+  "game_id": "ar25-0c556536",
+  "levels": 8,
+  "reason": "advertises the click action, 4102 successors per state",
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   7
+  ],
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "AR25"
+ },
+ {
+  "actions": [
+   3,
+   4,
+   6,
+   7
+  ],
+  "baseline_actions": [
+   21,
+   48,
+   44,
+   38,
+   33,
+   87,
+   86,
+   131,
+   163
+  ],
+  "branching_factor": 4099,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "bp35",
+  "game_id": "bp35-0a0ad940",
+  "levels": 9,
+  "reason": "advertises the click action, 4099 successors per state",
+  "simple_actions": [
+   3,
+   4,
+   7
+  ],
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "BP35"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "baseline_actions": [
+   55,
+   8,
+   41,
+   21,
+   23,
+   23
+  ],
+  "branching_factor": 4101,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "cd82",
+  "game_id": "cd82-fb555c5d",
+  "levels": 6,
+  "reason": "advertises the click action, 4101 successors per state",
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "CD82"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "baseline_actions": [
+   29,
+   54,
+   85,
+   300,
+   208,
+   113
+  ],
+  "branching_factor": 4101,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "cn04",
+  "game_id": "cn04-2fe56bfb",
+  "levels": 6,
+  "reason": "advertises the click action, 4101 successors per state",
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "CN04"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4,
+   6
+  ],
+  "baseline_actions": [
+   59,
+   102,
+   67,
+   98,
+   324,
+   578
+  ],
+  "branching_factor": 4100,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "dc22",
+  "game_id": "dc22-fdcac232",
+  "levels": 6,
+  "reason": "advertises the click action, 4100 successors per state",
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "DC22"
+ },
+ {
+  "actions": [
+   6
+  ],
+  "baseline_actions": [
+   43,
+   12,
+   23,
+   28,
+   65,
+   37
+  ],
+  "branching_factor": 4096,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "ft09",
+  "game_id": "ft09-0d8bbf25",
+  "levels": 6,
+  "reason": "advertises the click action, 4096 successors per state",
+  "simple_actions": [],
+  "tags": [],
+  "title": "FT09"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "baseline_actions": [
+   78,
+   175,
+   179,
+   230,
+   96,
+   54,
+   67
+  ],
+  "branching_factor": 5,
+  "complex_actions": [],
+  "enumerable": true,
+  "game": "g50t",
+  "game_id": "g50t-5849a774",
+  "levels": 7,
+  "reason": null,
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "tags": [
+   "keyboard"
+  ],
+  "title": "G50T"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4,
+   6
+  ],
+  "baseline_actions": [
+   28,
+   109,
+   51,
+   51,
+   33,
+   132,
+   326
+  ],
+  "branching_factor": 4100,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "ka59",
+  "game_id": "ka59-38d34dbb",
+  "levels": 7,
+  "reason": "advertises the click action, 4100 successors per state",
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "KA59"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4,
+   6,
+   7
+  ],
+  "baseline_actions": [
+   32,
+   81,
+   60,
+   71,
+   205,
+   148,
+   244,
+   109,
+   164,
+   225
+  ],
+  "branching_factor": 4101,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "lf52",
+  "game_id": "lf52-271a04aa",
+  "levels": 10,
+  "reason": "advertises the click action, 4101 successors per state",
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4,
+   7
+  ],
+  "tags": [
+   "click"
+  ],
+  "title": "LF52"
+ },
+ {
+  "actions": [
+   6
+  ],
+  "baseline_actions": [
+   17,
+   38,
+   31,
+   16,
+   41,
+   60,
+   26,
+   159
+  ],
+  "branching_factor": 4096,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "lp85",
+  "game_id": "lp85-305b61c3",
+  "levels": 8,
+  "reason": "advertises the click action, 4096 successors per state",
+  "simple_actions": [],
+  "tags": [
+   "click"
+  ],
+  "title": "LP85"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "baseline_actions": [
+   22,
+   123,
+   73,
+   84,
+   96,
+   192,
+   186
+  ],
+  "branching_factor": 4,
+  "complex_actions": [],
+  "enumerable": true,
+  "game": "ls20",
+  "game_id": "ls20-9607627b",
+  "levels": 7,
+  "reason": null,
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "tags": [
+   "keyboard"
+  ],
+  "title": "LS20"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "baseline_actions": [
+   30,
+   111,
+   203,
+   26,
+   500,
+   237
+  ],
+  "branching_factor": 4101,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "m0r0",
+  "game_id": "m0r0-492f87ba",
+  "levels": 6,
+  "reason": "advertises the click action, 4101 successors per state",
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "M0R0"
+ },
+ {
+  "actions": [
+   6
+  ],
+  "baseline_actions": [
+   22,
+   33,
+   51,
+   26,
+   52,
+   49
+  ],
+  "branching_factor": 4096,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "r11l",
+  "game_id": "r11l-495a7899",
+  "levels": 6,
+  "reason": "advertises the click action, 4096 successors per state",
+  "simple_actions": [],
+  "tags": [
+   "click"
+  ],
+  "title": "R11L"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "baseline_actions": [
+   26,
+   42,
+   86,
+   108,
+   189,
+   139,
+   424,
+   241
+  ],
+  "branching_factor": 5,
+  "complex_actions": [],
+  "enumerable": true,
+  "game": "re86",
+  "game_id": "re86-8af5384d",
+  "levels": 8,
+  "reason": null,
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "RE86"
+ },
+ {
+  "actions": [
+   6
+  ],
+  "baseline_actions": [
+   20,
+   89,
+   106,
+   54,
+   162,
+   38,
+   86,
+   83
+  ],
+  "branching_factor": 4096,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "s5i5",
+  "game_id": "s5i5-18d95033",
+  "levels": 8,
+  "reason": "advertises the click action, 4096 successors per state",
+  "simple_actions": [],
+  "tags": [
+   "click"
+  ],
+  "title": "S5I5"
+ },
+ {
+  "actions": [
+   5,
+   6,
+   7
+  ],
+  "baseline_actions": [
+   18,
+   28,
+   18,
+   19,
+   31,
+   23,
+   58,
+   18
+  ],
+  "branching_factor": 4098,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "sb26",
+  "game_id": "sb26-7fbdac44",
+  "levels": 8,
+  "reason": "advertises the click action, 4098 successors per state",
+  "simple_actions": [
+   5,
+   7
+  ],
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "SB26"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4,
+   6
+  ],
+  "baseline_actions": [
+   36,
+   6,
+   32,
+   83,
+   143,
+   50
+  ],
+  "branching_factor": 4100,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "sc25",
+  "game_id": "sc25-635fd71a",
+  "levels": 6,
+  "reason": "advertises the click action, 4100 successors per state",
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "SC25"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4,
+   6,
+   7
+  ],
+  "baseline_actions": [
+   61,
+   177,
+   101,
+   103,
+   230,
+   181,
+   125,
+   92
+  ],
+  "branching_factor": 4101,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "sk48",
+  "game_id": "sk48-d8078629",
+  "levels": 8,
+  "reason": "advertises the click action, 4101 successors per state",
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4,
+   7
+  ],
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "SK48"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "baseline_actions": [
+   39,
+   58,
+   25,
+   148,
+   96,
+   152
+  ],
+  "branching_factor": 4101,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "sp80",
+  "game_id": "sp80-589a99af",
+  "levels": 6,
+  "reason": "advertises the click action, 4101 successors per state",
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "SP80"
+ },
+ {
+  "actions": [
+   6,
+   7
+  ],
+  "baseline_actions": [
+   22,
+   42,
+   26,
+   115,
+   36,
+   31,
+   8,
+   40,
+   41
+  ],
+  "branching_factor": 4097,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "su15",
+  "game_id": "su15-1944f8ab",
+  "levels": 9,
+  "reason": "advertises the click action, 4097 successors per state",
+  "simple_actions": [
+   7
+  ],
+  "tags": [
+   "click"
+  ],
+  "title": "SU15"
+ },
+ {
+  "actions": [
+   6
+  ],
+  "baseline_actions": [
+   32,
+   72,
+   26,
+   40,
+   30,
+   55,
+   62
+  ],
+  "branching_factor": 4096,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "tn36",
+  "game_id": "tn36-ef4dde99",
+  "levels": 7,
+  "reason": "advertises the click action, 4096 successors per state",
+  "simple_actions": [],
+  "tags": [
+   "click"
+  ],
+  "title": "TN36"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "baseline_actions": [
+   54,
+   58,
+   40,
+   45,
+   71,
+   146
+  ],
+  "branching_factor": 4,
+  "complex_actions": [],
+  "enumerable": true,
+  "game": "tr87",
+  "game_id": "tr87-cd924810",
+  "levels": 6,
+  "reason": null,
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "tags": [
+   "keyboard"
+  ],
+  "title": "TR87"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "baseline_actions": [
+   19,
+   16,
+   34,
+   42,
+   123,
+   80,
+   14,
+   23,
+   111
+  ],
+  "branching_factor": 4,
+  "complex_actions": [],
+  "enumerable": true,
+  "game": "tu93",
+  "game_id": "tu93-0768757b",
+  "levels": 9,
+  "reason": null,
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "tags": [
+   "keyboard_click"
+  ],
+  "title": "TU93"
+ },
+ {
+  "actions": [
+   6
+  ],
+  "baseline_actions": [
+   7,
+   18,
+   44,
+   61,
+   131,
+   34,
+   152
+  ],
+  "branching_factor": 4096,
+  "complex_actions": [
+   6
+  ],
+  "enumerable": false,
+  "game": "vc33",
+  "game_id": "vc33-5430563c",
+  "levels": 7,
+  "reason": "advertises the click action, 4096 successors per state",
+  "simple_actions": [],
+  "tags": [
+   "click"
+  ],
+  "title": "VC33"
+ },
+ {
+  "actions": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "baseline_actions": [
+   71,
+   119,
+   183,
+   98,
+   368,
+   68,
+   79,
+   442,
+   415
+  ],
+  "branching_factor": 5,
+  "complex_actions": [],
+  "enumerable": true,
+  "game": "wa30",
+  "game_id": "wa30-ee6fef47",
+  "levels": 9,
+  "reason": null,
+  "simple_actions": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "tags": [
+   "keyboard"
+  ],
+  "title": "WA30"
+ }
+]

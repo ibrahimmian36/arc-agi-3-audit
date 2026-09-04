@@ -1,0 +1,26 @@
+ar25   actions=[1, 2, 3, 4, 5, 6, 7]  branching= 4102 levels= 8 enumerable=False
+bp35   actions=[3, 4, 6, 7]           branching= 4099 levels= 9 enumerable=False
+cd82   actions=[1, 2, 3, 4, 5, 6]     branching= 4101 levels= 6 enumerable=False
+cn04   actions=[1, 2, 3, 4, 5, 6]     branching= 4101 levels= 6 enumerable=False
+dc22   actions=[1, 2, 3, 4, 6]        branching= 4100 levels= 6 enumerable=False
+ft09   actions=[6]                    branching= 4096 levels= 6 enumerable=False
+g50t   actions=[1, 2, 3, 4, 5]        branching=    5 levels= 7 enumerable=True
+ka59   actions=[1, 2, 3, 4, 6]        branching= 4100 levels= 7 enumerable=False
+lf52   actions=[1, 2, 3, 4, 6, 7]     branching= 4101 levels=10 enumerable=False
+lp85   actions=[6]                    branching= 4096 levels= 8 enumerable=False
+ls20   actions=[1, 2, 3, 4]           branching=    4 levels= 7 enumerable=True
+m0r0   actions=[1, 2, 3, 4, 5, 6]     branching= 4101 levels= 6 enumerable=False
+r11l   actions=[6]                    branching= 4096 levels= 6 enumerable=False
+re86   actions=[1, 2, 3, 4, 5]        branching=    5 levels= 8 enumerable=True
+s5i5   actions=[6]                    branching= 4096 levels= 8 enumerable=False
+sb26   actions=[5, 6, 7]              branching= 4098 levels= 8 enumerable=False
+sc25   actions=[1, 2, 3, 4, 6]        branching= 4100 levels= 6 enumerable=False
+sk48   actions=[1, 2, 3, 4, 6, 7]     branching= 4101 levels= 8 enumerable=False
+sp80   actions=[1, 2, 3, 4, 5, 6]     branching= 4101 levels= 6 enumerable=False
+su15   actions=[6, 7]                 branching= 4097 levels= 9 enumerable=False
+tn36   actions=[6]                    branching= 4096 levels= 7 enumerable=False
+tr87   actions=[1, 2, 3, 4]           branching=    4 levels= 6 enumerable=True
+tu93   actions=[1, 2, 3, 4]           branching=    4 levels= 9 enumerable=True
+vc33   actions=[6]                    branching= 4096 levels= 7 enumerable=False
+wa30   actions=[1, 2, 3, 4, 5]        branching=    5 levels= 9 enumerable=True
+SUMMARY environments=25 enumerable=6 click_based=19 enumerable_games=['g50t', 'ls20', 're86', 'tr87', 'tu93', 'wa30']

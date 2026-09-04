@@ -1,0 +1,61 @@
+{
+ "actions": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "baseline_actions_level": 71,
+ "double_advance_actions": 0,
+ "double_advance_examples": [],
+ "edges": 201358,
+ "first_win_depth": null,
+ "game": "wa30-ee6fef47",
+ "game_over_states": 109574,
+ "inverse_p_win_random": null,
+ "level": 1,
+ "max_frontier": 1,
+ "max_rss_mb_cap": 2500.0,
+ "max_stack": 200,
+ "max_states": 150000,
+ "one_over_states": 6.666666666666667e-06,
+ "p_win_random_policy": null,
+ "peak_rss_mb": 197.7,
+ "reset_checked": 500,
+ "reset_mismatches": [],
+ "reset_returns_to_start": 500,
+ "root_abstract": {
+  "color": null,
+  "cx": null,
+  "cy": null,
+  "eaten": 0,
+  "goals_done": [],
+  "lives": null,
+  "px": null,
+  "py": null,
+  "rot": null,
+  "shape": null,
+  "status": "PLAY",
+  "steps": null
+ },
+ "rss_at_start_mb": 197.7,
+ "search": "dfs",
+ "shortest_win_depth": null,
+ "shortest_win_path": null,
+ "states": 150000,
+ "states_by_lives": {
+  "None": 150000
+ },
+ "truncated": true,
+ "truncated_reason": "max_states",
+ "unhandled_types": [
+  "int8"
+ ],
+ "wall_seconds": 79.4,
+ "win_established": false,
+ "win_over_states": 0.0,
+ "win_path_found": null,
+ "win_reachable": null,
+ "win_states": 0
+}

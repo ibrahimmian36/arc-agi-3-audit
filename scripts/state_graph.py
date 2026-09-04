@@ -32,10 +32,13 @@ import logging
 import resource
 import sys
 import time
+from array import array
 from pathlib import Path
 
 import numpy as np
 from arc_agi import Arcade, OperationMode
+from enum import Enum
+
 from arcengine import ActionInput, GameAction, GameState
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -82,7 +85,7 @@ def register_module(g) -> None:
 def level_signature(g, h) -> None:
     """Everything the game reads from the current level: each sprite's name,
     tags, position, visibility, rotation and pixels, in list order (order
-    matters: the collision scan iterates in order and breaks)."""
+    matters: a collision scan iterates in order and can break early)."""
     for sp in g.current_level.get_sprites():
         h.update(f"{sp.name}|{sp.tags}|{sp.x}|{sp.y}|{sp.is_visible}|{getattr(sp, 'rotation', None)}|".encode())
         px = getattr(sp, "pixels", None)
@@ -90,26 +93,90 @@ def level_signature(g, h) -> None:
             h.update(np.asarray(px).tobytes())
 
 
+# Containers the level signature already covers, plus the other levels, which
+# no action mutates while this one is being played.
+SKIP_ATTRS = ("_levels", "_clean_levels")
+MAX_DEPTH = 6
+
+
+def canon(v, h, depth: int = 0, seen: frozenset = frozenset()) -> None:
+    """Feed a value to the hash in a form that is stable across processes.
+
+    Never falls back to the default repr of an object: that contains the memory
+    address, which changes every run, would make every state look distinct and
+    would destroy reproducibility. Anything not understood contributes its type
+    name only, which is under-fine -- so the unhandled types are counted and
+    reported rather than passing silently.
+    """
+    if depth > MAX_DEPTH:
+        h.update(b"<depth>")
+        return
+    if v is None or isinstance(v, (bool, int, float, str, bytes)):
+        h.update(repr(v).encode())
+        return
+    if isinstance(v, np.ndarray):
+        h.update(b"ndarray"); h.update(repr(v.shape).encode()); h.update(v.tobytes())
+        return
+    if isinstance(v, (list, tuple)):
+        h.update(b"[")
+        for x in v:
+            canon(x, h, depth + 1, seen); h.update(b",")
+        h.update(b"]")
+        return
+    if isinstance(v, (set, frozenset)):
+        h.update(b"{")
+        for x in sorted(repr(x) for x in v):
+            h.update(x.encode()); h.update(b",")
+        h.update(b"}")
+        return
+    if isinstance(v, dict):
+        h.update(b"{{")
+        for k in sorted(v, key=repr):
+            h.update(repr(k).encode()); h.update(b":"); canon(v[k], h, depth + 1, seen); h.update(b",")
+        h.update(b"}}")
+        return
+    if isinstance(v, Enum):
+        h.update(f"enum:{v.name}".encode())
+        return
+    d = getattr(v, "__dict__", None)
+    if d is not None:
+        if id(v) in seen:            # a back-reference, not new state
+            h.update(b"<cycle>")
+            return
+        seen = seen | {id(v)}
+        h.update(type(v).__name__.encode()); h.update(b"(")
+        for k in sorted(d):
+            h.update(k.encode()); h.update(b"=")
+            canon(d[k], h, depth + 1, seen); h.update(b",")
+        h.update(b")")
+        return
+    UNHANDLED.add(type(v).__name__)
+    h.update(f"<{type(v).__name__}>".encode())
+
+
+UNHANDLED: set[str] = set()
+
+
 def state_key(g) -> bytes:
-    """Rule-level state digest: the level signature plus every game attribute
-    the step function reads, excluding TRANSIENT bookkeeping. Truncated to 16
-    bytes (collision probability below 1e-9 at 10^6 states). Over-fine rather
-    than under-fine: an extra attribute splits states, it never merges them."""
+    """State digest for ANY ARC-AGI-3 game: the current level's sprites plus
+    every instance attribute of the game object, excluding the transient engine
+    bookkeeping and the level containers the signature already covers.
+
+    Generic on purpose. The earlier version named ls20's own obfuscated
+    attributes, so on any other game those lookups returned None and the key
+    ignored that game's state entirely -- merging states that behave
+    differently, which hides transitions. Over-fine is the safe direction: an
+    extra attribute splits states, it never merges them.
+    """
     h = hashlib.blake2b(digest_size=16)
     level_signature(g, h)
-    ui = getattr(g, "_step_counter_ui", None)
-    fields = [g._state.name, g._score, g._current_level_index,
-              None if ui is None else (ui.current_steps, ui.osgviligwp, ui.efipnixsvl)]
-    for k in ("aqygnziho", "cklxociuu", "hiaauhahz", "fwckfzsyc", "lvrnuajbl", "akoadfsur", "ebfuxzbvn",
-              "ltwrkifkx", "zyoimjaei", "ehwheiwsk", "yjdexjsoa", "ldxlnycps"):
-        fields.append(repr(getattr(g, k, None)))
-    for k in ("ofoahudlo", "byotxmvkt", "alsxlhizr", "euemavvxz"):
-        fields.append(len(getattr(g, k, []) or []))
-    for pu in getattr(g, "hasivfwip", []) or []:
-        fields.append((pu.sprite.x, pu.sprite.y, pu.is_pushing, pu.target_x, pu.target_y))
-    for mv in getattr(g, "wsoslqeku", []) or []:
-        fields.append((mv._sprite.x, mv._sprite.y, mv._dir, mv._undo_x, mv._undo_y, mv._undo_dir))
-    h.update(repr(fields).encode())
+    h.update(f"|{g._state.name}|{g._score}|{g._current_level_index}|".encode())
+    for k in sorted(g.__dict__):
+        if k in TRANSIENT or k in SKIP_ATTRS:
+            continue
+        h.update(k.encode()); h.update(b"=")
+        canon(g.__dict__[k], h, 0, frozenset({id(g)}))
+        h.update(b";")
     return h.digest()
 
 
@@ -198,9 +265,20 @@ def fast_copy(g):
 def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: float,
                     max_rss_mb: float = 4096.0, check_reset: bool = True, max_reset_checks: int = 500,
                     edges_path: Path | None = None, environments_dir: Path | None = None,
-                    progress_every: int = 5000) -> dict:
+                    progress_every: int = 5000, actions: list[int] | None = None,
+                    search: str = "bfs", max_depth: int = 100_000) -> dict:
+    """search="bfs" keeps a whole layer of game objects alive, which is what a
+    shortest-path witness needs and what the model work uses. search="dfs" keeps
+    only the objects along the current path: memory becomes O(depth) rather than
+    O(layer width), which is the difference between finishing and hitting the
+    RSS cap on an environment with wide layers. DFS reaches the same states and
+    the same edges, but the win depth it reports is the first one found, not the
+    shortest -- so it is reported under a different name."""
+    global ACTIONS
     full_id, g0 = make_game(game, level_index, environments_dir)
     register_module(g0)
+    if actions is not None:
+        ACTIONS = list(actions)
     t0 = time.time()
     rss0 = rss_mb()
 
@@ -213,6 +291,9 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
     lives_hist: dict[str, int] = {str(a0["lives"]): 1}
 
     out = open_gz(edges_path, "wt") if edges_path else None
+    # Endpoints in 4-byte arrays rather than a re-read of the edge file: the
+    # sweep does not write edge files at all, and 2 million edges cost 16 MB here.
+    esrc, edst = array("i"), array("i")
     n_edges = 0
     truncated = None
     frontier: list[tuple[int, object, list]] = [(0, g0, vec(a0))]
@@ -223,74 +304,117 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
     win_nodes: list[int] = []
     over_nodes = 0
     shortest_win_depth = None
-    # Parent pointers only along the search tree, for the win witness.
+    first_win_depth = None
     parent: dict[int, tuple[int, int]] = {}
+    max_frontier = 1
+    max_stack = 1
+
+    def probe_reset(nid: int, g) -> None:
+        nonlocal reset_checked, reset_ok
+        if not check_reset or reset_checked >= max_reset_checks:
+            return
+        c = fast_copy(g)
+        c.perform_action(ActionInput(id=GameAction.RESET), raw=True)
+        reset_checked += 1
+        if state_key(c) == root:
+            reset_ok += 1
+        elif len(reset_bad) < 20:
+            reset_bad.append(dict(node=nid, after_reset=abstract(c, level_index)))
+
+    def expand(nid: int, g, av: list, a: int, d: int):
+        """One action from one state. Returns (child_id, child_game_or_None,
+        child_vec, child_status). The caller decides whether to keep the game."""
+        nonlocal n_edges, over_nodes, shortest_win_depth, first_win_depth
+        c = fast_copy(g)
+        before_levels = c._score
+        c.perform_action(ActionInput(id=GameAction.from_id(a)), raw=True)
+        if c._score - before_levels >= 2 and len(double_advance) < 20:
+            double_advance.append(dict(node=nid, action=a, from_levels=before_levels, to_levels=c._score))
+        ck = state_key(c)
+        ab = abstract(c, level_index)
+        cv = vec(ab)
+        known = index.get(ck)
+        fresh = known is None
+        if fresh:
+            known = len(index)
+            index[ck] = known
+            meta.append((STATUS_CODE[ab["status"]], d + 1))
+            parent[known] = (nid, a)
+            lives_hist[str(ab["lives"])] = lives_hist.get(str(ab["lives"]), 0) + 1
+            if ab["status"] == "WIN":
+                win_nodes.append(known)
+                if shortest_win_depth is None:
+                    shortest_win_depth = d + 1
+                if first_win_depth is None:
+                    first_win_depth = d + 1
+            elif ab["status"] != "PLAY":
+                over_nodes += 1
+        esrc.append(nid); edst.append(known)
+        if out is not None:
+            out.write(json.dumps({"i": nid, "j": known, "a": a, "s": av, "t": cv},
+                                 separators=(",", ":")) + "\n")
+        n_edges += 1
+        return known, c, cv, ab["status"], fresh
+
+    def over_states() -> str | None:
+        """Cheap enough to check on every expansion, and it must be: checking it
+        only every `progress_every` expansions let a run overshoot the cap by
+        thousands of states, which is the number the memory budget is built on."""
+        return "max_states" if len(index) >= max_states else None
+
+    def over_clock() -> str | None:
+        """Wall clock and resident memory; checked periodically because both
+        calls are far more expensive than a length comparison."""
+        if time.time() - t0 > max_seconds:
+            return "max_seconds"
+        if rss_mb() > max_rss_mb:
+            return "max_rss"
+        return None
+
+    def over_budget() -> str | None:
+        return over_states() or over_clock()
 
     try:
-        while frontier and truncated is None:
-            nxt: list[tuple[int, object, list]] = []
-            for nid, g, av in frontier:
-                if check_reset and reset_checked < max_reset_checks and depth > 0:
-                    c = fast_copy(g)
-                    c.perform_action(ActionInput(id=GameAction.RESET), raw=True)
-                    reset_checked += 1
-                    if state_key(c) == root:
-                        reset_ok += 1
-                    elif len(reset_bad) < 20:
-                        reset_bad.append(dict(node=nid, after_reset=abstract(c, level_index)))
-                    del c
-                for a in ACTIONS:
-                    c = fast_copy(g)
-                    before_levels = c._score
-                    c.perform_action(ActionInput(id=GameAction.from_id(a)), raw=True)
-                    if c._score - before_levels >= 2 and len(double_advance) < 20:
-                        double_advance.append(dict(node=nid, action=a, from_levels=before_levels, to_levels=c._score))
-                    ck = state_key(c)
-                    ab = abstract(c, level_index)
-                    cv = vec(ab)
-                    known = index.get(ck)
-                    if known is None:
-                        known = len(index)
-                        index[ck] = known
-                        meta.append((STATUS_CODE[ab["status"]], depth + 1))
-                        parent[known] = (nid, a)
-                        lives_hist[str(ab["lives"])] = lives_hist.get(str(ab["lives"]), 0) + 1
-                        if ab["status"] == "PLAY":
+        if search == "bfs":
+            while frontier and truncated is None:
+                nxt: list[tuple[int, object, list]] = []
+                for nid, g, av in frontier:
+                    if depth > 0:
+                        probe_reset(nid, g)
+                    for a in ACTIONS:
+                        known, c, cv, st, fresh = expand(nid, g, av, a, depth)
+                        if fresh and st == "PLAY":
                             nxt.append((known, c, cv))
-                        elif ab["status"] == "WIN":
-                            win_nodes.append(known)
-                            if shortest_win_depth is None:
-                                shortest_win_depth = depth + 1
                         else:
-                            over_nodes += 1
                             del c
-                    else:
-                        del c
-                    if out is not None:
-                        # Both the true node ids (for exact graph arithmetic) and
-                        # the abstract vectors (for the model differential): the
-                        # vectors are coarser than the state key and must never
-                        # be used as node identity.
-                        out.write(json.dumps({"i": nid, "j": known, "a": a, "s": av, "t": cv},
-                                             separators=(",", ":")) + "\n")
-                    n_edges += 1
-                if len(index) >= max_states:
-                    truncated = "max_states"
-                    break
+                    checked += 1
+                    truncated = over_states() or (over_clock() if checked % progress_every == 0 else None)
+                    if truncated:
+                        break
+                frontier = nxt
+                max_frontier = max(max_frontier, len(frontier))
+                depth += 1
+                if truncated is None:
+                    truncated = over_clock()
+        else:
+            # Depth-first: the stack holds the objects along one path only.
+            stack: list[tuple[int, object, list, int, iter]] = [(0, g0, vec(a0), 0, iter(list(ACTIONS)))]
+            while stack and truncated is None:
+                nid, g, av, d, it = stack[-1]
+                a = next(it, None)
+                if a is None:
+                    stack.pop()
+                    continue
+                known, c, cv, st, fresh = expand(nid, g, av, a, d)
+                if fresh and st == "PLAY" and d + 1 < max_depth:
+                    probe_reset(known, c)
+                    stack.append((known, c, cv, d + 1, iter(list(ACTIONS))))
+                    max_stack = max(max_stack, len(stack))
+                    depth = max(depth, d + 1)
+                else:
+                    del c
                 checked += 1
-                if checked % progress_every == 0:
-                    if time.time() - t0 > max_seconds:
-                        truncated = "max_seconds"; break
-                    if rss_mb() > max_rss_mb:
-                        truncated = "max_rss"; break
-            # The expanded layer's game objects go out of scope here; only the
-            # next layer's are retained.
-            frontier = nxt
-            depth += 1
-            if truncated is None and (time.time() - t0 > max_seconds):
-                truncated = "max_seconds"
-            if truncated is None and rss_mb() > max_rss_mb:
-                truncated = "max_rss"
+                truncated = over_states() or (over_clock() if checked % progress_every == 0 else None)
     finally:
         if out is not None:
             out.close()
@@ -307,13 +431,22 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
             path.append(a); cur = p
         path.reverse()
     # (a) random-policy win probability, exact only on a complete graph.
+    # A truncated run must not report a probability it cannot know.
     p_random = None
-    if win_nodes and truncated is None and edges_path is not None:
-        p_random = random_policy_win_probability(edges_path, meta, N)
-    return dict(game=full_id, level=level_index + 1, actions=ACTIONS, states=N, edges=n_edges,
+    if win_nodes and truncated is None:
+        p_random = random_policy_win_probability(esrc, edst, meta, N, len(ACTIONS))
+    # A capped run that found no win has NOT shown the level unwinnable.
+    win_established = bool(win_nodes) or truncated is None
+    return dict(game=full_id, level=level_index + 1, actions=list(ACTIONS), search=search,
+                unhandled_types=sorted(UNHANDLED),
+                win_established=win_established,
+                win_reachable=(bool(win_nodes) if win_established else None),
+                first_win_depth=first_win_depth, max_frontier=max_frontier, max_stack=max_stack, states=N, edges=n_edges,
                 truncated=bool(truncated), truncated_reason=truncated, max_states=max_states,
-                win_states=len(win_nodes), game_over_states=over_nodes, win_reachable=bool(win_nodes),
-                shortest_win_depth=shortest_win_depth, shortest_win_path=path,
+                win_states=len(win_nodes), game_over_states=over_nodes,
+                shortest_win_depth=(shortest_win_depth if search == "bfs" else None),
+                shortest_win_path=(path if search == "bfs" else None),
+                win_path_found=path,
                 states_by_lives=dict(sorted(lives_hist.items(), reverse=True)),
                 p_win_random_policy=p_random, one_over_states=(1.0 / N), win_over_states=(len(win_nodes) / N),
                 inverse_p_win_random=(None if not p_random else 1.0 / p_random),
@@ -323,24 +456,17 @@ def enumerate_level(game: str, level_index: int, max_states: int, max_seconds: f
                 max_rss_mb_cap=max_rss_mb)
 
 
-def random_policy_win_probability(edges_path: Path, meta: list, N: int) -> float:
-    """p(s) = mean over the four actions of p(next); WIN = 1, GAME_OVER = 0.
-    Sparse value iteration over the streamed edge file, using the TRUE node ids
-    (never the coarser abstract vectors). Memory: two int32 arrays of one entry
-    per edge plus two float arrays of one entry per state."""
-    src_l: list[int] = []
-    dst_l: list[int] = []
-    with gzip.open(edges_path, "rt") as fh:
-        for line in fh:
-            e = json.loads(line)
-            src_l.append(e["i"]); dst_l.append(e["j"])
-    src = np.asarray(src_l, dtype=np.int32); dst = np.asarray(dst_l, dtype=np.int32)
-    del src_l, dst_l
+def random_policy_win_probability(esrc, edst, meta: list, N: int, n_actions: int) -> float:
+    """p(s) = mean over the available actions of p(next); WIN = 1, GAME_OVER = 0.
+    Sparse value iteration over the accumulated endpoints. Memory: two int32
+    arrays of one entry per edge and two float arrays of one entry per state."""
+    src = np.frombuffer(esrc, dtype=np.int32)
+    dst = np.frombuffer(edst, dtype=np.int32)
     st = np.asarray([m[0] for m in meta], dtype=np.int8)
     p = (st == 1).astype(np.float64)
     play = st == 0
     for _ in range(200_000):
-        nxt = np.zeros(N); np.add.at(nxt, src, p[dst]); nxt /= 4.0
+        nxt = np.zeros(N); np.add.at(nxt, src, p[dst]); nxt /= float(n_actions)
         nxt[~play] = p[~play]
         if np.max(np.abs(nxt - p)) < 1e-12:
             p = nxt; break
@@ -358,16 +484,22 @@ def main(argv=None) -> int:
     ap.add_argument("--max-reset-checks", type=int, default=500)
     ap.add_argument("--environments-dir", type=Path, default=None)
     ap.add_argument("--out", type=Path, default=None)
+    ap.add_argument("--actions", default=None, help="comma-separated action ids; default is the game's own advertised set minus complex (click) actions")
+    ap.add_argument("--no-edges", action="store_true", help="do not write the edge file (the sweep does not need it)")
+    ap.add_argument("--search", choices=("bfs", "dfs"), default="bfs")
+    ap.add_argument("--max-depth", type=int, default=100_000)
     a = ap.parse_args(argv)
     out = a.out or (ROOT / "artifacts" / "env" / a.game)
     out.mkdir(parents=True, exist_ok=True)
     spec_path = ROOT / "artifacts" / "env" / a.game / f"level{a.level}.json"
     if spec_path.exists():
         set_energy_cells(json.loads(spec_path.read_text()).get("energy"))
-    edges = out / f"graph_L{a.level}_edges.jsonl.gz"
+    edges = None if a.no_edges else (out / f"graph_L{a.level}_edges.jsonl.gz")
+    acts = [int(x) for x in a.actions.split(",")] if a.actions else None
     r = enumerate_level(a.game, a.level - 1, a.max_states, a.max_seconds, a.max_rss_mb,
                         max_reset_checks=a.max_reset_checks, edges_path=edges,
-                        environments_dir=a.environments_dir)
+                        environments_dir=a.environments_dir, actions=acts,
+                        search=a.search, max_depth=a.max_depth)
     (out / f"graph_L{a.level}.json").write_text(json.dumps(r, indent=1, sort_keys=True) + "\n")
     print(json.dumps({k: v for k, v in r.items() if k not in ("reset_mismatches", "double_advance_examples", "root_abstract")}))
     return 0

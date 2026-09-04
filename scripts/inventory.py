@@ -106,6 +106,29 @@ def main(argv: list[str] | None = None) -> int:
             L.append(f"Selected by the rule: **{doc[0]['game_id']}** ({doc[0]['loc']} LOC, {doc[0]['levels']} levels, baselines {doc[0]['baseline_actions']}). Cheaper candidates ({', '.join(r['game_id'].split('-')[0] for r in cands if r['loc'] < doc[0]['loc'])}) have no documented mechanic and are Phase 1 candidates.\n")
         else:
             L.append("No fetched environment satisfies all three clauses; the rule does not select.\n")
+    census_p = ROOT / "artifacts" / "sweep" / "action_census.json"
+    summary_p = ROOT / "artifacts" / "sweep" / "summary_L1.json"
+    if census_p.exists():
+        cen = {r["game"]: r for r in json.loads(census_p.read_text())}
+        summ = {r["game"]: r for r in json.loads(summary_p.read_text())["rows"]} if summary_p.exists() else {}
+        L.append("## Action space and level-1 enumeration (generated; scripts/action_census.py, scripts/sweep.py)\n")
+        L.append("A game that advertises the click action has 64x64 targets per state, so its reachable")
+        L.append("state graph cannot be enumerated exhaustively within any sane budget. That is a measured")
+        L.append("property of the action space, not a judgement about the environment.\n")
+        L.append("| game | actions | branching | enumerable | L1 status | states | win reachable | reset probe | double advance |")
+        L.append("|---|---|---|---|---|---|---|---|---|")
+        for k in sorted(cen):
+            c = cen[k]; r = summ.get(k, {})
+            win = r.get("win_reachable")
+            win_s = "yes" if win is True else ("not established" if win is None and r.get("status") else "-")
+            reset = f"{r['reset_returns_to_start']}/{r['reset_checked']}" if r.get("reset_checked") else "-"
+            L.append(f"| {k} | {c['actions']} | {c['branching_factor']} | {'yes' if c['enumerable'] else 'no'} "
+                     f"| {r.get('status', '-')} | {r.get('states', '-')} | {win_s} | {reset} | {r.get('double_advance_actions', '-')} |")
+        enum = [k for k in cen if cen[k]["enumerable"]]
+        done = [k for k, r in summ.items() if r.get("status") == "complete"]
+        L.append(f"\nEnumerable action space: {len(enum)} of {len(cen)}. Level-1 enumeration complete within budget: "
+                 f"{len(done)} ({', '.join(sorted(done))}); the rest stopped at a stated cap and establish nothing "
+                 f"about reachability either way.\n")
     L.append(f"\nCounts: fetched={len(rows)}, listed={len(games) if games else 0}.\n")
     a.out.write_text("\n".join(L))
     print(f"wrote {a.out} (fetched={len(rows)}, listed={len(games) if games else 0})")

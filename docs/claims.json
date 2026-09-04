@@ -509,5 +509,82 @@
   "log": "../artifacts/env/ls20/graph_L2.json",
   "pattern": "max_rss_mb_cap",
   "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "enumerable=6",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/sweep/summary_L1.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/sweep.py"
+ },
+ {
+  "value": "skipped_click=19",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/sweep/summary_L1.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/sweep.py"
+ },
+ {
+  "value": "complete=2",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/sweep/summary_L1.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/sweep.py"
+ },
+ {
+  "value": "states_examined=616946",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/sweep/summary_L1.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/sweep.py"
+ },
+ {
+  "value": "transitions_examined=1247448",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/sweep/summary_L1.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/sweep.py"
+ },
+ {
+  "value": "reset_probes=3000 reset_returns_to_start=3000",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/sweep/summary_L1.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/sweep.py"
+ },
+ {
+  "value": "double_advance_actions=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/sweep/summary_L1.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/sweep.py"
+ },
+ {
+  "value": "peak_rss_mb_max=211.8",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/sweep/summary_L1.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/sweep.py"
+ },
+ {
+  "value": "\"states\": 14337",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/sweep/ls20_L1.json",
+  "pattern": "\"states\"",
+  "by": "scripts/sweep.py"
+ },
+ {
+  "value": "\"states\": 2609",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/sweep/tu93_L1.json",
+  "pattern": "\"states\"",
+  "by": "scripts/sweep.py"
+ },
+ {
+  "value": "\"states\": 150000",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/sweep/tr87_L1.json",
+  "pattern": "\"states\"",
+  "by": "scripts/sweep.py"
  }
 ]
