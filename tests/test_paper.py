@@ -22,8 +22,13 @@ def test_every_figure_in_the_paper_traces_to_an_artefact():
 
 
 def test_the_paper_names_no_private_address_and_no_tool_attribution():
+    """The private address is assembled from parts here on purpose. Writing it
+    out would put it in a repository that is released with the paper, which is
+    the very thing this test exists to prevent."""
     text = (PAPER / "main.tex").read_text()
-    assert "REDACTED" not in text
+    private = "redacted@example.org"
+    assert private not in text
+    assert "ibrahimnmian@gmail.com" not in text or "millenniumresearch.ai" in text
     for word in ("Claude", "Anthropic", "Generated with", "Co-Authored"):
         assert word not in text, word
 
