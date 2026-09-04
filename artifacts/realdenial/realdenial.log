@@ -1,0 +1,6 @@
+SETUP tu93 L1 baseline=19 budget=95 losing_line=50 witness=18 losing_replays=GAME_OVER witness_replays=WIN baseline_matches_api=True
+PAIR tu93 L1 deaths=1 chosen=93 budget=95 | shipped: counted=94 levels=1 exit=AGENT_ERROR score=0.090790202 | counterfactual: levels=1 exit=AGENT_ERROR score=0.090790202 | denied=False prediction_holds=True
+PAIR tu93 L1 deaths=1 chosen=94 budget=95 | shipped: counted=95 levels=1 exit=AGENT_ERROR score=0.088888889 | counterfactual: levels=1 exit=AGENT_ERROR score=0.088888889 | denied=False prediction_holds=True
+PAIR tu93 L1 deaths=1 chosen=95 budget=95 | shipped: counted=95 levels=0 exit=ACTION_BUDGET score=0.0 | counterfactual: levels=1 exit=AGENT_ERROR score=0.087046682 | denied=True prediction_holds=True
+WINDOW tu93 L1 deaths=1 denial_chosen_totals=[95] width=1 predicted=1 holds=True all_predictions_hold=True
+SUMMARY games=1 denials=1 all_windows_hold=True all_baselines_match_api=True peak_rss_mb_under_800=True

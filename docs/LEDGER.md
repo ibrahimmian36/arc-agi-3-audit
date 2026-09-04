@@ -66,3 +66,18 @@ Corrected the paper's disclosure section: no notice was given to the Foundation
 and the paper now says so. Reordered the findings so the score-changing ones
 lead. 181 tests, 131 claims, 70 paper figures, all green. Peak RSS under 400 MB;
 artefacts grew by well under the 2 MB ceiling; no network.
+
+## 2026-09-04 — Phase 11: the denial on a real benchmark level
+
+Ran `scripts/death_cost.py` and `scripts/real_env_denial.py`. The first attempt,
+on `ls20` level 1, failed and explained itself: the shortest losing line there is
+129 actions against a budget of 110, so the level cannot be lost inside its own
+budget. Measuring that precondition across all 25 public environments gives
+`exposed=17 not_established=8`, every losing line replay-verified. The denial
+then reproduces on `tu93` level 1 at the budget its published baseline of 19
+implies: at `chosen=95` the shipped harness exits `ACTION_BUDGET` scoring `0.0`
+while the counterfactual completes the level and scores `0.087046682`, with the
+boundary exhibited at 93 and 94. Random and exhaustive instruments agree on
+`ls20` level 1 at 129.
+
+Peak RSS under 800 MB, no network, artefacts grew well under the 2 MB ceiling.

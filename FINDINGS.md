@@ -76,6 +76,9 @@ certifies the scorer.
 | A game id differing only by version | 1 planted scorecard | the environment scores `0.0` with `No Matching EnvironmentInfo found` | `artifacts/aggregation/aggregation.log` |
 | Resets the harness issues on the agent's behalf, and what they cost | 7 scripted harness runs | an agent that chose 16 actions is counted 19: `forced=3 chosen=16`, `harness_counter=19` | `artifacts/wire/wire.log` |
 | A level failed by a reset the agent did not choose | 1 paired counterfactual at budget 8, identical policy | shipped exits `ACTION_BUDGET`, level incomplete, environment `0.0`; the counterfactual completes it and scores `1.316872428` | `artifacts/budget/budget.log` |
+| The same denial on a REAL public level at its real budget | `tu93` level 1, baseline 19, `budget=95`, 3 chosen-action totals swept | at `chosen=95` shipped exits `ACTION_BUDGET` scoring `0.0`, counterfactual completes and scores `0.087046682`; at 93 and 94 both complete | `artifacts/realdenial/realdenial.log` |
+| Can level 1 be lost inside its own budget? | all 25 public environments, every losing line replay-verified | `exposed=17 not_established=8`, `all_witnesses_replay=True` | `artifacts/deathcost/deathcost.log` |
+| Random bound against exhaustive search where both are available | `ls20` level 1 | random `shortest_observed_loss=129`, exhaustive `shortest_loss=129`, against `budget=110`: not exposed | `artifacts/deathcost/exhaustive.log` |
 | How many budgets the forced resets decide (preregistered: as many as the deaths) | 4 death counts, budgets swept around each | `deaths=0` none, `1` `[8]`, `2` `[12, 13]`, `3` `[16, 17, 18]`; `window_prediction_holds=True` | `artifacts/budget/budget.log` |
 | What one forced reset costs a real public level | all 183 levels of the 25 public environments | median fall `3.251814028` points; worst `sc25-635fd71a` level 1 (baseline 6), `100.0` to `73.469387755`; share of budget at most `0.033333333` | `artifacts/budget/budget.log` |
 | A retried model call reaching the environment twice | the harness's own retry path plus 7 runs | `RETRY isolated=True`; `one_environment_call_per_counted_action=True` | `artifacts/wire/wire.log` |
@@ -157,6 +160,41 @@ baseline in the public set, `sc25-635fd71a` level 1, baseline 6: one forced
 reset takes a perfect completion from `perfect=100.0` to
 `after_one=73.469387755`, a fall of `26.530612245` points.
 `levels=183 environments=25`. Artefact: `artifacts/budget/budget.log`.
+
+**On a real benchmark level, at its real budget.** The demonstration above uses
+the toolkit's fixture game and a budget we set, and a fixture is not the
+benchmark. It reproduces on `tu93` level 1, a public environment, at the budget
+the harness derives from that level's published human baseline of 19, which we
+neither supply nor override: `budget=95`. An agent that dies once and then plays
+a 95-action winning line is cut off with the level incomplete and the
+environment scoring `0.0`, while the same policy with the forced reset uncharged
+completes the level and scores `0.087046682`. The boundary is exhibited on the
+same real level: at 93 and 94 chosen actions both runs complete, and only at 95
+does the reset decide it, so `width=1 predicted=1 holds=True`. The losing line
+and the winning line are both replayed on the shipped environment before use
+(`losing_replays=GAME_OVER witness_replays=WIN`). Artefact:
+`artifacts/realdenial/realdenial.log`.
+
+**The precondition, measured across the whole public set.** The mechanism needs
+a game over: without one the harness issues no reset and there is no exposure.
+So we asked, for every one of the 25 public environments, whether level 1 can be
+lost inside its own budget. Playing each shipped environment from its level-1
+start and recording the action sequence at the first game over gives an upper
+bound on the shortest losing line, and every recorded line is replayed to
+confirm it ends in `GAME_OVER`. On `exposed=17` of the 25 the bound is below the
+budget, which proves the level can be lost within it; `bp35` can be lost in 16
+actions against a budget of 105, `sp80` in 30 against 195, `ft09` in 32 against
+215, each affording six deaths. On the remaining eight the bound is above the
+budget or random play never died, and we report those as not established rather
+than as immune: random play failing to lose proves nothing about the shortest
+line. Artefact: `artifacts/deathcost/deathcost.log`.
+
+The two instruments agree where they overlap. On `ls20` level 1 the random bound
+is `129`, and an exhaustive breadth-first search of the level finds the true
+shortest losing line is also `129`, against a budget of `110`: that level cannot
+be lost inside its budget at all, which is why our first attempt to demonstrate
+the denial there failed and is recorded here rather than quietly dropped.
+Artefact: `artifacts/deathcost/exhaustive.log`.
 
 This remains a property of the CLIENT. Whether the server charges such a reset,
 and whether it enforces the budget the same way, is not observable to us and is
@@ -791,6 +829,8 @@ done
 .venv/bin/python scripts/replay_availability.py
 .venv/bin/python scripts/score_pipeline_probe.py
 .venv/bin/python scripts/budget_probe.py
+.venv/bin/python scripts/death_cost.py --rollouts 12
+.venv/bin/python scripts/real_env_denial.py --games tu93 --deaths 1
 .venv/bin/python scripts/aggregation_probe.py
 .venv/bin/python scripts/wire_probe.py
 .venv/bin/python scripts/limits_probe.py

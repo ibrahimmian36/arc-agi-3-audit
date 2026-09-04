@@ -135,3 +135,11 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 128 | `median_fall=3.251814028` | `../artifacts/budget/budget.log` | `^TAX` | scripts/budget_probe.py |
 | 129 | `after_one=73.469387755` | `../artifacts/budget/budget.log` | `^TAX` | scripts/budget_probe.py |
 | 130 | `levels=183 environments=25` | `../artifacts/budget/budget.log` | `^TAX` | scripts/budget_probe.py |
+| 131 | `budget=95` | `../artifacts/realdenial/realdenial.log` | `^SETUP tu93` | scripts/real_env_denial.py |
+| 132 | `losing_replays=GAME_OVER witness_replays=WIN` | `../artifacts/realdenial/realdenial.log` | `^SETUP tu93` | scripts/real_env_denial.py |
+| 133 | `0.087046682` | `../artifacts/realdenial/realdenial.log` | `^PAIR tu93 L1 deaths=1 chosen=95` | scripts/real_env_denial.py |
+| 134 | `width=1 predicted=1 holds=True` | `../artifacts/realdenial/realdenial.log` | `^WINDOW tu93` | scripts/real_env_denial.py |
+| 135 | `exposed=17` | `../artifacts/deathcost/deathcost.log` | `^SUMMARY` | scripts/death_cost.py |
+| 136 | `all_witnesses_replay=True` | `../artifacts/deathcost/deathcost.log` | `^SUMMARY` | scripts/death_cost.py |
+| 137 | `shortest_observed_loss=129` | `../artifacts/deathcost/deathcost.log` | `^DEATH ls20 L1` | scripts/death_cost.py |
+| 138 | `shortest_loss=129` | `../artifacts/deathcost/exhaustive.log` | `^EXHAUSTIVE ls20 L1` | scripts/death_cost.py |

@@ -1,0 +1,26 @@
+DEATH ar25 L1 baseline=32 budget=160 shortest_observed_loss=64 replays=True fits_budget=True deaths_affordable=2 died=12/12
+DEATH bp35 L1 baseline=21 budget=105 shortest_observed_loss=16 replays=True fits_budget=True deaths_affordable=6 died=12/12
+DEATH cd82 L1 baseline=55 budget=275 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=2 died=12/12
+DEATH cn04 L1 baseline=29 budget=145 shortest_observed_loss=75 replays=True fits_budget=True deaths_affordable=1 died=12/12
+DEATH dc22 L1 baseline=59 budget=295 shortest_observed_loss=128 replays=True fits_budget=True deaths_affordable=2 died=12/12
+DEATH ft09 L1 baseline=43 budget=215 shortest_observed_loss=32 replays=True fits_budget=True deaths_affordable=6 died=12/12
+DEATH g50t L1 baseline=78 budget=390 shortest_observed_loss=130 replays=True fits_budget=True deaths_affordable=3 died=12/12
+DEATH ka59 L1 baseline=28 budget=140 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=1 died=12/12
+DEATH lf52 L1 baseline=32 budget=160 shortest_observed_loss=64 replays=True fits_budget=True deaths_affordable=2 died=12/12
+DEATH lp85 L1 baseline=17 budget=85 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/12
+DEATH ls20 L1 baseline=22 budget=110 shortest_observed_loss=129 replays=True fits_budget=False deaths_affordable=0 died=12/12
+DEATH m0r0 L1 baseline=30 budget=150 shortest_observed_loss=151 replays=True fits_budget=False deaths_affordable=0 died=11/12
+DEATH r11l L1 baseline=22 budget=110 shortest_observed_loss=60 replays=True fits_budget=True deaths_affordable=1 died=12/12
+DEATH re86 L1 baseline=26 budget=130 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=1 died=12/12
+DEATH s5i5 L1 baseline=20 budget=100 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/12
+DEATH sb26 L1 baseline=18 budget=90 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/12
+DEATH sc25 L1 baseline=36 budget=180 shortest_observed_loss=52 replays=True fits_budget=True deaths_affordable=3 died=12/12
+DEATH sk48 L1 baseline=61 budget=305 shortest_observed_loss=196 replays=True fits_budget=True deaths_affordable=1 died=12/12
+DEATH sp80 L1 baseline=39 budget=195 shortest_observed_loss=30 replays=True fits_budget=True deaths_affordable=6 died=12/12
+DEATH su15 L1 baseline=22 budget=110 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/12
+DEATH tn36 L1 baseline=32 budget=160 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/12
+DEATH tr87 L1 baseline=54 budget=270 shortest_observed_loss=128 replays=True fits_budget=True deaths_affordable=2 died=12/12
+DEATH tu93 L1 baseline=19 budget=95 shortest_observed_loss=50 replays=True fits_budget=True deaths_affordable=1 died=12/12
+DEATH vc33 L1 baseline=7 budget=35 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/12
+DEATH wa30 L1 baseline=71 budget=355 shortest_observed_loss=200 replays=True fits_budget=True deaths_affordable=1 died=12/12
+SUMMARY environments=25 level=1 exposed=17 not_established=8 all_witnesses_replay=True peak_rss_mb_under_600=True

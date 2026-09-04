@@ -1,0 +1,22 @@
+{
+ "levels": [
+  {
+   "game": "ls20",
+   "level": 1,
+   "baseline": 22,
+   "budget": 110,
+   "exhaustive_shortest_loss": 129,
+   "states_seen": 14084,
+   "seconds": 116.1
+  },
+  {
+   "game": "ls20",
+   "level": 2,
+   "baseline": 123,
+   "budget": 615,
+   "exhaustive_shortest_loss": 66,
+   "states_seen": 16743,
+   "seconds": 130.5
+  }
+ ]
+}

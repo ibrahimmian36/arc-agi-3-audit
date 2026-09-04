@@ -915,5 +915,61 @@
   "log": "../artifacts/budget/budget.log",
   "pattern": "^TAX",
   "by": "scripts/budget_probe.py"
+ },
+ {
+  "value": "budget=95",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/realdenial/realdenial.log",
+  "pattern": "^SETUP tu93",
+  "by": "scripts/real_env_denial.py"
+ },
+ {
+  "value": "losing_replays=GAME_OVER witness_replays=WIN",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/realdenial/realdenial.log",
+  "pattern": "^SETUP tu93",
+  "by": "scripts/real_env_denial.py"
+ },
+ {
+  "value": "0.087046682",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/realdenial/realdenial.log",
+  "pattern": "^PAIR tu93 L1 deaths=1 chosen=95",
+  "by": "scripts/real_env_denial.py"
+ },
+ {
+  "value": "width=1 predicted=1 holds=True",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/realdenial/realdenial.log",
+  "pattern": "^WINDOW tu93",
+  "by": "scripts/real_env_denial.py"
+ },
+ {
+  "value": "exposed=17",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/deathcost/deathcost.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/death_cost.py"
+ },
+ {
+  "value": "all_witnesses_replay=True",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/deathcost/deathcost.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/death_cost.py"
+ },
+ {
+  "value": "shortest_observed_loss=129",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/deathcost/deathcost.log",
+  "pattern": "^DEATH ls20 L1",
+  "by": "scripts/death_cost.py"
+ },
+ {
+  "value": "shortest_loss=129",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/deathcost/exhaustive.log",
+  "pattern": "^EXHAUSTIVE ls20 L1",
+  "by": "scripts/death_cost.py"
  }
 ]

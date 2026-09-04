@@ -1,0 +1,301 @@
+{
+ "results": [
+  {
+   "all_predictions_hold": true,
+   "baseline": 19,
+   "baseline_matches_api": true,
+   "budget": 95,
+   "checks": {
+    "losing_replays_to_game_over": "GAME_OVER",
+    "witness_replays_to_win": "WIN"
+   },
+   "deaths": 1,
+   "denial_chosen_totals": [
+    95
+   ],
+   "game": "tu93-0768757b",
+   "level": 1,
+   "losing_line_length": 50,
+   "pairs": [
+    {
+     "budget": 95,
+     "chosen": 93,
+     "chosen_target": 93,
+     "counterfactual": {
+      "baselines": [
+       19,
+       16,
+       34,
+       42,
+       123,
+       80,
+       14,
+       23,
+       111
+      ],
+      "budgets": [
+       95,
+       80,
+       170,
+       210,
+       615,
+       400,
+       70,
+       115,
+       555
+      ],
+      "card_actions": [
+       94
+      ],
+      "card_resets": [
+       1
+      ],
+      "count_forced": false,
+      "environment_score": 0.090790202,
+      "error": "script exhausted (probe stub, not the harness)",
+      "exit_reason": "AGENT_ERROR",
+      "forced_resets": 1,
+      "level1_budget": 95,
+      "levels_completed": [
+       1
+      ]
+     },
+     "deaths": 1,
+     "denied_by_forced_reset": false,
+     "losing_line_length": 50,
+     "pad": 25,
+     "predicted_counterfactual_completes": true,
+     "predicted_shipped_completes": true,
+     "prediction_holds": true,
+     "shipped": {
+      "baselines": [
+       19,
+       16,
+       34,
+       42,
+       123,
+       80,
+       14,
+       23,
+       111
+      ],
+      "budgets": [
+       95,
+       80,
+       170,
+       210,
+       615,
+       400,
+       70,
+       115,
+       555
+      ],
+      "card_actions": [
+       94
+      ],
+      "card_resets": [
+       1
+      ],
+      "count_forced": true,
+      "environment_score": 0.090790202,
+      "error": "script exhausted (probe stub, not the harness)",
+      "exit_reason": "AGENT_ERROR",
+      "forced_resets": 1,
+      "level1_budget": 95,
+      "levels_completed": [
+       1
+      ]
+     },
+     "witness_length": 18
+    },
+    {
+     "budget": 95,
+     "chosen": 94,
+     "chosen_target": 94,
+     "counterfactual": {
+      "baselines": [
+       19,
+       16,
+       34,
+       42,
+       123,
+       80,
+       14,
+       23,
+       111
+      ],
+      "budgets": [
+       95,
+       80,
+       170,
+       210,
+       615,
+       400,
+       70,
+       115,
+       555
+      ],
+      "card_actions": [
+       95
+      ],
+      "card_resets": [
+       1
+      ],
+      "count_forced": false,
+      "environment_score": 0.088888889,
+      "error": "script exhausted (probe stub, not the harness)",
+      "exit_reason": "AGENT_ERROR",
+      "forced_resets": 1,
+      "level1_budget": 95,
+      "levels_completed": [
+       1
+      ]
+     },
+     "deaths": 1,
+     "denied_by_forced_reset": false,
+     "losing_line_length": 50,
+     "pad": 26,
+     "predicted_counterfactual_completes": true,
+     "predicted_shipped_completes": true,
+     "prediction_holds": true,
+     "shipped": {
+      "baselines": [
+       19,
+       16,
+       34,
+       42,
+       123,
+       80,
+       14,
+       23,
+       111
+      ],
+      "budgets": [
+       95,
+       80,
+       170,
+       210,
+       615,
+       400,
+       70,
+       115,
+       555
+      ],
+      "card_actions": [
+       95
+      ],
+      "card_resets": [
+       1
+      ],
+      "count_forced": true,
+      "environment_score": 0.088888889,
+      "error": "script exhausted (probe stub, not the harness)",
+      "exit_reason": "AGENT_ERROR",
+      "forced_resets": 1,
+      "level1_budget": 95,
+      "levels_completed": [
+       1
+      ]
+     },
+     "witness_length": 18
+    },
+    {
+     "budget": 95,
+     "chosen": 95,
+     "chosen_target": 95,
+     "counterfactual": {
+      "baselines": [
+       19,
+       16,
+       34,
+       42,
+       123,
+       80,
+       14,
+       23,
+       111
+      ],
+      "budgets": [
+       95,
+       80,
+       170,
+       210,
+       615,
+       400,
+       70,
+       115,
+       555
+      ],
+      "card_actions": [
+       96
+      ],
+      "card_resets": [
+       1
+      ],
+      "count_forced": false,
+      "environment_score": 0.087046682,
+      "error": "script exhausted (probe stub, not the harness)",
+      "exit_reason": "AGENT_ERROR",
+      "forced_resets": 1,
+      "level1_budget": 95,
+      "levels_completed": [
+       1
+      ]
+     },
+     "deaths": 1,
+     "denied_by_forced_reset": true,
+     "losing_line_length": 50,
+     "pad": 27,
+     "predicted_counterfactual_completes": true,
+     "predicted_shipped_completes": false,
+     "prediction_holds": true,
+     "shipped": {
+      "baselines": [
+       19,
+       16,
+       34,
+       42,
+       123,
+       80,
+       14,
+       23,
+       111
+      ],
+      "budgets": [
+       95,
+       80,
+       170,
+       210,
+       615,
+       400,
+       70,
+       115,
+       555
+      ],
+      "card_actions": [
+       95
+      ],
+      "card_resets": [
+       1
+      ],
+      "count_forced": true,
+      "environment_score": 0.0,
+      "error": null,
+      "exit_reason": "ACTION_BUDGET",
+      "forced_resets": 1,
+      "level1_budget": 95,
+      "levels_completed": [
+       0
+      ]
+     },
+     "witness_length": 18
+    }
+   ],
+   "predicted_width": 1,
+   "short": "tu93",
+   "window_holds": true,
+   "window_width": 1,
+   "witness_length": 18
+  }
+ ]
+}

@@ -1,0 +1,2 @@
+EXHAUSTIVE ls20 L1 baseline=22 budget=110 shortest_loss=129 states_seen=14084
+EXHAUSTIVE ls20 L2 baseline=123 budget=615 shortest_loss=66 states_seen=16743

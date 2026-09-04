@@ -35,7 +35,9 @@ that reset consumes the agent's per-level action budget. We show by a paired
 counterfactual, identical in policy and differing only in whether the forced
 reset is charged, that this can end a level the agent would otherwise have
 completed: at one budget the shipped harness scores the environment \code{0.0}
-where the counterfactual completes the level. The effect is not a knife edge. We
+where the counterfactual completes the level, and it reproduces on a real public
+environment at the budget its own published baseline implies. The effect is not
+a knife edge. We
 predicted before measuring, and confirm, that the set of budgets on which the
 two disagree is exactly as wide as the number of game overs, so an agent's
 effective per-level budget is $\lceil 5b \rceil$ minus the number of times it
@@ -333,6 +335,34 @@ demonstration. \emph{An agent's effective per-level budget is $\lceil 5b \rceil$
 minus the number of times it died.} Each death quietly costs an action of
 allowance on top of the progress it loses, and the exposure widens with every
 one.
+
+That demonstration uses the toolkit's fixture game and a budget we set, and a
+fixture is not the benchmark. It reproduces on a real public environment at the
+budget the harness derives from that level's published human baseline, which we
+neither supply nor override. On \code{tu93} level 1, whose baseline of 19 gives
+a budget of 95, an agent that dies once and then plays a 95-action winning line
+is cut off with the level incomplete and the environment scoring \code{0.0},
+while the same policy with the forced reset uncharged completes the level and
+scores \code{0.087046682}. The boundary appears on the same real level: at 93
+and at 94 chosen actions both runs complete, and only at 95 does the reset
+decide it. The losing line and the winning line are each replayed on the shipped
+environment before use.
+
+The mechanism needs a game over, so we asked of every public environment whether
+its first level can be lost inside its own budget. Playing each shipped
+environment from its level-1 start and recording the action sequence at the
+first game over bounds the shortest losing line from above, and every recorded
+line is replayed to confirm it ends the game. On 17 of the 25 that bound falls
+below the budget, which proves the level can be lost within it: \code{bp35} in 16
+actions against a budget of 105, \code{sp80} in 30 against 195, \code{ft09} in 32
+against 215, each affording six deaths. On the remaining eight we report the
+question as not established rather than as immunity, since random play failing to
+lose says nothing about the shortest line. Where we can compare the two
+instruments they agree: on \code{ls20} level 1 the random bound is 129 and an
+exhaustive search of the level puts the true shortest losing line at 129 as
+well, against a budget of 110, so that level cannot be lost inside its budget at
+all. That is why our first attempt to demonstrate the denial there failed, and
+we record it rather than dropping it.
 
 Applied to the real public set, one such reset costs a level between $0.03$ and
 $3.33$ per cent of its budget, and lowers an otherwise perfect completion by a
