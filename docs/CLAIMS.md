@@ -45,3 +45,19 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 38 | `parity_all_agree=True` | `../artifacts/recorder/machinery.log` | `^SUMMARY` | scripts/run_machinery.sh |
 | 39 | `counts_agree` | `../artifacts/recorder/m1_parity.json` | `"counts_agree": true` | scripts/run_machinery.sh |
 | 40 | `"card_total": 3` | `../artifacts/recorder/machinery.log` | `^m6_unavailable_action ` | scripts/run_machinery.sh |
+| 41 | `"states": 14337` | `../artifacts/env/ls20/graph_L1.json` | `"states"` | scripts/state_graph.py |
+| 42 | `"edges": 56772` | `../artifacts/env/ls20/graph_L1.json` | `"edges"` | scripts/state_graph.py |
+| 43 | `"shortest_win_depth": 13` | `../artifacts/env/ls20/graph_L1.json` | `shortest_win_depth` | scripts/state_graph.py |
+| 44 | `"reset_returns_to_start": 500` | `../artifacts/env/ls20/graph_L1.json` | `reset_returns_to_start` | scripts/state_graph.py |
+| 45 | `"reset_checked": 500` | `../artifacts/env/ls20/graph_L1.json` | `reset_checked` | scripts/state_graph.py |
+| 46 | `0.002813847150161035` | `../artifacts/env/ls20/graph_L1.json` | `p_win_random_policy` | scripts/state_graph.py |
+| 47 | `355.38533070027296` | `../artifacts/env/ls20/graph_L1.json` | `inverse_p_win_random` | scripts/state_graph.py |
+| 48 | `"3": 4732` | `../artifacts/env/ls20/graph_L1.json` | `^ +"3": ` | scripts/state_graph.py |
+| 49 | `"2": 4731` | `../artifacts/env/ls20/graph_L1.json` | `^ +"2": ` | scripts/state_graph.py |
+| 50 | `"1": 4731` | `../artifacts/env/ls20/graph_L1.json` | `^ +"1": ` | scripts/state_graph.py |
+| 51 | `"game_over_states": 143` | `../artifacts/env/ls20/graph_L1.json` | `game_over_states` | scripts/state_graph.py |
+| 52 | `"win_states": 1` | `../artifacts/env/ls20/graph_L1.json` | `win_states` | scripts/state_graph.py |
+| 53 | `verified=12 errors=0` | `../artifacts/oracle_env/check_model.log` | `VERIFY_SUMMARY` | scripts/check_model.sh |
+| 54 | `3ccf8b0293b25ba53b0834ab5737db9d8b6a1b9f169ed28aef433eec344cc598` | `../artifacts/oracle_env/check_model.log` | `sha256` | scripts/check_model.sh |
+| 55 | `GRAPH_EDGES n=56772 disagreements=0 win_edges_status_only=96` | `../artifacts/env/ls20/env.log` | `^GRAPH_EDGES` | scripts/env_probe.py |
+| 56 | `TRACES traces=30 steps=3208 disagreements=0 win_edges_status_only=3` | `../artifacts/env/ls20/env.log` | `^TRACES` | scripts/env_probe.py |

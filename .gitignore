@@ -6,3 +6,5 @@ __pycache__/
 .venv/
 artifacts/oracle/node_modules/
 artifacts/oracle/*.dtr
+artifacts/*/node_modules/
+artifacts/*/*.dtr

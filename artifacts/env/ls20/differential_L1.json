@@ -1,0 +1,405 @@
+{
+ "game": "ls20",
+ "graph_edges": {
+  "disagreements": 0,
+  "error": null,
+  "loaded": true,
+  "n": 56772,
+  "rows": [
+   {
+    "a": 1,
+    "agree": true,
+    "dst": 1,
+    "from": {
+     "color": 1,
+     "cx": 6,
+     "cy": 9,
+     "goals_done": [
+      false
+     ],
+     "lives": 3,
+     "px": 34,
+     "py": 45,
+     "rot": 3,
+     "shape": 5,
+     "status": "PLAY",
+     "steps": 42
+    },
+    "model": {
+     "cx": 6,
+     "cy": 8,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 41
+    },
+    "shipped": {
+     "cx": 6,
+     "cy": 8,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 41
+    },
+    "src": 0,
+    "why": ""
+   },
+   {
+    "a": 2,
+    "agree": true,
+    "dst": 2,
+    "from": {
+     "color": 1,
+     "cx": 6,
+     "cy": 9,
+     "goals_done": [
+      false
+     ],
+     "lives": 3,
+     "px": 34,
+     "py": 45,
+     "rot": 3,
+     "shape": 5,
+     "status": "PLAY",
+     "steps": 42
+    },
+    "model": {
+     "cx": 6,
+     "cy": 9,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 41
+    },
+    "shipped": {
+     "cx": 6,
+     "cy": 9,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 41
+    },
+    "src": 0,
+    "why": ""
+   },
+   {
+    "a": 3,
+    "agree": true,
+    "dst": 3,
+    "from": {
+     "color": 1,
+     "cx": 6,
+     "cy": 9,
+     "goals_done": [
+      false
+     ],
+     "lives": 3,
+     "px": 34,
+     "py": 45,
+     "rot": 3,
+     "shape": 5,
+     "status": "PLAY",
+     "steps": 42
+    },
+    "model": {
+     "cx": 5,
+     "cy": 9,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 41
+    },
+    "shipped": {
+     "cx": 5,
+     "cy": 9,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 41
+    },
+    "src": 0,
+    "why": ""
+   },
+   {
+    "a": 4,
+    "agree": true,
+    "dst": 4,
+    "from": {
+     "color": 1,
+     "cx": 6,
+     "cy": 9,
+     "goals_done": [
+      false
+     ],
+     "lives": 3,
+     "px": 34,
+     "py": 45,
+     "rot": 3,
+     "shape": 5,
+     "status": "PLAY",
+     "steps": 42
+    },
+    "model": {
+     "cx": 7,
+     "cy": 9,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 41
+    },
+    "shipped": {
+     "cx": 7,
+     "cy": 9,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 41
+    },
+    "src": 0,
+    "why": ""
+   },
+   {
+    "a": 1,
+    "agree": true,
+    "dst": 5,
+    "from": {
+     "color": 1,
+     "cx": 6,
+     "cy": 8,
+     "goals_done": [
+      false
+     ],
+     "lives": 3,
+     "px": 34,
+     "py": 40,
+     "rot": 3,
+     "shape": 5,
+     "status": "PLAY",
+     "steps": 41
+    },
+    "model": {
+     "cx": 6,
+     "cy": 7,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 40
+    },
+    "shipped": {
+     "cx": 6,
+     "cy": 7,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 40
+    },
+    "src": 1,
+    "why": ""
+   }
+  ],
+  "win_edges_status_only": 96
+ },
+ "level": 1,
+ "oracle_present": true,
+ "traces": {
+  "disagreements": 0,
+  "error": null,
+  "loaded": true,
+  "n": 3208,
+  "rows": [
+   {
+    "a": 3,
+    "agree": true,
+    "dst": 1,
+    "from": {
+     "color": 1,
+     "cx": 6,
+     "cy": 9,
+     "goals_done": [
+      false
+     ],
+     "lives": 3,
+     "px": 34,
+     "py": 45,
+     "rot": 3,
+     "shape": 5,
+     "status": "PLAY",
+     "steps": 42
+    },
+    "model": {
+     "cx": 5,
+     "cy": 9,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 41
+    },
+    "shipped": {
+     "cx": 5,
+     "cy": 9,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 41
+    },
+    "src": 0,
+    "why": ""
+   },
+   {
+    "a": 3,
+    "agree": true,
+    "dst": 2,
+    "from": {
+     "color": 1,
+     "cx": 5,
+     "cy": 9,
+     "goals_done": [
+      false
+     ],
+     "lives": 3,
+     "px": 29,
+     "py": 45,
+     "rot": 3,
+     "shape": 5,
+     "status": "PLAY",
+     "steps": 41
+    },
+    "model": {
+     "cx": 4,
+     "cy": 9,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 40
+    },
+    "shipped": {
+     "cx": 4,
+     "cy": 9,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 40
+    },
+    "src": 1,
+    "why": ""
+   },
+   {
+    "a": 3,
+    "agree": true,
+    "dst": 3,
+    "from": {
+     "color": 1,
+     "cx": 4,
+     "cy": 9,
+     "goals_done": [
+      false
+     ],
+     "lives": 3,
+     "px": 24,
+     "py": 45,
+     "rot": 3,
+     "shape": 5,
+     "status": "PLAY",
+     "steps": 40
+    },
+    "model": {
+     "cx": 3,
+     "cy": 9,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 39
+    },
+    "shipped": {
+     "cx": 3,
+     "cy": 9,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 39
+    },
+    "src": 2,
+    "why": ""
+   },
+   {
+    "a": 1,
+    "agree": true,
+    "dst": 4,
+    "from": {
+     "color": 1,
+     "cx": 3,
+     "cy": 9,
+     "goals_done": [
+      false
+     ],
+     "lives": 3,
+     "px": 19,
+     "py": 45,
+     "rot": 3,
+     "shape": 5,
+     "status": "PLAY",
+     "steps": 39
+    },
+    "model": {
+     "cx": 3,
+     "cy": 8,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 38
+    },
+    "shipped": {
+     "cx": 3,
+     "cy": 8,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 38
+    },
+    "src": 3,
+    "why": ""
+   },
+   {
+    "a": 1,
+    "agree": true,
+    "dst": 5,
+    "from": {
+     "color": 1,
+     "cx": 3,
+     "cy": 8,
+     "goals_done": [
+      false
+     ],
+     "lives": 3,
+     "px": 19,
+     "py": 40,
+     "rot": 3,
+     "shape": 5,
+     "status": "PLAY",
+     "steps": 38
+    },
+    "model": {
+     "cx": 3,
+     "cy": 7,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 37
+    },
+    "shipped": {
+     "cx": 3,
+     "cy": 7,
+     "lives": 3,
+     "rot": 3,
+     "status": 0,
+     "steps": 37
+    },
+    "src": 4,
+    "why": ""
+   }
+  ],
+  "steps": 3208,
+  "traces": 30,
+  "win_edges_status_only": 3
+ }
+}

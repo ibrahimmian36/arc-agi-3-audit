@@ -285,5 +285,117 @@
   "log": "../artifacts/recorder/machinery.log",
   "pattern": "^m6_unavailable_action ",
   "by": "scripts/run_machinery.sh"
+ },
+ {
+  "value": "\"states\": 14337",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L1.json",
+  "pattern": "\"states\"",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"edges\": 56772",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L1.json",
+  "pattern": "\"edges\"",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"shortest_win_depth\": 13",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L1.json",
+  "pattern": "shortest_win_depth",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"reset_returns_to_start\": 500",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L1.json",
+  "pattern": "reset_returns_to_start",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"reset_checked\": 500",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L1.json",
+  "pattern": "reset_checked",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "0.002813847150161035",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L1.json",
+  "pattern": "p_win_random_policy",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "355.38533070027296",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L1.json",
+  "pattern": "inverse_p_win_random",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"3\": 4732",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L1.json",
+  "pattern": "^ +\"3\": ",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"2\": 4731",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L1.json",
+  "pattern": "^ +\"2\": ",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"1\": 4731",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L1.json",
+  "pattern": "^ +\"1\": ",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"game_over_states\": 143",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L1.json",
+  "pattern": "game_over_states",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "\"win_states\": 1",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/graph_L1.json",
+  "pattern": "win_states",
+  "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "verified=12 errors=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/oracle_env/check_model.log",
+  "pattern": "VERIFY_SUMMARY",
+  "by": "scripts/check_model.sh"
+ },
+ {
+  "value": "3ccf8b0293b25ba53b0834ab5737db9d8b6a1b9f169ed28aef433eec344cc598",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/oracle_env/check_model.log",
+  "pattern": "sha256",
+  "by": "scripts/check_model.sh"
+ },
+ {
+  "value": "GRAPH_EDGES n=56772 disagreements=0 win_edges_status_only=96",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/env.log",
+  "pattern": "^GRAPH_EDGES",
+  "by": "scripts/env_probe.py"
+ },
+ {
+  "value": "TRACES traces=30 steps=3208 disagreements=0 win_edges_status_only=3",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/env/ls20/env.log",
+  "pattern": "^TRACES",
+  "by": "scripts/env_probe.py"
  }
 ]

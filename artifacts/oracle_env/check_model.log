@@ -1,0 +1,17 @@
+== hygiene scan of ls20_level1.dfy
+  pattern 'assume': 0
+  pattern '{:axiom': 0
+  pattern '{:verify false': 0
+  pattern '{:extern': 0
+  pattern 'expect ': 0
+== dafny verify
+  dafny version: 4.11.0
+  
+  Dafny program verifier finished with 12 verified, 0 errors
+  VERIFY_SUMMARY: verified=12 errors=0 rc=0
+== dafny build --target:js
+  
+  Dafny program verifier did not attempt verification
+  oracle loads: ok
+  sha256 3ccf8b0293b25ba53b0834ab5737db9d8b6a1b9f169ed28aef433eec344cc598  artifacts/oracle_env/ls20_level1.js
+MODEL CHECK: PASS

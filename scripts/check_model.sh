@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
-# Hygiene + verify + compile the Dafny scoring model into a JavaScript oracle.
+# Hygiene + verify + compile a Dafny model into a JavaScript oracle.
+# Usage: check_model.sh [model.dfy] [out_dir]   (default: model/scoring.dfy artifacts/oracle)
 # Exit 0 only if: no escape constructs, Dafny reports N verified / 0 errors with
 # N > 0, and the compiled oracle loads under node. Log: artifacts/oracle/check_model.log
 set -u
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-MODEL="$ROOT/model/scoring.dfy"
-OUT="$ROOT/artifacts/oracle"
+MODEL="${1:-$ROOT/model/scoring.dfy}"
+OUT="$(cd "$(dirname "${2:-$ROOT/artifacts/oracle}")" 2>/dev/null && pwd)/$(basename "${2:-$ROOT/artifacts/oracle}")"
+mkdir -p "$OUT"
+STEM="$(basename "$MODEL" .dfy)"
 LOG="$OUT/check_model.log"
 DAFNY="${DAFNY_BIN:-$(command -v dafny || true)}"
 mkdir -p "$OUT"
@@ -30,11 +33,11 @@ echo "  VERIFY_SUMMARY: verified=${NV:-0} errors=${NE:-?} rc=$rc" | tee -a "$LOG
 { [ "$rc" -eq 0 ] && [ "${NE:-1}" = "0" ] && [ "${NV:-0}" -gt 0 ]; } || fail=1
 
 echo "== dafny build --target:js" | tee -a "$LOG"
-rm -f "$OUT/scoring.js" "$OUT/scoring-js.dtr"
-cp "$MODEL" "$OUT/scoring.dfy"
-( cd "$OUT" && "$DAFNY" build --target:js --no-verify scoring.dfy 2>&1 | tail -2 | sed 's/^/  /' ) | tee -a "$LOG"
-if [ -f "$OUT/scoring.js" ]; then
-  python3 - "$OUT/scoring.js" <<'PY'
+rm -f "$OUT/$STEM.js" "$OUT/$STEM-js.dtr"
+cp "$MODEL" "$OUT/$STEM.dfy"
+( cd "$OUT" && "$DAFNY" build --target:js --no-verify "$STEM.dfy" 2>&1 | tail -2 | sed 's/^/  /' ) | tee -a "$LOG"
+if [ -f "$OUT/$STEM.js" ]; then
+  python3 - "$OUT/$STEM.js" <<'PY'
 import re, sys
 p = sys.argv[1]; t = open(p).read()
 mods = re.findall(r'^let (\w+) = \(function\(\)', t, re.M)
@@ -50,10 +53,10 @@ PY
     if [ -d "$SRC" ]; then mkdir -p "$OUT/node_modules" && cp -R "$SRC" "$OUT/node_modules/bignumber.js"; echo "  bignumber.js copied from intentio" | tee -a "$LOG"
     else (cd "$OUT" && npm install --no-audit --no-fund bignumber.js >/dev/null 2>&1) && echo "  bignumber.js installed via npm" | tee -a "$LOG"; fi
   fi
-  node -e 'const m=require(process.argv[1]); if(!m.Scoring||!m._dafny) throw new Error("oracle exports missing"); console.log("  oracle loads: ok")' "$OUT/scoring.js" 2>&1 | tee -a "$LOG" || fail=1
-  shasum -a 256 "$OUT/scoring.js" | sed 's/^/  sha256 /' | tee -a "$LOG"
+  node -e 'const m=require(require("path").resolve(process.argv[1])); if(!m._dafny) throw new Error("oracle exports missing"); console.log("  oracle loads: ok")' "$OUT/$STEM.js" 2>&1 | tee -a "$LOG" || fail=1
+  shasum -a 256 "$OUT/$STEM.js" | sed 's/^/  sha256 /' | tee -a "$LOG"
 else
-  echo "  build produced no scoring.js" | tee -a "$LOG"; fail=1
+  echo "  build produced no $STEM.js" | tee -a "$LOG"; fail=1
 fi
 echo "MODEL CHECK: $([ $fail -eq 0 ] && echo PASS || echo FAIL)" | tee -a "$LOG"
 exit $fail

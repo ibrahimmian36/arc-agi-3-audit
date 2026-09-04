@@ -1,0 +1,61 @@
+{
+ "actions": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "edges": 56772,
+ "game": "ls20-9607627b",
+ "game_over_states": 143,
+ "inverse_p_win_random": 355.38533070027296,
+ "level": 1,
+ "max_states": 400000,
+ "one_over_states": 6.97495989398061e-05,
+ "p_win_random_policy": 0.002813847150161035,
+ "reset_checked": 500,
+ "reset_mismatches": [],
+ "reset_returns_to_start": 500,
+ "root_abstract": {
+  "color": 1,
+  "cx": 6,
+  "cy": 9,
+  "goals_done": [
+   false
+  ],
+  "lives": 3,
+  "px": 34,
+  "py": 45,
+  "rot": 3,
+  "shape": 5,
+  "status": "PLAY",
+  "steps": 42
+ },
+ "shortest_win_depth": 13,
+ "shortest_win_path": [
+  3,
+  3,
+  3,
+  1,
+  1,
+  1,
+  1,
+  4,
+  4,
+  4,
+  1,
+  1,
+  1
+ ],
+ "states": 14337,
+ "states_by_lives": {
+  "0": 143,
+  "1": 4731,
+  "2": 4731,
+  "3": 4732
+ },
+ "truncated": false,
+ "win_over_states": 6.97495989398061e-05,
+ "win_reachable": true,
+ "win_states": 1
+}
