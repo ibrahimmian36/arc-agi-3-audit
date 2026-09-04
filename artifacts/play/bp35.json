@@ -1,0 +1,38 @@
+{
+ "actions_advertised": [
+  3,
+  4,
+  6,
+  7
+ ],
+ "actions_taken": 20000,
+ "complex_actions": [
+  6
+ ],
+ "distinct_states_capped": false,
+ "distinct_states_visited": 2670,
+ "double_advance_actions": 0,
+ "double_advance_examples": [],
+ "game": "bp35-0a0ad940",
+ "game_overs": 391,
+ "level_regression_examples": [],
+ "level_regressions": 0,
+ "levels_entered": [
+  0
+ ],
+ "max_level_index": 0,
+ "no_op_actions": 0,
+ "peak_rss_mb": 121.6,
+ "reset_frame_returns_to_level_start": 765,
+ "reset_mismatches": [],
+ "reset_probes": 765,
+ "reset_returns_to_level_start": 765,
+ "resets_issued": 391,
+ "seed": 0,
+ "stopped": null,
+ "unhandled_types": [
+  "klmsuijofik",
+  "ogtmlfjejir"
+ ],
+ "wins": 0
+}

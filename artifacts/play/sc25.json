@@ -1,0 +1,197 @@
+{
+ "actions_advertised": [
+  1,
+  2,
+  3,
+  4,
+  6
+ ],
+ "actions_taken": 20000,
+ "complex_actions": [
+  6
+ ],
+ "distinct_states_capped": false,
+ "distinct_states_visited": 5546,
+ "double_advance_actions": 0,
+ "double_advance_examples": [],
+ "game": "sc25-635fd71a",
+ "game_overs": 308,
+ "level_regression_examples": [],
+ "level_regressions": 0,
+ "levels_entered": [
+  0
+ ],
+ "max_level_index": 0,
+ "no_op_actions": 3650,
+ "peak_rss_mb": 170.7,
+ "reset_frame_returns_to_level_start": 774,
+ "reset_mismatches": [
+  {
+   "action_index": 25,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 50,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 75,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 125,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 175,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 225,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 250,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 275,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 300,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 350,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 375,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 400,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 425,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 450,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 525,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 550,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 575,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 625,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 675,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  },
+  {
+   "action_index": 700,
+   "frame_also_differs": false,
+   "full_reset": false,
+   "level": 0,
+   "score_after": 0,
+   "score_before": 0
+  }
+ ],
+ "reset_probes": 774,
+ "reset_returns_to_level_start": 209,
+ "resets_issued": 308,
+ "seed": 0,
+ "stopped": null,
+ "unhandled_types": [],
+ "wins": 0
+}

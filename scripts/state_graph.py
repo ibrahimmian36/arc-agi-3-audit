@@ -99,6 +99,14 @@ SKIP_ATTRS = ("_levels", "_clean_levels")
 MAX_DEPTH = 6
 
 
+def sub_digest(v, depth: int, seen: frozenset) -> bytes:
+    """canon() of one value, on its own, so unordered containers can be ordered
+    by content rather than by an object's address-bearing repr."""
+    hh = hashlib.blake2b(digest_size=16)
+    canon(v, hh, depth, seen)
+    return hh.digest()
+
+
 def canon(v, h, depth: int = 0, seen: frozenset = frozenset()) -> None:
     """Feed a value to the hash in a form that is stable across processes.
 
@@ -133,14 +141,20 @@ def canon(v, h, depth: int = 0, seen: frozenset = frozenset()) -> None:
         return
     if isinstance(v, (set, frozenset)):
         h.update(b"{")
-        for x in sorted(repr(x) for x in v):
-            h.update(x.encode()); h.update(b",")
+        for d in sorted(sub_digest(x, depth + 1, seen) for x in v):
+            h.update(d); h.update(b",")
         h.update(b"}")
         return
     if isinstance(v, dict):
+        # Keys are canonicalised the same way values are, and the entries are
+        # ordered by the KEY'S DIGEST. Ordering or hashing keys by repr() looked
+        # fine until a game turned up with a dict keyed by Sprite objects: the
+        # default repr carries the memory address, so the same logical state
+        # hashed differently after a level reset (which re-clones the sprites)
+        # and the reset probe reported a mismatch that was ours, not the game's.
         h.update(b"{{")
-        for k in sorted(v, key=repr):
-            h.update(repr(k).encode()); h.update(b":"); canon(v[k], h, depth + 1, seen); h.update(b",")
+        for d, val in sorted((sub_digest(k, depth + 1, seen), val) for k, val in v.items()):
+            h.update(d); h.update(b":"); canon(val, h, depth + 1, seen); h.update(b",")
         h.update(b"}}")
         return
     if isinstance(v, Enum):

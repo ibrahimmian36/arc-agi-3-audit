@@ -1,0 +1,2 @@
+SUMMARY environments=25 probed=25 with_click=19 reset_state_mismatch=['cd82', 'ft09', 'm0r0', 'r11l', 'sb26', 'sc25', 'sp80'] reset_frame_mismatch=[] double_advance=[] level_regressions=[] errored=[]
+TOTALS actions_taken=479040 distinct_states_visited=225337 reset_probes=18663 reset_state_ok=15440 reset_frame_ok=18663 double_advance_actions=0 level_regressions=0 peak_rss_mb_max=170.7

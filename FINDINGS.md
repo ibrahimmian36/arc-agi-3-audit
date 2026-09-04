@@ -1,8 +1,8 @@
 # FINDINGS — ARC-AGI-3 public-set audit, Phase 0 (scorer, harness, machinery)
 
 Millennium Research, 2026-09-03 (scorer, harness) and 2026-09-04 (environment
-ls20 levels 1 and 2, then a breadth sweep of level 1 across the public set).
-Status: the scoring rule (reference 3), the benchmarking
+ls20 levels 1 and 2, then a breadth sweep of level 1 across the public set,
+then a play-based probe of all 25). Status: the scoring rule (reference 3), the benchmarking
 harness's action budget, and two levels of one public environment (reference
 1) are audited and written up below; the per-level baselines (reference 2)
 are recovered and characterised; ls20 levels 3–7, the other 24 public
@@ -60,6 +60,9 @@ certifies the scorer.
 | Breadth: RESET restores the level's start state | 3,000 probes across 6 environments | `reset_probes=3000 reset_returns_to_start=3000` | `artifacts/sweep/summary_L1.log` |
 | Breadth: one action advancing the level counter by two (finding F3) | 1,245,427 transitions | `double_advance_actions=0` | `artifacts/sweep/summary_L1.log` |
 | Breadth: peak memory | 6 environments | `peak_rss_mb_max=202.3` against a 2500 MB cap | `artifacts/sweep/summary_L1.log` |
+| Play probe: RESET restores the frame the level began with | 18,663 probes in all 25 environments | `reset_frame_ok=18663` of `reset_probes=18663`; `reset_frame_mismatch=[]` | `artifacts/play/summary.log` |
+| Play probe: RESET restores all internal engine state | the same 18,663 probes | `reset_state_ok=15440`; 7 environments differ | `artifacts/play/summary.log` |
+| Play probe: one action advancing the level counter by two | `actions_taken=479040` in all 25 | `double_advance_actions=0`, `level_regressions=0` | `artifacts/play/summary.log` |
 | Double-advance (finding F3) reachability | every transition of both levels | `"double_advance_actions": 0` on each | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Peak memory of the enumeration | 2 levels | under 300 MB on both, against `"max_rss_mb_cap": 3500.0`; the exact figure varies run to run and is checked as a bound, not a literal | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Re-run byte identity | scorer, harness, recorder | identical (`tests/test_scorer_probe.py`, `tests/test_harness_probe.py`, `tests/test_recorder.py::test_m8_byte_identity`) | suite |
@@ -269,6 +272,60 @@ games: with RESET stubbed out the probe reports a mismatch, and with the engine
 made to advance two levels in one action the detector catches it
 (`tests/test_sweep.py`). The sweep's zeros are therefore evidence, not silence.
 
+## Play probe — all 25 environments, including the click-based ones
+
+Method: play each environment at random inside its own advertised action set,
+sampling click coordinates uniformly within the declared 0 to 63 bounds, and
+probe as you go. Memory stayed under 200 MB across the whole run, against a
+1 GB cap: the prober holds one game object plus one short-lived copy per probe,
+where the enumerator held a whole search layer. Two of the three questions the enumerator answers need no state
+graph, so this reaches the nineteen environments enumeration cannot touch. It is
+an audit instrument, not a solver: it never tries to win anything, and it never
+did (`wins=0` everywhere, which is what random play on these environments looks
+like).
+
+**RESET restores everything an agent can observe, everywhere.** Across
+`reset_probes=18663` probes in all 25 environments, the rendered frame after a
+level reset was identical to the frame the level began with every single time:
+`reset_frame_ok=18663`, `reset_frame_mismatch=[]`.
+
+**It does not restore all internal engine state, in seven of them.**
+`reset_state_ok=15440` of the same probes, with
+`reset_state_mismatch=['cd82', 'ft09', 'm0r0', 'r11l', 'sb26', 'sc25', 'sp80']`. What survives is a small number of the game object's
+own attributes: in cd82 and sp80 plain integers that play had changed, in sc25 a
+pair of animation and spell dictionaries, in others a coordinate pair. Several
+are read back by the game's own code, so they could in principle influence later
+behaviour, but nothing about them is visible in the frame at reset time.
+
+Read carefully, this is not a defect and is not reported as one. ARC-AGI-3
+documents no rules for any environment by design, so "a reset leaves an internal
+counter alone" contradicts nothing. What it does bear on is a documented
+assumption: the technical report's own state-graph figure begins "from the reset
+state of a selected level", and published graph-based agents identify states by
+hashing the frame. Frame identity and engine-state identity are not the same
+relation here, and in seven of 25 public environments they disagree about
+whether a reset returns to a canonical state. Anyone building on "the reset
+state of a level" should know which of the two they mean.
+
+**No level counter anomaly anywhere.** Across `actions_taken=479040` actions in
+all 25 environments, no single action advanced the level counter by two and none
+made it go backwards outside a full reset: `double_advance_actions=0`,
+`level_regressions=0`. Together with the enumerations, finding F3's scorer edge
+is now unreached in every public environment by both methods.
+
+**Honest coverage.** Random play is a shallow, biased sample: it never won a
+level anywhere, and in most environments it never left level 1. These results
+hold over the states actually visited, `distinct_states_visited=225337` of them,
+and are not a survey of the environments.
+
+**Two of our own bugs, found on the way and fixed.** Both made the tool report
+differences that were not in the games. First, containers keyed by objects were
+ordered and hashed by the default `repr`, which carries a memory address, so a
+level reset that re-clones sprites looked like a state change in cn04, s5i5 and
+vc33; after the fix all three probe clean. Second, numpy scalars were hashed by
+type rather than value, which merged states in g50t and wa30. Both now have
+tests, and the whole sweep was re-run after each.
+
 ## Negatives (checked, found consistent)
 
 - Scorer equals the documented prose rule on P1, P2a, P2b, P2c, P3a, P3b (no
@@ -318,7 +375,11 @@ the observed state is that they agree.
   compute, not of method; a capped command is in the status note.
 - Any state-graph result for the nineteen click-based environments. Their
   branching factor rules the method out, which is stated rather than worked
-  around.
+  around. The play probe reaches them for the reset and level-counter questions
+  only; reachability remains open for all nineteen.
+- Whether the internal state that survives a reset in seven environments
+  changes any later outcome. It is read by the games' own code, but showing an
+  actual behavioural difference would need a targeted differential per game.
 - Reference 1 beyond ls20 level 2: the generator refuses levels 3–7 and names
   why — pushers (3–7), colour tiles (3–7), shape tiles (4–7), patrol areas
   (5–7), two goals (6), fog (7). Nothing is claimed about those levels. The
@@ -349,23 +410,25 @@ the observed state is that they agree.
    sweep covers level 1 of six environments, two of them exhaustively. Nothing
    here supports a statement about ARC-AGI-3 as a whole, and in particular the
    nineteen click-based environments are untouched by it.
-5. A truncated enumeration is a sample of a larger graph, not a survey of it:
+5. The play probe is random and shallow: it won nothing anywhere and mostly
+   stayed on level 1, so its negatives cover the states it visited and no more.
+6. A truncated enumeration is a sample of a larger graph, not a survey of it:
    the sweep's negatives hold over the states actually reached, which for four
    environments is the first 150,000 that depth-first search happened to visit.
-6. The harness probe replaces the model call with a scripted stub; the loop,
+7. The harness probe replaces the model call with a scripted stub; the loop,
    `is_done`, `_sync_level_progress`, forced RESET handling and
    `choose_action` are the harness's own code.
-7. The fixture game `bt11` is the toolkit's test environment, not a public
+8. The fixture game `bt11` is the toolkit's test environment, not a public
    benchmark environment; the only public environment claims are about ls20
    levels 1 and 2, whose models we wrote from obfuscated source at the rule
    level. A rule we did not see would be one the model matched anyway on every
    reachable transition, so it is either unreachable on these levels or
    invisible in position, rotation, lives, steps, pickups and status.
-8. Every number in this file is registered in `docs/claims.json` and checked
+9. Every number in this file is registered in `docs/claims.json` and checked
    by `../audit-kit/scripts/report_check.sh`; scripts and artefacts ship in
    this repository; the audited origins have Software Heritage save requests
    accepted (`artifacts/intake/swh_snapshot.log`).
-9. What a reader must still trust: Dafny 4.11.0 and its JavaScript backend,
+10. What a reader must still trust: Dafny 4.11.0 and its JavaScript backend,
    Node 24, the vendored toolkit at the pinned commit, and our reading of the
    English in the report and docs.
 
@@ -386,6 +449,7 @@ for L in 1 2; do
 done
 .venv/bin/python scripts/action_census.py
 .venv/bin/python scripts/sweep.py --level 1 --search dfs --max-states 150000 --max-seconds 1200 --max-rss-mb 2500
+.venv/bin/python scripts/play_probe.py --max-actions 20000 --max-seconds 60 --seed 0
 ../audit-kit/scripts/report_check.sh docs/claims.json
 ```
 

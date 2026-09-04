@@ -1,0 +1,495 @@
+{
+ "flags": {
+  "double_advance": [],
+  "errored": [],
+  "level_regressions": [],
+  "reset_frame_mismatch": [],
+  "reset_state_mismatch": [
+   "cd82",
+   "ft09",
+   "m0r0",
+   "r11l",
+   "sb26",
+   "sc25",
+   "sp80"
+  ]
+ },
+ "rows": [
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 16235,
+   "double_advance_actions": 0,
+   "game": "ar25",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 97.2,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 786,
+   "reset_mismatch": false,
+   "reset_ok": 786,
+   "reset_probes": 786,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 2670,
+   "double_advance_actions": 0,
+   "game": "bp35",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 121.6,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 765,
+   "reset_mismatch": false,
+   "reset_ok": 765,
+   "reset_probes": 765,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 17401,
+   "double_advance_actions": 0,
+   "game": "cd82",
+   "level_regressions": 0,
+   "levels_entered": 2,
+   "peak_rss_mb": 121.6,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 784,
+   "reset_mismatch": true,
+   "reset_ok": 129,
+   "reset_probes": 784,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 18345,
+   "double_advance_actions": 0,
+   "game": "cn04",
+   "level_regressions": 0,
+   "levels_entered": 2,
+   "peak_rss_mb": 121.6,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 782,
+   "reset_mismatch": false,
+   "reset_ok": 782,
+   "reset_probes": 782,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 7725,
+   "double_advance_actions": 0,
+   "game": "dc22",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 122.4,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 785,
+   "reset_mismatch": false,
+   "reset_ok": 785,
+   "reset_probes": 785,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 2185,
+   "double_advance_actions": 0,
+   "game": "ft09",
+   "level_regressions": 0,
+   "levels_entered": 2,
+   "peak_rss_mb": 123.0,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 794,
+   "reset_mismatch": true,
+   "reset_ok": 46,
+   "reset_probes": 794,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [],
+   "distinct_states_visited": 15327,
+   "double_advance_actions": 0,
+   "game": "g50t",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 141.8,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 787,
+   "reset_mismatch": false,
+   "reset_ok": 787,
+   "reset_probes": 787,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 5891,
+   "double_advance_actions": 0,
+   "game": "ka59",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 147.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 784,
+   "reset_mismatch": false,
+   "reset_ok": 784,
+   "reset_probes": 784,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 2113,
+   "double_advance_actions": 0,
+   "game": "lf52",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 150.6,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 786,
+   "reset_mismatch": false,
+   "reset_ok": 786,
+   "reset_probes": 786,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 334,
+   "double_advance_actions": 0,
+   "game": "lp85",
+   "level_regressions": 0,
+   "levels_entered": 2,
+   "peak_rss_mb": 153.8,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 798,
+   "reset_mismatch": false,
+   "reset_ok": 798,
+   "reset_probes": 798,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [],
+   "distinct_states_visited": 4389,
+   "double_advance_actions": 0,
+   "game": "ls20",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 154.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 785,
+   "reset_mismatch": false,
+   "reset_ok": 785,
+   "reset_probes": 785,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 11520,
+   "double_advance_actions": 0,
+   "game": "m0r0",
+   "level_regressions": 0,
+   "levels_entered": 2,
+   "peak_rss_mb": 154.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 789,
+   "reset_mismatch": true,
+   "reset_ok": 783,
+   "reset_probes": 789,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 13056,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 12263,
+   "double_advance_actions": 0,
+   "game": "r11l",
+   "level_regressions": 0,
+   "levels_entered": 2,
+   "peak_rss_mb": 157.1,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 468,
+   "reset_mismatch": true,
+   "reset_ok": 9,
+   "reset_probes": 468,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [],
+   "distinct_states_visited": 18384,
+   "double_advance_actions": 0,
+   "game": "re86",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 170.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 784,
+   "reset_mismatch": false,
+   "reset_ok": 784,
+   "reset_probes": 784,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 893,
+   "double_advance_actions": 0,
+   "game": "s5i5",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 170.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 768,
+   "reset_mismatch": false,
+   "reset_ok": 768,
+   "reset_probes": 768,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 6904,
+   "double_advance_actions": 0,
+   "game": "sb26",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 170.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 789,
+   "reset_mismatch": true,
+   "reset_ok": 0,
+   "reset_probes": 789,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 5546,
+   "double_advance_actions": 0,
+   "game": "sc25",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 170.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 774,
+   "reset_mismatch": true,
+   "reset_ok": 209,
+   "reset_probes": 774,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 8384,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 6876,
+   "double_advance_actions": 0,
+   "game": "sk48",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 170.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 331,
+   "reset_mismatch": false,
+   "reset_ok": 331,
+   "reset_probes": 331,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 11145,
+   "double_advance_actions": 0,
+   "game": "sp80",
+   "level_regressions": 0,
+   "levels_entered": 2,
+   "peak_rss_mb": 170.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 752,
+   "reset_mismatch": true,
+   "reset_ok": 751,
+   "reset_probes": 752,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 17600,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 14337,
+   "double_advance_actions": 0,
+   "game": "su15",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 170.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 682,
+   "reset_mismatch": false,
+   "reset_ok": 682,
+   "reset_probes": 682,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 5539,
+   "double_advance_actions": 0,
+   "game": "tn36",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 170.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 775,
+   "reset_mismatch": false,
+   "reset_ok": 775,
+   "reset_probes": 775,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [],
+   "distinct_states_visited": 19151,
+   "double_advance_actions": 0,
+   "game": "tr87",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 170.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 787,
+   "reset_mismatch": false,
+   "reset_ok": 787,
+   "reset_probes": 787,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [],
+   "distinct_states_visited": 1417,
+   "double_advance_actions": 0,
+   "game": "tu93",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 170.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 768,
+   "reset_mismatch": false,
+   "reset_ok": 768,
+   "reset_probes": 768,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [
+    6
+   ],
+   "distinct_states_visited": 288,
+   "double_advance_actions": 0,
+   "game": "vc33",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 170.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 768,
+   "reset_mismatch": false,
+   "reset_ok": 768,
+   "reset_probes": 768,
+   "status": "probed",
+   "wins": 0
+  },
+  {
+   "actions_taken": 20000,
+   "complex_actions": [],
+   "distinct_states_visited": 18459,
+   "double_advance_actions": 0,
+   "game": "wa30",
+   "level_regressions": 0,
+   "levels_entered": 1,
+   "peak_rss_mb": 170.7,
+   "reset_frame_mismatch": false,
+   "reset_frame_ok": 792,
+   "reset_mismatch": false,
+   "reset_ok": 792,
+   "reset_probes": 792,
+   "status": "probed",
+   "wins": 0
+  }
+ ],
+ "totals": {
+  "actions_taken": 479040,
+  "distinct_states_visited": 225337,
+  "double_advance_actions": 0,
+  "environments": 25,
+  "level_regressions": 0,
+  "peak_rss_mb_max": 170.7,
+  "probed": 25,
+  "reset_frame_ok": 18663,
+  "reset_ok": 15440,
+  "reset_probes": 18663,
+  "with_click": 19
+ }
+}

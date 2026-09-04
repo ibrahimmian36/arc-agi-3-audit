@@ -177,3 +177,22 @@ def test_unhandled_types_are_reported_not_swallowed(tmp_path, fixture_actions):
     under-fine key is visible in the artefact instead of silent."""
     r = enum_fixture(tmp_path)
     assert "unhandled_types" in r and isinstance(r["unhandled_types"], list)
+
+
+def test_containers_keyed_by_objects_are_address_independent():
+    """A dict keyed by objects, or a set of them, must hash by CONTENT. Ordering
+    or hashing by repr() brings the memory address into the key, so the same
+    logical state hashes differently in a fresh copy -- which is exactly how a
+    level reset looked like a state leak in three environments when it was not."""
+    class Thing:
+        def __init__(self, n): self.n = n
+    import hashlib as _h
+    def digest(v):
+        h = _h.blake2b(digest_size=16); SG.canon(v, h); return h.digest()
+    a = {Thing(1): "x", Thing(2): "y"}
+    b = {Thing(2): "y", Thing(1): "x"}          # same content, new objects, other order
+    assert digest(a) == digest(b)
+    c = {Thing(1): "x", Thing(3): "y"}          # different content
+    assert digest(a) != digest(c)
+    assert digest({Thing(1), Thing(2)}) == digest({Thing(2), Thing(1)})
+    assert digest({Thing(1), Thing(2)}) != digest({Thing(1), Thing(3)})

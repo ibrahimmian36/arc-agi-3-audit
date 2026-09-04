@@ -593,5 +593,68 @@
   "log": "../artifacts/sweep/g50t_L1.json",
   "pattern": "\"unhandled_types\"",
   "by": "scripts/state_graph.py"
+ },
+ {
+  "value": "reset_probes=18663",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/play/summary.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/play_probe.py"
+ },
+ {
+  "value": "reset_frame_ok=18663",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/play/summary.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/play_probe.py"
+ },
+ {
+  "value": "reset_state_ok=15440",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/play/summary.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/play_probe.py"
+ },
+ {
+  "value": "actions_taken=479040",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/play/summary.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/play_probe.py"
+ },
+ {
+  "value": "distinct_states_visited=225337",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/play/summary.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/play_probe.py"
+ },
+ {
+  "value": "double_advance_actions=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/play/summary.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/play_probe.py"
+ },
+ {
+  "value": "level_regressions=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/play/summary.log",
+  "pattern": "^TOTALS",
+  "by": "scripts/play_probe.py"
+ },
+ {
+  "value": "reset_frame_mismatch=[]",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/play/summary.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/play_probe.py"
+ },
+ {
+  "value": "reset_state_mismatch=['cd82', 'ft09', 'm0r0', 'r11l', 'sb26', 'sc25', 'sp80']",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/play/summary.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/play_probe.py"
  }
 ]

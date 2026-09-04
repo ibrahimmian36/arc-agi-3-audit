@@ -1,0 +1,36 @@
+{
+ "actions_advertised": [
+  1,
+  2,
+  3,
+  4,
+  6
+ ],
+ "actions_taken": 20000,
+ "complex_actions": [
+  6
+ ],
+ "distinct_states_capped": false,
+ "distinct_states_visited": 7725,
+ "double_advance_actions": 0,
+ "double_advance_examples": [],
+ "game": "dc22-fdcac232",
+ "game_overs": 155,
+ "level_regression_examples": [],
+ "level_regressions": 0,
+ "levels_entered": [
+  0
+ ],
+ "max_level_index": 0,
+ "no_op_actions": 0,
+ "peak_rss_mb": 122.4,
+ "reset_frame_returns_to_level_start": 785,
+ "reset_mismatches": [],
+ "reset_probes": 785,
+ "reset_returns_to_level_start": 785,
+ "resets_issued": 155,
+ "seed": 0,
+ "stopped": null,
+ "unhandled_types": [],
+ "wins": 0
+}

@@ -89,3 +89,12 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 82 | `"states": 2609` | `../artifacts/sweep/tu93_L1.json` | `"states"` | scripts/sweep.py |
 | 83 | `"states": 150000` | `../artifacts/sweep/tr87_L1.json` | `"states"` | scripts/sweep.py |
 | 84 | `"unhandled_types": []` | `../artifacts/sweep/g50t_L1.json` | `"unhandled_types"` | scripts/state_graph.py |
+| 85 | `reset_probes=18663` | `../artifacts/play/summary.log` | `^TOTALS` | scripts/play_probe.py |
+| 86 | `reset_frame_ok=18663` | `../artifacts/play/summary.log` | `^TOTALS` | scripts/play_probe.py |
+| 87 | `reset_state_ok=15440` | `../artifacts/play/summary.log` | `^TOTALS` | scripts/play_probe.py |
+| 88 | `actions_taken=479040` | `../artifacts/play/summary.log` | `^TOTALS` | scripts/play_probe.py |
+| 89 | `distinct_states_visited=225337` | `../artifacts/play/summary.log` | `^TOTALS` | scripts/play_probe.py |
+| 90 | `double_advance_actions=0` | `../artifacts/play/summary.log` | `^TOTALS` | scripts/play_probe.py |
+| 91 | `level_regressions=0` | `../artifacts/play/summary.log` | `^TOTALS` | scripts/play_probe.py |
+| 92 | `reset_frame_mismatch=[]` | `../artifacts/play/summary.log` | `^SUMMARY` | scripts/play_probe.py |
+| 93 | `reset_state_mismatch=['cd82', 'ft09', 'm0r0', 'r11l', 'sb26', 'sc25', 'sp80']` | `../artifacts/play/summary.log` | `^SUMMARY` | scripts/play_probe.py |
