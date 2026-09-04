@@ -84,6 +84,13 @@ CLAIMS: list[tuple[str, str, Path, str]] = [
     ("six resolved and all six are consistent", "6", ART / "minactions/summary.log", r"consistent=(\d+)"),
     ("none is impossible", "0", ART / "minactions/summary.log", r"impossible=(\d+)"),
     ("twelve were stopped", "12", ART / "minactions/summary.log", r"not_established=(\d+)"),
+    # --- scoring pipeline ---
+    ("reports a\ntotal of 100.0", "100.0", ART / "pipeline/pipeline.log", r"^Q2 .*toolkit_total=([0-9.]+)"),
+    ("documented rule gives 2.222222222", "2.222222222", ART / "pipeline/pipeline.log",
+     r"^Q2 .*documented_total=([0-9.]+)"),
+    ("a factor of\n45.0", "45.0", ART / "pipeline/pipeline.log", r"^Q2 .*ratio=([0-9.]+)"),
+    ("from 100 to\n83.801652893", "83.801652893", ART / "pipeline/pipeline.log",
+     r"^Q4 .*toolkit_total=([0-9.]+)"),
     # --- replays ---
     ("lists ten repositories", "10", ART / "replays/availability.log", r"github_repos=(\d+)"),
     ("lists three\ndatasets", "3", ART / "replays/availability.log", r"huggingface_datasets=(\d+)"),

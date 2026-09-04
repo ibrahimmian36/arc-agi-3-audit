@@ -1,0 +1,529 @@
+[
+ {
+  "detail": {
+   "aa00": {
+    "actions": 60,
+    "levels_completed": 6,
+    "resets": 0,
+    "runs": [
+     {
+      "actions": 60,
+      "level_actions": [
+       10,
+       10,
+       10,
+       10,
+       10,
+       10
+      ],
+      "level_scores": [
+       100.0,
+       100.0,
+       100.0,
+       100.0,
+       100.0,
+       100.0
+      ],
+      "levels_completed": 6,
+      "score": 100.0
+     }
+    ]
+   }
+  },
+  "documented": "100.0 for that environment",
+  "documented_total": null,
+  "environment_scores": {
+   "aa00": 100.0
+  },
+  "environments_played": 1,
+  "id": "Q1",
+  "note": "the toolkit's own test case: one environment, one play, six levels at baseline",
+  "set_size": null,
+  "toolkit_total": 100.0
+ },
+ {
+  "detail": {
+   "aa00": {
+    "actions": 50,
+    "levels_completed": 5,
+    "resets": 0,
+    "runs": [
+     {
+      "actions": 50,
+      "level_actions": [
+       10,
+       10,
+       10,
+       10,
+       10
+      ],
+      "level_scores": [
+       100.0,
+       100.0,
+       100.0,
+       100.0,
+       100.0
+      ],
+      "levels_completed": 5,
+      "score": 100.0
+     }
+    ]
+   },
+   "bb00": {
+    "actions": 50,
+    "levels_completed": 5,
+    "resets": 0,
+    "runs": [
+     {
+      "actions": 50,
+      "level_actions": [
+       10,
+       10,
+       10,
+       10,
+       10
+      ],
+      "level_scores": [
+       100.0,
+       100.0,
+       100.0,
+       100.0,
+       100.0
+      ],
+      "levels_completed": 5,
+      "score": 100.0
+     }
+    ]
+   },
+   "cc00": {
+    "actions": 50,
+    "levels_completed": 5,
+    "resets": 0,
+    "runs": [
+     {
+      "actions": 50,
+      "level_actions": [
+       10,
+       10,
+       10,
+       10,
+       10
+      ],
+      "level_scores": [
+       100.0,
+       100.0,
+       100.0,
+       100.0,
+       100.0
+      ],
+      "levels_completed": 5,
+      "score": 100.0
+     }
+    ]
+   }
+  },
+  "documented": "sum of environment scores divided by the TOTAL number of environments (report v2 4.1)",
+  "documented_total": 2.222222222,
+  "environment_scores": {
+   "aa00": 100.0,
+   "bb00": 100.0,
+   "cc00": 100.0
+  },
+  "environments_played": 3,
+  "id": "Q2",
+  "note": "aggregation: 3 of 135 environments played, each perfect",
+  "set_size": 135,
+  "toolkit_total": 100.0
+ },
+ {
+  "detail": {
+   "aa00": {
+    "actions": 50,
+    "levels_completed": 5,
+    "resets": 0,
+    "runs": [
+     {
+      "actions": 50,
+      "level_actions": [
+       10,
+       10,
+       10,
+       10,
+       10
+      ],
+      "level_scores": [
+       100.0,
+       100.0,
+       100.0,
+       100.0,
+       100.0
+      ],
+      "levels_completed": 5,
+      "score": 100.0
+     }
+    ]
+   },
+   "bb00": {
+    "actions": 50,
+    "levels_completed": 5,
+    "resets": 0,
+    "runs": [
+     {
+      "actions": 50,
+      "level_actions": [
+       10,
+       10,
+       10,
+       10,
+       10
+      ],
+      "level_scores": [
+       100.0,
+       100.0,
+       100.0,
+       100.0,
+       100.0
+      ],
+      "levels_completed": 5,
+      "score": 100.0
+     }
+    ]
+   }
+  },
+  "documented": "same under both readings",
+  "documented_total": 100.0,
+  "environment_scores": {
+   "aa00": 100.0,
+   "bb00": 100.0
+  },
+  "environments_played": 2,
+  "id": "Q3",
+  "note": "aggregation: all environments in the set played",
+  "set_size": 2,
+  "toolkit_total": 100.0
+ },
+ {
+  "detail": {
+   "aa00": {
+    "actions": 54,
+    "levels_completed": 5,
+    "resets": 4,
+    "runs": [
+     {
+      "actions": 54,
+      "level_actions": [
+       10,
+       11,
+       11,
+       11,
+       11
+      ],
+      "level_scores": [
+       100.0,
+       82.644628099,
+       82.644628099,
+       82.644628099,
+       82.644628099
+      ],
+      "levels_completed": 5,
+      "score": 83.801652893
+     }
+    ]
+   }
+  },
+  "documented": "a RESET is an action; whether it is charged to the level is unstated",
+  "documented_total": null,
+  "environment_scores": {
+   "aa00": 83.801652893
+  },
+  "environments_played": 1,
+  "id": "Q4",
+  "note": "one level RESET before each of levels 2..5",
+  "set_size": null,
+  "toolkit_total": 83.801652893
+ },
+ {
+  "detail": {
+   "aa00": {
+    "actions": 52,
+    "levels_completed": 5,
+    "resets": 1,
+    "runs": [
+     {
+      "actions": 52,
+      "level_actions": [
+       10,
+       10,
+       12,
+       10,
+       10
+      ],
+      "level_scores": [
+       100.0,
+       100.0,
+       69.444444444,
+       100.0,
+       100.0
+      ],
+      "levels_completed": 5,
+      "score": 93.888888889
+     }
+    ]
+   }
+  },
+  "documented": "unstated",
+  "documented_total": null,
+  "environment_scores": {
+   "aa00": 93.888888889
+  },
+  "environments_played": 1,
+  "id": "Q5",
+  "note": "a GAME_OVER and a RESET before level 3, then completion",
+  "set_size": null,
+  "toolkit_total": 93.888888889
+ },
+ {
+  "detail": {
+   "aa00": {
+    "actions": 160,
+    "levels_completed": 5,
+    "resets": 0,
+    "runs": [
+     {
+      "actions": 20,
+      "level_actions": [
+       10,
+       10,
+       0,
+       0,
+       0
+      ],
+      "level_scores": [
+       100.0,
+       100.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "levels_completed": 2,
+      "score": 20.0
+     },
+     {
+      "actions": 140,
+      "level_actions": [
+       10,
+       10,
+       40,
+       40,
+       40
+      ],
+      "level_scores": [
+       100.0,
+       100.0,
+       6.25,
+       6.25,
+       6.25
+      ],
+      "levels_completed": 5,
+      "score": 25.0
+     }
+    ]
+   }
+  },
+  "documented": "average of the BEST score for the environment (docs)",
+  "documented_total": null,
+  "environment_scores": {
+   "aa00": 25.0
+  },
+  "environments_played": 1,
+  "id": "Q6",
+  "note": "two plays: the second completes more levels but less efficiently",
+  "set_size": null,
+  "toolkit_total": 25.0
+ },
+ {
+  "detail": {
+   "aa00": {
+    "actions": 210,
+    "levels_completed": 5,
+    "resets": 0,
+    "runs": [
+     {
+      "actions": 10,
+      "level_actions": [
+       5,
+       5,
+       0,
+       0,
+       0
+      ],
+      "level_scores": [
+       115.0,
+       115.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "levels_completed": 2,
+      "score": 20.0
+     },
+     {
+      "actions": 200,
+      "level_actions": [
+       40,
+       40,
+       40,
+       40,
+       40
+      ],
+      "level_scores": [
+       6.25,
+       6.25,
+       6.25,
+       6.25,
+       6.25
+      ],
+      "levels_completed": 5,
+      "score": 6.25
+     }
+    ]
+   }
+  },
+  "documented": "best score",
+  "documented_total": null,
+  "environment_scores": {
+   "aa00": 20.0
+  },
+  "environments_played": 1,
+  "id": "Q7",
+  "note": "two plays: the first is more efficient, the second reaches further",
+  "set_size": null,
+  "toolkit_total": 20.0
+ },
+ {
+  "detail": {
+   "aa00": {
+    "actions": 30,
+    "levels_completed": 0,
+    "resets": 0,
+    "runs": [
+     {
+      "actions": 30,
+      "level_actions": [
+       30,
+       0,
+       0,
+       0,
+       0
+      ],
+      "level_scores": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "levels_completed": 0,
+      "score": 0.0
+     }
+    ]
+   }
+  },
+  "documented": "0",
+  "documented_total": null,
+  "environment_scores": {
+   "aa00": 0.0
+  },
+  "environments_played": 1,
+  "id": "Q8",
+  "note": "a play that completes no level at all",
+  "set_size": null,
+  "toolkit_total": 0.0
+ },
+ {
+  "detail": {
+   "aa00": {
+    "actions": 0,
+    "levels_completed": 0,
+    "resets": 0,
+    "runs": [
+     {
+      "actions": 0,
+      "level_actions": [
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "level_scores": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "levels_completed": 0,
+      "score": 0.0
+     }
+    ]
+   }
+  },
+  "documented": "0",
+  "documented_total": null,
+  "environment_scores": {
+   "aa00": 0.0
+  },
+  "environments_played": 1,
+  "id": "Q9",
+  "note": "an environment with a play of zero actions",
+  "set_size": null,
+  "toolkit_total": 0.0
+ },
+ {
+  "detail": {
+   "aa00": {
+    "actions": 20,
+    "levels_completed": 2,
+    "resets": 0,
+    "runs": [
+     {
+      "actions": 20,
+      "level_actions": [
+       10,
+       10,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ],
+      "level_scores": [
+       100.0,
+       100.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "levels_completed": 2,
+      "score": 8.333333333
+     }
+    ]
+   }
+  },
+  "documented": "levels not reached score 0",
+  "documented_total": null,
+  "environment_scores": {
+   "aa00": 8.333333333
+  },
+  "environments_played": 1,
+  "id": "Q10",
+  "note": "more baselines than levels the play reached",
+  "set_size": null,
+  "toolkit_total": 8.333333333
+ }
+]

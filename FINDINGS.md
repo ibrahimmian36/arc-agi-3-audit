@@ -3,7 +3,8 @@
 Millennium Research, 2026-09-03 (scorer, harness) and 2026-09-04 (environment
 ls20 levels 1 and 2, then a breadth sweep of level 1 across the public set,
 then a play-based probe of all 25, then a lower-bound check on the published
-human baselines). Status: the scoring rule (reference 3), the benchmarking
+human baselines, then a probe of the scoring pipeline that feeds the formula).
+Status: the scoring rule (reference 3), the benchmarking
 harness's action budget, and two levels of one public environment (reference
 1) are audited and written up below; the per-level baselines (reference 2)
 are recovered and characterised; ls20 levels 3–7, the other 24 public
@@ -66,6 +67,8 @@ certifies the scorer.
 | Play probe: one action advancing the level counter by two | `actions_taken=479040` in all 25 | `double_advance_actions=0`, `level_regressions=0` | `artifacts/play/summary.log` |
 | Baselines: is any published baseline below the level's optimum? | 18 levels attempted | `consistent=6 impossible=0 not_established=12` | `artifacts/minactions/summary.log` |
 | The 342 human replays announced 2026-04-14 | GitHub org and HuggingFace author | `located=False`; `announced_link_status=403` | `artifacts/replays/availability.log` |
+| Aggregation denominator: 3 environments played of a 135-environment set | 1 planted scorecard | toolkit reports `toolkit_total=100.0`, the documented rule gives `documented_total=2.222222222`, a `ratio=45.0` | `artifacts/pipeline/pipeline.log` |
+| A level RESET charged to the agent's per-level action count | 1 planted scorecard | four resets take an otherwise perfect environment from 100 to `83.801652893` | `artifacts/pipeline/pipeline.log` |
 | Double-advance (finding F3) reachability | every transition of both levels | `"double_advance_actions": 0` on each | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Peak memory of the enumeration | 2 levels | under 300 MB on both, against `"max_rss_mb_cap": 3500.0`; the exact figure varies run to run and is checked as a bound, not a literal | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Re-run byte identity | scorer, harness, recorder | identical (`tests/test_scorer_probe.py`, `tests/test_harness_probe.py`, `tests/test_recorder.py::test_m8_byte_identity`) | suite |
@@ -139,6 +142,50 @@ comment.
 `/api/games` omits `baseline_actions`, while the toolkit reads that field from
 the same endpoint. Which is right is settled by the real response saved by
 `scripts/fetch_public_envs.py`; not a finding yet.
+
+**F8 — Scorer defect in the public toolkit: the aggregation denominator.**
+`EnvironmentScorecard.from_scorecard` computes the overall score as the sum of
+environment scores divided by the number of environments present in the
+scorecard, that is the number actually played. Report v2 §4.1 defines the total
+as "the sum of individual environment scores divided by the total number of
+environments", and the documentation's methodology page describes the total as
+the average of all game scores over the set. On a planted scorecard covering
+three environments of a 135-environment set, each completed perfectly, the
+toolkit reports `toolkit_total=100.0` where the documented rule gives
+`documented_total=2.222222222`: a `ratio=45.0`. Played over the whole set the two
+agree exactly.
+
+This is the first finding in this audit that changes a number rather than a
+document, and it needs three qualifications stated in the same breath. The
+official leaderboard is computed server-side and is not observable to us; we
+make no claim about it. The official harness plays the full set by default
+(`games = full_games[:]` unless `--game` is passed), so an official run is not
+exposed. And the documentation presents local scorecards as a convenience rather
+than a benchmark submission. The exposure is therefore to anyone who runs a
+subset of environments and quotes the toolkit's `score` field as a benchmark
+number, which the report's own definition would place 45 times lower in the case
+above. Classification: scorer defect in the public toolkit, or a naming
+collision between two documented quantities, depending on whether the field is
+meant to be the benchmark metric. Either way a reader can be badly misled.
+
+**F9 — Documentation gap with a score effect: resets are charged to the agent,
+and the human side is unknown.** `Card.inc_reset_count` increments both the reset
+count and the action count, and the action lands on the level in progress, so a
+level reset lowers that level's efficiency score. On an otherwise perfect
+five-level play, one reset before each of levels two to five takes the
+environment from 100 to `83.801652893`.
+
+Neither the report nor the documentation says whether a RESET counts as an
+action. The methodology page defines an action as a discrete interaction that
+affects the game state, and excludes internal operations, without settling
+RESET. The asymmetry matters because human participants were explicitly allowed
+to reset a level at any time, and the report notes that some "reset levels after
+reaching a solution in order to improve efficiency". If the published baselines
+were computed without charging human resets while agents are charged for theirs,
+the ratio is biased against agents by an amount that depends on how often each
+side reset. We cannot settle this: it needs the human replays, which we could
+not locate (above). We report it as the sharpest open question in the scoring
+rule.
 
 **F7 — Documentation gap (report v2 Fig. 3, "P_win for this level is exactly 1 in
 355").** The term is not defined. Under the natural reading (probability that a
@@ -384,6 +431,17 @@ link is the kind of thing an owner would want to fix, and because until the
 replays are reachable the baselines that every score depends on cannot be
 checked against the plays that produced them.
 
+**Observation, not a finding — a reported score and a reported level count can
+come from different plays.** For an environment played more than once,
+`EnvironmentScoreList` reports the maximum score over runs and the maximum
+levels-completed over runs, taken independently. A planted pair where one play
+is more efficient but reaches less far, and the other reaches further, produces
+an environment whose reported score belongs to the first play and whose reported
+level count belongs to the second. The score itself is a legitimate best-of, and
+the documentation says the overall score is the average of the best score for
+each environment, so nothing is miscomputed; the pairing displayed alongside it
+is simply not from one run.
+
 ## Negatives (checked, found consistent)
 
 - Scorer equals the documented prose rule on P1, P2a, P2b, P2c, P3a, P3b (no
@@ -449,6 +507,11 @@ the observed state is that they agree.
 - The lower-bound check on the twelve levels where the search was capped, and on
   every level of the nineteen click-based environments, where the method does
   not apply at all.
+- Whether the published human baselines charge human resets as actions. This is
+  what would settle F9, and it needs the replays.
+- Anything at all about the server-side scorer behind the official leaderboard.
+  It is not observable from outside, and every statement here is about the
+  public toolkit at the pinned commit.
 - F3's dynamic reachability in the 14 environments where the static scan does
   not exclude it.
 - The HN thread on a "misleading scorecard" (item 49556467) could not be
@@ -515,6 +578,7 @@ done
 .venv/bin/python scripts/play_probe.py --max-actions 20000 --max-seconds 60 --seed 0
 .venv/bin/python scripts/min_actions.py --levels 1 2 3 --max-states 400000 --max-seconds 120 --max-rss-mb 2500
 .venv/bin/python scripts/replay_availability.py
+.venv/bin/python scripts/score_pipeline_probe.py
 ../audit-kit/scripts/report_check.sh docs/claims.json
 ```
 

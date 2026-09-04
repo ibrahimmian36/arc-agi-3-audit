@@ -28,8 +28,13 @@ it, and run it differentially against the shipped implementation; every
 component either reports a disagreement or reports no disagreement, and a human
 reads each disagreement before it is called anything.
 
-We find no error in what the scorer computes and no defective environment. We do
-find four documentation problems that a careful implementer would trip over. The
+We find no defective environment, and the level-scoring formula computes what its
+prose defines. We do find one arithmetic defect above that formula and four
+documentation problems. The public toolkit averages environment scores over the
+environments a scorecard contains, where the report defines the total as a sum
+over environment scores divided by the total number of environments: a scorecard
+covering three environments of a 135-environment set reports $100\%$ where the
+documented rule gives $2.22\%$. The
 technical report's Equation~(1) caps the efficiency ratio before squaring,
 permitting a per-level score of $132.25\%$, where its own prose, the
 documentation and the code all cap the score at $115\%$. The five-times action
@@ -198,6 +203,53 @@ scripted runs against the toolkit in offline mode, driving the harness's own
 control loop with a scripted model, no level ever exceeded its budget, the
 harness's action counter and the scorecard's agreed on every run, and two runs
 exited on the budget precisely at its boundary.
+
+\subsection{The aggregation denominator}
+\label{sec:denominator}
+
+The scoring rule of \S4.1 governs one environment. Above it the toolkit computes
+an overall score, and there the denominator is the number of environments the
+scorecard contains --- the number actually played --- rather than the number in
+the set. The report defines the total as ``the sum of individual environment
+scores divided by the total number of environments'', and the documentation's
+methodology page describes it as the average of all game scores.
+
+On a planted scorecard covering three environments of a set of 135, each
+completed at exactly the human baseline on every level, the toolkit reports a
+total of $100.0$ where the documented rule gives $2.222222222$, a factor of
+$45.0$. Played over a whole set the two agree exactly, so the difference is
+precisely the partial-coverage case.
+
+Three qualifications belong in the same breath. The official leaderboard is
+computed server-side, is not observable to us, and is not claimed to match. The
+official harness plays the whole set unless told otherwise, so an official run is
+not exposed to this. And the documentation presents local scorecards as a
+convenience rather than a submission. What remains is that a reader who runs a
+subset --- during development, or to report a result on the public environments
+alone --- and quotes the toolkit's score field has a number the report's own
+definition would place far lower. This is the one finding in this audit that
+changes an arithmetic result rather than a document.
+
+\subsection{Resets are charged to the agent, and the human side is unknown}
+\label{sec:resets}
+
+A level reset increments both the reset count and the action count in the
+scorecard, and the action falls on the level in progress, so it lowers that
+level's efficiency. On an otherwise perfect five-level play, one reset before
+each of levels two to five takes the environment score from $100$ to
+$83.801652893$.
+
+No document we found states whether a reset counts as an action. The methodology
+page defines an action as a discrete interaction that affects the game state and
+excludes internal operations, which does not settle it. The question has teeth
+because human participants were explicitly permitted to reset a level at any
+time, and the report observes that some ``reset levels after reaching a solution
+in order to improve efficiency''. If the published baselines were gathered
+without charging human resets while agents are charged for theirs, every ratio
+is biased against the agent by an amount depending on how often each side reset.
+We cannot settle it. Doing so needs the human replays, which we were unable to
+locate (\S\ref{sec:replays}). It is the sharpest open question we found in the
+scoring rule.
 
 \subsection{An unreached edge in the scorer}
 
@@ -448,6 +500,7 @@ version. That is not necessarily the environment the human study measured, and
 consistency with a local optimum says nothing about how the number was gathered.
 
 \subsection{The replays could not be located}
+\label{sec:replays}
 
 An April 2026 post \cite{humandataset} states that the Foundation open-sourced
 the Public Demo dataset, ``which includes 342 human step-by-step replays'' across
@@ -471,7 +524,10 @@ A reader should hold the following in mind.
 \begin{enumerate}
 \item Everything here concerns the public toolkit, harness and documents at the
       pinned commits. The server-side scorer behind the official leaderboard is
-      not observable to us and is not claimed to match.
+      not observable to us and is not claimed to match. This bears hardest on
+      \S\ref{sec:denominator}: we report a defect in a public artefact, not a
+      claim about anyone's published result, and we do not compute what any
+      particular reported score would have been.
 \item ``No disagreement'' is over the fixtures and transitions we ran, chosen by
       us. It is not a proof of correctness.
 \item Our Dafny models encode our reading of the report and the shipped source.

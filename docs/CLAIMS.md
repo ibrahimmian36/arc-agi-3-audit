@@ -106,3 +106,7 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 99 | `announced_link_status=403` | `../artifacts/replays/availability.log` | `^REPLAYS` | scripts/replay_availability.py |
 | 100 | `github_repos=10` | `../artifacts/replays/availability.log` | `^REPLAYS` | scripts/replay_availability.py |
 | 101 | `huggingface_datasets=3` | `../artifacts/replays/availability.log` | `^REPLAYS` | scripts/replay_availability.py |
+| 102 | `toolkit_total=100.0` | `../artifacts/pipeline/pipeline.log` | `^Q2 ` | scripts/score_pipeline_probe.py |
+| 103 | `documented_total=2.222222222` | `../artifacts/pipeline/pipeline.log` | `^Q2 ` | scripts/score_pipeline_probe.py |
+| 104 | `ratio=45.0` | `../artifacts/pipeline/pipeline.log` | `^Q2 ` | scripts/score_pipeline_probe.py |
+| 105 | `83.801652893` | `../artifacts/pipeline/pipeline.log` | `^Q4 ` | scripts/score_pipeline_probe.py |

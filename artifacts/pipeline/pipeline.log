@@ -1,0 +1,11 @@
+Q1   played=1 set_size=None toolkit_total=100.0 env_scores={'aa00': 100.0} :: the toolkit's own test case: one environment, one play, six levels at baseline
+Q2   played=3 set_size=135 toolkit_total=100.0 documented_total=2.222222222 ratio=45.0 env_scores={'aa00': 100.0, 'bb00': 100.0, 'cc00': 100.0} :: aggregation: 3 of 135 environments played, each perfect
+Q3   played=2 set_size=2 toolkit_total=100.0 documented_total=100.0 ratio=1.0 env_scores={'aa00': 100.0, 'bb00': 100.0} :: aggregation: all environments in the set played
+Q4   played=1 set_size=None toolkit_total=83.801652893 env_scores={'aa00': 83.801652893} :: one level RESET before each of levels 2..5
+Q5   played=1 set_size=None toolkit_total=93.888888889 env_scores={'aa00': 93.888888889} :: a GAME_OVER and a RESET before level 3, then completion
+Q6   played=1 set_size=None toolkit_total=25.0 env_scores={'aa00': 25.0} :: two plays: the second completes more levels but less efficiently
+Q7   played=1 set_size=None toolkit_total=20.0 env_scores={'aa00': 20.0} :: two plays: the first is more efficient, the second reaches further
+Q8   played=1 set_size=None toolkit_total=0.0 env_scores={'aa00': 0.0} :: a play that completes no level at all
+Q9   played=1 set_size=None toolkit_total=0.0 env_scores={'aa00': 0.0} :: an environment with a play of zero actions
+Q10  played=1 set_size=None toolkit_total=8.333333333 env_scores={'aa00': 8.333333333} :: more baselines than levels the play reached
+SUMMARY probes=10 peak_rss_mb_under_500=True

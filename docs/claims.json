@@ -712,5 +712,33 @@
   "log": "../artifacts/replays/availability.log",
   "pattern": "^REPLAYS",
   "by": "scripts/replay_availability.py"
+ },
+ {
+  "value": "toolkit_total=100.0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/pipeline/pipeline.log",
+  "pattern": "^Q2 ",
+  "by": "scripts/score_pipeline_probe.py"
+ },
+ {
+  "value": "documented_total=2.222222222",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/pipeline/pipeline.log",
+  "pattern": "^Q2 ",
+  "by": "scripts/score_pipeline_probe.py"
+ },
+ {
+  "value": "ratio=45.0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/pipeline/pipeline.log",
+  "pattern": "^Q2 ",
+  "by": "scripts/score_pipeline_probe.py"
+ },
+ {
+  "value": "83.801652893",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/pipeline/pipeline.log",
+  "pattern": "^Q4 ",
+  "by": "scripts/score_pipeline_probe.py"
  }
 ]
