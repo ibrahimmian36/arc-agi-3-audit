@@ -765,7 +765,13 @@ the observed state is that they agree.
 
 ## Reproduce
 
+The vendored repositories are not redistributed here. Step 0 fetches them from
+their own upstreams at the commits pinned in `vendor/PINS.json`; some evidence
+lives in those trees rather than in `artifacts/`, so both checkers need it. A
+clean-clone run without it fails one claim, which is how the omission was found.
+
 ```
+scripts/setup_vendor.sh
 .venv/bin/python -m pytest -q
 scripts/check_model.sh
 .venv/bin/python scripts/scorer_probe.py
@@ -784,6 +790,7 @@ done
 .venv/bin/python scripts/min_actions.py --levels 1 2 3 --max-states 400000 --max-seconds 120 --max-rss-mb 2500
 .venv/bin/python scripts/replay_availability.py
 .venv/bin/python scripts/score_pipeline_probe.py
+.venv/bin/python scripts/budget_probe.py
 .venv/bin/python scripts/aggregation_probe.py
 .venv/bin/python scripts/wire_probe.py
 .venv/bin/python scripts/limits_probe.py
