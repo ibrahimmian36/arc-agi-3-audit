@@ -859,5 +859,61 @@
   "log": "../artifacts/searchcmp/search_comparison.log",
   "pattern": "^VERDICT g50t",
   "by": "scripts/search_comparison.py"
+ },
+ {
+  "value": "1.316872428",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/budget/budget.log",
+  "pattern": "^B8",
+  "by": "scripts/budget_probe.py"
+ },
+ {
+  "value": "denial_budgets=[8]",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/budget/budget.log",
+  "pattern": "^WINDOW deaths=1",
+  "by": "scripts/budget_probe.py"
+ },
+ {
+  "value": "denial_budgets=[12, 13]",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/budget/budget.log",
+  "pattern": "^WINDOW deaths=2",
+  "by": "scripts/budget_probe.py"
+ },
+ {
+  "value": "denial_budgets=[16, 17, 18]",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/budget/budget.log",
+  "pattern": "^WINDOW deaths=3",
+  "by": "scripts/budget_probe.py"
+ },
+ {
+  "value": "window_prediction_holds=True",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/budget/budget.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/budget_probe.py"
+ },
+ {
+  "value": "median_fall=3.251814028",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/budget/budget.log",
+  "pattern": "^TAX",
+  "by": "scripts/budget_probe.py"
+ },
+ {
+  "value": "after_one=73.469387755",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/budget/budget.log",
+  "pattern": "^TAX",
+  "by": "scripts/budget_probe.py"
+ },
+ {
+  "value": "levels=183 environments=25",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/budget/budget.log",
+  "pattern": "^TAX",
+  "by": "scripts/budget_probe.py"
  }
 ]

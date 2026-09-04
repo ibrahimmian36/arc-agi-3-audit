@@ -75,6 +75,9 @@ certifies the scorer.
 | An environment that produces no card leaves the denominator | 1 planted scorecard | three of four played gives `toolkit_total=100.0` against `documented_total=75.0` | `artifacts/aggregation/aggregation.log` |
 | A game id differing only by version | 1 planted scorecard | the environment scores `0.0` with `No Matching EnvironmentInfo found` | `artifacts/aggregation/aggregation.log` |
 | Resets the harness issues on the agent's behalf, and what they cost | 7 scripted harness runs | an agent that chose 16 actions is counted 19: `forced=3 chosen=16`, `harness_counter=19` | `artifacts/wire/wire.log` |
+| A level failed by a reset the agent did not choose | 1 paired counterfactual at budget 8, identical policy | shipped exits `ACTION_BUDGET`, level incomplete, environment `0.0`; the counterfactual completes it and scores `1.316872428` | `artifacts/budget/budget.log` |
+| How many budgets the forced resets decide (preregistered: as many as the deaths) | 4 death counts, budgets swept around each | `deaths=0` none, `1` `[8]`, `2` `[12, 13]`, `3` `[16, 17, 18]`; `window_prediction_holds=True` | `artifacts/budget/budget.log` |
+| What one forced reset costs a real public level | all 183 levels of the 25 public environments | median fall `3.251814028` points; worst `sc25-635fd71a` level 1 (baseline 6), `100.0` to `73.469387755`; share of budget at most `0.033333333` | `artifacts/budget/budget.log` |
 | A retried model call reaching the environment twice | the harness's own retry path plus 7 runs | `RETRY isolated=True`; `one_environment_call_per_counted_action=True` | `artifacts/wire/wire.log` |
 | One intended action reaching the server twice | 4 failure modes of the remote wrapper | `max_attempts_per_intended_action=1` | `artifacts/limits/limits.log` |
 | Run-level limits varying between entrants | all 12 shipped configurations | `configs=12`, `runtime_overrides=['None']`, `animation_overrides=['None']`, `uniform_multiplier=True` | `artifacts/limits/limits.log` |
@@ -89,68 +92,99 @@ closed: the 115 per-level cap is documented (toolkit changelog 0.9.7,
 2026-04-14; docs methodology; report v2 §4.2), and level weights are 1-based.
 
 ## Findings
+### Findings that change a number
 
-**F1 — Documentation defect (technical report v2, Equation 1).** Equation (1)
-in §4.1 is typeset as `S = min(1.15, h/a)^2`, which caps the *ratio* before
-squaring and allows a per-level score of 132.25%. The report's own prose
-("we cap the maximum score for a level at 1.15x the human baseline"; "between
-0% and 115%"), the docs methodology page, and the shipped scorer all cap the
-*score* at 115%. Evidence: probe P2a, shipped level-1 score `115.0`; probe P2c,
-shipped environment score `49.333333` under the prose reading versus
-`50.483333` under the equation reading. The code is consistent with the prose;
-the equation is the outlier. Classification: documentation.
+These alter a score rather than a sentence. F12 is on the path an official run
+uses; F8, F10 and F11 are on the toolkit's local scoring path, which the
+official harness does not take.
 
-**F2 — Documentation defect (where the 5x cutoff lives).** The report v2
-§4.3.1 states a hard budget of five times the human baseline per level. That
-budget exists only in the benchmarking harness (`MAX_ACTIONS_BASELINE_MULTIPLIER:
-5.0` in every shipped model config; enforced per level in
-`BenchmarkingAgent.is_done`). The scorer has no cutoff: probe P3b (level 1
-solved in 51 actions against a baseline of 10) scores `93.589645`, where the
-rule-as-stated gives `0.000000` (level never completed). The docs methodology
-page and the competition-mode page do not mention the cutoff at all. Any
-scorecard computed by the toolkit's scorer from a run that did not use the
-harness (the example agents, a human-driven session, a third-party agent) is
-scored without the budget. Classification: documentation (the cutoff is a run
-policy of the official harness, not a property of the scoring rule; readers of
-the report cannot tell). The harness itself enforces it exactly: H1b executes
-`executed_per_level={'0': 20}` and exits `ACTION_BUDGET` with level 1 not
-completed; H5 executes `{'0': 4, '1': 40}` and refuses the 41st action on
-level 2.
+**F12 --- The harness spends the agent's action budget on resets the agent did
+not choose, and on some budgets that is what fails the level.** After a game over the harness issues a
+`RESET` of its own accord (`_forced_action_for_frame` returns `RESET` when the
+state is `GAME_OVER` or `NOT_PLAYED`). That reset is counted by the harness and,
+on the local path, charged by the scorer to the level in progress, exactly as
+finding F9 describes for a chosen reset.
 
-**F3 — Scorer edge, undocumented (double advance).** If one action advances
-`levels_completed` by two (the engine permits a game to call `next_level()`
-twice in one `step()`; `_score` increases by two while the level index moves
-by one), the scorer pairs the k-th `actions_by_level` entry with level k, so
-the final level is scored as *not completed* although the play ends in WIN
-with `levels_completed` equal to the level count. Probe P8: shipped `66.666667`
-with state WIN and 5 of 5 levels completed; the documented rule gives
-`100.000000`. Whether any public environment can trigger this is a static
-check on the fetched sources (Phase 1); until then this is a robustness
-finding about the scorer, not a claim about any environment. Classification:
-scorer edge / engine documentation silent.
+Measured on the toolkit's fixture game by driving the harness's own control
+loop: an agent that loses the level three times and then solves it chooses 16
+actions and is counted 19 (`forced=3 chosen=16`, `harness_counter=19`), and
+level one is scored on all 19. Losing once costs one action, losing three times
+costs three. With that level's baseline of four, the difference between being
+scored on 19 actions and on the 16 the agent chose is a fall of about 29\% in
+that level's contribution.
 
-**F4 — Documentation gap (action accounting).** Neither the report nor the
-docs pages fetched state how RESET, GAME_OVER, the initial RESET, or actions
-outside `available_actions` are counted. Observed on the fixture with the
-shipped toolkit: a level RESET counts as an action in the scorecard (M1,
-`counts_agree: true` with two resets; P4 level-1 score `44.444444444` for
-4 + RESET + 10); RESET after GAME_OVER is a level reset that keeps
-`levels_completed` (M5); the initial RESET issued inside `make()` is counted by
-neither the harness nor the scorecard (H1: 20 scripted actions all executed
-within a budget of 20); an action not in `available_actions` is accepted,
-counted, and changes nothing (M6, three such actions, recorder and Card both `"card_total": 3`).
-These are consistent between harness and scorer and are not defects; they are
-rules a reader cannot find written down. Classification: documentation.
+It compounds F9: the human baselines' treatment of resets is unknown, and here
+the agent is charged for resets it never chose.
 
-**F5 — Stale comment (trivial).** `arc_agi/scorecard.py::add_level` comments
-"max 100" above the `min(score, 115.0)` cap, and the toolkit's own test
-comments say "Capped at 100" while asserting 115. Classification: code
-comment.
+**The denial.** The cost above is a fall in a completed level's score. The
+sharper consequence is that the same counter is the one the harness stops on.
+The per-level budget is `math.ceil(baseline * 5.0)` (`agent.py:111`); `is_done`
+ends the level when `_level_action_counter >= budget` (`agent.py:607`);
+`choose_action` returns a forced action before the ordinary increment
+(`agent.py:626`), but `_record_forced_action_observation` increments the same
+counter for it anyway (`agent.py:541`). So the run can be cut off on an action
+the agent did not choose.
 
-**F6 — To verify after the fetch.** The docs' published response schema for
-`/api/games` omits `baseline_actions`, while the toolkit reads that field from
-the same endpoint. Which is right is settled by the real response saved by
-`scripts/fetch_public_envs.py`; not a finding yet.
+We measured it as a paired counterfactual rather than arguing it. The same
+scripted policy is run twice against the same fixture game with the same budget,
+differing in exactly one respect: in the second run the forced reset still
+happens and still reaches the environment, but does not increment the budget
+counter. At a budget of 8, the shipped harness exits `ACTION_BUDGET` with level
+one incomplete and the environment scoring `0.0`, while the counterfactual
+completes the level and scores `1.316872428`. The agent's play is identical in
+both. The reset it did not choose is the whole difference between a completed
+level and a failed one. Artefact: `artifacts/budget/budget.log`, probe `B8`.
+
+**The window, predicted before it was measured.** This is not a knife edge. We
+preregistered that the counterfactual completes the level as soon as the budget
+covers the agent's chosen actions, while the shipped harness additionally needs
+one action per game over, so the set of budgets on which the two disagree should
+be exactly as wide as the number of game overs. It is, for every case probed:
+an agent that never dies has no denial budget at all, while
+`denial_budgets=[8]` for one death, `denial_budgets=[12, 13]` for two and
+`denial_budgets=[16, 17, 18]` for three, with `window_prediction_holds=True`. Equivalently, and this is the
+general statement: **an agent's effective per-level budget is
+`ceil(5 x baseline)` minus the number of times it died.** Every death silently
+costs an action of allowance over and above the progress it loses, and the
+exposure grows with each one. An agent that never dies is never affected.
+
+**What it costs on the real public levels.** Applying the client's rule to the
+baselines fetched from `/api/games` for all 25 public environments, one forced
+reset costs a level between 0.03 and 3.33 per cent of its budget, and on an
+otherwise perfect completion it lowers that level's score by
+`median_fall=3.251814028` points. The worst case is the level with the smallest
+baseline in the public set, `sc25-635fd71a` level 1, baseline 6: one forced
+reset takes a perfect completion from `perfect=100.0` to
+`after_one=73.469387755`, a fall of `26.530612245` points.
+`levels=183 environments=25`. Artefact: `artifacts/budget/budget.log`.
+
+This remains a property of the CLIENT. Whether the server charges such a reset,
+and whether it enforces the budget the same way, is not observable to us and is
+not claimed. Nor is the design wrong: after a game over a reset is the only way
+to continue, so the harness has to send one. What is missing is any statement to
+an entrant that it happens, that it consumes the per-level action budget, and
+that it can therefore end a level the agent would otherwise have completed. We
+searched the report and the harness documentation and found nothing on forced
+resets or on resets counting as actions.
+
+**F9 — Documentation gap with a score effect: resets are charged to the agent,
+and the human side is unknown.** `Card.inc_reset_count` increments both the reset
+count and the action count, and the action lands on the level in progress, so a
+level reset lowers that level's efficiency score. On an otherwise perfect
+five-level play, one reset before each of levels two to five takes the
+environment from 100 to `83.801652893`.
+
+Neither the report nor the documentation says whether a RESET counts as an
+action. The methodology page defines an action as a discrete interaction that
+affects the game state, and excludes internal operations, without settling
+RESET. The asymmetry matters because human participants were explicitly allowed
+to reset a level at any time, and the report notes that some "reset levels after
+reaching a solution in order to improve efficiency". If the published baselines
+were computed without charging human resets while agents are charged for theirs,
+the ratio is biased against agents by an amount that depends on how often each
+side reset. We cannot settle this: it needs the human replays, which we could
+not locate (above). We report it as the sharpest open question in the scoring
+rule.
 
 **F8 — Scorer defect in the public toolkit: the aggregation denominator.**
 `EnvironmentScorecard.from_scorecard` computes the overall score as the sum of
@@ -208,24 +242,72 @@ moves a score down rather than up, and it is a plausible accident: an
 environment version refreshing between a run and its scoring would silently zero
 it. The scorer does say so in a message, which a caller may not read.
 
-**F9 — Documentation gap with a score effect: resets are charged to the agent,
-and the human side is unknown.** `Card.inc_reset_count` increments both the reset
-count and the action count, and the action lands on the level in progress, so a
-level reset lowers that level's efficiency score. On an otherwise perfect
-five-level play, one reset before each of levels two to five takes the
-environment from 100 to `83.801652893`.
+**F3 — Scorer edge, undocumented (double advance).** If one action advances
+`levels_completed` by two (the engine permits a game to call `next_level()`
+twice in one `step()`; `_score` increases by two while the level index moves
+by one), the scorer pairs the k-th `actions_by_level` entry with level k, so
+the final level is scored as *not completed* although the play ends in WIN
+with `levels_completed` equal to the level count. Probe P8: shipped `66.666667`
+with state WIN and 5 of 5 levels completed; the documented rule gives
+`100.000000`. Whether any public environment can trigger this is a static
+check on the fetched sources (Phase 1); until then this is a robustness
+finding about the scorer, not a claim about any environment. Classification:
+scorer edge / engine documentation silent.
 
-Neither the report nor the documentation says whether a RESET counts as an
-action. The methodology page defines an action as a discrete interaction that
-affects the game state, and excludes internal operations, without settling
-RESET. The asymmetry matters because human participants were explicitly allowed
-to reset a level at any time, and the report notes that some "reset levels after
-reaching a solution in order to improve efficiency". If the published baselines
-were computed without charging human resets while agents are charged for theirs,
-the ratio is biased against agents by an amount that depends on how often each
-side reset. We cannot settle this: it needs the human replays, which we could
-not locate (above). We report it as the sharpest open question in the scoring
-rule.
+### Findings in the documentation
+
+These do not change any score. They are places where a reader cannot learn from
+the published material what the code actually does.
+
+**F1 — Documentation defect (technical report v2, Equation 1).** Equation (1)
+in §4.1 is typeset as `S = min(1.15, h/a)^2`, which caps the *ratio* before
+squaring and allows a per-level score of 132.25%. The report's own prose
+("we cap the maximum score for a level at 1.15x the human baseline"; "between
+0% and 115%"), the docs methodology page, and the shipped scorer all cap the
+*score* at 115%. Evidence: probe P2a, shipped level-1 score `115.0`; probe P2c,
+shipped environment score `49.333333` under the prose reading versus
+`50.483333` under the equation reading. The code is consistent with the prose;
+the equation is the outlier. Classification: documentation.
+
+**F2 — Documentation defect (where the 5x cutoff lives).** The report v2
+§4.3.1 states a hard budget of five times the human baseline per level. That
+budget exists only in the benchmarking harness (`MAX_ACTIONS_BASELINE_MULTIPLIER:
+5.0` in every shipped model config; enforced per level in
+`BenchmarkingAgent.is_done`). The scorer has no cutoff: probe P3b (level 1
+solved in 51 actions against a baseline of 10) scores `93.589645`, where the
+rule-as-stated gives `0.000000` (level never completed). The docs methodology
+page and the competition-mode page do not mention the cutoff at all. Any
+scorecard computed by the toolkit's scorer from a run that did not use the
+harness (the example agents, a human-driven session, a third-party agent) is
+scored without the budget. Classification: documentation (the cutoff is a run
+policy of the official harness, not a property of the scoring rule; readers of
+the report cannot tell). The harness itself enforces it exactly: H1b executes
+`executed_per_level={'0': 20}` and exits `ACTION_BUDGET` with level 1 not
+completed; H5 executes `{'0': 4, '1': 40}` and refuses the 41st action on
+level 2.
+
+**F4 — Documentation gap (action accounting).** Neither the report nor the
+docs pages fetched state how RESET, GAME_OVER, the initial RESET, or actions
+outside `available_actions` are counted. Observed on the fixture with the
+shipped toolkit: a level RESET counts as an action in the scorecard (M1,
+`counts_agree: true` with two resets; P4 level-1 score `44.444444444` for
+4 + RESET + 10); RESET after GAME_OVER is a level reset that keeps
+`levels_completed` (M5); the initial RESET issued inside `make()` is counted by
+neither the harness nor the scorecard (H1: 20 scripted actions all executed
+within a budget of 20); an action not in `available_actions` is accepted,
+counted, and changes nothing (M6, three such actions, recorder and Card both `"card_total": 3`).
+These are consistent between harness and scorer and are not defects; they are
+rules a reader cannot find written down. Classification: documentation.
+
+**F5 — Stale comment (trivial).** `arc_agi/scorecard.py::add_level` comments
+"max 100" above the `min(score, 115.0)` cap, and the toolkit's own test
+comments say "Capped at 100" while asserting 115. Classification: code
+comment.
+
+**F6 — To verify after the fetch.** The docs' published response schema for
+`/api/games` omits `baseline_actions`, while the toolkit reads that field from
+the same endpoint. Which is right is settled by the real response saved by
+`scripts/fetch_public_envs.py`; not a finding yet.
 
 **F7 — Documentation gap (report v2 Fig. 3, "P_win for this level is exactly 1 in
 355").** The term is not defined. Under the natural reading (probability that a
@@ -504,31 +586,6 @@ level count belongs to the second. The score itself is a legitimate best-of, and
 the documentation says the overall score is the average of the best score for
 each environment, so nothing is miscomputed; the pairing displayed alongside it
 is simply not from one run.
-
-**F12 --- The harness spends the agent's action budget on resets the agent did
-not choose, and no document says so.** After a game over the harness issues a
-`RESET` of its own accord (`_forced_action_for_frame` returns `RESET` when the
-state is `GAME_OVER` or `NOT_PLAYED`). That reset is counted by the harness and,
-on the local path, charged by the scorer to the level in progress, exactly as
-finding F9 describes for a chosen reset.
-
-Measured on the toolkit's fixture game by driving the harness's own control
-loop: an agent that loses the level three times and then solves it chooses 16
-actions and is counted 19 (`forced=3 chosen=16`, `harness_counter=19`), and
-level one is scored on all 19. Losing once costs one action, losing three times
-costs three. With that level's baseline of four, the difference between being
-scored on 19 actions and on the 16 the agent chose is a fall of about 29\% in
-that level's contribution.
-
-This is a property of the CLIENT. Whether the server charges such a reset is not
-observable to us and is not claimed. Nor is the design wrong: after a game over
-a reset is the only way to continue, so the harness has to send one. What is
-missing is any statement to an entrant that it happens, that it consumes the
-per-level action budget, and that it therefore lowers the score of a level the
-agent died on --- over and above losing the progress. We searched the report and
-the harness documentation and found nothing on forced resets or on resets
-counting as actions. It compounds F9: the human baselines' treatment of resets
-is unknown, and here the agent is charged for resets it never chose.
 
 **Note, not a finding --- the construction reset is on the wire but is not a
 counted action.** The environment wrapper issues a `RESET` when it is built, and

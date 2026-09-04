@@ -50,3 +50,19 @@
 | 2026-09-04 | Limits, timeout, resend and frame probes (predicted: an undocumented wall-clock cutoff; possibly a resend; possibly truncated frames) | Measured: `configs=12`, `runtime_overrides=['None']`, `animation_overrides=['None']`, `uniform_multiplier=True`, base 12 hours per environment. Timeout at zero exits `TIME_BUDGET` with no actions and a score of 0. `max_attempts_per_intended_action=1` across four failure modes, returning nothing rather than retrying. `always_keeps_last=True` for every produced/cap combination including 20 frames at a cap of 1. Peak memory under 500 MB; whole phase under a minute; no socket opened. |
 | 2026-09-04 | Write-up | Three negatives added to FINDINGS and to the paper's harness section, plus a note on the undocumented wall-clock limit; notice item B0 extended. `PAPER CHECK` re-run. Suite 154 tests green, report check PASS on 122 claims. |
 | 2026-09-04 | Phase 9: new searches added and checked (predicted: memory was the wall; removing it resolves more baselines) | Memory prediction confirmed, resolution prediction REFUTED. `dldfs` and `iddfs` reproduce every known optimum (fixture 4, `ls20` level 1 13 with a 13-action witness that replays) and report a bound rather than "unwinnable" below the optimum. On `g50t` level 1 the peak fell from about a gigabyte to under 150 MB, but breadth-first reached depth 10 where deepening reached 9, and on `ls20` level 2 breadth-first finds the optimum of 45 where deepening times out at depth 28. Baseline sweep re-run under breadth-first: `levels_checked=18 consistent=6 impossible=0 not_established=12`, unchanged. Suite 172 tests green, report check PASS on 123 claims. |
+
+## 2026-09-04 — Phase 10: the denial, and finalisation without notice
+
+Ran `scripts/budget_probe.py`. Paired counterfactual on the toolkit's fixture
+game: at a budget of 8 the shipped harness exits `ACTION_BUDGET` with level one
+incomplete and the environment scoring `0.0`, while the same policy with the
+forced reset not charged completes the level and scores `1.316872428`. The
+preregistered window prediction holds for every death count probed
+(`window_prediction_holds=True`). Tax over all 183 public levels:
+`median_fall=3.251814028`, worst `after_one=73.469387755` on the smallest
+baseline in the set.
+
+Corrected the paper's disclosure section: no notice was given to the Foundation
+and the paper now says so. Reordered the findings so the score-changing ones
+lead. 181 tests, 131 claims, 70 paper figures, all green. Peak RSS under 400 MB;
+artefacts grew by well under the 2 MB ceiling; no network.

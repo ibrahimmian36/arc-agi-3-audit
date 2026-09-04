@@ -29,7 +29,18 @@ component either reports a disagreement or reports no disagreement, and a human
 reads each disagreement before it is called anything.
 
 We find no defective environment, and the level-scoring formula computes what its
-prose defines. We do find one arithmetic defect above that formula and four
+prose defines. The finding that bears on a scored run is in the benchmarking
+harness. After a game over the harness issues a \code{RESET} of its own, and
+that reset consumes the agent's per-level action budget. We show by a paired
+counterfactual, identical in policy and differing only in whether the forced
+reset is charged, that this can end a level the agent would otherwise have
+completed: at one budget the shipped harness scores the environment \code{0.0}
+where the counterfactual completes the level. The effect is not a knife edge. We
+predicted before measuring, and confirm, that the set of budgets on which the
+two disagree is exactly as wide as the number of game overs, so an agent's
+effective per-level budget is $\lceil 5b \rceil$ minus the number of times it
+died. No published document states that these resets happen or that they are
+charged. We also find one arithmetic defect above the scoring formula and four
 documentation problems. On the toolkit's local scoring path --- the one its own quickstart uses ---
 environment scores are averaged over the environments a scorecard contains,
 where the report defines the total as divided by the total number of
@@ -293,12 +304,49 @@ is counted 19, and the level is scored on all 19. Against that level's baseline
 of four, being scored on 19 rather than on the 16 the agent chose lowers the
 level's contribution by about a fifth.
 
+A fall in a completed level's score is the mild consequence. The counter these
+resets increment is also the one the harness stops on. The per-level budget is
+$\lceil 5b \rceil$ for a baseline $b$; \code{is\_done} ends the level once the
+counter reaches it; \code{choose\_action} returns a forced action before the
+ordinary increment, but the routine that records the forced action increments
+the same counter regardless. A run can therefore be cut off on an action the
+agent did not choose.
+
+We measured that as a paired counterfactual rather than arguing it from the
+code. The same scripted policy runs twice against the same game with the same
+budget, differing in one respect: in the second run the forced reset still
+happens and still reaches the environment, but does not increment the budget
+counter. At a budget of 8 the shipped harness exits on the budget with the level
+incomplete and the environment scoring \code{0.0}, while the counterfactual
+completes the level and scores \code{1.316872428}. The agent's play is identical
+in both. The reset it did not choose is the entire difference between a
+completed level and a failed one.
+
+This is not a knife edge, and we predicted its shape before measuring it. The
+counterfactual completes the level as soon as the budget covers the agent's
+chosen actions, while the shipped harness additionally needs one action per game
+over, so the set of budgets on which the two disagree should be exactly as wide
+as the number of game overs. It is, in every case probed: no denial budgets for
+an agent that never dies, \code{[8]} for one death, \code{[12, 13]} for two,
+\code{[16, 17, 18]} for three. The general statement is simpler than the
+demonstration. \emph{An agent's effective per-level budget is $\lceil 5b \rceil$
+minus the number of times it died.} Each death quietly costs an action of
+allowance on top of the progress it loses, and the exposure widens with every
+one.
+
+Applied to the real public set, one such reset costs a level between $0.03$ and
+$3.33$ per cent of its budget, and lowers an otherwise perfect completion by a
+median of \code{3.251814028} points across the 183 levels of the 25 public
+environments. The worst case is the smallest baseline in the set, \code{sc25}
+level 1 at $b = 6$, where one forced reset takes a perfect completion from
+\code{100.0} to \code{73.469387755}.
+
 Two things this is not. It is not a claim about the server, which is not
-observable to us and may charge such a reset differently or not at all. And it
-is not a design criticism: the harness has to send something after a game over.
-What is absent is any statement to an entrant that these resets happen, that
-they consume the per-level action budget, and that they lower the score of a
-level the agent died on beyond the loss of progress itself. It compounds
+observable to us and may charge such a reset differently, or enforce the budget
+differently, or not at all. And it is not a design criticism: the harness has to
+send something after a game over. What is absent is any statement to an entrant
+that these resets happen, that they consume the per-level action budget, and
+that they can end a level the agent would otherwise have completed. It compounds
 \S\ref{sec:resets}: the human baselines' treatment of resets is unknown, and
 here the agent is additionally charged for resets it never chose.
 
@@ -670,8 +718,16 @@ verifies each number in this paper against the log that produced it. Environment
 sources are not redistributed; they are fetched from the ARC API by a script.
 The three audited repositories were archived at Software Heritage at intake.
 
-Findings were reported to the ARC Prize Foundation at
-\code{team@arcprize.org} on \textbf{[DATE]}, before publication.
+This paper is published without prior private notice to the ARC Prize
+Foundation. We record that plainly rather than implying a disclosure process
+that did not happen. Two considerations decided it. Everything examined here is
+already public, and every defect is in published material or in the client an
+entrant runs on their own machine, so nothing in this paper tells a reader
+something they could not have derived from the same public sources; there is no
+exploitable secret to withhold. And the findings that change a number are
+properties of the shipped client, which any entrant can verify against their own
+run today. We have no reason to think the Foundation would disagree with any of
+them, and the repository contains everything needed to check every one.
 
 \section*{Acknowledgements}
 

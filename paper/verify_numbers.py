@@ -23,6 +23,26 @@ ART = HERE.parent / "artifacts"
 
 # (phrase as printed in the paper, value it asserts, log file, regex capturing it)
 CLAIMS: list[tuple[str, str, Path, str]] = [
+    # --- resets the agent did not choose: the denial and its size ---
+    ("the environment scoring 0.0", "0.0",
+     ART / "budget/budget.log", r"^B8\s+shipped: [^|]*score=([0-9.]+)"),
+    ("completes the level and scores 1.316872428", "1.316872428",
+     ART / "budget/budget.log", r"^B8.*counterfactual: [^|]*score=([0-9.]+)"),
+    ("[8] for one death", "[8]", ART / "budget/budget.log",
+     r"^WINDOW deaths=1 .*denial_budgets=(\[[^\]]*\])"),
+    ("[12, 13] for two", "[12, 13]", ART / "budget/budget.log",
+     r"^WINDOW deaths=2 .*denial_budgets=(\[[^\]]*\])"),
+    ("[16, 17, 18] for three", "[16, 17, 18]", ART / "budget/budget.log",
+     r"^WINDOW deaths=3 .*denial_budgets=(\[[^\]]*\])"),
+    ("median of 3.251814028 points", "3.251814028",
+     ART / "budget/budget.log", r"^TAX .*median_fall=([0-9.]+)"),
+    ("183 levels of the 25 public", "183", ART / "budget/budget.log",
+     r"^TAX levels=(\d+)"),
+    ("183 levels of the 25 public", "25", ART / "budget/budget.log",
+     r"^TAX levels=\d+ environments=(\d+)"),
+    ("to 73.469387755", "73.469387755", ART / "budget/budget.log",
+     r"^TAX .*after_one=([0-9.]+)"),
+
     # --- the scoring rule ---
     ("environment score of 49.333333", "49.333333", ART / "scorer/probes.log",
      r"^P2c .*prose_nocut=([0-9.]+)"),

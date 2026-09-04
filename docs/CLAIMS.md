@@ -127,3 +127,11 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 120 | `always_keeps_last=True` | `../artifacts/limits/limits.log` | `^FRAMES` | scripts/limits_probe.py |
 | 121 | `TIME_BUDGET` | `../artifacts/limits/limits.log` | `^T-zero` | scripts/limits_probe.py |
 | 122 | `reached_further=bfs` | `../artifacts/searchcmp/search_comparison.log` | `^VERDICT g50t` | scripts/search_comparison.py |
+| 123 | `1.316872428` | `../artifacts/budget/budget.log` | `^B8` | scripts/budget_probe.py |
+| 124 | `denial_budgets=[8]` | `../artifacts/budget/budget.log` | `^WINDOW deaths=1` | scripts/budget_probe.py |
+| 125 | `denial_budgets=[12, 13]` | `../artifacts/budget/budget.log` | `^WINDOW deaths=2` | scripts/budget_probe.py |
+| 126 | `denial_budgets=[16, 17, 18]` | `../artifacts/budget/budget.log` | `^WINDOW deaths=3` | scripts/budget_probe.py |
+| 127 | `window_prediction_holds=True` | `../artifacts/budget/budget.log` | `^SUMMARY` | scripts/budget_probe.py |
+| 128 | `median_fall=3.251814028` | `../artifacts/budget/budget.log` | `^TAX` | scripts/budget_probe.py |
+| 129 | `after_one=73.469387755` | `../artifacts/budget/budget.log` | `^TAX` | scripts/budget_probe.py |
+| 130 | `levels=183 environments=25` | `../artifacts/budget/budget.log` | `^TAX` | scripts/budget_probe.py |

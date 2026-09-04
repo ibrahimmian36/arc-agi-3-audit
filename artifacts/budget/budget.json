@@ -1,0 +1,2187 @@
+{
+ "pairs": [
+  {
+   "budget": 6,
+   "counterfactual": {
+    "budget": 6,
+    "card_actions": [
+     7
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_resets": 1,
+    "harness_action_counter": 7,
+    "level_action_counter": 6,
+    "levels_completed": [
+     0
+    ]
+   },
+   "denied_by_forced_reset": false,
+   "score_counterfactual": 0.0,
+   "score_shipped": 0.0,
+   "shipped": {
+    "budget": 6,
+    "card_actions": [
+     6
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_resets": 1,
+    "harness_action_counter": 6,
+    "level_action_counter": 6,
+    "levels_completed": [
+     0
+    ]
+   }
+  },
+  {
+   "budget": 7,
+   "counterfactual": {
+    "budget": 7,
+    "card_actions": [
+     8
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_resets": 1,
+    "harness_action_counter": 8,
+    "level_action_counter": 7,
+    "levels_completed": [
+     0
+    ]
+   },
+   "denied_by_forced_reset": false,
+   "score_counterfactual": 0.0,
+   "score_shipped": 0.0,
+   "shipped": {
+    "budget": 7,
+    "card_actions": [
+     7
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_resets": 1,
+    "harness_action_counter": 7,
+    "level_action_counter": 7,
+    "levels_completed": [
+     0
+    ]
+   }
+  },
+  {
+   "budget": 8,
+   "counterfactual": {
+    "budget": 8,
+    "card_actions": [
+     9
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 1.316872428,
+    "error": "script exhausted (probe stub, not the harness)",
+    "exit_reason": "AGENT_ERROR",
+    "forced_resets": 1,
+    "harness_action_counter": 9,
+    "level_action_counter": 1,
+    "levels_completed": [
+     1
+    ]
+   },
+   "denied_by_forced_reset": true,
+   "score_counterfactual": 1.316872428,
+   "score_shipped": 0.0,
+   "shipped": {
+    "budget": 8,
+    "card_actions": [
+     8
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_resets": 1,
+    "harness_action_counter": 8,
+    "level_action_counter": 8,
+    "levels_completed": [
+     0
+    ]
+   }
+  },
+  {
+   "budget": 9,
+   "counterfactual": {
+    "budget": 9,
+    "card_actions": [
+     9
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 1.316872428,
+    "error": "script exhausted (probe stub, not the harness)",
+    "exit_reason": "AGENT_ERROR",
+    "forced_resets": 1,
+    "harness_action_counter": 9,
+    "level_action_counter": 1,
+    "levels_completed": [
+     1
+    ]
+   },
+   "denied_by_forced_reset": false,
+   "score_counterfactual": 1.316872428,
+   "score_shipped": 1.316872428,
+   "shipped": {
+    "budget": 9,
+    "card_actions": [
+     9
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 1.316872428,
+    "error": "script exhausted (probe stub, not the harness)",
+    "exit_reason": "AGENT_ERROR",
+    "forced_resets": 1,
+    "harness_action_counter": 9,
+    "level_action_counter": 1,
+    "levels_completed": [
+     1
+    ]
+   }
+  },
+  {
+   "budget": 10,
+   "counterfactual": {
+    "budget": 10,
+    "card_actions": [
+     9
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 1.316872428,
+    "error": "script exhausted (probe stub, not the harness)",
+    "exit_reason": "AGENT_ERROR",
+    "forced_resets": 1,
+    "harness_action_counter": 9,
+    "level_action_counter": 1,
+    "levels_completed": [
+     1
+    ]
+   },
+   "denied_by_forced_reset": false,
+   "score_counterfactual": 1.316872428,
+   "score_shipped": 1.316872428,
+   "shipped": {
+    "budget": 10,
+    "card_actions": [
+     9
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 1.316872428,
+    "error": "script exhausted (probe stub, not the harness)",
+    "exit_reason": "AGENT_ERROR",
+    "forced_resets": 1,
+    "harness_action_counter": 9,
+    "level_action_counter": 1,
+    "levels_completed": [
+     1
+    ]
+   }
+  },
+  {
+   "budget": 11,
+   "counterfactual": {
+    "budget": 11,
+    "card_actions": [
+     9
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": false,
+    "environment_score": 1.316872428,
+    "error": "script exhausted (probe stub, not the harness)",
+    "exit_reason": "AGENT_ERROR",
+    "forced_resets": 1,
+    "harness_action_counter": 9,
+    "level_action_counter": 1,
+    "levels_completed": [
+     1
+    ]
+   },
+   "denied_by_forced_reset": false,
+   "score_counterfactual": 1.316872428,
+   "score_shipped": 1.316872428,
+   "shipped": {
+    "budget": 11,
+    "card_actions": [
+     9
+    ],
+    "card_resets": [
+     1
+    ],
+    "count_forced": true,
+    "environment_score": 1.316872428,
+    "error": "script exhausted (probe stub, not the harness)",
+    "exit_reason": "AGENT_ERROR",
+    "forced_resets": 1,
+    "harness_action_counter": 9,
+    "level_action_counter": 1,
+    "levels_completed": [
+     1
+    ]
+   }
+  }
+ ],
+ "tax": {
+  "best": {
+   "baseline": 578,
+   "budget": 2890,
+   "fall": 0.34512485,
+   "game_id": "dc22-fdcac232",
+   "level": 5,
+   "score_after_one_forced_reset": 99.65487515,
+   "score_perfect": 100.0,
+   "share_of_budget": 0.00034602076124567473
+  },
+  "deaths_to_exhaust_smallest_budget": 30,
+  "environments": 25,
+  "levels": 183,
+  "max_share_of_budget": 0.033333333,
+  "median_fall": 3.251814028,
+  "median_share_of_budget": 0.003333333,
+  "rows": [
+   {
+    "baseline": 6,
+    "budget": 30,
+    "fall": 26.530612245,
+    "game_id": "sc25-635fd71a",
+    "level": 1,
+    "score_after_one_forced_reset": 73.469387755,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.03333333333333333
+   },
+   {
+    "baseline": 7,
+    "budget": 35,
+    "fall": 23.4375,
+    "game_id": "vc33-5430563c",
+    "level": 0,
+    "score_after_one_forced_reset": 76.5625,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.02857142857142857
+   },
+   {
+    "baseline": 8,
+    "budget": 40,
+    "fall": 20.987654321,
+    "game_id": "cd82-fb555c5d",
+    "level": 1,
+    "score_after_one_forced_reset": 79.012345679,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.025
+   },
+   {
+    "baseline": 8,
+    "budget": 40,
+    "fall": 20.987654321,
+    "game_id": "su15-1944f8ab",
+    "level": 6,
+    "score_after_one_forced_reset": 79.012345679,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.025
+   },
+   {
+    "baseline": 12,
+    "budget": 60,
+    "fall": 14.792899408,
+    "game_id": "ft09-0d8bbf25",
+    "level": 1,
+    "score_after_one_forced_reset": 85.207100592,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.016666666666666666
+   },
+   {
+    "baseline": 14,
+    "budget": 70,
+    "fall": 12.888888889,
+    "game_id": "tu93-0768757b",
+    "level": 6,
+    "score_after_one_forced_reset": 87.111111111,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.014285714285714285
+   },
+   {
+    "baseline": 16,
+    "budget": 80,
+    "fall": 11.418685121,
+    "game_id": "lp85-305b61c3",
+    "level": 3,
+    "score_after_one_forced_reset": 88.581314879,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0125
+   },
+   {
+    "baseline": 16,
+    "budget": 80,
+    "fall": 11.418685121,
+    "game_id": "tu93-0768757b",
+    "level": 1,
+    "score_after_one_forced_reset": 88.581314879,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0125
+   },
+   {
+    "baseline": 17,
+    "budget": 85,
+    "fall": 10.802469136,
+    "game_id": "lp85-305b61c3",
+    "level": 0,
+    "score_after_one_forced_reset": 89.197530864,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.011764705882352941
+   },
+   {
+    "baseline": 18,
+    "budget": 90,
+    "fall": 10.249307479,
+    "game_id": "sb26-7fbdac44",
+    "level": 0,
+    "score_after_one_forced_reset": 89.750692521,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.011111111111111112
+   },
+   {
+    "baseline": 18,
+    "budget": 90,
+    "fall": 10.249307479,
+    "game_id": "sb26-7fbdac44",
+    "level": 2,
+    "score_after_one_forced_reset": 89.750692521,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.011111111111111112
+   },
+   {
+    "baseline": 18,
+    "budget": 90,
+    "fall": 10.249307479,
+    "game_id": "sb26-7fbdac44",
+    "level": 7,
+    "score_after_one_forced_reset": 89.750692521,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.011111111111111112
+   },
+   {
+    "baseline": 18,
+    "budget": 90,
+    "fall": 10.249307479,
+    "game_id": "vc33-5430563c",
+    "level": 1,
+    "score_after_one_forced_reset": 89.750692521,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.011111111111111112
+   },
+   {
+    "baseline": 19,
+    "budget": 95,
+    "fall": 9.75,
+    "game_id": "sb26-7fbdac44",
+    "level": 3,
+    "score_after_one_forced_reset": 90.25,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.010526315789473684
+   },
+   {
+    "baseline": 19,
+    "budget": 95,
+    "fall": 9.75,
+    "game_id": "tu93-0768757b",
+    "level": 0,
+    "score_after_one_forced_reset": 90.25,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.010526315789473684
+   },
+   {
+    "baseline": 20,
+    "budget": 100,
+    "fall": 9.297052154,
+    "game_id": "s5i5-18d95033",
+    "level": 0,
+    "score_after_one_forced_reset": 90.702947846,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.01
+   },
+   {
+    "baseline": 21,
+    "budget": 105,
+    "fall": 8.884297521,
+    "game_id": "bp35-0a0ad940",
+    "level": 0,
+    "score_after_one_forced_reset": 91.115702479,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.009523809523809525
+   },
+   {
+    "baseline": 21,
+    "budget": 105,
+    "fall": 8.884297521,
+    "game_id": "cd82-fb555c5d",
+    "level": 3,
+    "score_after_one_forced_reset": 91.115702479,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.009523809523809525
+   },
+   {
+    "baseline": 22,
+    "budget": 110,
+    "fall": 8.506616257,
+    "game_id": "ls20-9607627b",
+    "level": 0,
+    "score_after_one_forced_reset": 91.493383743,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00909090909090909
+   },
+   {
+    "baseline": 22,
+    "budget": 110,
+    "fall": 8.506616257,
+    "game_id": "r11l-495a7899",
+    "level": 0,
+    "score_after_one_forced_reset": 91.493383743,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00909090909090909
+   },
+   {
+    "baseline": 22,
+    "budget": 110,
+    "fall": 8.506616257,
+    "game_id": "su15-1944f8ab",
+    "level": 0,
+    "score_after_one_forced_reset": 91.493383743,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00909090909090909
+   },
+   {
+    "baseline": 23,
+    "budget": 115,
+    "fall": 8.159722222,
+    "game_id": "cd82-fb555c5d",
+    "level": 4,
+    "score_after_one_forced_reset": 91.840277778,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.008695652173913044
+   },
+   {
+    "baseline": 23,
+    "budget": 115,
+    "fall": 8.159722222,
+    "game_id": "cd82-fb555c5d",
+    "level": 5,
+    "score_after_one_forced_reset": 91.840277778,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.008695652173913044
+   },
+   {
+    "baseline": 23,
+    "budget": 115,
+    "fall": 8.159722222,
+    "game_id": "ft09-0d8bbf25",
+    "level": 2,
+    "score_after_one_forced_reset": 91.840277778,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.008695652173913044
+   },
+   {
+    "baseline": 23,
+    "budget": 115,
+    "fall": 8.159722222,
+    "game_id": "sb26-7fbdac44",
+    "level": 5,
+    "score_after_one_forced_reset": 91.840277778,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.008695652173913044
+   },
+   {
+    "baseline": 23,
+    "budget": 115,
+    "fall": 8.159722222,
+    "game_id": "tu93-0768757b",
+    "level": 7,
+    "score_after_one_forced_reset": 91.840277778,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.008695652173913044
+   },
+   {
+    "baseline": 25,
+    "budget": 125,
+    "fall": 7.544378698,
+    "game_id": "sp80-589a99af",
+    "level": 2,
+    "score_after_one_forced_reset": 92.455621302,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.008
+   },
+   {
+    "baseline": 26,
+    "budget": 130,
+    "fall": 7.270233196,
+    "game_id": "lp85-305b61c3",
+    "level": 6,
+    "score_after_one_forced_reset": 92.729766804,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.007692307692307693
+   },
+   {
+    "baseline": 26,
+    "budget": 130,
+    "fall": 7.270233196,
+    "game_id": "m0r0-492f87ba",
+    "level": 3,
+    "score_after_one_forced_reset": 92.729766804,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.007692307692307693
+   },
+   {
+    "baseline": 26,
+    "budget": 130,
+    "fall": 7.270233196,
+    "game_id": "r11l-495a7899",
+    "level": 3,
+    "score_after_one_forced_reset": 92.729766804,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.007692307692307693
+   },
+   {
+    "baseline": 26,
+    "budget": 130,
+    "fall": 7.270233196,
+    "game_id": "re86-8af5384d",
+    "level": 0,
+    "score_after_one_forced_reset": 92.729766804,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.007692307692307693
+   },
+   {
+    "baseline": 26,
+    "budget": 130,
+    "fall": 7.270233196,
+    "game_id": "su15-1944f8ab",
+    "level": 2,
+    "score_after_one_forced_reset": 92.729766804,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.007692307692307693
+   },
+   {
+    "baseline": 26,
+    "budget": 130,
+    "fall": 7.270233196,
+    "game_id": "tn36-ef4dde99",
+    "level": 2,
+    "score_after_one_forced_reset": 92.729766804,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.007692307692307693
+   },
+   {
+    "baseline": 28,
+    "budget": 140,
+    "fall": 6.77764566,
+    "game_id": "ft09-0d8bbf25",
+    "level": 3,
+    "score_after_one_forced_reset": 93.22235434,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.007142857142857143
+   },
+   {
+    "baseline": 28,
+    "budget": 140,
+    "fall": 6.77764566,
+    "game_id": "ka59-38d34dbb",
+    "level": 0,
+    "score_after_one_forced_reset": 93.22235434,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.007142857142857143
+   },
+   {
+    "baseline": 28,
+    "budget": 140,
+    "fall": 6.77764566,
+    "game_id": "sb26-7fbdac44",
+    "level": 1,
+    "score_after_one_forced_reset": 93.22235434,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.007142857142857143
+   },
+   {
+    "baseline": 29,
+    "budget": 145,
+    "fall": 6.555555556,
+    "game_id": "cn04-2fe56bfb",
+    "level": 0,
+    "score_after_one_forced_reset": 93.444444444,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.006896551724137931
+   },
+   {
+    "baseline": 30,
+    "budget": 150,
+    "fall": 6.347554631,
+    "game_id": "m0r0-492f87ba",
+    "level": 0,
+    "score_after_one_forced_reset": 93.652445369,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.006666666666666667
+   },
+   {
+    "baseline": 30,
+    "budget": 150,
+    "fall": 6.347554631,
+    "game_id": "tn36-ef4dde99",
+    "level": 4,
+    "score_after_one_forced_reset": 93.652445369,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.006666666666666667
+   },
+   {
+    "baseline": 31,
+    "budget": 155,
+    "fall": 6.15234375,
+    "game_id": "lp85-305b61c3",
+    "level": 2,
+    "score_after_one_forced_reset": 93.84765625,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0064516129032258064
+   },
+   {
+    "baseline": 31,
+    "budget": 155,
+    "fall": 6.15234375,
+    "game_id": "sb26-7fbdac44",
+    "level": 4,
+    "score_after_one_forced_reset": 93.84765625,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0064516129032258064
+   },
+   {
+    "baseline": 31,
+    "budget": 155,
+    "fall": 6.15234375,
+    "game_id": "su15-1944f8ab",
+    "level": 5,
+    "score_after_one_forced_reset": 93.84765625,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0064516129032258064
+   },
+   {
+    "baseline": 32,
+    "budget": 160,
+    "fall": 5.968778696,
+    "game_id": "ar25-0c556536",
+    "level": 0,
+    "score_after_one_forced_reset": 94.031221304,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00625
+   },
+   {
+    "baseline": 32,
+    "budget": 160,
+    "fall": 5.968778696,
+    "game_id": "lf52-271a04aa",
+    "level": 0,
+    "score_after_one_forced_reset": 94.031221304,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00625
+   },
+   {
+    "baseline": 32,
+    "budget": 160,
+    "fall": 5.968778696,
+    "game_id": "sc25-635fd71a",
+    "level": 2,
+    "score_after_one_forced_reset": 94.031221304,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00625
+   },
+   {
+    "baseline": 32,
+    "budget": 160,
+    "fall": 5.968778696,
+    "game_id": "tn36-ef4dde99",
+    "level": 0,
+    "score_after_one_forced_reset": 94.031221304,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00625
+   },
+   {
+    "baseline": 33,
+    "budget": 165,
+    "fall": 5.795847751,
+    "game_id": "bp35-0a0ad940",
+    "level": 4,
+    "score_after_one_forced_reset": 94.204152249,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.006060606060606061
+   },
+   {
+    "baseline": 33,
+    "budget": 165,
+    "fall": 5.795847751,
+    "game_id": "ka59-38d34dbb",
+    "level": 4,
+    "score_after_one_forced_reset": 94.204152249,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.006060606060606061
+   },
+   {
+    "baseline": 33,
+    "budget": 165,
+    "fall": 5.795847751,
+    "game_id": "r11l-495a7899",
+    "level": 1,
+    "score_after_one_forced_reset": 94.204152249,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.006060606060606061
+   },
+   {
+    "baseline": 34,
+    "budget": 170,
+    "fall": 5.632653061,
+    "game_id": "tu93-0768757b",
+    "level": 2,
+    "score_after_one_forced_reset": 94.367346939,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0058823529411764705
+   },
+   {
+    "baseline": 34,
+    "budget": 170,
+    "fall": 5.632653061,
+    "game_id": "vc33-5430563c",
+    "level": 5,
+    "score_after_one_forced_reset": 94.367346939,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0058823529411764705
+   },
+   {
+    "baseline": 36,
+    "budget": 180,
+    "fall": 5.332359386,
+    "game_id": "sc25-635fd71a",
+    "level": 0,
+    "score_after_one_forced_reset": 94.667640614,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.005555555555555556
+   },
+   {
+    "baseline": 36,
+    "budget": 180,
+    "fall": 5.332359386,
+    "game_id": "su15-1944f8ab",
+    "level": 4,
+    "score_after_one_forced_reset": 94.667640614,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.005555555555555556
+   },
+   {
+    "baseline": 37,
+    "budget": 185,
+    "fall": 5.193905817,
+    "game_id": "ar25-0c556536",
+    "level": 3,
+    "score_after_one_forced_reset": 94.806094183,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.005405405405405406
+   },
+   {
+    "baseline": 37,
+    "budget": 185,
+    "fall": 5.193905817,
+    "game_id": "ft09-0d8bbf25",
+    "level": 5,
+    "score_after_one_forced_reset": 94.806094183,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.005405405405405406
+   },
+   {
+    "baseline": 38,
+    "budget": 190,
+    "fall": 5.062458909,
+    "game_id": "bp35-0a0ad940",
+    "level": 3,
+    "score_after_one_forced_reset": 94.937541091,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.005263157894736842
+   },
+   {
+    "baseline": 38,
+    "budget": 190,
+    "fall": 5.062458909,
+    "game_id": "lp85-305b61c3",
+    "level": 1,
+    "score_after_one_forced_reset": 94.937541091,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.005263157894736842
+   },
+   {
+    "baseline": 38,
+    "budget": 190,
+    "fall": 5.062458909,
+    "game_id": "s5i5-18d95033",
+    "level": 5,
+    "score_after_one_forced_reset": 94.937541091,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.005263157894736842
+   },
+   {
+    "baseline": 39,
+    "budget": 195,
+    "fall": 4.9375,
+    "game_id": "sp80-589a99af",
+    "level": 0,
+    "score_after_one_forced_reset": 95.0625,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.005128205128205128
+   },
+   {
+    "baseline": 40,
+    "budget": 200,
+    "fall": 4.818560381,
+    "game_id": "su15-1944f8ab",
+    "level": 7,
+    "score_after_one_forced_reset": 95.181439619,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.005
+   },
+   {
+    "baseline": 40,
+    "budget": 200,
+    "fall": 4.818560381,
+    "game_id": "tn36-ef4dde99",
+    "level": 3,
+    "score_after_one_forced_reset": 95.181439619,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.005
+   },
+   {
+    "baseline": 40,
+    "budget": 200,
+    "fall": 4.818560381,
+    "game_id": "tr87-cd924810",
+    "level": 2,
+    "score_after_one_forced_reset": 95.181439619,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.005
+   },
+   {
+    "baseline": 41,
+    "budget": 205,
+    "fall": 4.70521542,
+    "game_id": "cd82-fb555c5d",
+    "level": 2,
+    "score_after_one_forced_reset": 95.29478458,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.004878048780487805
+   },
+   {
+    "baseline": 41,
+    "budget": 205,
+    "fall": 4.70521542,
+    "game_id": "lp85-305b61c3",
+    "level": 4,
+    "score_after_one_forced_reset": 95.29478458,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.004878048780487805
+   },
+   {
+    "baseline": 41,
+    "budget": 205,
+    "fall": 4.70521542,
+    "game_id": "su15-1944f8ab",
+    "level": 8,
+    "score_after_one_forced_reset": 95.29478458,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.004878048780487805
+   },
+   {
+    "baseline": 42,
+    "budget": 210,
+    "fall": 4.597079502,
+    "game_id": "re86-8af5384d",
+    "level": 1,
+    "score_after_one_forced_reset": 95.402920498,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.004761904761904762
+   },
+   {
+    "baseline": 42,
+    "budget": 210,
+    "fall": 4.597079502,
+    "game_id": "su15-1944f8ab",
+    "level": 1,
+    "score_after_one_forced_reset": 95.402920498,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.004761904761904762
+   },
+   {
+    "baseline": 42,
+    "budget": 210,
+    "fall": 4.597079502,
+    "game_id": "tu93-0768757b",
+    "level": 3,
+    "score_after_one_forced_reset": 95.402920498,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.004761904761904762
+   },
+   {
+    "baseline": 43,
+    "budget": 215,
+    "fall": 4.493801653,
+    "game_id": "ft09-0d8bbf25",
+    "level": 0,
+    "score_after_one_forced_reset": 95.506198347,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.004651162790697674
+   },
+   {
+    "baseline": 44,
+    "budget": 220,
+    "fall": 4.395061728,
+    "game_id": "bp35-0a0ad940",
+    "level": 2,
+    "score_after_one_forced_reset": 95.604938272,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.004545454545454545
+   },
+   {
+    "baseline": 44,
+    "budget": 220,
+    "fall": 4.395061728,
+    "game_id": "vc33-5430563c",
+    "level": 2,
+    "score_after_one_forced_reset": 95.604938272,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.004545454545454545
+   },
+   {
+    "baseline": 45,
+    "budget": 225,
+    "fall": 4.300567108,
+    "game_id": "tr87-cd924810",
+    "level": 3,
+    "score_after_one_forced_reset": 95.699432892,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0044444444444444444
+   },
+   {
+    "baseline": 48,
+    "budget": 240,
+    "fall": 4.03998334,
+    "game_id": "bp35-0a0ad940",
+    "level": 1,
+    "score_after_one_forced_reset": 95.96001666,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.004166666666666667
+   },
+   {
+    "baseline": 49,
+    "budget": 245,
+    "fall": 3.96,
+    "game_id": "r11l-495a7899",
+    "level": 5,
+    "score_after_one_forced_reset": 96.04,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.004081632653061225
+   },
+   {
+    "baseline": 50,
+    "budget": 250,
+    "fall": 3.883121876,
+    "game_id": "ar25-0c556536",
+    "level": 1,
+    "score_after_one_forced_reset": 96.116878124,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.004
+   },
+   {
+    "baseline": 50,
+    "budget": 250,
+    "fall": 3.883121876,
+    "game_id": "sc25-635fd71a",
+    "level": 5,
+    "score_after_one_forced_reset": 96.116878124,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.004
+   },
+   {
+    "baseline": 51,
+    "budget": 255,
+    "fall": 3.809171598,
+    "game_id": "ka59-38d34dbb",
+    "level": 2,
+    "score_after_one_forced_reset": 96.190828402,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00392156862745098
+   },
+   {
+    "baseline": 51,
+    "budget": 255,
+    "fall": 3.809171598,
+    "game_id": "ka59-38d34dbb",
+    "level": 3,
+    "score_after_one_forced_reset": 96.190828402,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00392156862745098
+   },
+   {
+    "baseline": 51,
+    "budget": 255,
+    "fall": 3.809171598,
+    "game_id": "r11l-495a7899",
+    "level": 2,
+    "score_after_one_forced_reset": 96.190828402,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00392156862745098
+   },
+   {
+    "baseline": 52,
+    "budget": 260,
+    "fall": 3.737985048,
+    "game_id": "r11l-495a7899",
+    "level": 4,
+    "score_after_one_forced_reset": 96.262014952,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0038461538461538464
+   },
+   {
+    "baseline": 54,
+    "budget": 270,
+    "fall": 3.603305785,
+    "game_id": "cn04-2fe56bfb",
+    "level": 1,
+    "score_after_one_forced_reset": 96.396694215,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.003703703703703704
+   },
+   {
+    "baseline": 54,
+    "budget": 270,
+    "fall": 3.603305785,
+    "game_id": "g50t-5849a774",
+    "level": 5,
+    "score_after_one_forced_reset": 96.396694215,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.003703703703703704
+   },
+   {
+    "baseline": 54,
+    "budget": 270,
+    "fall": 3.603305785,
+    "game_id": "s5i5-18d95033",
+    "level": 3,
+    "score_after_one_forced_reset": 96.396694215,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.003703703703703704
+   },
+   {
+    "baseline": 54,
+    "budget": 270,
+    "fall": 3.603305785,
+    "game_id": "tr87-cd924810",
+    "level": 0,
+    "score_after_one_forced_reset": 96.396694215,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.003703703703703704
+   },
+   {
+    "baseline": 55,
+    "budget": 275,
+    "fall": 3.539540816,
+    "game_id": "cd82-fb555c5d",
+    "level": 0,
+    "score_after_one_forced_reset": 96.460459184,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0036363636363636364
+   },
+   {
+    "baseline": 55,
+    "budget": 275,
+    "fall": 3.539540816,
+    "game_id": "tn36-ef4dde99",
+    "level": 5,
+    "score_after_one_forced_reset": 96.460459184,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0036363636363636364
+   },
+   {
+    "baseline": 58,
+    "budget": 290,
+    "fall": 3.361103131,
+    "game_id": "sb26-7fbdac44",
+    "level": 6,
+    "score_after_one_forced_reset": 96.638896869,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0034482758620689655
+   },
+   {
+    "baseline": 58,
+    "budget": 290,
+    "fall": 3.361103131,
+    "game_id": "sp80-589a99af",
+    "level": 1,
+    "score_after_one_forced_reset": 96.638896869,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0034482758620689655
+   },
+   {
+    "baseline": 58,
+    "budget": 290,
+    "fall": 3.361103131,
+    "game_id": "tr87-cd924810",
+    "level": 1,
+    "score_after_one_forced_reset": 96.638896869,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0034482758620689655
+   },
+   {
+    "baseline": 59,
+    "budget": 295,
+    "fall": 3.305555556,
+    "game_id": "dc22-fdcac232",
+    "level": 0,
+    "score_after_one_forced_reset": 96.694444444,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.003389830508474576
+   },
+   {
+    "baseline": 60,
+    "budget": 300,
+    "fall": 3.251814028,
+    "game_id": "lf52-271a04aa",
+    "level": 2,
+    "score_after_one_forced_reset": 96.748185972,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0033333333333333335
+   },
+   {
+    "baseline": 60,
+    "budget": 300,
+    "fall": 3.251814028,
+    "game_id": "lp85-305b61c3",
+    "level": 5,
+    "score_after_one_forced_reset": 96.748185972,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0033333333333333335
+   },
+   {
+    "baseline": 61,
+    "budget": 305,
+    "fall": 3.199791883,
+    "game_id": "sk48-d8078629",
+    "level": 0,
+    "score_after_one_forced_reset": 96.800208117,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.003278688524590164
+   },
+   {
+    "baseline": 61,
+    "budget": 305,
+    "fall": 3.199791883,
+    "game_id": "vc33-5430563c",
+    "level": 3,
+    "score_after_one_forced_reset": 96.800208117,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.003278688524590164
+   },
+   {
+    "baseline": 62,
+    "budget": 310,
+    "fall": 3.149407911,
+    "game_id": "tn36-ef4dde99",
+    "level": 6,
+    "score_after_one_forced_reset": 96.850592089,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0032258064516129032
+   },
+   {
+    "baseline": 65,
+    "budget": 325,
+    "fall": 3.007346189,
+    "game_id": "ft09-0d8bbf25",
+    "level": 4,
+    "score_after_one_forced_reset": 96.992653811,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.003076923076923077
+   },
+   {
+    "baseline": 67,
+    "budget": 335,
+    "fall": 2.919550173,
+    "game_id": "dc22-fdcac232",
+    "level": 2,
+    "score_after_one_forced_reset": 97.080449827,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0029850746268656717
+   },
+   {
+    "baseline": 67,
+    "budget": 335,
+    "fall": 2.919550173,
+    "game_id": "g50t-5849a774",
+    "level": 6,
+    "score_after_one_forced_reset": 97.080449827,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0029850746268656717
+   },
+   {
+    "baseline": 68,
+    "budget": 340,
+    "fall": 2.877546734,
+    "game_id": "wa30-ee6fef47",
+    "level": 5,
+    "score_after_one_forced_reset": 97.122453266,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0029411764705882353
+   },
+   {
+    "baseline": 71,
+    "budget": 355,
+    "fall": 2.758487654,
+    "game_id": "lf52-271a04aa",
+    "level": 3,
+    "score_after_one_forced_reset": 97.241512346,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0028169014084507044
+   },
+   {
+    "baseline": 71,
+    "budget": 355,
+    "fall": 2.758487654,
+    "game_id": "tr87-cd924810",
+    "level": 4,
+    "score_after_one_forced_reset": 97.241512346,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0028169014084507044
+   },
+   {
+    "baseline": 71,
+    "budget": 355,
+    "fall": 2.758487654,
+    "game_id": "wa30-ee6fef47",
+    "level": 0,
+    "score_after_one_forced_reset": 97.241512346,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0028169014084507044
+   },
+   {
+    "baseline": 72,
+    "budget": 360,
+    "fall": 2.720960781,
+    "game_id": "tn36-ef4dde99",
+    "level": 1,
+    "score_after_one_forced_reset": 97.279039219,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.002777777777777778
+   },
+   {
+    "baseline": 73,
+    "budget": 365,
+    "fall": 2.684441198,
+    "game_id": "ar25-0c556536",
+    "level": 7,
+    "score_after_one_forced_reset": 97.315558802,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0027397260273972603
+   },
+   {
+    "baseline": 73,
+    "budget": 365,
+    "fall": 2.684441198,
+    "game_id": "ls20-9607627b",
+    "level": 2,
+    "score_after_one_forced_reset": 97.315558802,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0027397260273972603
+   },
+   {
+    "baseline": 75,
+    "budget": 375,
+    "fall": 2.614265928,
+    "game_id": "ar25-0c556536",
+    "level": 2,
+    "score_after_one_forced_reset": 97.385734072,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0026666666666666666
+   },
+   {
+    "baseline": 78,
+    "budget": 390,
+    "fall": 2.515622496,
+    "game_id": "g50t-5849a774",
+    "level": 0,
+    "score_after_one_forced_reset": 97.484377504,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.002564102564102564
+   },
+   {
+    "baseline": 79,
+    "budget": 395,
+    "fall": 2.484375,
+    "game_id": "wa30-ee6fef47",
+    "level": 6,
+    "score_after_one_forced_reset": 97.515625,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.002531645569620253
+   },
+   {
+    "baseline": 80,
+    "budget": 400,
+    "fall": 2.453894223,
+    "game_id": "tu93-0768757b",
+    "level": 5,
+    "score_after_one_forced_reset": 97.546105777,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0025
+   },
+   {
+    "baseline": 81,
+    "budget": 405,
+    "fall": 2.42415229,
+    "game_id": "lf52-271a04aa",
+    "level": 1,
+    "score_after_one_forced_reset": 97.57584771,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0024691358024691358
+   },
+   {
+    "baseline": 83,
+    "budget": 415,
+    "fall": 2.366780045,
+    "game_id": "s5i5-18d95033",
+    "level": 7,
+    "score_after_one_forced_reset": 97.633219955,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0024096385542168677
+   },
+   {
+    "baseline": 83,
+    "budget": 415,
+    "fall": 2.366780045,
+    "game_id": "sc25-635fd71a",
+    "level": 3,
+    "score_after_one_forced_reset": 97.633219955,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0024096385542168677
+   },
+   {
+    "baseline": 84,
+    "budget": 420,
+    "fall": 2.339100346,
+    "game_id": "ls20-9607627b",
+    "level": 3,
+    "score_after_one_forced_reset": 97.660899654,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.002380952380952381
+   },
+   {
+    "baseline": 85,
+    "budget": 425,
+    "fall": 2.312060573,
+    "game_id": "cn04-2fe56bfb",
+    "level": 2,
+    "score_after_one_forced_reset": 97.687939427,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.002352941176470588
+   },
+   {
+    "baseline": 86,
+    "budget": 430,
+    "fall": 2.28563879,
+    "game_id": "bp35-0a0ad940",
+    "level": 6,
+    "score_after_one_forced_reset": 97.71436121,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.002325581395348837
+   },
+   {
+    "baseline": 86,
+    "budget": 430,
+    "fall": 2.28563879,
+    "game_id": "re86-8af5384d",
+    "level": 2,
+    "score_after_one_forced_reset": 97.71436121,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.002325581395348837
+   },
+   {
+    "baseline": 86,
+    "budget": 430,
+    "fall": 2.28563879,
+    "game_id": "s5i5-18d95033",
+    "level": 6,
+    "score_after_one_forced_reset": 97.71436121,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.002325581395348837
+   },
+   {
+    "baseline": 87,
+    "budget": 435,
+    "fall": 2.25981405,
+    "game_id": "bp35-0a0ad940",
+    "level": 5,
+    "score_after_one_forced_reset": 97.74018595,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0022988505747126436
+   },
+   {
+    "baseline": 89,
+    "budget": 445,
+    "fall": 2.209876543,
+    "game_id": "ar25-0c556536",
+    "level": 4,
+    "score_after_one_forced_reset": 97.790123457,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0022471910112359553
+   },
+   {
+    "baseline": 89,
+    "budget": 445,
+    "fall": 2.209876543,
+    "game_id": "s5i5-18d95033",
+    "level": 1,
+    "score_after_one_forced_reset": 97.790123457,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0022471910112359553
+   },
+   {
+    "baseline": 92,
+    "budget": 460,
+    "fall": 2.138975604,
+    "game_id": "sk48-d8078629",
+    "level": 7,
+    "score_after_one_forced_reset": 97.861024396,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.002173913043478261
+   },
+   {
+    "baseline": 96,
+    "budget": 480,
+    "fall": 2.051227548,
+    "game_id": "g50t-5849a774",
+    "level": 4,
+    "score_after_one_forced_reset": 97.948772452,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0020833333333333333
+   },
+   {
+    "baseline": 96,
+    "budget": 480,
+    "fall": 2.051227548,
+    "game_id": "ls20-9607627b",
+    "level": 4,
+    "score_after_one_forced_reset": 97.948772452,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0020833333333333333
+   },
+   {
+    "baseline": 96,
+    "budget": 480,
+    "fall": 2.051227548,
+    "game_id": "sp80-589a99af",
+    "level": 4,
+    "score_after_one_forced_reset": 97.948772452,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0020833333333333333
+   },
+   {
+    "baseline": 98,
+    "budget": 490,
+    "fall": 2.00999898,
+    "game_id": "dc22-fdcac232",
+    "level": 3,
+    "score_after_one_forced_reset": 97.99000102,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0020408163265306124
+   },
+   {
+    "baseline": 98,
+    "budget": 490,
+    "fall": 2.00999898,
+    "game_id": "wa30-ee6fef47",
+    "level": 3,
+    "score_after_one_forced_reset": 97.99000102,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0020408163265306124
+   },
+   {
+    "baseline": 101,
+    "budget": 505,
+    "fall": 1.951172626,
+    "game_id": "sk48-d8078629",
+    "level": 2,
+    "score_after_one_forced_reset": 98.048827374,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0019801980198019802
+   },
+   {
+    "baseline": 102,
+    "budget": 510,
+    "fall": 1.932321614,
+    "game_id": "dc22-fdcac232",
+    "level": 1,
+    "score_after_one_forced_reset": 98.067678386,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00196078431372549
+   },
+   {
+    "baseline": 103,
+    "budget": 515,
+    "fall": 1.913831361,
+    "game_id": "sk48-d8078629",
+    "level": 3,
+    "score_after_one_forced_reset": 98.086168639,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.001941747572815534
+   },
+   {
+    "baseline": 106,
+    "budget": 530,
+    "fall": 1.860424491,
+    "game_id": "s5i5-18d95033",
+    "level": 2,
+    "score_after_one_forced_reset": 98.139575509,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0018867924528301887
+   },
+   {
+    "baseline": 108,
+    "budget": 540,
+    "fall": 1.826445585,
+    "game_id": "re86-8af5384d",
+    "level": 3,
+    "score_after_one_forced_reset": 98.173554415,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.001851851851851852
+   },
+   {
+    "baseline": 109,
+    "budget": 545,
+    "fall": 1.809917355,
+    "game_id": "ka59-38d34dbb",
+    "level": 1,
+    "score_after_one_forced_reset": 98.190082645,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.001834862385321101
+   },
+   {
+    "baseline": 109,
+    "budget": 545,
+    "fall": 1.809917355,
+    "game_id": "lf52-271a04aa",
+    "level": 7,
+    "score_after_one_forced_reset": 98.190082645,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.001834862385321101
+   },
+   {
+    "baseline": 111,
+    "budget": 555,
+    "fall": 1.777742347,
+    "game_id": "m0r0-492f87ba",
+    "level": 1,
+    "score_after_one_forced_reset": 98.222257653,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0018018018018018018
+   },
+   {
+    "baseline": 111,
+    "budget": 555,
+    "fall": 1.777742347,
+    "game_id": "tu93-0768757b",
+    "level": 8,
+    "score_after_one_forced_reset": 98.222257653,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0018018018018018018
+   },
+   {
+    "baseline": 113,
+    "budget": 565,
+    "fall": 1.74669129,
+    "game_id": "cn04-2fe56bfb",
+    "level": 5,
+    "score_after_one_forced_reset": 98.25330871,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0017699115044247787
+   },
+   {
+    "baseline": 115,
+    "budget": 575,
+    "fall": 1.716706302,
+    "game_id": "su15-1944f8ab",
+    "level": 3,
+    "score_after_one_forced_reset": 98.283293698,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0017391304347826088
+   },
+   {
+    "baseline": 119,
+    "budget": 595,
+    "fall": 1.659722222,
+    "game_id": "wa30-ee6fef47",
+    "level": 1,
+    "score_after_one_forced_reset": 98.340277778,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0016806722689075631
+   },
+   {
+    "baseline": 123,
+    "budget": 615,
+    "fall": 1.606399584,
+    "game_id": "ls20-9607627b",
+    "level": 1,
+    "score_after_one_forced_reset": 98.393600416,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0016260162601626016
+   },
+   {
+    "baseline": 123,
+    "budget": 615,
+    "fall": 1.606399584,
+    "game_id": "tu93-0768757b",
+    "level": 4,
+    "score_after_one_forced_reset": 98.393600416,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0016260162601626016
+   },
+   {
+    "baseline": 125,
+    "budget": 625,
+    "fall": 1.581002771,
+    "game_id": "sk48-d8078629",
+    "level": 6,
+    "score_after_one_forced_reset": 98.418997229,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0016
+   },
+   {
+    "baseline": 131,
+    "budget": 655,
+    "fall": 1.509412305,
+    "game_id": "bp35-0a0ad940",
+    "level": 7,
+    "score_after_one_forced_reset": 98.490587695,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0015267175572519084
+   },
+   {
+    "baseline": 131,
+    "budget": 655,
+    "fall": 1.509412305,
+    "game_id": "vc33-5430563c",
+    "level": 4,
+    "score_after_one_forced_reset": 98.490587695,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0015267175572519084
+   },
+   {
+    "baseline": 132,
+    "budget": 660,
+    "fall": 1.498106168,
+    "game_id": "ka59-38d34dbb",
+    "level": 5,
+    "score_after_one_forced_reset": 98.501893832,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0015151515151515152
+   },
+   {
+    "baseline": 139,
+    "budget": 695,
+    "fall": 1.423469388,
+    "game_id": "re86-8af5384d",
+    "level": 5,
+    "score_after_one_forced_reset": 98.576530612,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0014388489208633094
+   },
+   {
+    "baseline": 143,
+    "budget": 715,
+    "fall": 1.384066358,
+    "game_id": "sc25-635fd71a",
+    "level": 4,
+    "score_after_one_forced_reset": 98.615933642,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0013986013986013986
+   },
+   {
+    "baseline": 146,
+    "budget": 730,
+    "fall": 1.355916516,
+    "game_id": "tr87-cd924810",
+    "level": 5,
+    "score_after_one_forced_reset": 98.644083484,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0013698630136986301
+   },
+   {
+    "baseline": 148,
+    "budget": 740,
+    "fall": 1.337777578,
+    "game_id": "lf52-271a04aa",
+    "level": 5,
+    "score_after_one_forced_reset": 98.662222422,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0013513513513513514
+   },
+   {
+    "baseline": 148,
+    "budget": 740,
+    "fall": 1.337777578,
+    "game_id": "sp80-589a99af",
+    "level": 3,
+    "score_after_one_forced_reset": 98.662222422,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0013513513513513514
+   },
+   {
+    "baseline": 152,
+    "budget": 760,
+    "fall": 1.302917681,
+    "game_id": "sp80-589a99af",
+    "level": 5,
+    "score_after_one_forced_reset": 98.697082319,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0013157894736842105
+   },
+   {
+    "baseline": 152,
+    "budget": 760,
+    "fall": 1.302917681,
+    "game_id": "vc33-5430563c",
+    "level": 6,
+    "score_after_one_forced_reset": 98.697082319,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0013157894736842105
+   },
+   {
+    "baseline": 159,
+    "budget": 795,
+    "fall": 1.24609375,
+    "game_id": "ar25-0c556536",
+    "level": 5,
+    "score_after_one_forced_reset": 98.75390625,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0012578616352201257
+   },
+   {
+    "baseline": 159,
+    "budget": 795,
+    "fall": 1.24609375,
+    "game_id": "lp85-305b61c3",
+    "level": 7,
+    "score_after_one_forced_reset": 98.75390625,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0012578616352201257
+   },
+   {
+    "baseline": 162,
+    "budget": 810,
+    "fall": 1.22323008,
+    "game_id": "s5i5-18d95033",
+    "level": 4,
+    "score_after_one_forced_reset": 98.77676992,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0012345679012345679
+   },
+   {
+    "baseline": 163,
+    "budget": 815,
+    "fall": 1.21579417,
+    "game_id": "bp35-0a0ad940",
+    "level": 8,
+    "score_after_one_forced_reset": 98.78420583,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.001226993865030675
+   },
+   {
+    "baseline": 164,
+    "budget": 820,
+    "fall": 1.208448118,
+    "game_id": "lf52-271a04aa",
+    "level": 8,
+    "score_after_one_forced_reset": 98.791551882,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0012195121951219512
+   },
+   {
+    "baseline": 175,
+    "budget": 875,
+    "fall": 1.133135331,
+    "game_id": "g50t-5849a774",
+    "level": 1,
+    "score_after_one_forced_reset": 98.866864669,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.001142857142857143
+   },
+   {
+    "baseline": 177,
+    "budget": 885,
+    "fall": 1.120439338,
+    "game_id": "sk48-d8078629",
+    "level": 1,
+    "score_after_one_forced_reset": 98.879560662,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0011299435028248588
+   },
+   {
+    "baseline": 179,
+    "budget": 895,
+    "fall": 1.108024691,
+    "game_id": "g50t-5849a774",
+    "level": 2,
+    "score_after_one_forced_reset": 98.891975309,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0011173184357541898
+   },
+   {
+    "baseline": 181,
+    "budget": 905,
+    "fall": 1.09588214,
+    "game_id": "sk48-d8078629",
+    "level": 5,
+    "score_after_one_forced_reset": 98.90411786,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0011049723756906078
+   },
+   {
+    "baseline": 183,
+    "budget": 915,
+    "fall": 1.084002836,
+    "game_id": "wa30-ee6fef47",
+    "level": 2,
+    "score_after_one_forced_reset": 98.915997164,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.001092896174863388
+   },
+   {
+    "baseline": 186,
+    "budget": 930,
+    "fall": 1.066659041,
+    "game_id": "ls20-9607627b",
+    "level": 6,
+    "score_after_one_forced_reset": 98.933340959,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.001075268817204301
+   },
+   {
+    "baseline": 189,
+    "budget": 945,
+    "fall": 1.049861496,
+    "game_id": "re86-8af5384d",
+    "level": 4,
+    "score_after_one_forced_reset": 98.950138504,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0010582010582010583
+   },
+   {
+    "baseline": 192,
+    "budget": 960,
+    "fall": 1.033584794,
+    "game_id": "ls20-9607627b",
+    "level": 5,
+    "score_after_one_forced_reset": 98.966415206,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0010416666666666667
+   },
+   {
+    "baseline": 203,
+    "budget": 1015,
+    "fall": 0.977989235,
+    "game_id": "m0r0-492f87ba",
+    "level": 2,
+    "score_after_one_forced_reset": 99.022010765,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0009852216748768472
+   },
+   {
+    "baseline": 205,
+    "budget": 1025,
+    "fall": 0.968517297,
+    "game_id": "lf52-271a04aa",
+    "level": 4,
+    "score_after_one_forced_reset": 99.031482703,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.000975609756097561
+   },
+   {
+    "baseline": 208,
+    "budget": 1040,
+    "fall": 0.954648474,
+    "game_id": "cn04-2fe56bfb",
+    "level": 4,
+    "score_after_one_forced_reset": 99.045351526,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0009615384615384616
+   },
+   {
+    "baseline": 225,
+    "budget": 1125,
+    "fall": 0.882997886,
+    "game_id": "lf52-271a04aa",
+    "level": 9,
+    "score_after_one_forced_reset": 99.117002114,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0008888888888888889
+   },
+   {
+    "baseline": 230,
+    "budget": 1150,
+    "fall": 0.863926838,
+    "game_id": "g50t-5849a774",
+    "level": 3,
+    "score_after_one_forced_reset": 99.136073162,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0008695652173913044
+   },
+   {
+    "baseline": 230,
+    "budget": 1150,
+    "fall": 0.863926838,
+    "game_id": "sk48-d8078629",
+    "level": 4,
+    "score_after_one_forced_reset": 99.136073162,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0008695652173913044
+   },
+   {
+    "baseline": 233,
+    "budget": 1165,
+    "fall": 0.852874571,
+    "game_id": "ar25-0c556536",
+    "level": 6,
+    "score_after_one_forced_reset": 99.147125429,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0008583690987124463
+   },
+   {
+    "baseline": 237,
+    "budget": 1185,
+    "fall": 0.838570722,
+    "game_id": "m0r0-492f87ba",
+    "level": 5,
+    "score_after_one_forced_reset": 99.161429278,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0008438818565400844
+   },
+   {
+    "baseline": 241,
+    "budget": 1205,
+    "fall": 0.824738747,
+    "game_id": "re86-8af5384d",
+    "level": 7,
+    "score_after_one_forced_reset": 99.175261253,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0008298755186721991
+   },
+   {
+    "baseline": 244,
+    "budget": 1220,
+    "fall": 0.814660558,
+    "game_id": "lf52-271a04aa",
+    "level": 6,
+    "score_after_one_forced_reset": 99.185339442,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.000819672131147541
+   },
+   {
+    "baseline": 300,
+    "budget": 1500,
+    "fall": 0.663348087,
+    "game_id": "cn04-2fe56bfb",
+    "level": 3,
+    "score_after_one_forced_reset": 99.336651913,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0006666666666666666
+   },
+   {
+    "baseline": 324,
+    "budget": 1620,
+    "fall": 0.61443787,
+    "game_id": "dc22-fdcac232",
+    "level": 4,
+    "score_after_one_forced_reset": 99.38556213,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0006172839506172839
+   },
+   {
+    "baseline": 326,
+    "budget": 1630,
+    "fall": 0.610685595,
+    "game_id": "ka59-38d34dbb",
+    "level": 6,
+    "score_after_one_forced_reset": 99.389314405,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0006134969325153375
+   },
+   {
+    "baseline": 368,
+    "budget": 1840,
+    "fall": 0.541270995,
+    "game_id": "wa30-ee6fef47",
+    "level": 4,
+    "score_after_one_forced_reset": 99.458729005,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0005434782608695652
+   },
+   {
+    "baseline": 415,
+    "budget": 2075,
+    "fall": 0.480191383,
+    "game_id": "wa30-ee6fef47",
+    "level": 8,
+    "score_after_one_forced_reset": 99.519808617,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00048192771084337347
+   },
+   {
+    "baseline": 424,
+    "budget": 2120,
+    "fall": 0.470034602,
+    "game_id": "re86-8af5384d",
+    "level": 6,
+    "score_after_one_forced_reset": 99.529965398,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0004716981132075472
+   },
+   {
+    "baseline": 442,
+    "budget": 2210,
+    "fall": 0.450957712,
+    "game_id": "wa30-ee6fef47",
+    "level": 7,
+    "score_after_one_forced_reset": 99.549042288,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00045248868778280545
+   },
+   {
+    "baseline": 500,
+    "budget": 2500,
+    "fall": 0.398803192,
+    "game_id": "m0r0-492f87ba",
+    "level": 4,
+    "score_after_one_forced_reset": 99.601196808,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.0004
+   },
+   {
+    "baseline": 578,
+    "budget": 2890,
+    "fall": 0.34512485,
+    "game_id": "dc22-fdcac232",
+    "level": 5,
+    "score_after_one_forced_reset": 99.65487515,
+    "score_perfect": 100.0,
+    "share_of_budget": 0.00034602076124567473
+   }
+  ],
+  "worst": {
+   "baseline": 6,
+   "budget": 30,
+   "fall": 26.530612245,
+   "game_id": "sc25-635fd71a",
+   "level": 1,
+   "score_after_one_forced_reset": 73.469387755,
+   "score_perfect": 100.0,
+   "share_of_budget": 0.03333333333333333
+  }
+ },
+ "windows": [
+  {
+   "budgets_probed": [
+    2,
+    6
+   ],
+   "chosen_actions": 4,
+   "deaths": 0,
+   "denial_budgets": [],
+   "predicted_width": 0,
+   "prediction_holds": true,
+   "window_width": 0
+  },
+  {
+   "budgets_probed": [
+    6,
+    11
+   ],
+   "chosen_actions": 8,
+   "deaths": 1,
+   "denial_budgets": [
+    8
+   ],
+   "predicted_width": 1,
+   "prediction_holds": true,
+   "window_width": 1
+  },
+  {
+   "budgets_probed": [
+    10,
+    16
+   ],
+   "chosen_actions": 12,
+   "deaths": 2,
+   "denial_budgets": [
+    12,
+    13
+   ],
+   "predicted_width": 2,
+   "prediction_holds": true,
+   "window_width": 2
+  },
+  {
+   "budgets_probed": [
+    14,
+    21
+   ],
+   "chosen_actions": 16,
+   "deaths": 3,
+   "denial_budgets": [
+    16,
+    17,
+    18
+   ],
+   "predicted_width": 3,
+   "prediction_holds": true,
+   "window_width": 3
+  }
+ ]
+}

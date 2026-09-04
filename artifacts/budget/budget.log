@@ -1,0 +1,12 @@
+B6   shipped: counted=[6] levels=[0] exit=ACTION_BUDGET score=0.0 | counterfactual: counted=[7] levels=[0] exit=ACTION_BUDGET score=0.0 | denied_by_forced_reset=False
+B7   shipped: counted=[7] levels=[0] exit=ACTION_BUDGET score=0.0 | counterfactual: counted=[8] levels=[0] exit=ACTION_BUDGET score=0.0 | denied_by_forced_reset=False
+B8   shipped: counted=[8] levels=[0] exit=ACTION_BUDGET score=0.0 | counterfactual: counted=[9] levels=[1] exit=AGENT_ERROR score=1.316872428 | denied_by_forced_reset=True
+B9   shipped: counted=[9] levels=[1] exit=AGENT_ERROR score=1.316872428 | counterfactual: counted=[9] levels=[1] exit=AGENT_ERROR score=1.316872428 | denied_by_forced_reset=False
+B10  shipped: counted=[9] levels=[1] exit=AGENT_ERROR score=1.316872428 | counterfactual: counted=[9] levels=[1] exit=AGENT_ERROR score=1.316872428 | denied_by_forced_reset=False
+B11  shipped: counted=[9] levels=[1] exit=AGENT_ERROR score=1.316872428 | counterfactual: counted=[9] levels=[1] exit=AGENT_ERROR score=1.316872428 | denied_by_forced_reset=False
+WINDOW deaths=0 chosen=4 denial_budgets=[] width=0 predicted=0 holds=True
+WINDOW deaths=1 chosen=8 denial_budgets=[8] width=1 predicted=1 holds=True
+WINDOW deaths=2 chosen=12 denial_budgets=[12, 13] width=2 predicted=2 holds=True
+WINDOW deaths=3 chosen=16 denial_budgets=[16, 17, 18] width=3 predicted=3 holds=True
+TAX levels=183 environments=25 worst=sc25-635fd71a#1 baseline=6 budget=30 perfect=100.0 after_one=73.469387755 fall=26.530612245 share=0.033333333 median_fall=3.251814028 median_share=0.003333333 max_share=0.033333333 smallest_budget=30
+SUMMARY pairs=6 denials=1 denial_budgets=[8] window_prediction_holds=True peak_rss_mb_under_400=True

@@ -33,19 +33,23 @@ def test_the_paper_names_no_private_address_and_no_tool_attribution():
         assert word not in text, word
 
 
-def test_the_disclosure_placeholder_is_still_present_or_filled_with_a_date():
-    """The paper states that findings were reported to the Foundation before
-    publication. That sentence must not ship with an unfilled placeholder
-    silently removed, nor be true only by assertion: either the marker is there,
-    so nobody can post it by accident, or a real date replaced it."""
-    import re
+def test_the_paper_does_not_claim_a_disclosure_that_did_not_happen():
+    """The paper once said findings were reported to the Foundation before
+    publication. They were not: it is published without prior private notice.
+    That sentence must never come back without someone deliberately doing it,
+    because a false disclosure claim would discredit every honest finding here.
+    The test asserts the paper states the true position and asserts a reason for
+    it, rather than merely deleting the claim."""
     text = (PAPER / "main.tex").read_text()
-    assert "team@arcprize.org" in text
-    line = [l for l in text.splitlines() if "before publication" in l or "[DATE]" in l]
-    assert line, "the disclosure sentence is missing"
-    joined = " ".join(line)
-    assert "[DATE]" in joined or re.search(r"\d{1,2}\s+\w+\s+2026", joined), \
-        "the disclosure date is neither a visible placeholder nor a real date"
+    assert "[DATE]" not in text, "the disclosure placeholder is back"
+    assert "without prior private notice" in text, \
+        "the paper must state that it is published without prior notice"
+    for claim in ("were reported to the ARC Prize Foundation",
+                  "reported to the Foundation before publication",
+                  "disclosed to the ARC Prize Foundation"):
+        assert claim not in text, f"false disclosure claim present: {claim}"
+    # The stated reason must survive too: everything audited is already public.
+    assert "already public" in text
 
 
 def test_the_repository_claim_is_not_made_before_the_repository_exists():
