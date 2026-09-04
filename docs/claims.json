@@ -768,5 +768,40 @@
   "log": "../artifacts/aggregation/aggregation.log",
   "pattern": "^S1 ",
   "by": "scripts/aggregation_probe.py"
+ },
+ {
+  "value": "forced=3 chosen=16",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/wire/wire.log",
+  "pattern": "^W3 ",
+  "by": "scripts/wire_probe.py"
+ },
+ {
+  "value": "harness_counter=19",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/wire/wire.log",
+  "pattern": "^W3 ",
+  "by": "scripts/wire_probe.py"
+ },
+ {
+  "value": "RETRY isolated=True",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/wire/wire.log",
+  "pattern": "^RETRY",
+  "by": "scripts/wire_probe.py"
+ },
+ {
+  "value": "one_environment_call_per_counted_action=True",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/wire/wire.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/wire_probe.py"
+ },
+ {
+  "value": "construction=1",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/wire/wire.log",
+  "pattern": "^W1 ",
+  "by": "scripts/wire_probe.py"
  }
 ]

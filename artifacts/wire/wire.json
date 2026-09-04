@@ -1,0 +1,343 @@
+{
+ "probes": [
+  {
+   "budgets": [
+    20,
+    40,
+    80,
+    100,
+    120
+   ],
+   "card_actions": [
+    4
+   ],
+   "card_levels_completed": [
+    1
+   ],
+   "card_resets": [
+    0
+   ],
+   "counts": {
+    "chosen": 4,
+    "construction": 1,
+    "forced": 0,
+    "on_wire": 5
+   },
+   "environment_score": 6.666666667,
+   "error": "script exhausted (probe stub, not the harness)",
+   "exit_reason": "AGENT_ERROR",
+   "harness_action_counter": 4,
+   "id": "W1",
+   "ledger_tail": [
+    "construction",
+    "chosen",
+    "chosen",
+    "chosen",
+    "chosen"
+   ],
+   "level_actions": [
+    4,
+    0,
+    0,
+    0,
+    0
+   ],
+   "note": "never lost: solve level 1 cleanly",
+   "take_action_calls": 4
+  },
+  {
+   "budgets": [
+    20,
+    40,
+    80,
+    100,
+    120
+   ],
+   "card_actions": [
+    9
+   ],
+   "card_levels_completed": [
+    1
+   ],
+   "card_resets": [
+    1
+   ],
+   "counts": {
+    "chosen": 8,
+    "construction": 1,
+    "forced": 1,
+    "on_wire": 10
+   },
+   "environment_score": 1.316872428,
+   "error": "script exhausted (probe stub, not the harness)",
+   "exit_reason": "AGENT_ERROR",
+   "harness_action_counter": 9,
+   "id": "W2",
+   "ledger_tail": [
+    "construction",
+    "chosen",
+    "chosen",
+    "chosen",
+    "chosen",
+    "forced",
+    "chosen",
+    "chosen",
+    "chosen",
+    "chosen"
+   ],
+   "level_actions": [
+    9,
+    0,
+    0,
+    0,
+    0
+   ],
+   "note": "lost once, then solve level 1",
+   "take_action_calls": 9
+  },
+  {
+   "budgets": [
+    20,
+    40,
+    80,
+    100,
+    120
+   ],
+   "card_actions": [
+    19
+   ],
+   "card_levels_completed": [
+    1
+   ],
+   "card_resets": [
+    3
+   ],
+   "counts": {
+    "chosen": 16,
+    "construction": 1,
+    "forced": 3,
+    "on_wire": 20
+   },
+   "environment_score": 0.295475531,
+   "error": "script exhausted (probe stub, not the harness)",
+   "exit_reason": "AGENT_ERROR",
+   "harness_action_counter": 19,
+   "id": "W3",
+   "ledger_tail": [
+    "construction",
+    "chosen",
+    "chosen",
+    "chosen",
+    "chosen",
+    "forced",
+    "chosen",
+    "chosen",
+    "chosen",
+    "chosen",
+    "forced",
+    "chosen",
+    "chosen",
+    "chosen",
+    "chosen",
+    "forced",
+    "chosen",
+    "chosen",
+    "chosen",
+    "chosen"
+   ],
+   "level_actions": [
+    19,
+    0,
+    0,
+    0,
+    0
+   ],
+   "note": "lost three times, then solve level 1",
+   "take_action_calls": 19
+  },
+  {
+   "budgets": [
+    1,
+    40,
+    80,
+    100,
+    120
+   ],
+   "card_actions": [
+    1
+   ],
+   "card_levels_completed": [
+    0
+   ],
+   "card_resets": [
+    0
+   ],
+   "counts": {
+    "chosen": 1,
+    "construction": 1,
+    "forced": 0,
+    "on_wire": 2
+   },
+   "environment_score": 0.0,
+   "error": null,
+   "exit_reason": "ACTION_BUDGET",
+   "harness_action_counter": 1,
+   "id": "W4",
+   "ledger_tail": [
+    "construction",
+    "chosen"
+   ],
+   "level_actions": [
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "note": "a per-level budget of one action",
+   "take_action_calls": 1
+  },
+  {
+   "budgets": [
+    6,
+    40,
+    80,
+    100,
+    120
+   ],
+   "card_actions": [
+    6
+   ],
+   "card_levels_completed": [
+    0
+   ],
+   "card_resets": [
+    1
+   ],
+   "counts": {
+    "chosen": 5,
+    "construction": 1,
+    "forced": 1,
+    "on_wire": 7
+   },
+   "environment_score": 0.0,
+   "error": null,
+   "exit_reason": "ACTION_BUDGET",
+   "harness_action_counter": 6,
+   "id": "W5",
+   "ledger_tail": [
+    "construction",
+    "chosen",
+    "chosen",
+    "chosen",
+    "chosen",
+    "forced",
+    "chosen"
+   ],
+   "level_actions": [
+    6,
+    0,
+    0,
+    0,
+    0
+   ],
+   "note": "a budget small enough that forced resets alone can exhaust it",
+   "take_action_calls": 6
+  },
+  {
+   "budgets": [
+    4,
+    40,
+    80,
+    100,
+    120
+   ],
+   "card_actions": [
+    4
+   ],
+   "card_levels_completed": [
+    1
+   ],
+   "card_resets": [
+    0
+   ],
+   "counts": {
+    "chosen": 4,
+    "construction": 1,
+    "forced": 0,
+    "on_wire": 5
+   },
+   "environment_score": 6.666666667,
+   "error": "script exhausted (probe stub, not the harness)",
+   "exit_reason": "AGENT_ERROR",
+   "harness_action_counter": 4,
+   "id": "W6",
+   "ledger_tail": [
+    "construction",
+    "chosen",
+    "chosen",
+    "chosen",
+    "chosen"
+   ],
+   "level_actions": [
+    4,
+    0,
+    0,
+    0,
+    0
+   ],
+   "note": "the level advances on the last action the budget permits",
+   "take_action_calls": 4
+  },
+  {
+   "budgets": [
+    4,
+    40,
+    80,
+    100,
+    120
+   ],
+   "card_actions": [
+    4
+   ],
+   "card_levels_completed": [
+    0
+   ],
+   "card_resets": [
+    0
+   ],
+   "counts": {
+    "chosen": 4,
+    "construction": 1,
+    "forced": 0,
+    "on_wire": 5
+   },
+   "environment_score": 0.0,
+   "error": null,
+   "exit_reason": "ACTION_BUDGET",
+   "harness_action_counter": 4,
+   "id": "W7",
+   "ledger_tail": [
+    "construction",
+    "chosen",
+    "chosen",
+    "chosen",
+    "chosen"
+   ],
+   "level_actions": [
+    4,
+    0,
+    0,
+    0,
+    0
+   ],
+   "note": "a game over on the last action the budget permits",
+   "take_action_calls": 4
+  }
+ ],
+ "retry": {
+  "calls_reaching_the_environment": [],
+  "isolated": true,
+  "retry_body_lines": 86
+ }
+}

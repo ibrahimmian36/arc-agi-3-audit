@@ -278,6 +278,39 @@ We cannot settle it. Doing so needs the human replays, which we were unable to
 locate (\S\ref{sec:replays}). It is the sharpest open question we found in the
 scoring rule.
 
+\subsection{Resets the agent did not choose}
+\label{sec:forced}
+
+\S\ref{sec:resets} concerns resets an agent chooses. The benchmarking harness
+also issues them on its own: after a game over it returns \code{RESET} rather
+than consulting the model, because a reset is the only way to continue. Those
+resets are counted by the harness like any other action and, on the local path,
+charged by the scorer to the level in progress.
+
+Driving the harness's own control loop against the toolkit's fixture game, an
+agent that loses a level three times and then solves it chooses 16 actions and
+is counted 19, and the level is scored on all 19. Against that level's baseline
+of four, being scored on 19 rather than on the 16 the agent chose lowers the
+level's contribution by about a fifth.
+
+Two things this is not. It is not a claim about the server, which is not
+observable to us and may charge such a reset differently or not at all. And it
+is not a design criticism: the harness has to send something after a game over.
+What is absent is any statement to an entrant that these resets happen, that
+they consume the per-level action budget, and that they lower the score of a
+level the agent died on beyond the loss of progress itself. It compounds
+\S\ref{sec:resets}: the human baselines' treatment of resets is unknown, and
+here the agent is additionally charged for resets it never chose.
+
+Three negatives from the same instrument are worth recording. A retried model
+call never reaches the environment: the harness's retry path contains no call
+that does, and across every scripted run the number of environment calls equals
+the number of actions counted. A level that advances on the last action the
+budget permits is not cut off. And the reset the wrapper issues when the
+environment is constructed goes on the wire but is counted by neither the
+harness nor the local scorer, which treats it as beginning a play; the server's
+treatment of it is unknown.
+
 \subsection{An unreached edge in the scorer}
 
 The engine permits a game to advance the level counter twice within a single

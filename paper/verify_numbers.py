@@ -98,6 +98,10 @@ CLAIMS: list[tuple[str, str, Path, str]] = [
      "100.0", ART / "aggregation/aggregation.log", r"^D3 .*toolkit_total=([0-9.]+)"),
     ("over four gives 75.0", "75.0", ART / "aggregation/aggregation.log",
      r"^D3 .*documented_total=([0-9.]+)"),
+    # --- the client's wire ledger ---
+    ("chooses 16 actions and\nis counted 19", "16", ART / "wire/wire.log", r"^W3 .*chosen=(\d+)"),
+    ("is counted 19", "19", ART / "wire/wire.log", r"^W3 .*harness_counter=(\d+)"),
+    ("loses a level three times", "3", ART / "wire/wire.log", r"^W3 .*forced=(\d+)"),
     # --- replays ---
     ("lists ten repositories", "10", ART / "replays/availability.log", r"github_repos=(\d+)"),
     ("lists three\ndatasets", "3", ART / "replays/availability.log", r"huggingface_datasets=(\d+)"),

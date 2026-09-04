@@ -4,7 +4,8 @@ Millennium Research, 2026-09-03 (scorer, harness) and 2026-09-04 (environment
 ls20 levels 1 and 2, then a breadth sweep of level 1 across the public set,
 then a play-based probe of all 25, then a lower-bound check on the published
 human baselines, then a probe of the scoring pipeline that feeds the formula, then a probe of how
-far its aggregation defect reaches). Status: the scoring rule (reference 3), the benchmarking
+far its aggregation defect reaches, then a ledger of what the client puts on the
+wire). Status: the scoring rule (reference 3), the benchmarking
 harness's action budget, and two levels of one public environment (reference
 1) are audited and written up below; the per-level baselines (reference 2)
 are recovered and characterised; ls20 levels 3–7, the other 24 public
@@ -72,6 +73,8 @@ certifies the scorer.
 | Which code path scores a run | 4 operation modes | offline and normal compute locally; `online` and `competition` are `remote fetch (server supplies the scorecard)` | `artifacts/aggregation/aggregation.log` |
 | An environment that produces no card leaves the denominator | 1 planted scorecard | three of four played gives `toolkit_total=100.0` against `documented_total=75.0` | `artifacts/aggregation/aggregation.log` |
 | A game id differing only by version | 1 planted scorecard | the environment scores `0.0` with `No Matching EnvironmentInfo found` | `artifacts/aggregation/aggregation.log` |
+| Resets the harness issues on the agent's behalf, and what they cost | 7 scripted harness runs | an agent that chose 16 actions is counted 19: `forced=3 chosen=16`, `harness_counter=19` | `artifacts/wire/wire.log` |
+| A retried model call reaching the environment twice | the harness's own retry path plus 7 runs | `RETRY isolated=True`; `one_environment_call_per_counted_action=True` | `artifacts/wire/wire.log` |
 | Double-advance (finding F3) reachability | every transition of both levels | `"double_advance_actions": 0` on each | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Peak memory of the enumeration | 2 levels | under 300 MB on both, against `"max_rss_mb_cap": 3500.0`; the exact figure varies run to run and is checked as a bound, not a literal | `artifacts/env/ls20/graph_L1.json`, `graph_L2.json` |
 | Re-run byte identity | scorer, harness, recorder | identical (`tests/test_scorer_probe.py`, `tests/test_harness_probe.py`, `tests/test_recorder.py::test_m8_byte_identity`) | suite |
@@ -476,6 +479,52 @@ the documentation says the overall score is the average of the best score for
 each environment, so nothing is miscomputed; the pairing displayed alongside it
 is simply not from one run.
 
+**F12 --- The harness spends the agent's action budget on resets the agent did
+not choose, and no document says so.** After a game over the harness issues a
+`RESET` of its own accord (`_forced_action_for_frame` returns `RESET` when the
+state is `GAME_OVER` or `NOT_PLAYED`). That reset is counted by the harness and,
+on the local path, charged by the scorer to the level in progress, exactly as
+finding F9 describes for a chosen reset.
+
+Measured on the toolkit's fixture game by driving the harness's own control
+loop: an agent that loses the level three times and then solves it chooses 16
+actions and is counted 19 (`forced=3 chosen=16`, `harness_counter=19`), and
+level one is scored on all 19. Losing once costs one action, losing three times
+costs three. With that level's baseline of four, the difference between being
+scored on 19 actions and on the 16 the agent chose is a fall of about 29\% in
+that level's contribution.
+
+This is a property of the CLIENT. Whether the server charges such a reset is not
+observable to us and is not claimed. Nor is the design wrong: after a game over
+a reset is the only way to continue, so the harness has to send one. What is
+missing is any statement to an entrant that it happens, that it consumes the
+per-level action budget, and that it therefore lowers the score of a level the
+agent died on --- over and above losing the progress. We searched the report and
+the harness documentation and found nothing on forced resets or on resets
+counting as actions. It compounds F9: the human baselines' treatment of resets
+is unknown, and here the agent is charged for resets it never chose.
+
+**Note, not a finding --- the construction reset is on the wire but is not a
+counted action.** The environment wrapper issues a `RESET` when it is built, and
+in the online path that is a request to the server like any other. Neither the
+harness's counter nor the local scorecard counts it: the local scorer treats a
+full reset as beginning a play rather than as an action. The same request shape
+reaches the server, so the natural reading is that it begins the play there too.
+We record the traffic (`construction=1` in every run, `on_wire` exceeding
+`harness_counter` by exactly one) and leave the server's treatment unknown.
+
+**Negative worth keeping: a retried model call never reaches the environment.**
+The harness retries a failed model call up to three times, which would spend
+budget if a retry re-sent the action. It does not. The retry loop contains no
+call that reaches the environment, and across all seven scripted runs the number
+of environment calls equals the number of actions the harness counted
+(`one_environment_call_per_counted_action=True`).
+
+**Negative worth keeping: the budget boundary behaves as documented.** A level
+that advances on the last action the budget permits is not cut off, and scores
+that level in full; a game over on the last permitted action exits on the budget
+with the level unscored.
+
 **Negative worth keeping: reusing a guid does not merge two plays.** The card
 resolves a guid by scanning its list backwards, which could have merged two runs
 into one and mixed their action counts. Two plays sharing a guid are still
@@ -620,6 +669,7 @@ done
 .venv/bin/python scripts/replay_availability.py
 .venv/bin/python scripts/score_pipeline_probe.py
 .venv/bin/python scripts/aggregation_probe.py
+.venv/bin/python scripts/wire_probe.py
 ../audit-kit/scripts/report_check.sh docs/claims.json
 ```
 

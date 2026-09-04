@@ -114,3 +114,8 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 107 | `toolkit_total=100.0` | `../artifacts/aggregation/aggregation.log` | `^D3 ` | scripts/aggregation_probe.py |
 | 108 | `documented_total=75.0` | `../artifacts/aggregation/aggregation.log` | `^D3 ` | scripts/aggregation_probe.py |
 | 109 | `No Matching EnvironmentInfo found` | `../artifacts/aggregation/aggregation.log` | `^S1 ` | scripts/aggregation_probe.py |
+| 110 | `forced=3 chosen=16` | `../artifacts/wire/wire.log` | `^W3 ` | scripts/wire_probe.py |
+| 111 | `harness_counter=19` | `../artifacts/wire/wire.log` | `^W3 ` | scripts/wire_probe.py |
+| 112 | `RETRY isolated=True` | `../artifacts/wire/wire.log` | `^RETRY` | scripts/wire_probe.py |
+| 113 | `one_environment_call_per_counted_action=True` | `../artifacts/wire/wire.log` | `^SUMMARY` | scripts/wire_probe.py |
+| 114 | `construction=1` | `../artifacts/wire/wire.log` | `^W1 ` | scripts/wire_probe.py |

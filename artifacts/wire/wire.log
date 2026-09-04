@@ -1,0 +1,9 @@
+W1  on_wire=5 construction=1 forced=0 chosen=4 harness_counter=4 card_actions=[4] card_resets=[0] level_actions=[4, 0, 0, 0, 0] score=6.666666667 exit=AGENT_ERROR :: never lost: solve level 1 cleanly
+W2  on_wire=10 construction=1 forced=1 chosen=8 harness_counter=9 card_actions=[9] card_resets=[1] level_actions=[9, 0, 0, 0, 0] score=1.316872428 exit=AGENT_ERROR :: lost once, then solve level 1
+W3  on_wire=20 construction=1 forced=3 chosen=16 harness_counter=19 card_actions=[19] card_resets=[3] level_actions=[19, 0, 0, 0, 0] score=0.295475531 exit=AGENT_ERROR :: lost three times, then solve level 1
+W4  on_wire=2 construction=1 forced=0 chosen=1 harness_counter=1 card_actions=[1] card_resets=[0] level_actions=[1, 0, 0, 0, 0] score=0.0 exit=ACTION_BUDGET :: a per-level budget of one action
+W5  on_wire=7 construction=1 forced=1 chosen=5 harness_counter=6 card_actions=[6] card_resets=[1] level_actions=[6, 0, 0, 0, 0] score=0.0 exit=ACTION_BUDGET :: a budget small enough that forced resets alone can exhaust it
+W6  on_wire=5 construction=1 forced=0 chosen=4 harness_counter=4 card_actions=[4] card_resets=[0] level_actions=[4, 0, 0, 0, 0] score=6.666666667 exit=AGENT_ERROR :: the level advances on the last action the budget permits
+W7  on_wire=5 construction=1 forced=0 chosen=4 harness_counter=4 card_actions=[4] card_resets=[0] level_actions=[4, 0, 0, 0, 0] score=0.0 exit=ACTION_BUDGET :: a game over on the last action the budget permits
+RETRY isolated=True calls_reaching_the_environment=[]
+SUMMARY probes=7 one_environment_call_per_counted_action=True peak_rss_mb_under_500=True
