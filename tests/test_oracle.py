@@ -26,6 +26,7 @@ CASES = [
 
 @pytest.fixture(scope="module")
 def oracle_rows(tmp_path_factory):
+    require_oracle()          # before anything runs node: a module fixture sets up first
     assert ORACLE.exists(), "run scripts/check_model.sh first"
     fx = tmp_path_factory.mktemp("fx") / "fixtures.json"
     fx.write_text(json.dumps([dict(id=i, baselines=B, actions=a, completed=c) for i, a, c, _ in CASES]))
