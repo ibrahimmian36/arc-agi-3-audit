@@ -1006,5 +1006,33 @@
   "log": "../artifacts/tax/tax.log",
   "pattern": "^TAX runs=250",
   "by": "scripts/random_agent_tax.py"
+ },
+ {
+  "value": "located=True",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/browser_observation.log",
+  "pattern": "^BROWSER",
+  "by": "scripts/replay_browser_record.py"
+ },
+ {
+  "value": "environment_folders=25",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/browser_observation.log",
+  "pattern": "^BROWSER",
+  "by": "scripts/replay_browser_record.py"
+ },
+ {
+  "value": "archive_size=106MB",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/browser_observation.log",
+  "pattern": "^BROWSER",
+  "by": "scripts/replay_browser_record.py"
+ },
+ {
+  "value": "method=browser",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/browser_observation.log",
+  "pattern": "^BROWSER",
+  "by": "scripts/replay_browser_record.py"
  }
 ]

@@ -55,8 +55,9 @@ We also find a discrepancy between the documented aggregation rule and the
 toolkit's local implementation, an
 equation in the technical report that permits a per-level score of $132.25\%$
 where its prose, the documentation and the code all cap the score at $115\%$,
-and that the 342 human replays announced as open source could not be located
-through the Foundation's public channels on 4 September 2026. Positively, two machine-verified
+and we correct an error of an earlier draft, which reported the 342 announced
+human replays as not locatable when a scripted request had merely been refused
+by a link shortener. Positively, two machine-verified
 environment models agree with the shipped implementation on all $190{,}560$
 transitions, a level reset restores the observed frame on all $18{,}663$ probes
 across all 25 environments, and every resolvable human baseline is consistent
@@ -302,8 +303,7 @@ time, and the report observes that some ``reset levels after reaching a solution
 in order to improve efficiency''. If the published baselines were gathered
 without charging human resets while agents are charged for theirs, every ratio
 is biased against the agent by an amount depending on how often each side reset.
-We cannot settle it. Doing so needs the human replays, which we were unable to
-locate (\S\ref{sec:replays}). It is the sharpest open question we found in the
+We cannot settle it. Doing so needs the human replays (\S\ref{sec:replays}). It is the sharpest open question we found in the
 scoring rule.
 
 \subsection{Resets the agent did not choose}
@@ -755,31 +755,37 @@ breadth-first reached a greater depth on both levels compared, because deepening
 re-explores, and on levels breadth-first can finish it is strictly better. The
 binding constraint is not memory but the size of the state space at the depths
 these baselines occupy, and on those twelve levels no exhaustive search we can
-write reaches depth 26, let alone 183. Settling these levels would need the human replays, which we could
-not locate, or a solver for these environments, which this audit's own scope
+write reaches depth 26, let alone 183. Settling these levels would need the human replays
+(\S\ref{sec:replays}), or a solver for these environments, which this audit's own scope
 excludes.
 
 These optima are proved against the shipped local environment at the pinned
 version. That is not necessarily the environment the human study measured, and
 consistency with a local optimum says nothing about how the number was gathered.
 
-\subsection{The replays could not be located}
+\subsection{The replays, and an error of ours}
 \label{sec:replays}
 
 An April 2026 post \cite{humandataset} states that the Foundation open-sourced
 the Public Demo dataset, ``which includes 342 human step-by-step replays'' across
-the 25 public environments. We were unable to find them. Checked on 4 September
-2026: the \code{arcprize} GitHub organisation lists ten repositories, none a
-human-replay dataset; the \code{arcprize} HuggingFace author lists three
-datasets, of which the only human-testing one is for ARC-AGI-2; and the single
-link the announcement provides is a shortener that did not resolve for us,
-returning HTTP 403 to a plain request without a browser.
+the 25 public environments. An earlier draft of this paper said we could not
+locate them. That was wrong, and the error was ours. Our scripted check of the
+Foundation's public channels found no replay dataset among the \code{arcprize}
+GitHub repositories or HuggingFace datasets, and the one link the announcement
+gives, a link shortener, refused our request with HTTP 403 whether or not it
+carried a browser user-agent; we reported the refusal as the link not resolving.
+Two independent reviewers of that draft said a 403 from a shortener is what a
+scripted request gets. Opened in a real browser on 5 September 2026, the link
+resolves to a Google Drive folder holding the dataset: a folder with one
+subfolder per public environment, an archive of the same, and a ratings file,
+dated 13 to 15 April 2026. The observation is recorded as such in the
+repository, with its provenance stated.
 
-This is a statement about what these checks found on that date, not a claim that
-the data does not exist; it may well be reachable by a route we did not try. We
-report it because a link that does not resolve is worth an owner's attention,
-and because until the replays are reachable the baselines that every score
-depends on cannot be checked against the plays that produced them.
+We record the error rather than deleting the trace of it, because it is the
+same class of defect this audit reports in others' work: an instrument's limit
+reported as a fact about the world. The replays are the data against which the
+baselines that every score depends on can be checked, and against which the
+question of \S\ref{sec:resets} can be settled.
 
 \section{Limitations}
 

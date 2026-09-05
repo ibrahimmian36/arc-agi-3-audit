@@ -33,7 +33,6 @@ EXEMPT: dict[str, str] = {
     "1": "section, equation and footnote references",
     "2": "section references and report v2",
     "3": "the benchmark's name, ARC-AGI-3, and section references",
-    "4": "the date this paper's replay search was run, 4 September 2026",
     "5": "the action-budget multiplier written as 5b in the effective-budget formula",
     "6": "part of 6.28% and of section references; the percentage itself is traced",
     "8": "the budget at which the fixture demonstration denies the level, and the "

@@ -1,0 +1,54 @@
+{
+ "observed_on": "2026-09-05",
+ "method": "opened in a real browser by the authors; not fetched by script",
+ "announced_link": "https://dub.link/vfwCqvb",
+ "scripted_request_status": "403 (429 under repetition), with or without a browser user-agent",
+ "resolves_to_host": "drive.google.com",
+ "folder_contents": [
+  {
+   "name": "arc_agi_3_public_demo_human_testing",
+   "kind": "folder",
+   "modified": "2026-04-15",
+   "children": [
+    "ar25",
+    "bp35",
+    "cd82",
+    "cn04",
+    "dc22",
+    "ft09",
+    "g50t",
+    "ka59",
+    "lf52",
+    "lp85",
+    "ls20",
+    "m0r0",
+    "r11l",
+    "re86",
+    "s5i5",
+    "sb26",
+    "sc25",
+    "sk48",
+    "sp80",
+    "su15",
+    "tn36",
+    "tr87",
+    "tu93",
+    "vc33",
+    "wa30"
+   ]
+  },
+  {
+   "name": "arc_agi_3_public_demo_human_testing.zip",
+   "kind": "archive",
+   "modified": "2026-04-15",
+   "size": "106 MB"
+  },
+  {
+   "name": "testing_feedback_ratings.csv",
+   "kind": "file",
+   "modified": "2026-04-13",
+   "size": "7 KB"
+  }
+ ],
+ "located": true
+}

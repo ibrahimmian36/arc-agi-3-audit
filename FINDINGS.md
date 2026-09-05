@@ -68,7 +68,7 @@ certifies the scorer.
 | Play probe: RESET restores all internal engine state | the same 18,663 probes | `reset_state_ok=15440`; 7 environments differ | `artifacts/play/summary.log` |
 | Play probe: one action advancing the level counter by two | `actions_taken=479040` in all 25 | `double_advance_actions=0`, `level_regressions=0` | `artifacts/play/summary.log` |
 | Baselines: is any published baseline below the level's optimum? | 18 levels attempted | `consistent=6 impossible=0 not_established=12` | `artifacts/minactions/summary.log` |
-| The 342 human replays announced 2026-04-14 | GitHub org and HuggingFace author | `located=False`; `announced_link_status=403` | `artifacts/replays/availability.log` |
+| The 342 human replays announced 2026-04-14 | scripted check of GitHub, HuggingFace and the announced link; then a browser | script: `located=False`, `announced_link_status=403`; browser: `located=True`, `environment_folders=25`, `archive_size=106MB` | `artifacts/replays/availability.log`, `artifacts/replays/browser_observation.log` |
 | Aggregation denominator: 3 environments played of a 135-environment set | 1 planted scorecard | toolkit reports `toolkit_total=100.0`, the documented rule gives `documented_total=2.222222222`, a `ratio=45.0` | `artifacts/pipeline/pipeline.log` |
 | A level RESET charged to the agent's per-level action count | 1 planted scorecard | four resets take an otherwise perfect environment from 100 to `83.801652893` | `artifacts/pipeline/pipeline.log` |
 | Which code path scores a run | 4 operation modes | offline and normal compute locally; `online` and `competition` are `remote fetch (server supplies the scorecard)` | `artifacts/aggregation/aggregation.log` |
@@ -283,8 +283,7 @@ to reset a level at any time, and the report notes that some "reset levels after
 reaching a solution in order to improve efficiency". If the published baselines
 were computed without charging human resets while agents are charged for theirs,
 the ratio is biased against agents by an amount that depends on how often each
-side reset. We cannot settle this: it needs the human replays, which we could
-not locate (above). We report it as the sharpest open question in the scoring
+side reset. We cannot settle this: it needs the human replays (located; see Reference 2). We report it as the sharpest open question in the scoring
 rule.
 
 **F8 — Scorer defect in the public toolkit: the aggregation denominator.**
@@ -652,7 +651,7 @@ So the premise was wrong. The binding constraint is not memory but the size of
 the state space at the depths these baselines live at, and no exhaustive search
 we can write reaches depth 26, let alone 183. The twelve unresolved levels are
 unresolved for a reason rather than for want of effort, and settling them would
-need the human replays we could not locate, or a solver for these environments,
+need the human replays (now located; see below), or a solver for these environments,
 which is outside this audit's scope by its own rules. Breadth-first remains the
 default because it resolves more; the depth-first modes stay available for a
 level where memory rather than time is the wall.
@@ -662,14 +661,26 @@ published baseline of 19, so the upper-median first-time human played within one
 action of optimal on an environment whose rules are not stated anywhere. It is
 consistent, and it is the tightest margin in the set.
 
-**The replays could not be located.** The 2026-04-14 announcement says the
-Foundation open-sourced the Public Demo dataset including 342 human step-by-step
-replays. Checked on 2026-09-04: the `arcprize` GitHub organisation lists
-`github_repos=10`, none of them a human-replay dataset; the `arcprize`
-HuggingFace author lists `huggingface_datasets=3`, of which the only
-human-testing one is for ARC-AGI-2; and the single link the announcement gives is a shortener that did
-not resolve for us (`announced_link_status=403`, and 429 on an earlier attempt).
-`located=False`.
+**The replays, and an error of ours.** The 2026-04-14 announcement says the
+Foundation open-sourced the Public Demo dataset with 342 human step-by-step
+replays. Our scripted check (`scripts/replay_availability.py`) found no replay
+dataset among the `arcprize` GitHub repositories (`github_repos=10`) or
+HuggingFace datasets (`huggingface_datasets=3`), and
+the announcement's one link, a shortener, refused the request
+(`announced_link_status=403`, 429 under repetition, with or without a browser
+user-agent), so it recorded `located=False`. We reported that as the replays not
+being locatable. **That was wrong.** Two independent blind reviewers said a 403
+from a shortener is what a scripted request gets; opened in a real browser on
+2026-09-05, the link resolves to a Google Drive folder holding the dataset ---
+`environment_folders=25`, one per public environment, the archive
+`arc_agi_3_public_demo_human_testing.zip` (`archive_size=106MB`), and a ratings
+file, dated 13--15 April 2026. Recorded with its provenance as a browser
+observation (`located=True`, `method=browser`) in
+`artifacts/replays/browser_observation.log`; the scripted artefact is kept as the
+record of what the script could and could not see. Nothing from the folder is
+redistributed. This is the same defect class this audit reports in others' work
+--- an instrument's limit reported as a fact about the world --- and it is
+recorded rather than erased.
 
 That is a statement about what these checks found on that date, not a claim that
 the data does not exist. It is worth passing on because a broken or rate-limited

@@ -24,6 +24,10 @@ ART = HERE.parent / "artifacts"
 # (phrase as printed in the paper, value it asserts, log file, regex capturing it)
 CLAIMS: list[tuple[str, str, Path, str]] = [
     # --- figures the consistency check found untraced (Phase 15) ---
+    ("refused our request with HTTP 403", "403", ART / "replays/availability.log",
+     r"announced_link_status=(\d+)"),
+    ("one\nsubfolder per public environment", "25", ART / "replays/browser_observation.log",
+     r"environment_folders=(\d+)"),
     ("under caps of 400000 states", "400000", ART / "env/ls20/graph_L1.json", r'"max_states": (\d+)'),
     ("3500~MB of resident memory", "3500", ART / "env/ls20/graph_L1.json", r'"max_rss_mb_cap": (\d+)'),
     ("depth-first with caps of 150000 states", "150000", ART / "sweep/tr87_L1.json", r'"max_states": (\d+)'),
@@ -33,8 +37,6 @@ CLAIMS: list[tuple[str, str, Path, str]] = [
     ("25 public environments as audited", "25", ART / "api/environment_sources.log", r"^SUMMARY environments=(\d+)"),
     ("143 on level~1", "143", ART / "env/ls20/graph_L1.json", r'"game_over_states": (\d+)'),
     ("1291 on level~2", "1291", ART / "env/ls20/graph_L2.json", r'"game_over_states": (\d+)'),
-    ("returning HTTP 403", "403", ART / "replays/availability.log",
-     r"announced_link_status=(\d+)"),
     ("23 of the 25 environments have at least one such", "23",
      ART / "deathcost/deathcost.log", r"^SUMMARY .*environments_with_an_exposed_level=(\d+)"),
     ("which is 234 of the 250", "234", ART / "tax/tax.log",
@@ -179,8 +181,6 @@ CLAIMS: list[tuple[str, str, Path, str]] = [
     ("is counted 19", "19", ART / "wire/wire.log", r"^W3 .*harness_counter=(\d+)"),
     ("loses a level three times", "3", ART / "wire/wire.log", r"^W3 .*forced=(\d+)"),
     # --- replays ---
-    ("lists ten repositories", "10", ART / "replays/availability.log", r"github_repos=(\d+)"),
-    ("lists three\ndatasets", "3", ART / "replays/availability.log", r"huggingface_datasets=(\d+)"),
 ]
 
 # Optima and baselines in Table 2, checked against the per-level artefacts.

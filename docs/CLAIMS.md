@@ -148,3 +148,7 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 141 | `median_forced_share_of_counted=0.006896552` | `../artifacts/tax/tax.log` | `^TAX runs=250` | scripts/random_agent_tax.py |
 | 142 | `max_forced_share_of_counted=0.062801932` | `../artifacts/tax/tax.log` | `^TAX runs=250` | scripts/random_agent_tax.py |
 | 143 | `games=25` | `../artifacts/tax/tax.log` | `^TAX runs=250` | scripts/random_agent_tax.py |
+| 144 | `located=True` | `../artifacts/replays/browser_observation.log` | `^BROWSER` | scripts/replay_browser_record.py |
+| 145 | `environment_folders=25` | `../artifacts/replays/browser_observation.log` | `^BROWSER` | scripts/replay_browser_record.py |
+| 146 | `archive_size=106MB` | `../artifacts/replays/browser_observation.log` | `^BROWSER` | scripts/replay_browser_record.py |
+| 147 | `method=browser` | `../artifacts/replays/browser_observation.log` | `^BROWSER` | scripts/replay_browser_record.py |

@@ -158,3 +158,20 @@ def test_the_git_history_carries_no_private_address():
                            log.stdout))
     bad = {a for a in found if a not in permitted and not a.endswith(("arcprize.org", "example.org", "example.com"))}
     assert not bad, f"unexpected addresses in history: {sorted(bad)}"
+
+def test_the_false_replay_claim_never_returns():
+    """An earlier draft said the human replays could not be located. They are
+    public, behind a link that refuses scripted requests. Nothing public in this
+    repository may say that again, and the correction must name the error as
+    ours."""
+    import re
+    for path in (PAPER / "main.tex", PAPER.parent / "FINDINGS.md", PAPER.parent / "README.md"):
+        text = path.read_text()
+        for line in text.splitlines():
+            if re.search(r"replays? (could not|cannot) be located|unable to (find|locate) (them|the replays)|not locatable", line):
+                assert re.search(r"error|wrong|earlier draft|reported that", line) or \
+                    re.search(r"error|wrong|earlier draft", text[max(0, text.index(line) - 400): text.index(line) + 400]), \
+                    f"{path.name}: the false claim stands without its correction: {line.strip()[:80]}"
+    paper = (PAPER / "main.tex").read_text()
+    assert "the error was ours" in paper
+    assert (PAPER.parent / "artifacts" / "replays" / "browser_observation.log").read_text().startswith("BROWSER")
