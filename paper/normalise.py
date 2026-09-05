@@ -4,7 +4,11 @@ that produced it. Reading the numbers by eye is not a check."""
 import re
 from pathlib import Path
 
-src = Path(__file__).with_name("main.tex").read_text()
+here = Path(__file__).parent
+# In the anonymised supplementary archive the named source is absent; the
+# generated the journal source carries the same body, so the checkers read that.
+source = here / "main.tex" if (here / "main.tex").exists() else here / "journal" / "journal.tex"
+src = source.read_text()
 t = src
 t = re.sub(r"\\code\{([^{}]*)\}", r"\1", t)          # \code{x} -> x
 t = re.sub(r"\\texttt\{([^{}]*)\}", r"\1", t)
