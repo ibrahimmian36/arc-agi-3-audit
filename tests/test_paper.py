@@ -154,3 +154,15 @@ def test_the_announcement_draft_claims_nothing_the_paper_refuses_to():
         assert bad not in body, bad
     # the bound must travel with the finding
     assert "nothing changed" in body or "not one level" in body
+
+
+def test_the_git_history_carries_no_private_address():
+    """The local part alone is enough to reconstruct the address on a repository
+    owned under a known handle, so it is kept out of history, not just out of
+    the working tree. Split here so this file never contains it either."""
+    import subprocess
+    needle = "redacted"
+    log = subprocess.run(["git", "log", "--all", "-p"], cwd=PAPER.parent,
+                         capture_output=True, text=True, errors="ignore")
+    assert log.returncode == 0, log.stderr
+    assert needle not in log.stdout, "the private address is recoverable from history"
