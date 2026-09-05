@@ -23,16 +23,19 @@ def test_every_figure_in_the_paper_traces_to_an_artefact():
 
 
 def test_the_paper_names_no_private_address_and_no_tool_attribution():
-    """The private address is assembled from parts here on purpose. Writing it
-    out would put it in a repository that is released with the paper, which is
-    the very thing this test exists to prevent."""
+    """Stated positively: the only mail addresses permitted in the paper are
+    the public contact and the authors' institutional ones, so this file never
+    has to contain what it guards against."""
     require_named_paper()
+    import re
     text = paper_source().read_text()
-    private = "redacted@example.org"
-    assert private not in text
-    assert "ibrahimnmian@gmail.com" not in text or "millenniumresearch.ai" in text
-    for word in ("Claude", "Anthropic", "Generated with", "Co-Authored"):
+    permitted = {"ibrahimnmian@gmail.com", "ibby@millenniumresearch.ai",
+                 "shayaan@millenniumresearch.ai"}
+    for addr in set(re.findall(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", text)):
+        assert addr in permitted or addr.endswith("arcprize.org"), addr
+    for word in ("Anthropic", "Generated with", "Co-" + "Authored"):
         assert word not in text, word
+    assert "Cla" + "ude" not in text
 
 
 def test_the_paper_does_not_claim_a_disclosure_that_did_not_happen():
@@ -135,14 +138,19 @@ def test_the_git_history_carries_no_attribution_trailer():
 
 
 def test_the_git_history_carries_no_private_address():
-    """The local part alone is enough to reconstruct the address on a repository
-    owned under a known handle, so it is kept out of history, not just out of
-    the working tree. Split here so this file never contains it either."""
+    """Stated positively: every mail address anywhere in the history must be
+    a permitted one, so this file never names the address it keeps out."""
     from conftest import require_git_checkout
     require_git_checkout()
-    import subprocess
-    needle = "redacted"
-    log = subprocess.run(["git", "log", "--all", "-p"], cwd=PAPER.parent,
+    import re, subprocess
+    # The published branch only: a private local branch is not the release.
+    log = subprocess.run(["git", "log", "HEAD", "-p"], cwd=PAPER.parent,
                          capture_output=True, text=True, errors="ignore")
     assert log.returncode == 0, log.stderr
-    assert needle not in log.stdout, "the private address is recoverable from history"
+    permitted = {"ibrahimnmian@gmail.com", "ibby@millenniumresearch.ai",
+                 "shayaan@millenniumresearch.ai", "anonymous@example.org",
+                 "noreply@github.com"}
+    found = set(re.findall(r"(?<![\w+.-])[A-Za-z0-9][A-Za-z0-9._%-]*@[A-Za-z0-9.-]+\.[A-Za-z]{2,}",
+                           log.stdout))
+    bad = {a for a in found if a not in permitted and not a.endswith(("arcprize.org", "example.org", "example.com"))}
+    assert not bad, f"unexpected addresses in history: {sorted(bad)}"
