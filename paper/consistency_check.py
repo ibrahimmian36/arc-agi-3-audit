@@ -179,8 +179,15 @@ def main() -> int:
     # S4 -- discipline that must never regress
     if "without prior private notice" not in tex:
         fails.append("the disclosure statement no longer says what is true")
-    if "REDACTED" in tex or "REDACTED" in findings:
-        fails.append("the private address appears in a public document")
+    # Stated as a POSITIVE check so this file never has to contain the private
+    # address it guards: the only permitted mail addresses are the public
+    # contact and the authors' institutional ones.
+    permitted = {"ibrahimnmian@gmail.com", "ibby@millenniumresearch.ai",
+                 "shayaan@millenniumresearch.ai"}
+    for doc, name in ((tex, "the paper"), (findings, "FINDINGS.md")):
+        for addr in set(re.findall(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", doc)):
+            if addr not in permitted and not addr.endswith("arcprize.org"):
+                fails.append(f"unexpected mail address {addr!r} in {name}")
     for word in ("Claude", "Anthropic", "Co-Authored", "Generated with"):
         if word in tex:
             fails.append(f"attribution {word!r} appears in the paper")

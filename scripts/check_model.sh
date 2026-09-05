@@ -59,7 +59,9 @@ PY
     else (cd "$OUT" && npm install --no-audit --no-fund bignumber.js >/dev/null 2>&1) && echo "  bignumber.js installed via npm" | tee -a "$LOG"; fi
   fi
   node -e 'const m=require(require("path").resolve(process.argv[1])); if(!m._dafny) throw new Error("oracle exports missing"); console.log("  oracle loads: ok")' "$OUT/$STEM.js" 2>&1 | tee -a "$LOG" || fail=1
-  shasum -a 256 "$OUT/$STEM.js" | sed 's/^/  sha256 /' | tee -a "$LOG"
+  # Repo-relative: an absolute path in a published log leaks the machine it
+  # was produced on, and the oracle's identity is the hash, not the path.
+  shasum -a 256 "$OUT/$STEM.js" | sed "s|$ROOT/||" | sed 's/^/  sha256 /' | tee -a "$LOG"
 else
   echo "  build produced no $STEM.js" | tee -a "$LOG"; fail=1
 fi
