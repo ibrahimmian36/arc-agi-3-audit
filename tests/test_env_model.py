@@ -25,6 +25,8 @@ sys.path.insert(0, str(ROOT / "scripts"))
 @pytest.mark.parametrize("level", LEVELS)
 def test_committed_model_is_exactly_what_the_generator_produces(level):
     """A hand edit to a generated model fails here rather than shipping."""
+    from conftest import require_public_environments
+    require_public_environments()
     path = ROOT / "model" / f"ls20_level{level}.dfy"
     before = path.read_bytes()
     subprocess.run([str(ROOT / ".venv" / "bin" / "python"), str(ROOT / "scripts" / "gen_level_model.py"),

@@ -133,6 +133,8 @@ def test_the_witness_actually_completes_the_level_in_the_shipped_game():
 
 def test_reported_optima_replay_in_the_shipped_game():
     """Same check against every optimum this phase actually published."""
+    from conftest import require_public_environments
+    require_public_environments()
     from arcengine import ActionInput, GameAction
     for p in sorted(MA.glob("*_L*.json")):
         d = json.loads(p.read_text())
