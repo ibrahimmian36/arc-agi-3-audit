@@ -27,3 +27,32 @@ def require_git_checkout():
                        capture_output=True, text=True)
     if r.returncode != 0 or r.stdout.strip() != "true":
         pytest.skip("not a git checkout (e.g. the unpacked supplementary archive)")
+
+
+def paper_source():
+    """main.tex in the named checkout; the generated the journal source in the
+    anonymised archive, which carries the same body."""
+    named = ROOT / "paper" / "main.tex"
+    return named if named.exists() else ROOT / "paper" / "journal" / "journal.tex"
+
+
+def require_named_paper():
+    import pytest
+    if not (ROOT / "paper" / "main.tex").exists():
+        pytest.skip("named paper source absent (the anonymised archive)")
+
+
+def require_oracle():
+    """The compiled oracles need node and bignumber.js, which
+    scripts/check_model.sh installs beside them and which are not tracked."""
+    import pytest, shutil
+    if shutil.which("node") is None:
+        pytest.skip("node not available")
+    if not (ROOT / "artifacts" / "oracle" / "node_modules" / "bignumber.js").exists():
+        pytest.skip("oracle runtime not installed (bash scripts/check_model.sh installs bignumber.js)")
+
+
+def require_dafny():
+    import pytest, shutil, os
+    if shutil.which(os.environ.get("DAFNY_BIN", "dafny")) is None:
+        pytest.skip("dafny not available (the models' artefacts are committed)")

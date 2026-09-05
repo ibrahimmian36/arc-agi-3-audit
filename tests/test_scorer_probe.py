@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 import pytest
+from conftest import require_oracle
 from scorer_probe import main as probe_main
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,6 +16,11 @@ def two_runs(tmp_path_factory):
     a = tmp_path_factory.mktemp("run_a"); b = tmp_path_factory.mktemp("run_b")
     probe_main(["--out", str(a)]); probe_main(["--out", str(b)])
     return a, b
+
+
+@pytest.fixture(autouse=True)
+def _oracle_present():
+    require_oracle()
 
 
 def test_byte_identical(two_runs):

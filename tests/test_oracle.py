@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 import pytest
+from conftest import require_oracle
 from scorer_probe import run_oracle
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,6 +39,11 @@ def test_documented_values(oracle_rows, cid, actions, completed, expect):
     for reading, val in expect.items():
         got = float(oracle_rows[cid][reading]["env"]["pct"])
         assert abs(got - val) < 1e-6, (cid, reading, got, val)
+
+
+@pytest.fixture(autouse=True)
+def _oracle_present():
+    require_oracle()
 
 
 def test_level_cap_readings_differ_only_above_baseline(oracle_rows):

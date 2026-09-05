@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 
 import pytest
+from conftest import paper_source, require_named_paper
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "paper"
@@ -25,7 +26,8 @@ def test_the_paper_names_no_private_address_and_no_tool_attribution():
     """The private address is assembled from parts here on purpose. Writing it
     out would put it in a repository that is released with the paper, which is
     the very thing this test exists to prevent."""
-    text = (PAPER / "main.tex").read_text()
+    require_named_paper()
+    text = paper_source().read_text()
     private = "redacted@example.org"
     assert private not in text
     assert "ibrahimnmian@gmail.com" not in text or "millenniumresearch.ai" in text
@@ -40,7 +42,7 @@ def test_the_paper_does_not_claim_a_disclosure_that_did_not_happen():
     because a false disclosure claim would discredit every honest finding here.
     The test asserts the paper states the true position and asserts a reason for
     it, rather than merely deleting the claim."""
-    text = (PAPER / "main.tex").read_text()
+    text = paper_source().read_text()
     assert "[DATE]" not in text, "the disclosure placeholder is back"
     assert "without prior private notice" in text, \
         "the paper must state that it is published without prior notice"
@@ -57,14 +59,16 @@ def test_the_repository_claim_is_not_made_before_the_repository_exists():
     The audit repository is private until the lead author releases it, so the URL must stay
     a visible placeholder until it is real -- a paper that claims a public
     artefact nobody can fetch is worse than one that claims nothing."""
+    require_named_paper()
     import re
-    text = (PAPER / "main.tex").read_text()
+    text = paper_source().read_text()
     assert "[REPOSITORY URL]" in text or re.search(r"https?://\S+", text.split("released with this paper")[1][:200]), \
         "the repository claim names neither a placeholder nor a URL"
 
 
 @pytest.mark.skipif(shutil.which("tectonic") is None, reason="no LaTeX toolchain")
 def test_the_paper_compiles(tmp_path):
+    require_named_paper()
     for f in ("main.tex",):
         shutil.copy(PAPER / f, tmp_path / f)
     p = subprocess.run(["tectonic", "-X", "compile", "main.tex"],
@@ -108,7 +112,7 @@ def test_the_quoted_baseline_vector_matches_the_fetched_api_response():
 
 
 def test_the_paper_makes_no_claim_about_the_server():
-    text = (PAPER / "main.tex").read_text().lower()
+    text = paper_source().read_text().lower()
     for bad in ("the server does charge", "the server counts", "the server enforces",
                 "the leaderboard is wrong", "models are scored wrongly"):
         assert bad not in text, bad
