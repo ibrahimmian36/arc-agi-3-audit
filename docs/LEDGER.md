@@ -146,3 +146,16 @@ contents identical to `git ls-files`. announcement draft written, with a test th
 every figure in it appears in the paper.
 
 237 tests, 91 paper figures, 144 claims, consistency check green.
+
+## 2026-09-04 — Phase 17: the release, checked the way a stranger would check it
+
+Fresh clone, bootstrapped by `scripts/setup.sh` alone: 235 passed, 4 skipped
+with reasons, all three checkers pass, both the journal PDFs build. Unpacked anonymous
+archive, bootstrapped the same way: 209 passed, 30 skipped with reasons, all
+three checkers pass; with Dafny and node the models re-verify from the archive
+and 224 pass. Every page of all three PDFs rendered and inspected; zero
+overfull lines in every build. All five citations confirmed against arXiv and
+the announcement. Abstract cut from 669 words. Four stale passages corrected.
+The supplementary archive anonymised and searched file by file.
+
+Nothing in `artifacts/` changed. Scratch clones deleted.
