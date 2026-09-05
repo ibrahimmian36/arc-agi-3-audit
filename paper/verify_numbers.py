@@ -24,6 +24,8 @@ ART = HERE.parent / "artifacts"
 # (phrase as printed in the paper, value it asserts, log file, regex capturing it)
 CLAIMS: list[tuple[str, str, Path, str]] = [
     # --- figures the consistency check found untraced (Phase 15) ---
+    ("143 on level~1", "143", ART / "env/ls20/graph_L1.json", r'"game_over_states": (\d+)'),
+    ("1291 on level~2", "1291", ART / "env/ls20/graph_L2.json", r'"game_over_states": (\d+)'),
     ("returning HTTP 403", "403", ART / "replays/availability.log",
      r"announced_link_status=(\d+)"),
     ("23 of the 25 environments have at least one such", "23",
@@ -32,7 +34,7 @@ CLAIMS: list[tuple[str, str, Path, str]] = [
      r"^OUTCOME .*runs_where_neither_completed_a_level=(\d+)"),
     ("did not choose is 0.69", "0.006896552", ART / "tax/tax.log",
      r"^TAX .*median_forced_share_of_counted=([0-9.]+)"),
-    ("costs a level between 0.03 and", "0.000346021", ART / "budget/budget.log",
+    ("costs a level between 0.035 and", "0.000346021", ART / "budget/budget.log",
      r"^TAX .*min_share=([0-9.]+)"),
     ("3.33 per cent of its budget", "0.033333333", ART / "budget/budget.log",
      r"^TAX .*max_share=([0-9.]+)"),

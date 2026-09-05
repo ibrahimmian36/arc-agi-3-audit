@@ -64,6 +64,8 @@ EXEMPT: dict[str, str] = {
     "159": "an element of ar25's published baseline vector, as above",
     "233": "an element of ar25's published baseline vector, as above",
     "4743": "the first characters of a pinned git commit hash, not a quantity",
+    "08": "the first two characters of a git commit hash (08b4f2e), not a quantity",
+    "15": "the sum of the level weights 1 to 5 of a five-level planted trace, arithmetic stated in the text",
     "51": "one action past the 5.0x cutoff on a baseline of 10, which is what "
           "probe P3b's own description in artifacts/scorer/probes.log records; "
           "both the baseline and the multiplier are themselves traced",
@@ -110,7 +112,7 @@ def derivations(value: str) -> set[str]:
     except ValueError:
         return out
     for x in (f, f * 100):
-        for dp in (0, 1, 2):
+        for dp in (0, 1, 2, 3):
             r = round(x, dp)
             out.add(f"{r:.{dp}f}".rstrip(".") if dp else str(int(r)) if r == int(r) else str(r))
             out.add(str(r))

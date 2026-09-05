@@ -38,23 +38,25 @@ human reads each disagreement before it is called anything.
 The finding that bears on a scored run is in the harness. After a game over it
 issues a \code{RESET} of its own, and that reset consumes the agent's per-level
 action budget. By a paired counterfactual, identical in policy and differing
-only in whether the forced reset is charged, we show this can end a level the
+only in whether the forced reset is charged to the budget counter, we show this can end a level the
 agent would otherwise have completed, on a real public environment at the budget
 its published baseline implies. We predicted before measuring, and confirm, that
 the set of budgets on which the two runs disagree is exactly as wide as the
 number of game overs: an agent's effective per-level budget is $\lceil 5b
-\rceil$ minus the number of times it died. No published document states that
-these resets happen or that they are charged. We bound the finding as carefully
+\rceil$ minus the number of times it died. None of the documents we examined states
+that these resets happen or that they are charged. We bound the finding as carefully
 as we make it: 148 of the 183 public levels can be lost inside their own budget,
 but across 250 paired runs of a policy that simply plays, no level's completion
 and no run's exit reason ever differed, so the mechanism's reach depends on an
-agent good enough to finish close to its budget.
+agent good enough to finish close to its budget, and on how often such an agent
+dies.
 
-We also find an aggregation defect on the toolkit's local scoring path, an
+We also find a discrepancy between the documented aggregation rule and the
+toolkit's local implementation, an
 equation in the technical report that permits a per-level score of $132.25\%$
 where its prose, the documentation and the code all cap the score at $115\%$,
-and that the 342 human replays announced as open source cannot be located
-through the Foundation's public channels. Positively, two machine-verified
+and that the 342 human replays announced as open source could not be located
+through the Foundation's public channels on 4 September 2026. Positively, two machine-verified
 environment models agree with the shipped implementation on all $190{,}560$
 transitions, a level reset restores the observed frame on all $18{,}663$ probes
 across all 25 environments, and every resolvable human baseline is consistent
@@ -86,7 +88,7 @@ so at the same length as where we found something.
 
 \paragraph{Contributions.}
 \begin{enumerate}
-\item A finding on the path an official run takes: the benchmarking harness
+\item A finding in the published benchmarking harness: it
       spends the agent's per-level action budget on resets it issues after a
       game over, so an agent's effective budget is $\lceil 5b \rceil$ minus the
       number of times it died, and at the boundary this fails a level the same
@@ -102,7 +104,8 @@ so at the same length as where we found something.
 \item Machine-verified models of two levels of a public environment, agreeing
       with the shipped implementation on every transition of their complete
       reachable state graphs (Section~\ref{sec:env}). We also give the first
-      published exhaustive state counts for those levels and check the report's
+      published exhaustive state counts for those levels, under a stated
+      identity function, and check the report's
       own stated win probability against them.
 \item A measurement of which environments admit state-graph methods at all
       (six of 25), and reset and level-accounting probes covering all 25
@@ -144,7 +147,9 @@ anything. ``No disagreement on $N$ fixtures'' is a statement about $N$ fixtures.
 
 \paragraph{Preregistration.} The bar, the predictions, and the reading of each
 possible outcome were written down and committed before each measurement.
-Deviations are dated in a decisions file and disclosed. One preregistered
+The preregistration was committed (\code{8e0f70b}) before the first measurement
+(\code{08b4f2e}), and each later phase's plan precedes its runs in the same
+history. Deviations are dated in a decisions file and disclosed. One preregistered
 prediction was wrong and is reported as such in Section~\ref{sec:scoring}.
 
 \paragraph{Machine-verified models, run differentially.} For each rule under
@@ -170,7 +175,7 @@ Report v2 \S4.1 defines the level efficiency score for level $l$ of environment
 $e$, with $a_{l,e}$ the agent's action count and $h_{l,e}$ the human baseline,
 and gives the environment score as a level-index-weighted average subject to a
 cap at the weighted fraction of levels completed. The human baseline is the
-upper-median action count of first-time human players; report v1 said
+upper-median (the report's term) action count of first-time human players; report v1 said
 second-best, and the change is documented in an April 2026 post
 \cite{humandataset}.
 
@@ -188,7 +193,9 @@ changelog records the change from a $100\%$ cap to a $115\%$ cap; and the
 shipped code applies \code{min(score, 115.0)} after squaring. Every artefact
 except the equation caps the score.
 
-The difference is observable. Our planted trace \code{P2c} has one level solved
+The difference is observable. Every planted trace has five levels with a
+baseline of 10 on each, so the level weights sum to 15, and a level not listed
+is left incomplete. Our planted trace \code{P2c} has one level solved
 in $5$ actions against a baseline of $10$ and three solved in $12$: the shipped
 scorer returns an environment score of \code{49.333333}, the prose reading
 returns the same, and the equation reading returns \code{50.483333}. A level
@@ -300,15 +307,19 @@ than consulting the model, because a reset is the only way to continue. Those
 resets are counted by the harness like any other action and, on the local path,
 charged by the scorer to the level in progress.
 
-Driving the harness's own control loop against the toolkit's fixture game, an
+Driving the harness's own control loop against the toolkit's fixture game (the
+test environment the toolkit ships for its own unit tests), an
 agent that loses a level three times and then solves it chooses 16 actions and
 is counted 19, and the level is scored on all 19. Against that level's baseline
-of four, being scored on 19 rather than on the 16 the agent chose lowers the
-level's contribution by roughly three tenths.
+of four, being scored on 19 rather than on the 16 the agent chose lowers that level's
+score by roughly three tenths, relative to the score on 16.
 
 A fall in a completed level's score is the mild consequence. The counter these
 resets increment is also the one the harness stops on. The per-level budget is
-$\lceil 5b \rceil$ for a baseline $b$; \code{is\_done} ends the level once the
+$\lceil mb \rceil$ for the harness's multiplier $m$, which every shipped
+configuration sets to $5.0$; the ceiling is the harness's own and is inert for
+the integer baselines the benchmark publishes, so we write $\lceil 5b \rceil$
+throughout. \code{is\_done} ends the level once the
 counter reaches it; \code{choose\_action} returns a forced action before the
 ordinary increment, but the routine that records the forced action increments
 the same counter regardless. A run can therefore be cut off on an action the
@@ -317,15 +328,16 @@ agent did not choose.
 We measured that as a paired counterfactual rather than arguing it from the
 code. The same scripted policy runs twice against the same game with the same
 budget, differing in one respect: in the second run the forced reset still
-happens and still reaches the environment, but does not increment the budget
-counter. At a budget of 8 the shipped harness exits on the budget with the level
+happens, still reaches the environment and is still counted by the scorecard,
+but does not increment the budget counter. At a budget of 8 the shipped harness exits on the budget with the level
 incomplete and the environment scoring \code{0.0}, while the counterfactual
 completes the level and scores \code{1.316872428}. The agent's play is identical
 in both. The reset it did not choose is the entire difference between a
 completed level and a failed one.
 
-This is not a knife edge, and we predicted its shape before measuring it. The
-counterfactual completes the level as soon as the budget covers the agent's
+This is not a knife edge. The width of the disagreement follows from the
+mechanism as read from the code, and we wrote the prediction down before
+measuring rather than assuming it. The counterfactual completes the level as soon as the budget covers the agent's
 chosen actions, while the shipped harness additionally needs one action per game
 over, so the set of budgets on which the two disagree should be exactly as wide
 as the number of game overs. It is, in every case probed: no denial budgets for
@@ -340,10 +352,10 @@ That demonstration uses the toolkit's fixture game and a budget we set, and a
 fixture is not the benchmark. It reproduces on a real public environment at the
 budget the harness derives from that level's published human baseline, which we
 neither supply nor override. On \code{tu93} level 1, whose baseline of 19 gives
-a budget of 95, an agent that dies once and then plays a 95-action winning line
-is cut off with the level incomplete and the environment scoring \code{0.0},
-while the same policy with the forced reset uncharged completes the level and
-scores \code{0.087046682}. The boundary appears on the same real level: at 93
+a budget of 95, an agent whose 95 chosen actions comprise one losing line and then a winning
+one is cut off with the level incomplete and the environment scoring \code{0.0},
+while the same policy with the forced reset uncharged to the budget counter
+completes the level and scores \code{0.087046682}. The boundary appears on the same real level: at 93
 and at 94 chosen actions both runs complete, and only at 95 does the reset
 decide it. The losing line and the winning line are each replayed on the shipped
 environment before use.
@@ -377,9 +389,11 @@ depends on an agent good enough to finish close to its budget, and we cannot say
 how often a capable agent is in that position without runs against the server.
 
 The sweep also cross-checks the exposure measurement across the whole set, and
-the two agree in both directions: an environment whose first level cannot be lost
-inside its budget never incurs a forced reset in any seed, and one that can
-always does in some seed. The comparison has to be made per environment across
+the two agree in both directions: an environment where no loss inside the budget was
+found never incurs a forced reset in any seed, and one where a loss was found
+always does in some seed. Both instruments are random play, so this is a
+consistency check rather than independent confirmation; the exhaustive result
+on \code{ls20} level 1 below is the independent one. The comparison has to be made per environment across
 its seeds rather than per run, because a single seed may complete the level
 outright and never die; an earlier version of our own check compared one seed
 and reported a disagreement that was not there.
@@ -394,8 +408,9 @@ recorded line is replayed, coordinates included, to confirm it ends the game.
 
 On 148 of the 183 levels that bound falls below the budget, which proves the
 level can be lost within it, and 23 of the 25 environments have at least one such
-level. On the exposed levels the median losing line costs about a third of the
-budget and the median number of deaths affordable is three. On the remaining 35
+level. On the exposed levels the median recorded losing line is about a third of the
+budget and the median number of deaths it affords is three; both are statistics
+of upper bounds on the shortest loss, so the deaths affordable are lower bounds. On the remaining 35
 no rollout died, and we report those as not established rather than as immunity,
 since random play failing to lose says nothing about the shortest line.
 
@@ -417,7 +432,7 @@ exhaustive search puts the true shortest losing line at 129 against a budget of
 search correctly finds nothing there. That is why our first attempt to
 demonstrate the denial there failed, and we record it rather than dropping it.
 
-Applied to the real public set, one such reset costs a level between $0.03$ and
+Applied to the real public set, one such reset costs a level between $0.035$ and
 $3.33$ per cent of its budget, and lowers an otherwise perfect completion by a
 median of \code{3.251814028} points across the 183 levels of the 25 public
 environments. The worst case is the smallest baseline in the set, \code{sc25}
@@ -436,8 +451,9 @@ here the agent is additionally charged for resets it never chose.
 Several negatives from the same instruments are worth recording, because each
 rules out a way a client can distort its own score. A retried model call never
 reaches the environment: the harness's retry path contains no call that does,
-and across every scripted run the number of environment calls equals the number
-of actions counted. One intended action is sent exactly once: driven with a
+and across every scripted run the number of action-bearing environment calls
+equals the number of actions counted; the construction reset below is not an
+action. One intended action is sent exactly once: driven with a
 transport that records every attempt and opens no socket, the remote wrapper
 makes a single attempt under a connection error, a read timeout after the
 request was sent, a server error and an empty response, so it never has the
@@ -463,7 +479,8 @@ but at twelve hours per environment we could not show it binds.
 The engine permits a game to advance the level counter twice within a single
 action. Where that happens, the scorer pairs the $k$-th recorded level
 transition with level $k$ and scores the final level as not completed even
-though the play ends in a win: our trace \code{P8} returns \code{66.666667}
+though the play ends in a win: our five-level trace \code{P8}, every level solved at baseline, returns
+\code{66.666667} with the first four levels credited and the fifth not,
 where the documented rule gives \code{100.000000}.
 
 We then asked whether any public environment can trigger it. Statically, all 25
@@ -521,8 +538,16 @@ traces.
 
 \subsection{Results}
 
-Table~\ref{tab:ls20} summarises. Both models verify with no errors and no
-timeouts, and agree with the shipped implementation everywhere.
+Table~\ref{tab:ls20} summarises. States are counted under the enumerator's raw
+key (\S\ref{sec:state}); the three life-copies of that section account for
+all but the game-over states, 143 on level~1 and $1{,}291$ on level~2, which
+lie outside them, and the level's single win state is the other absorbing
+state. Both models verify with no errors and no timeouts, and agree with the
+shipped implementation everywhere. Because the environments' rules are stated
+nowhere, the models are our rule-level reading of the shipped step function,
+and agreement on every transition establishes that the implementation has no
+behaviour outside the modelled rules on the reachable graph, not that those
+rules are the intended ones.
 
 \begin{table}[t]
 \centering
@@ -572,6 +597,7 @@ definitional gap rather than an error: the environment agrees with the claim
 under its natural reading.
 
 \subsection{What counts as a state}
+\label{sec:state}
 
 A state count depends on the identity function used, and the choice is not
 neutral. At the rule level the three-life structure is symmetric on both levels:
@@ -591,7 +617,8 @@ engine-state hash and a rule-level abstraction give three different answers.
 
 Before enumerating anything we measured what is enumerable. Nineteen of the 25
 public environments advertise the click action, whose $x$ and $y$ each range
-over $0$ to $63$, giving at least $4{,}096$ successors per state. Exhaustive
+over $0$ to $63$, giving at least $4{,}096$ distinct actions per state, most of them no-ops.
+Exhaustive
 enumeration is out of reach for those within any reasonable budget. The
 remaining six --- \code{ls20}, \code{tr87}, \code{tu93}, \code{g50t},
 \code{re86}, \code{wa30} --- advertise four or five simple actions.
@@ -712,8 +739,8 @@ seven on the level we compared. It resolved nothing: in the same time budget
 breadth-first reached a greater depth on both levels compared, because deepening
 re-explores, and on levels breadth-first can finish it is strictly better. The
 binding constraint is not memory but the size of the state space at the depths
-these baselines occupy, and no exhaustive search we can write reaches depth 26,
-let alone 183. Settling these levels would need the human replays, which we could
+these baselines occupy, and on those twelve levels no exhaustive search we can
+write reaches depth 26, let alone 183. Settling these levels would need the human replays, which we could
 not locate, or a solver for these environments, which this audit's own scope
 excludes.
 
@@ -731,7 +758,7 @@ the 25 public environments. We were unable to find them. Checked on 4 September
 human-replay dataset; the \code{arcprize} HuggingFace author lists three
 datasets, of which the only human-testing one is for ARC-AGI-2; and the single
 link the announcement provides is a shortener that did not resolve for us,
-returning HTTP 403.
+returning HTTP 403 to a plain request without a browser.
 
 This is a statement about what these checks found on that date, not a claim that
 the data does not exist; it may well be reachable by a route we did not try. We
@@ -757,7 +784,7 @@ A reader should hold the following in mind.
       as the default explanation throughout.
 \item Two levels of one environment are audited with verified models. The
       state-graph results cover level 1 of six environments, two exhaustively;
-      the nineteen click-based environments admit no state graph. Whether a
+      we could not enumerate the nineteen click-based environments. Whether a
       level can be lost inside its budget is measured for all 183 levels, but
       that instrument is one-sided: it proves exposure where it finds a loss
       and proves nothing where it does not.
