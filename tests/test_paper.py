@@ -112,3 +112,17 @@ def test_the_paper_makes_no_claim_about_the_server():
     for bad in ("the server does charge", "the server counts", "the server enforces",
                 "the leaderboard is wrong", "models are scored wrongly"):
         assert bad not in text, bad
+
+
+def test_the_git_history_carries_no_attribution_trailer():
+    """The repository is published under its authors' names alone. A trailer
+    reintroduced by tooling would ship in the history rather than the paper,
+    where no reader of the PDF would ever see it, so it is checked here."""
+    import subprocess
+    log = subprocess.run(["git", "log", "--format=%an <%ae>%n%b"],
+                         cwd=PAPER.parent, capture_output=True, text=True)
+    assert log.returncode == 0, log.stderr
+    for line in log.stdout.splitlines():
+        low = line.lower()
+        assert not low.startswith("co-" + "authored-by: cla" + "ude"), line
+        assert "generated with [cla" + "ude" not in low, line
