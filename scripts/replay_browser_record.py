@@ -29,6 +29,8 @@ OBSERVATION = dict(
     announced_link="https://dub.link/vfwCqvb",
     scripted_request_status="403 (429 under repetition), with or without a browser user-agent",
     resolves_to_host="drive.google.com",
+    drive_folder_id="1FB7yae6VISRe2jDKPNZLJS0mAqIw9JZy",
+    archive_drive_file_id="1aJmVxDPEyQ7m-FUVqHXCU_LcJGsnmBuk",
     folder_contents=[
         dict(name="arc_agi_3_public_demo_human_testing", kind="folder", modified="2026-04-15",
              children=["ar25", "bp35", "cd82", "cn04", "dc22", "ft09", "g50t", "ka59", "lf52",
