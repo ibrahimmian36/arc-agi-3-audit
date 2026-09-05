@@ -78,7 +78,7 @@ certifies the scorer.
 | A level failed by a reset the agent did not choose | 1 paired counterfactual at budget 8, identical policy | shipped exits `ACTION_BUDGET`, level incomplete, environment `0.0`; the counterfactual completes it and scores `1.316872428` | `artifacts/budget/budget.log` |
 | The same denial on a REAL public level at its real budget | `tu93` level 1, baseline 19, `budget=95`, 3 chosen-action totals swept | at `chosen=95` shipped exits `ACTION_BUDGET` scoring `0.0`, counterfactual completes and scores `0.087046682`; at 93 and 94 both complete | `artifacts/realdenial/realdenial.log` |
 | Can a level be lost inside its own budget, under actions it advertises? | all `levels=183` of the 25 public environments, every line replay-verified | `exposed=148 not_established=35`, `all_witnesses_replay=True`; 19 of 25 at level 1 | `artifacts/deathcost/deathcost.log` |
-| What the forced resets cost a blind policy, and whether they change anything | 60 paired runs, 6 blind-playable environments, 10 seeds | `median_forced_share_of_counted=0.006267806000000001`, `max_forced_share_of_counted=0.010526316`; `runs_where_a_level_differs=0`, `total_extra_actions_when_uncharged=70` | `artifacts/tax/tax.log` |
+| What the forced resets cost a blind policy, and whether they change anything | 250 paired runs, all `games=25` environments, 10 seeds | `median_forced_share_of_counted=0.006896552`, `max_forced_share_of_counted=0.062801932`; `runs_where_a_level_differs=0` including the 16 runs that completed a level | `artifacts/tax/tax.log` |
 | Random bound against exhaustive search where both are available | `ls20` level 1 | random `shortest_observed_loss=129`, exhaustive `shortest_loss=129`, against `budget=110`: not exposed | `artifacts/deathcost/exhaustive.log` |
 | How many budgets the forced resets decide (preregistered: as many as the deaths) | 4 death counts, budgets swept around each | `deaths=0` none, `1` `[8]`, `2` `[12, 13]`, `3` `[16, 17, 18]`; `window_prediction_holds=True` | `artifacts/budget/budget.log` |
 | What one forced reset costs a real public level | all 183 levels of the 25 public environments | median fall `3.251814028` points; worst `sc25-635fd71a` level 1 (baseline 6), `100.0` to `73.469387755`; share of budget at most `0.033333333` | `artifacts/budget/budget.log` |
@@ -179,33 +179,44 @@ and the winning line are both replayed on the shipped environment before use
 **What it costs a policy that simply plays, and the honest null.** The
 demonstration above uses a contrived play. To see what the mechanism costs a
 policy that is not built to trip it, we ran a seeded blind policy over each
-environment's advertised actions through the harness's own loop, twice per seed:
-once as shipped and once with the forced reset uncharged. Because the sequence
-is fixed in advance the two runs choose the same actions as far as both go, and
-the only difference is the charged reset. Sixty paired runs over six
-environments and ten seeds give
-`median_forced_share_of_counted=0.006267806000000001` and
-`max_forced_share_of_counted=0.010526316`: about one action in a hundred of what
-such a policy is charged is an action it did not choose, and
-`total_extra_actions_when_uncharged=70` is exactly the number of forced resets,
-which is the mechanism stated as an identity.
+environment's advertised actions --- clicks included, with coordinates inside
+the declared contract --- through the harness's own loop, twice per seed: once
+as shipped and once with the forced reset uncharged. Because the sequence is
+fixed in advance the two runs choose the same actions as far as both go, and the
+only difference is the charged reset. Two hundred and fifty paired runs over all
+`games=25` environments and ten seeds give
+`median_forced_share_of_counted=0.006896552` and
+`max_forced_share_of_counted=0.062801932`: about one action in a hundred of what
+such a policy is charged is an action it did not choose at the median, and up to
+one in sixteen at worst, on `r11l`. The six environments we could measure before
+clicks were supported gave a maximum of about one per cent, so the click-based
+environments carry a materially higher tax and measuring only the six would have
+understated it.
+
+Where neither run completes a level --- 234 of the 250 --- the extra actions the
+uncharged run earns are exactly the forced resets the shipped run was charged,
+which is the mechanism stated as an identity. In the other sixteen the identity
+does not hold, and should not: the extra actions carry the uncharged run to a
+different point in the game where it dies a different number of times.
 
 The outcome result is null and we report it as the result:
-`runs_where_a_level_differs=0` and `runs_where_exit_differs=0`. A blind policy
-does not complete levels, so it is never near the boundary at which the reset
-decides one. **The mechanism's practical bite therefore depends on an agent good
-enough to finish close to its budget**, and nothing here says how often a
-capable agent is in that position: that would need agent runs we cannot perform
-without the server. This bounds the finding rather than weakening it, and it
-belongs beside the finding.
+`runs_where_a_level_differs=0` and `runs_where_exit_differs=0` across all 250.
+This is a stronger null than the one we could state from six environments. There
+we could explain it by saying a blind policy never completes a level; here 16 of
+the 250 runs do complete one, on `cd82`, `r11l` and `sp80`, and the outcome
+still never differs. **The mechanism's practical bite therefore depends on an
+agent good enough to finish close to its budget**, and nothing here says how
+often a capable agent is in that position: that would need agent runs we cannot
+perform without the server. This bounds the finding rather than weakening it,
+and it belongs beside the finding.
 
-Two cross-checks fall out. `ls20` is the only one of the six that never incurs a
-forced reset in any of its ten seeds, which is exactly the environment the
-death-cost measurement says cannot be lost inside its budget; a test asserts
-that agreement in both directions. And ten genuinely different action sequences
-produce the same forced-reset count in every environment, because a death here
-comes from exhausting a level's own step allowance rather than from any
-particular mistake. Artefact: `artifacts/tax/tax.log`.
+The cross-check against exposure now covers the whole set and agrees in both
+directions: an environment whose level 1 cannot be lost inside its budget never
+incurs a forced reset in any seed, and one that can always does in some seed. It
+must be compared per environment across its seeds rather than per run --- `cd82`
+completes level 1 outright on three of its ten seeds and never dies on those ---
+and an earlier version of our own check compared a single seed and reported a
+disagreement that was not there. Artefact: `artifacts/tax/tax.log`.
 
 **The precondition, measured across the whole public set.** The mechanism needs
 a game over: without one the harness issues no reset and there is no exposure.

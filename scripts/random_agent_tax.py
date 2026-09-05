@@ -49,6 +49,9 @@ sys.path.insert(0, str(ROOT / "vendor" / "arc-agi-3-benchmarking"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from arc_agi import Arcade, OperationMode  # noqa: E402
+from arcengine import GameAction  # noqa: E402
+from benchmarking.runtime_models import ModelResponse, NormalizedUsage  # noqa: E402
+from death_cost import COMPLEX, GRID_MAX, advertised_actions  # noqa: E402
 from harness_probe import MULT, make_agent  # noqa: E402
 
 ENVDIR = ROOT / "environment_files"
@@ -56,8 +59,8 @@ API = ROOT / "artifacts" / "api" / "games.json"
 CENSUS = ROOT / "artifacts" / "sweep"
 RSS_CAP_MB = 900.0
 
-# The environments that can be played blind, with the actions they advertise.
-# Taken from the action census; the other nineteen need click coordinates.
+# Kept for the tests that assert the earlier six-environment coverage; the sweep
+# now asks each environment what it advertises rather than relying on this.
 BLIND = {"ls20": [1, 2, 3, 4], "tr87": [1, 2, 3, 4], "tu93": [1, 2, 3, 4],
          "g50t": [1, 2, 3, 4, 5], "re86": [1, 2, 3, 4, 5], "wa30": [1, 2, 3, 4, 5]}
 
@@ -66,7 +69,8 @@ def peak_rss_mb() -> float:
     return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / (1024 * 1024)
 
 
-def script_for(game: str, baselines: list[int], seed: int) -> list[str]:
+def script_for(game: str, baselines: list[int], seed: int,
+               actions: list[int] | None = None) -> list[str]:
     """A fixed pseudorandom sequence, long enough that it cannot be exhausted.
 
     Chosen actions can never exceed the sum of the per-level budgets, because a
@@ -75,8 +79,19 @@ def script_for(game: str, baselines: list[int], seed: int) -> list[str]:
     stand in for a real exit reason.
     """
     total = sum(math.ceil(b * MULT) for b in baselines)
+    acts = actions if actions is not None else BLIND[game]
     rng = random.Random(f"{game}:{seed}")
-    return [f"ACTION{rng.choice(BLIND[game])}" for _ in range(total + 8)]
+    out = []
+    for _ in range(total + 8):
+        a = rng.choice(acts)
+        if a in COMPLEX:
+            # A click carries coordinates. They travel in the script entry so the
+            # sequence is fixed in advance and both runs of the pair issue the
+            # identical click.
+            out.append(f"ACTION{a}:{rng.randint(0, GRID_MAX)},{rng.randint(0, GRID_MAX)}")
+        else:
+            out.append(f"ACTION{a}")
+    return out
 
 
 def run(game_id: str, script: list[str], count_forced: bool) -> dict:
@@ -89,6 +104,26 @@ def run(game_id: str, script: list[str], count_forced: bool) -> dict:
     env = arc.make(game_id, scorecard_id=card_id, save_recording=False)
     baselines = list(env.info.baseline_actions or [])
     agent = make_agent(env, env.info.game_id, baselines, list(script))
+
+    # The harness's own agent attaches coordinates with set_data (agent.py:386)
+    # and the wrapper then sends action.action_data (agent.py:574). Do exactly
+    # that rather than a private imitation of it. GameAction members are shared,
+    # so the data is set immediately before each use.
+    clicks = {"issued": 0}
+
+    def scripted(actions):
+        if not agent._script:
+            raise RuntimeError("script exhausted")
+        entry = agent._script.pop(0)
+        agent._executed_from_script.append(entry)
+        name, _, coords = entry.partition(":")
+        action = GameAction.from_name(name)
+        if coords:
+            x, y = (int(v) for v in coords.split(","))
+            action.set_data({"x": x, "y": y})
+            clicks["issued"] += 1
+        return ModelResponse(output_text=entry, usage=NormalizedUsage()), action, 0, []
+    agent._request_with_retries = scripted
 
     forced_per_level: dict[int, int] = {}
     real_record = agent._record_forced_action_observation
@@ -122,14 +157,16 @@ def run(game_id: str, script: list[str], count_forced: bool) -> dict:
                 card_actions=card["actions"], card_resets=card["resets"],
                 levels_completed=card["levels_completed"],
                 executed_from_script=len(agent._executed_from_script),
+                clicks_issued=clicks["issued"],
                 executed=list(agent._executed_from_script),
                 exit_reason=agent.exit_reason.name if agent.exit_reason else None,
                 environment_score=(round(envscore["score"], 9) if envscore else None),
                 seconds=round(seconds, 2), error=error)
 
 
-def pair(game: str, game_id: str, baselines: list[int], seed: int) -> dict:
-    script = script_for(game, baselines, seed)
+def pair(game: str, game_id: str, baselines: list[int], seed: int,
+         actions: list[int]) -> dict:
+    script = script_for(game, baselines, seed, actions)
     shipped = run(game_id, script, True)
     free = run(game_id, script, False)
     # The two runs do NOT execute the same NUMBER of actions, and should not:
@@ -148,7 +185,8 @@ def pair(game: str, game_id: str, baselines: list[int], seed: int) -> dict:
         if i < len(budgets):
             tax.append(dict(level=i, forced=n, budget=budgets[i],
                             share_of_budget=round(n / budgets[i], 9)))
-    return dict(game=game, seed=seed, shipped=shipped, uncharged=free,
+    return dict(game=game, seed=seed, advertised_actions=actions,
+                shipped=shipped, uncharged=free,
                 same_chosen_actions=same_choices,
                 extra_actions_when_uncharged=extra_actions_when_uncharged,
                 forced_share_of_counted=round(
@@ -164,7 +202,8 @@ def pair(game: str, game_id: str, baselines: list[int], seed: int) -> dict:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--games", nargs="+", default=sorted(BLIND))
+    ap.add_argument("--games", nargs="+", default=None,
+                    help="default: every public environment")
     ap.add_argument("--seeds", type=int, default=3)
     ap.add_argument("--smoke", action="store_true",
                     help="one environment, one seed, then report the rate and stop")
@@ -174,15 +213,21 @@ def main(argv=None) -> int:
 
     api = {g["game_id"][:4]: (g["game_id"], g["baseline_actions"])
            for g in json.loads(API.read_text())}
-    games = a.games[:1] if a.smoke else a.games
+    all_games = a.games if a.games else sorted(api)
+    games = all_games[:1] if a.smoke else all_games
     seeds = range(1) if a.smoke else range(a.seeds)
 
     rows, lines = [], []
     t0 = time.time()
     for game in games:
         game_id, baselines = api[game]
+        try:
+            actions = advertised_actions(game, 1)
+        except Exception as e:                       # noqa: BLE001
+            lines.append(f"SKIP {game} {type(e).__name__}: {e}")
+            continue
         for seed in seeds:
-            p = pair(game, game_id, baselines, seed)
+            p = pair(game, game_id, baselines, seed, actions)
             rows.append(p)
             s, f = p["shipped"], p["uncharged"]
             lines.append(
@@ -194,6 +239,7 @@ def main(argv=None) -> int:
                 f"uncharged_levels={sum(1 for x in f['levels_completed'] if x)} "
                 f"levels_differ={p['levels_differ']} exit_differs={p['exit_differs']} "
                 f"same_chosen_actions={p['same_chosen_actions']} "
+                f"clicks={s['clicks_issued']} "
                 f"exit={s['exit_reason']} seconds={s['seconds']}")
 
     shares = sorted(r["forced_share_of_counted"] for r in rows)
@@ -210,6 +256,9 @@ def main(argv=None) -> int:
         f"levels_with_a_forced_reset={len(lvl_shares)} "
         f"median_level_share={med(lvl_shares)} "
         f"max_level_share={lvl_shares[-1] if lvl_shares else None}")
+    lines.append(
+        f"ENVS games={len(games)} measured={len({r['game'] for r in rows})} "
+        f"skipped={len(games) - len({r['game'] for r in rows})}")
     lines.append(
         f"OUTCOME runs={n} runs_where_a_level_differs={outcome_changes} "
         f"runs_where_exit_differs={sum(1 for r in rows if r['exit_differs'])} "

@@ -350,27 +350,39 @@ environment before use.
 
 What the mechanism costs a policy that is not built to trip it is a separate
 question, and we measured it rather than leaving the contrivance unqualified. A
-seeded blind policy over each environment's advertised actions was driven
-through the harness's own loop twice per seed, once as shipped and once with the
-forced reset uncharged; because the sequence is fixed in advance the two runs
-choose the same actions as far as both go. Across sixty paired runs over six
-environments and ten seeds, the median share of charged actions that the agent
-did not choose is $0.63\%$ and the maximum is $1.05\%$, and the number of extra
-actions the uncharged runs earn is exactly the number of forced resets, which is
-the mechanism restated as an identity.
+seeded blind policy over each environment's advertised actions, clicks included
+with coordinates inside the declared contract, was driven through the harness's
+own loop twice per seed, once as shipped and once with the forced reset
+uncharged; because the sequence is fixed in advance the two runs choose the same
+actions as far as both go. Across 250 paired runs over all 25 environments and
+ten seeds, the median share of charged actions that the agent did not choose is
+$0.69\%$ and the maximum is $6.28\%$. The six environments that could be played
+without clicks gave a maximum near one per cent, so the click-based environments
+carry a materially higher tax, and measuring only those six would have
+understated it.
+
+Where neither run completes a level, which is 234 of the 250, the extra actions
+the uncharged run earns are exactly the forced resets the shipped run was
+charged: the mechanism as an identity. In the remaining sixteen it does not
+hold, and should not, since those extra actions carry the uncharged run to a
+different point in the game.
 
 The outcome result is null, and it is as much a part of this finding as the
 denial. No level's completion and no run's exit reason differs between the
-charged and uncharged runs. A blind policy does not complete levels, so it is
-never near the boundary at which the reset decides one. The practical reach of
-this mechanism therefore depends on an agent good enough to finish close to its
-budget, and we cannot say how often a capable agent is in that position without
-runs against the server. Two cross-checks fall out of the same sweep:
-\code{ls20} is the only one of the six that never incurs a forced reset in any
-seed, which is exactly the environment that cannot be lost inside its budget,
-and ten genuinely different action sequences yield the same forced-reset count
-in every environment, because a death here comes from exhausting a level's own
-step allowance rather than from any particular mistake.
+charged and uncharged runs, in any of the 250. This is stronger than what six
+environments could support: there the null could be explained by a policy that
+never completes a level, whereas here sixteen runs do complete one and the
+outcome still never differs. The practical reach of this mechanism therefore
+depends on an agent good enough to finish close to its budget, and we cannot say
+how often a capable agent is in that position without runs against the server.
+
+The sweep also cross-checks the exposure measurement across the whole set, and
+they agree in both directions: an environment whose first level cannot be lost
+inside its budget never incurs a forced reset in any seed, and one that can
+always does in some seed. The comparison has to be made per environment across
+its seeds rather than per run, because a single seed may complete the level
+outright and never die; an earlier version of our own check compared one seed
+and reported a disagreement that was not there.
 
 The mechanism needs a game over, so we asked of all 183 levels of the 25 public
 environments whether a level can be lost inside its own budget. Each shipped

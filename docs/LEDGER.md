@@ -105,3 +105,17 @@ click; three of its lines used unadvertised actions, two entirely. The
 correction is recorded in DECISIONS and enforced by a test.
 
 Peak RSS under 600 MB, no network, artefacts within the ceiling.
+
+## 2026-09-04 — Phase 14: the tax over the whole public set, clicks included
+
+Extended the paired tax sweep from six environments to all 25 by issuing clicks
+through the harness's own path, with coordinates verified to reach the
+environment by an independent interception. 250 paired runs at ten seeds:
+`median_forced_share_of_counted=0.006896552`,
+`max_forced_share_of_counted=0.062801932` — the click-based environments carry a
+materially higher tax than the six measured before, whose maximum was about one
+per cent. The outcome result stays null across all 250, and is now stronger: 16
+runs complete a level and still nothing differs. The exposure cross-check agrees
+across all 25 in both directions.
+
+Peak RSS 422 MB against a 900 MB ceiling, 124 seconds, no network.

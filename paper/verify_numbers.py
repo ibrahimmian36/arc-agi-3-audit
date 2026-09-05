@@ -24,12 +24,6 @@ ART = HERE.parent / "artifacts"
 # (phrase as printed in the paper, value it asserts, log file, regex capturing it)
 CLAIMS: list[tuple[str, str, Path, str]] = [
     # --- what the forced resets cost a policy that simply plays ---
-    ("sixty paired runs over six environments and ten seeds", "60",
-     ART / "tax/tax.log", r"^TAX runs=(\d+)"),
-    ("the maximum is 1.05%", "0.010526316", ART / "tax/tax.log",
-     r"^TAX .*max_forced_share_of_counted=([0-9.]+)"),
-    ("No level's completion and no run's exit reason differs", "0",
-     ART / "tax/tax.log", r"^OUTCOME .*runs_where_a_level_differs=(\d+)"),
 
     ("On 148 of the 183 levels that bound falls", "148", ART / "deathcost/deathcost.log",
      r"^SUMMARY .*exposed=(\d+)"),
@@ -37,6 +31,14 @@ CLAIMS: list[tuple[str, str, Path, str]] = [
      r"^SUMMARY .*levels=(\d+)"),
     ("the remaining 35", "35", ART / "deathcost/deathcost.log",
      r"^SUMMARY .*not_established=(\d+)"),
+
+    ("250 paired runs over all 25 environments", "250", ART / "tax/tax.log",
+     r"^TAX runs=(\d+)"),
+    ("the maximum is 6.28%", "0.062801932", ART / "tax/tax.log",
+     r"^TAX .*max_forced_share_of_counted=([0-9.]+)"),
+    ("in any of the 250", "0", ART / "tax/tax.log",
+     r"^OUTCOME .*runs_where_a_level_differs=(\d+)"),
+    ("all 25 environments and", "25", ART / "tax/tax.log", r"^ENVS .*measured=(\d+)"),
 
     # --- the denial on a real public level, at its real budget ---
     ("scores 0.087046682", "0.087046682", ART / "realdenial/realdenial.log",
