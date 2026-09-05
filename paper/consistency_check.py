@@ -197,7 +197,12 @@ def main() -> int:
     # once, or neither, means the sentence is asserting something unchecked.
     placeholder = tex.count("[REPOSITORY URL]")
     url = len(re.findall(r"github\.com/[A-Za-z0-9_.-]+/arc-agi-3-audit", tex))
-    if placeholder and url:
+    # A copy prepared for review carries the repository as supplementary material
+    # and names no URL; that is the third valid state of the sentence.
+    supplementary = "included in full as supplementary material" in tex
+    if supplementary and not url and not placeholder:
+        pass
+    elif placeholder and url:
         fails.append("the repository claim carries both a placeholder and a URL")
     elif not placeholder and not url:
         fails.append("the repository claim names neither a placeholder nor a URL")
