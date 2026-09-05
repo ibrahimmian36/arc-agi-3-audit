@@ -18,3 +18,5 @@ paper/journal/supplementary.zip
 paper/journal/*.aux
 paper/journal/*.log
 paper/journal/*.out
+paper/journal/*.sty
+paper/journal/*.bst

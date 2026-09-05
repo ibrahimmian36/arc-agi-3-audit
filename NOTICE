@@ -1,0 +1,25 @@
+ARC-AGI-3 public benchmark audit
+Copyright 2026 Millennium Research
+
+This product includes software developed at Millennium Research.
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The written report in paper/ and the recorded artefacts in artifacts/ are
+additionally available under the Creative Commons Attribution 4.0 International
+licence (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/.
+
+Third-party material is not redistributed here and is fetched from its own
+sources by scripts in this repository:
+
+  * The audited repositories (arcprize/ARC-AGI, arcprize/arc-agi-3-benchmarking,
+    arcprize/ARC-AGI-3-Agents), each MIT-licensed, are fetched at the commits
+    pinned in vendor/PINS.json by scripts/setup_vendor.sh.
+  * The journal LaTeX style files (journal.sty, Apache 2.0; fancyhdr.sty, LPPL 1.3;
+    journal.bst, (c) Hal Daume III and Patrick W Daly) are fetched from
+    JmlrOrg/journal-style-file by paper/build_journal.py.
+  * The public environment sources are fetched from the ARC API by
+    scripts/fetch_public_envs.py and are not redistributed.
+
+This repository documents defects in software published by the ARC Prize
+Foundation. Nothing here is endorsed by, or affiliated with, that organisation.

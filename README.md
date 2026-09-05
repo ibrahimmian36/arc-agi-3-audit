@@ -39,3 +39,18 @@ Tooling: audit kit v0.2.1 (`../audit-kit`, private), Dafny 4.11.0, Node 24,
 Python 3.12 venv with the vendored toolkit installed editable.
 
 Contact: ibrahimnmian@gmail.com
+
+## Licence
+
+Code is under the Apache License 2.0 (`LICENSE`). The report in `paper/` and the
+recorded artefacts in `artifacts/` are additionally available under CC BY 4.0.
+
+Apache 2.0 rather than MIT for three reasons that matter to this repository in
+particular: it grants patent rights explicitly, where MIT is silent; it states
+that no trademark rights are granted, which matters for a repository carrying an
+organisation's name and reporting defects in another organisation's software;
+and its warranty disclaimer and limitation of liability are explicit rather than
+a single sentence, which matters when the tools here are reused to reach
+conclusions about somebody else's code.
+
+Third-party material is fetched, never redistributed. See `NOTICE`.
