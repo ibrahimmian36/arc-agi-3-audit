@@ -184,8 +184,17 @@ def main() -> int:
     for word in ("Claude", "Anthropic", "Co-Authored", "Generated with"):
         if word in tex:
             fails.append(f"attribution {word!r} appears in the paper")
-    if tex.count("[REPOSITORY URL]") != 1:
-        fails.append("the repository placeholder should appear exactly once")
+    # The repository claim is in exactly one of two states: a visible placeholder
+    # while the repository is private, or a real URL once it is public. Both at
+    # once, or neither, means the sentence is asserting something unchecked.
+    placeholder = tex.count("[REPOSITORY URL]")
+    url = len(re.findall(r"github\.com/[A-Za-z0-9_.-]+/arc-agi-3-audit", tex))
+    if placeholder and url:
+        fails.append("the repository claim carries both a placeholder and a URL")
+    elif not placeholder and not url:
+        fails.append("the repository claim names neither a placeholder nor a URL")
+    elif placeholder > 1 or url > 1:
+        fails.append("the repository claim is stated more than once")
 
     for f in fails:
         print(f"[FAIL] {f}")
