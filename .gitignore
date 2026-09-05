@@ -13,3 +13,8 @@ paper/*.aux
 paper/*.log
 paper/*.out
 artifacts/*/run*.log
+paper/journal/*.txt
+paper/journal/supplementary.zip
+paper/journal/*.aux
+paper/journal/*.log
+paper/journal/*.out

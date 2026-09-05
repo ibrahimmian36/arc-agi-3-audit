@@ -132,3 +132,17 @@ found it asserting the denial without the null; one sentence added.
 
 Now: 227 tests, 91 paper figures, 144 claims, and every number in the paper
 either traced or explained. Text processing only, no sweep, no network.
+
+## 2026-09-04 — Phase 16: the submission package
+
+Generated both the journal builds from `main.tex` with `paper/build_journal.py`, so the
+submitted paper cannot drift from the audited one. The anonymous build is
+verified from the rendered PDF rather than the source: no author name, no
+affiliation, no email domain, no GitHub handle, no author metadata, and the
+repository sentence points at the supplementary material instead of the URL.
+The named `[preprint]` build carries the authors, and a test asserts it does.
+Supplementary archive is the tracked files only, 2 MB against a 100MB ceiling,
+contents identical to `git ls-files`. announcement draft written, with a test that
+every figure in it appears in the paper.
+
+237 tests, 91 paper figures, 144 claims, consistency check green.
