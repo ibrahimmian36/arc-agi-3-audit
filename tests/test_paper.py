@@ -118,6 +118,8 @@ def test_the_git_history_carries_no_attribution_trailer():
     """The repository is published under its authors' names alone. A trailer
     reintroduced by tooling would ship in the history rather than the paper,
     where no reader of the PDF would ever see it, so it is checked here."""
+    from conftest import require_git_checkout
+    require_git_checkout()
     import subprocess
     log = subprocess.run(["git", "log", "--format=%an <%ae>%n%b"],
                          cwd=PAPER.parent, capture_output=True, text=True)
@@ -160,6 +162,8 @@ def test_the_git_history_carries_no_private_address():
     """The local part alone is enough to reconstruct the address on a repository
     owned under a known handle, so it is kept out of history, not just out of
     the working tree. Split here so this file never contains it either."""
+    from conftest import require_git_checkout
+    require_git_checkout()
     import subprocess
     needle = "redacted"
     log = subprocess.run(["git", "log", "--all", "-p"], cwd=PAPER.parent,

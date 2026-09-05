@@ -37,6 +37,8 @@ def test_the_shipped_claims_checker_is_the_kit_s_own():
     shipped so a stranger can run it. It must never drift from the original:
     whenever the kit is present beside this repository, the two are compared
     byte for byte below the header that records the copy's origin."""
+    from conftest import require_git_checkout
+    require_git_checkout()
     from pathlib import Path
     root = Path(__file__).resolve().parents[1]
     ours = (root / "scripts" / "report_check.sh").read_text().splitlines()

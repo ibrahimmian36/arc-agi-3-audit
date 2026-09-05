@@ -19,63 +19,38 @@ Scoring Rule, Environments, and Human Baselines}
 \maketitle
 
 \begin{abstract}
-ARC-AGI-3 evaluates agents on interactive environments by comparing their
-action counts against per-level human baselines. We audit the public half of
-that apparatus: the 25 public demonstration environments, the open toolkit and
-benchmarking harness, and the published scoring rule. Our method is
-reject-only. We write a machine-verified model of the rule under audit, compile
-it, and run it differentially against the shipped implementation; every
-component either reports a disagreement or reports no disagreement, and a human
-reads each disagreement before it is called anything.
+ARC-AGI-3 scores an agent by its action count against per-level human
+baselines. We audit the public half of that apparatus --- the 25 public
+environments, the open toolkit and benchmarking harness, and the published
+scoring rule --- with a reject-only method: a machine-verified model of the rule
+under audit is compiled and run differentially against the shipped
+implementation, so every component reports a disagreement or reports none, and a
+human reads each disagreement before it is called anything.
 
-We find no defective environment, and the level-scoring formula computes what its
-prose defines. The finding that bears on a scored run is in the benchmarking
-harness. After a game over the harness issues a \code{RESET} of its own, and
-that reset consumes the agent's per-level action budget. We show by a paired
-counterfactual, identical in policy and differing only in whether the forced
-reset is charged, that this can end a level the agent would otherwise have
-completed: at one budget the shipped harness scores the environment \code{0.0}
-where the counterfactual completes the level, and it reproduces on a real public
-environment at the budget its own published baseline implies. The effect is not
-a knife edge. We
-predicted before measuring, and confirm, that the set of budgets on which the
-two disagree is exactly as wide as the number of game overs, so an agent's
-effective per-level budget is $\lceil 5b \rceil$ minus the number of times it
-died. No published document states that these resets happen or that they are
-charged. We bound the finding as carefully as we make it: 148 of the 183 public
-levels can be lost inside their own budget, which is what the mechanism needs,
+The finding that bears on a scored run is in the harness. After a game over it
+issues a \code{RESET} of its own, and that reset consumes the agent's per-level
+action budget. By a paired counterfactual, identical in policy and differing
+only in whether the forced reset is charged, we show this can end a level the
+agent would otherwise have completed, on a real public environment at the budget
+its published baseline implies. We predicted before measuring, and confirm, that
+the set of budgets on which the two runs disagree is exactly as wide as the
+number of game overs: an agent's effective per-level budget is $\lceil 5b
+\rceil$ minus the number of times it died. No published document states that
+these resets happen or that they are charged. We bound the finding as carefully
+as we make it: 148 of the 183 public levels can be lost inside their own budget,
 but across 250 paired runs of a policy that simply plays, no level's completion
-and no run's exit reason ever differed. Its practical reach therefore depends on
-an agent good enough to finish close to its budget, and how often a capable
-agent is in that position cannot be measured from outside the server. We also
-find one arithmetic defect above the scoring formula and four
-documentation problems. On the toolkit's local scoring path --- the one its own quickstart uses ---
-environment scores are averaged over the environments a scorecard contains,
-where the report defines the total as divided by the total number of
-environments: a scorecard covering three environments of a 135-environment set
-reports $100\%$ where the documented rule gives $2.22\%$, and an environment
-that fails leaves the divisor rather than scoring zero. The official harness
-runs the toolkit in a mode where the server supplies the scorecard, so that
-arithmetic does not run for an official run. The
-technical report's Equation~(1) caps the efficiency ratio before squaring,
-permitting a per-level score of $132.25\%$, where its own prose, the
-documentation and the code all cap the score at $115\%$. The five-times action
-budget the report describes exists only in the benchmarking harness; the scorer
-applies no cutoff, so a scorecard produced by any other agent is scored without
-it. The published \code{/api/games} schema omits a field the endpoint returns
-and the toolkit reads. And the 342 human replays announced as open source in
-April 2026 could not be located through the Foundation's own public channels.
-We also report one unreached robustness edge in the scorer, and a definitional
-point: for a level whose graph we enumerate exhaustively, the report's stated
-win probability of ``exactly 1 in 355'' matches our computation to three
-significant figures under a random-policy reading it does not state.
+and no run's exit reason ever differed, so the mechanism's reach depends on an
+agent good enough to finish close to its budget.
 
-Positively, we verify two levels of the public environment \code{ls20} in Dafny
-and find the models and the shipped implementation agree on every one of
-$190{,}560$ transitions; we probe reset behaviour in all 25 environments and
-find that a level reset restores the frame an agent observes on all $18{,}663$
-probes; and we check the published human baselines against exact optima, finding
-all six resolvable levels consistent. Everything is reproducible from a public
+We also find an aggregation defect on the toolkit's local scoring path, an
+equation in the technical report that permits a per-level score of $132.25\%$
+where its prose, the documentation and the code all cap the score at $115\%$,
+and that the 342 human replays announced as open source cannot be located
+through the Foundation's public channels. Positively, two machine-verified
+environment models agree with the shipped implementation on all $190{,}560$
+transitions, a level reset restores the observed frame on all $18{,}663$ probes
+across all 25 environments, and every resolvable human baseline is consistent
+with its level's exact optimum. Everything is reproducible from a public
 repository at pinned commits.
 \end{abstract}
 
@@ -103,6 +78,14 @@ so at the same length as where we found something.
 
 \paragraph{Contributions.}
 \begin{enumerate}
+\item A finding on the path an official run takes: the benchmarking harness
+      spends the agent's per-level action budget on resets it issues after a
+      game over, so an agent's effective budget is $\lceil 5b \rceil$ minus the
+      number of times it died, and at the boundary this fails a level the same
+      policy otherwise completes --- shown on a real public environment at its
+      real budget, with the exposure measured across all 183 public levels and
+      the effect on a policy that simply plays measured across all 25
+      environments (Section~\ref{sec:forced}).
 \item A machine-verified model of the published scoring rule, compiled and run
       differentially against the shipped scorer on preregistered planted traces
       (Section~\ref{sec:scoring}). The scorer implements the rule as the report's
@@ -133,9 +116,10 @@ technical report, and the public documentation.
 Out of scope, deliberately and throughout: the 55 semi-private and 55 private
 environments. We made no attempt to recover, probe, scrape or infer them. All
 environment execution was local and offline. No component of this work is an
-agent whose purpose is to score on the benchmark; the random player of
-Section~\ref{sec:play} is an instrument for probing reset semantics and never
-attempts to win, and did not win anything.
+agent whose purpose is to score on the benchmark. The random player of
+Section~\ref{sec:play} probes reset semantics and won nothing; the blind policy
+of Section~\ref{sec:forced} measures a cost and completed a level in 16 of its
+250 runs without attempting to. Nothing was submitted to any leaderboard.
 
 We audit the \emph{shipped local} artefacts at the pinned commits. The
 server-side scorer that produces the official leaderboard is not observable to
@@ -242,17 +226,19 @@ total of $100.0$ where the documented rule gives $2.222222222$, a factor of
 $45.0$. Played over a whole set the two agree exactly, so the difference is
 precisely the partial-coverage case.
 
+\begin{sloppypar}
 Which runs this reaches is measured rather than assumed. Calling
 \code{Arcade.get\_scorecard} under each operation mode, with a transport that
 refuses to open a socket, identifies where the number comes from: \code{offline}
 and \code{normal} compute it locally through this arithmetic, while
 \code{online} and \code{competition} take a
 \emph{remote fetch (server supplies the scorecard)}. The official benchmarking
-harness constructs the toolkit as
-\code{Arcade(operation\_mode=OperationMode.ONLINE)}, so this arithmetic does not
-run for an official run at all. The server-side scorer is not observable to us
+harness constructs the toolkit with \code{operation\_mode} set to
+\code{OperationMode.ONLINE}, so this arithmetic does not run for an official
+run at all. The server-side scorer is not observable to us
 and we make no claim about it, about the official leaderboard, or about any
 published result.
+\end{sloppypar}
 
 The exposure is the local path, and it is not hypothetical. The toolkit's own
 minimal example constructs \code{Arcade()} --- the default mode is
@@ -762,8 +748,11 @@ A reader should hold the following in mind.
       A disagreement could always be the model being wrong, and we treated that
       as the default explanation throughout.
 \item Two levels of one environment are audited with verified models. The
-      breadth results cover level 1 of six environments, two exhaustively. The
-      nineteen click-based environments have no reachability result at all.
+      state-graph results cover level 1 of six environments, two exhaustively;
+      the nineteen click-based environments admit no state graph. Whether a
+      level can be lost inside its budget is measured for all 183 levels, but
+      that instrument is one-sided: it proves exposure where it finds a loss
+      and proves nothing where it does not.
 \item The random play probe won nothing and mostly stayed on level 1, so its
       negatives cover the states it visited.
 \item A capped enumeration is a sample of a larger graph. Four of the six
@@ -772,9 +761,12 @@ A reader should hold the following in mind.
 \item Several of our own errors were found during the work and are recorded in
       the repository's decisions file rather than quietly fixed: a state key
       that ignored non-\code{ls20} game state, two hashing gaps that merged or
-      spuriously split states, an off-by-one in the lower bound, and a
+      spuriously split states, an off-by-one in the lower bound, a
       peak-memory guard that let one heavy environment mark later ones as
-      capped. Each invalidated results that were re-run.
+      capped, an exposure measurement that sampled actions six environments
+      never advertise, a cross-check that compared one seed where it needed
+      all of them, and a stated HTTP status no artefact supported. Each
+      invalidated something that was then re-run or cut.
 \item What a reader must still trust: Dafny and its JavaScript backend, Node,
       the vendored toolkit at the pinned commit, and our reading of the English
       in the report and documentation.
