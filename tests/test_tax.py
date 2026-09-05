@@ -96,7 +96,7 @@ def test_forced_resets_occur_exactly_where_the_level_can_be_lost_in_budget(runs)
     if not DEATH.exists():
         pytest.skip("run scripts/death_cost.py first")
     exposed = {r["game"]: r["death_fits_budget"]
-               for r in json.loads(DEATH.read_text())["levels"]}
+               for r in json.loads(DEATH.read_text())["levels"] if r["level"] == 1}
     for r in runs:
         got = r["shipped"]["forced_total"] > 0
         assert got == exposed[r["game"]], (r["game"], got, exposed[r["game"]])

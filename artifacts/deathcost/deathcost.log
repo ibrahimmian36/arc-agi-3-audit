@@ -1,26 +1,184 @@
-DEATH ar25 L1 baseline=32 budget=160 shortest_observed_loss=64 replays=True fits_budget=True deaths_affordable=2 died=12/12
-DEATH bp35 L1 baseline=21 budget=105 shortest_observed_loss=16 replays=True fits_budget=True deaths_affordable=6 died=12/12
-DEATH cd82 L1 baseline=55 budget=275 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=2 died=12/12
-DEATH cn04 L1 baseline=29 budget=145 shortest_observed_loss=75 replays=True fits_budget=True deaths_affordable=1 died=12/12
-DEATH dc22 L1 baseline=59 budget=295 shortest_observed_loss=128 replays=True fits_budget=True deaths_affordable=2 died=12/12
-DEATH ft09 L1 baseline=43 budget=215 shortest_observed_loss=32 replays=True fits_budget=True deaths_affordable=6 died=12/12
-DEATH g50t L1 baseline=78 budget=390 shortest_observed_loss=130 replays=True fits_budget=True deaths_affordable=3 died=12/12
-DEATH ka59 L1 baseline=28 budget=140 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=1 died=12/12
-DEATH lf52 L1 baseline=32 budget=160 shortest_observed_loss=64 replays=True fits_budget=True deaths_affordable=2 died=12/12
-DEATH lp85 L1 baseline=17 budget=85 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/12
-DEATH ls20 L1 baseline=22 budget=110 shortest_observed_loss=129 replays=True fits_budget=False deaths_affordable=0 died=12/12
-DEATH m0r0 L1 baseline=30 budget=150 shortest_observed_loss=151 replays=True fits_budget=False deaths_affordable=0 died=11/12
-DEATH r11l L1 baseline=22 budget=110 shortest_observed_loss=60 replays=True fits_budget=True deaths_affordable=1 died=12/12
-DEATH re86 L1 baseline=26 budget=130 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=1 died=12/12
-DEATH s5i5 L1 baseline=20 budget=100 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/12
-DEATH sb26 L1 baseline=18 budget=90 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/12
-DEATH sc25 L1 baseline=36 budget=180 shortest_observed_loss=52 replays=True fits_budget=True deaths_affordable=3 died=12/12
-DEATH sk48 L1 baseline=61 budget=305 shortest_observed_loss=196 replays=True fits_budget=True deaths_affordable=1 died=12/12
-DEATH sp80 L1 baseline=39 budget=195 shortest_observed_loss=30 replays=True fits_budget=True deaths_affordable=6 died=12/12
-DEATH su15 L1 baseline=22 budget=110 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/12
-DEATH tn36 L1 baseline=32 budget=160 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/12
-DEATH tr87 L1 baseline=54 budget=270 shortest_observed_loss=128 replays=True fits_budget=True deaths_affordable=2 died=12/12
-DEATH tu93 L1 baseline=19 budget=95 shortest_observed_loss=50 replays=True fits_budget=True deaths_affordable=1 died=12/12
-DEATH vc33 L1 baseline=7 budget=35 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/12
-DEATH wa30 L1 baseline=71 budget=355 shortest_observed_loss=200 replays=True fits_budget=True deaths_affordable=1 died=12/12
-SUMMARY environments=25 level=1 exposed=17 not_established=8 all_witnesses_replay=True peak_rss_mb_under_600=True
+DEATH ar25 L1 baseline=32 budget=160 shortest_observed_loss=82 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ar25 L2 baseline=50 budget=250 shortest_observed_loss=103 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ar25 L3 baseline=75 budget=375 shortest_observed_loss=202 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ar25 L4 baseline=37 budget=185 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH ar25 L5 baseline=89 budget=445 shortest_observed_loss=233 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ar25 L6 baseline=159 budget=795 shortest_observed_loss=544 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ar25 L7 baseline=233 budget=1165 shortest_observed_loss=531 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ar25 L8 baseline=73 budget=365 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH bp35 L1 baseline=21 budget=105 shortest_observed_loss=28 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH bp35 L2 baseline=48 budget=240 shortest_observed_loss=20 replays=True fits_budget=True deaths_affordable=12 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH bp35 L3 baseline=44 budget=220 shortest_observed_loss=36 replays=True fits_budget=True deaths_affordable=6 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH bp35 L4 baseline=38 budget=190 shortest_observed_loss=64 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH bp35 L5 baseline=33 budget=165 shortest_observed_loss=61 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH bp35 L6 baseline=87 budget=435 shortest_observed_loss=1 replays=True fits_budget=True deaths_affordable=435 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH bp35 L7 baseline=86 budget=430 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=4 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH bp35 L8 baseline=131 budget=655 shortest_observed_loss=4 replays=True fits_budget=True deaths_affordable=163 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH bp35 L9 baseline=163 budget=815 shortest_observed_loss=6 replays=True fits_budget=True deaths_affordable=135 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH cd82 L1 baseline=55 budget=275 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH cd82 L2 baseline=8 budget=40 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH cd82 L3 baseline=41 budget=205 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH cd82 L4 baseline=21 budget=105 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH cd82 L5 baseline=23 budget=115 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH cd82 L6 baseline=23 budget=115 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH cn04 L1 baseline=29 budget=145 shortest_observed_loss=75 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH cn04 L2 baseline=54 budget=270 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH cn04 L3 baseline=85 budget=425 shortest_observed_loss=125 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH cn04 L4 baseline=300 budget=1500 shortest_observed_loss=125 replays=True fits_budget=True deaths_affordable=12 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH cn04 L5 baseline=208 budget=1040 shortest_observed_loss=150 replays=True fits_budget=True deaths_affordable=6 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH cn04 L6 baseline=113 budget=565 shortest_observed_loss=200 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH dc22 L1 baseline=59 budget=295 shortest_observed_loss=127 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH dc22 L2 baseline=102 budget=510 shortest_observed_loss=173 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH dc22 L3 baseline=67 budget=335 shortest_observed_loss=172 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH dc22 L4 baseline=98 budget=490 shortest_observed_loss=190 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH dc22 L5 baseline=324 budget=1620 shortest_observed_loss=489 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH dc22 L6 baseline=578 budget=2890 shortest_observed_loss=1015 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ft09 L1 baseline=43 budget=215 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH ft09 L2 baseline=12 budget=60 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH ft09 L3 baseline=23 budget=115 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH ft09 L4 baseline=28 budget=140 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH ft09 L5 baseline=65 budget=325 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH ft09 L6 baseline=37 budget=185 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH g50t L1 baseline=78 budget=390 shortest_observed_loss=130 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH g50t L2 baseline=175 budget=875 shortest_observed_loss=130 replays=True fits_budget=True deaths_affordable=6 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH g50t L3 baseline=179 budget=895 shortest_observed_loss=130 replays=True fits_budget=True deaths_affordable=6 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH g50t L4 baseline=230 budget=1150 shortest_observed_loss=130 replays=True fits_budget=True deaths_affordable=8 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH g50t L5 baseline=96 budget=480 shortest_observed_loss=130 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH g50t L6 baseline=54 budget=270 shortest_observed_loss=130 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH g50t L7 baseline=67 budget=335 shortest_observed_loss=130 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ka59 L1 baseline=28 budget=140 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ka59 L2 baseline=109 budget=545 shortest_observed_loss=127 replays=True fits_budget=True deaths_affordable=4 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ka59 L3 baseline=51 budget=255 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ka59 L4 baseline=51 budget=255 shortest_observed_loss=127 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ka59 L5 baseline=33 budget=165 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ka59 L6 baseline=132 budget=660 shortest_observed_loss=150 replays=True fits_budget=True deaths_affordable=4 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ka59 L7 baseline=326 budget=1630 shortest_observed_loss=200 replays=True fits_budget=True deaths_affordable=8 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH lf52 L1 baseline=32 budget=160 shortest_observed_loss=80 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH lf52 L2 baseline=81 budget=405 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH lf52 L3 baseline=60 budget=300 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH lf52 L4 baseline=71 budget=355 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH lf52 L5 baseline=205 budget=1025 shortest_observed_loss=464 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH lf52 L6 baseline=148 budget=740 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH lf52 L7 baseline=244 budget=1220 shortest_observed_loss=898 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH lf52 L8 baseline=109 budget=545 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH lf52 L9 baseline=164 budget=820 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH lf52 L10 baseline=225 budget=1125 shortest_observed_loss=926 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH lp85 L1 baseline=17 budget=85 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH lp85 L2 baseline=38 budget=190 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH lp85 L3 baseline=31 budget=155 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH lp85 L4 baseline=16 budget=80 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH lp85 L5 baseline=41 budget=205 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH lp85 L6 baseline=60 budget=300 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH lp85 L7 baseline=26 budget=130 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH lp85 L8 baseline=159 budget=795 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH ls20 L1 baseline=22 budget=110 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH ls20 L2 baseline=123 budget=615 shortest_observed_loss=66 replays=True fits_budget=True deaths_affordable=9 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ls20 L3 baseline=73 budget=365 shortest_observed_loss=66 replays=True fits_budget=True deaths_affordable=5 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ls20 L4 baseline=84 budget=420 shortest_observed_loss=129 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ls20 L5 baseline=96 budget=480 shortest_observed_loss=66 replays=True fits_budget=True deaths_affordable=7 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ls20 L6 baseline=192 budget=960 shortest_observed_loss=129 replays=True fits_budget=True deaths_affordable=7 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH ls20 L7 baseline=186 budget=930 shortest_observed_loss=72 replays=True fits_budget=True deaths_affordable=12 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH m0r0 L1 baseline=30 budget=150 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 1, 'hit_cap': 7}
+DEATH m0r0 L2 baseline=111 budget=555 shortest_observed_loss=151 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH m0r0 L3 baseline=203 budget=1015 shortest_observed_loss=151 replays=True fits_budget=True deaths_affordable=6 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH m0r0 L4 baseline=26 budget=130 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH m0r0 L5 baseline=500 budget=2500 shortest_observed_loss=151 replays=True fits_budget=True deaths_affordable=16 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH m0r0 L6 baseline=237 budget=1185 shortest_observed_loss=151 replays=True fits_budget=True deaths_affordable=7 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH r11l L1 baseline=22 budget=110 shortest_observed_loss=60 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH r11l L2 baseline=33 budget=165 shortest_observed_loss=5 replays=True fits_budget=True deaths_affordable=33 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH r11l L3 baseline=51 budget=255 shortest_observed_loss=10 replays=True fits_budget=True deaths_affordable=25 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH r11l L4 baseline=26 budget=130 shortest_observed_loss=12 replays=True fits_budget=True deaths_affordable=10 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH r11l L5 baseline=52 budget=260 shortest_observed_loss=60 replays=True fits_budget=True deaths_affordable=4 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH r11l L6 baseline=49 budget=245 shortest_observed_loss=60 replays=True fits_budget=True deaths_affordable=4 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH re86 L1 baseline=26 budget=130 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH re86 L2 baseline=42 budget=210 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH re86 L3 baseline=86 budget=430 shortest_observed_loss=200 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH re86 L4 baseline=108 budget=540 shortest_observed_loss=200 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH re86 L5 baseline=189 budget=945 shortest_observed_loss=250 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH re86 L6 baseline=139 budget=695 shortest_observed_loss=200 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH re86 L7 baseline=424 budget=2120 shortest_observed_loss=300 replays=True fits_budget=True deaths_affordable=7 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH re86 L8 baseline=241 budget=1205 shortest_observed_loss=400 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH s5i5 L1 baseline=20 budget=100 shortest_observed_loss=50 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH s5i5 L2 baseline=89 budget=445 shortest_observed_loss=150 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH s5i5 L3 baseline=106 budget=530 shortest_observed_loss=200 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH s5i5 L4 baseline=54 budget=270 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH s5i5 L5 baseline=162 budget=810 shortest_observed_loss=150 replays=True fits_budget=True deaths_affordable=5 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH s5i5 L6 baseline=38 budget=190 shortest_observed_loss=150 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH s5i5 L7 baseline=86 budget=430 shortest_observed_loss=200 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH s5i5 L8 baseline=83 budget=415 shortest_observed_loss=200 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sb26 L1 baseline=18 budget=90 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH sb26 L2 baseline=28 budget=140 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH sb26 L3 baseline=18 budget=90 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH sb26 L4 baseline=19 budget=95 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH sb26 L5 baseline=31 budget=155 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH sb26 L6 baseline=23 budget=115 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH sb26 L7 baseline=58 budget=290 shortest_observed_loss=161 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sb26 L8 baseline=18 budget=90 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH sc25 L1 baseline=36 budget=180 shortest_observed_loss=58 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sc25 L2 baseline=6 budget=30 shortest_observed_loss=27 replays=True fits_budget=True deaths_affordable=1 died=3/8 outcomes={'game_over': 3, 'left_play': 0, 'hit_cap': 5}
+DEATH sc25 L3 baseline=32 budget=160 shortest_observed_loss=59 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sc25 L4 baseline=83 budget=415 shortest_observed_loss=40 replays=True fits_budget=True deaths_affordable=10 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sc25 L5 baseline=143 budget=715 shortest_observed_loss=78 replays=True fits_budget=True deaths_affordable=9 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sc25 L6 baseline=50 budget=250 shortest_observed_loss=68 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sk48 L1 baseline=61 budget=305 shortest_observed_loss=286 replays=True fits_budget=True deaths_affordable=1 died=6/8 outcomes={'game_over': 6, 'left_play': 1, 'hit_cap': 1}
+DEATH sk48 L2 baseline=177 budget=885 shortest_observed_loss=283 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sk48 L3 baseline=101 budget=505 shortest_observed_loss=275 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sk48 L4 baseline=103 budget=515 shortest_observed_loss=274 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sk48 L5 baseline=230 budget=1150 shortest_observed_loss=271 replays=True fits_budget=True deaths_affordable=4 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sk48 L6 baseline=181 budget=905 shortest_observed_loss=278 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sk48 L7 baseline=125 budget=625 shortest_observed_loss=280 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sk48 L8 baseline=92 budget=460 shortest_observed_loss=275 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sp80 L1 baseline=39 budget=195 shortest_observed_loss=22 replays=True fits_budget=True deaths_affordable=8 died=6/8 outcomes={'game_over': 6, 'left_play': 2, 'hit_cap': 0}
+DEATH sp80 L2 baseline=58 budget=290 shortest_observed_loss=14 replays=True fits_budget=True deaths_affordable=20 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sp80 L3 baseline=25 budget=125 shortest_observed_loss=17 replays=True fits_budget=True deaths_affordable=7 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sp80 L4 baseline=148 budget=740 shortest_observed_loss=18 replays=True fits_budget=True deaths_affordable=41 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sp80 L5 baseline=96 budget=480 shortest_observed_loss=15 replays=True fits_budget=True deaths_affordable=32 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH sp80 L6 baseline=152 budget=760 shortest_observed_loss=14 replays=True fits_budget=True deaths_affordable=54 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH su15 L1 baseline=22 budget=110 shortest_observed_loss=65 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH su15 L2 baseline=42 budget=210 shortest_observed_loss=66 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH su15 L3 baseline=26 budget=130 shortest_observed_loss=63 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH su15 L4 baseline=115 budget=575 shortest_observed_loss=98 replays=True fits_budget=True deaths_affordable=5 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH su15 L5 baseline=36 budget=180 shortest_observed_loss=66 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH su15 L6 baseline=31 budget=155 shortest_observed_loss=68 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH su15 L7 baseline=8 budget=40 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH su15 L8 baseline=40 budget=200 shortest_observed_loss=52 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH su15 L9 baseline=41 budget=205 shortest_observed_loss=79 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tn36 L1 baseline=32 budget=160 shortest_observed_loss=61 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tn36 L2 baseline=72 budget=360 shortest_observed_loss=61 replays=True fits_budget=True deaths_affordable=5 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tn36 L3 baseline=26 budget=130 shortest_observed_loss=61 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tn36 L4 baseline=40 budget=200 shortest_observed_loss=61 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tn36 L5 baseline=30 budget=150 shortest_observed_loss=61 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tn36 L6 baseline=55 budget=275 shortest_observed_loss=122 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tn36 L7 baseline=62 budget=310 shortest_observed_loss=122 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tr87 L1 baseline=54 budget=270 shortest_observed_loss=128 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tr87 L2 baseline=58 budget=290 shortest_observed_loss=128 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tr87 L3 baseline=40 budget=200 shortest_observed_loss=128 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tr87 L4 baseline=45 budget=225 shortest_observed_loss=128 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tr87 L5 baseline=71 budget=355 shortest_observed_loss=128 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tr87 L6 baseline=146 budget=730 shortest_observed_loss=256 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tu93 L1 baseline=19 budget=95 shortest_observed_loss=50 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tu93 L2 baseline=16 budget=80 shortest_observed_loss=14 replays=True fits_budget=True deaths_affordable=5 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tu93 L3 baseline=34 budget=170 shortest_observed_loss=10 replays=True fits_budget=True deaths_affordable=17 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tu93 L4 baseline=42 budget=210 shortest_observed_loss=5 replays=True fits_budget=True deaths_affordable=42 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tu93 L5 baseline=123 budget=615 shortest_observed_loss=17 replays=True fits_budget=True deaths_affordable=36 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tu93 L6 baseline=80 budget=400 shortest_observed_loss=3 replays=True fits_budget=True deaths_affordable=133 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tu93 L7 baseline=14 budget=70 shortest_observed_loss=4 replays=True fits_budget=True deaths_affordable=17 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tu93 L8 baseline=23 budget=115 shortest_observed_loss=3 replays=True fits_budget=True deaths_affordable=38 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH tu93 L9 baseline=111 budget=555 shortest_observed_loss=2 replays=True fits_budget=True deaths_affordable=277 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH vc33 L1 baseline=7 budget=35 shortest_observed_loss=None replays=None fits_budget=False deaths_affordable=0 died=0/8 outcomes={'game_over': 0, 'left_play': 0, 'hit_cap': 8}
+DEATH vc33 L2 baseline=18 budget=90 shortest_observed_loss=50 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH vc33 L3 baseline=44 budget=220 shortest_observed_loss=75 replays=True fits_budget=True deaths_affordable=2 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH vc33 L4 baseline=61 budget=305 shortest_observed_loss=50 replays=True fits_budget=True deaths_affordable=6 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH vc33 L5 baseline=131 budget=655 shortest_observed_loss=200 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH vc33 L6 baseline=34 budget=170 shortest_observed_loss=50 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH vc33 L7 baseline=152 budget=760 shortest_observed_loss=200 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH wa30 L1 baseline=71 budget=355 shortest_observed_loss=200 replays=True fits_budget=True deaths_affordable=1 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH wa30 L2 baseline=119 budget=595 shortest_observed_loss=70 replays=True fits_budget=True deaths_affordable=8 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH wa30 L3 baseline=183 budget=915 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=9 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH wa30 L4 baseline=98 budget=490 shortest_observed_loss=100 replays=True fits_budget=True deaths_affordable=4 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH wa30 L5 baseline=368 budget=1840 shortest_observed_loss=125 replays=True fits_budget=True deaths_affordable=14 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH wa30 L6 baseline=68 budget=340 shortest_observed_loss=75 replays=True fits_budget=True deaths_affordable=4 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH wa30 L7 baseline=79 budget=395 shortest_observed_loss=125 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH wa30 L8 baseline=442 budget=2210 shortest_observed_loss=150 replays=True fits_budget=True deaths_affordable=14 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+DEATH wa30 L9 baseline=415 budget=2075 shortest_observed_loss=70 replays=True fits_budget=True deaths_affordable=29 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
+SUMMARY environments=25 levels=183 exposed=148 not_established=35 all_witnesses_replay=True peak_rss_mb_under_600=True

@@ -372,21 +372,38 @@ and ten genuinely different action sequences yield the same forced-reset count
 in every environment, because a death here comes from exhausting a level's own
 step allowance rather than from any particular mistake.
 
-The mechanism needs a game over, so we asked of every public environment whether
-its first level can be lost inside its own budget. Playing each shipped
-environment from its level-1 start and recording the action sequence at the
-first game over bounds the shortest losing line from above, and every recorded
-line is replayed to confirm it ends the game. On 17 of the 25 that bound falls
-below the budget, which proves the level can be lost within it: \code{bp35} in 16
-actions against a budget of 105, \code{sp80} in 30 against 195, \code{ft09} in 32
-against 215, each affording six deaths. On the remaining eight we report the
-question as not established rather than as immunity, since random play failing to
-lose says nothing about the shortest line. Where we can compare the two
-instruments they agree: on \code{ls20} level 1 the random bound is 129 and an
-exhaustive search of the level puts the true shortest losing line at 129 as
-well, against a budget of 110, so that level cannot be lost inside its budget at
-all. That is why our first attempt to demonstrate the denial there failed, and
-we record it rather than dropping it.
+The mechanism needs a game over, so we asked of all 183 levels of the 25 public
+environments whether a level can be lost inside its own budget. Each shipped
+environment is played from that level's start under the actions it advertises,
+with click coordinates inside the declared contract, and the action sequence at
+the first game over bounds the shortest losing line from above; the search is
+capped at the budget, since a loss that takes longer is not exposure. Every
+recorded line is replayed, coordinates included, to confirm it ends the game.
+
+On 148 of the 183 levels that bound falls below the budget, which proves the
+level can be lost within it, and 23 of the 25 environments have at least one such
+level. On the exposed levels the median losing line costs about a third of the
+budget and the median number of deaths affordable is three. On the remaining 35
+no rollout died, and we report those as not established rather than as immunity,
+since random play failing to lose says nothing about the shortest line.
+
+The first version of this measurement sampled a fixed set of four actions for
+every environment, including six that advertise only a click, and reported 17 of
+25 first levels. Three of its recorded lines used actions the environment does
+not advertise, two of them entirely; those actions are accepted and do advance
+the state, but a line an agent is never told it may play is not a played loss.
+Re-measuring under the advertised actions moves four environments and gives 19 of
+25 at level 1, which is the figure we report. We record the correction because
+the earlier number would otherwise have been published, and because it sharpens
+rather than contradicts our observation that an action outside
+\code{available\_actions} is accepted and counted: it also advances the state and
+can end a level.
+
+Where we can compare the two instruments they agree. On \code{ls20} level 1 an
+exhaustive search puts the true shortest losing line at 129 against a budget of
+110, so that level cannot be lost inside its budget at all, and the capped random
+search correctly finds nothing there. That is why our first attempt to
+demonstrate the denial there failed, and we record it rather than dropping it.
 
 Applied to the real public set, one such reset costs a level between $0.03$ and
 $3.33$ per cent of its budget, and lowers an otherwise perfect completion by a

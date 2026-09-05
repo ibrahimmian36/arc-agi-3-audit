@@ -31,21 +31,18 @@ CLAIMS: list[tuple[str, str, Path, str]] = [
     ("No level's completion and no run's exit reason differs", "0",
      ART / "tax/tax.log", r"^OUTCOME .*runs_where_a_level_differs=(\d+)"),
 
+    ("On 148 of the 183 levels that bound falls", "148", ART / "deathcost/deathcost.log",
+     r"^SUMMARY .*exposed=(\d+)"),
+    ("all 183 levels of the 25 public", "183", ART / "deathcost/deathcost.log",
+     r"^SUMMARY .*levels=(\d+)"),
+    ("the remaining 35", "35", ART / "deathcost/deathcost.log",
+     r"^SUMMARY .*not_established=(\d+)"),
+
     # --- the denial on a real public level, at its real budget ---
     ("scores 0.087046682", "0.087046682", ART / "realdenial/realdenial.log",
      r"^PAIR tu93 .*chosen=95 .*counterfactual:[^|]*score=([0-9.]+)"),
     ("baseline of 19 gives a budget of 95", "95", ART / "realdenial/realdenial.log",
      r"^SETUP tu93 L1 baseline=19 budget=(\d+)"),
-    ("On 17 of the 25 that bound falls", "17", ART / "deathcost/deathcost.log",
-     r"^SUMMARY .*exposed=(\d+)"),
-    ("bp35 in 16", "16", ART / "deathcost/deathcost.log",
-     r"^DEATH bp35 L1 .*shortest_observed_loss=(\d+)"),
-    ("sp80 in 30 against 195", "30", ART / "deathcost/deathcost.log",
-     r"^DEATH sp80 L1 .*shortest_observed_loss=(\d+)"),
-    ("ft09 in 32", "32", ART / "deathcost/deathcost.log",
-     r"^DEATH ft09 L1 .*shortest_observed_loss=(\d+)"),
-    ("the random bound is 129", "129", ART / "deathcost/deathcost.log",
-     r"^DEATH ls20 L1 .*shortest_observed_loss=(\d+)"),
     ("shortest losing line at 129", "129", ART / "deathcost/exhaustive.log",
      r"^EXHAUSTIVE ls20 L1 .*shortest_loss=(\d+)"),
 

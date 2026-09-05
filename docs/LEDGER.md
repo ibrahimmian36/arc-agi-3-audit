@@ -93,3 +93,15 @@ result is null: `median_forced_share_of_counted=0.006267806000000001`,
 death-cost measurement that it cannot be lost inside its budget.
 
 Peak RSS 350 MB against a 900 MB ceiling, 35 seconds of run time, no network.
+
+## 2026-09-04 — Phase 13: the whole set, and a correction to our own measurement
+
+Re-measured exposure under each environment's advertised actions, with clicks
+inside the declared contract, across all 183 public levels capped at each
+level's budget: `exposed=148 not_established=35`, 23 of 25 environments with at
+least one exposed level, 19 of 25 at level 1. That replaces the earlier
+"17 of 25", which had sampled actions 1-4 for environments that advertise only a
+click; three of its lines used unadvertised actions, two entirely. The
+correction is recorded in DECISIONS and enforced by a test.
+
+Peak RSS under 600 MB, no network, artefacts within the ceiling.

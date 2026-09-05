@@ -945,24 +945,10 @@
   "by": "scripts/real_env_denial.py"
  },
  {
-  "value": "exposed=17",
-  "report": "../FINDINGS.md",
-  "log": "../artifacts/deathcost/deathcost.log",
-  "pattern": "^SUMMARY",
-  "by": "scripts/death_cost.py"
- },
- {
   "value": "all_witnesses_replay=True",
   "report": "../FINDINGS.md",
   "log": "../artifacts/deathcost/deathcost.log",
   "pattern": "^SUMMARY",
-  "by": "scripts/death_cost.py"
- },
- {
-  "value": "shortest_observed_loss=129",
-  "report": "../FINDINGS.md",
-  "log": "../artifacts/deathcost/deathcost.log",
-  "pattern": "^DEATH ls20 L1",
   "by": "scripts/death_cost.py"
  },
  {
@@ -1006,5 +992,19 @@
   "log": "../artifacts/tax/tax.log",
   "pattern": "^OUTCOME",
   "by": "scripts/random_agent_tax.py"
+ },
+ {
+  "value": "exposed=148 not_established=35",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/deathcost/deathcost.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/death_cost.py"
+ },
+ {
+  "value": "levels=183",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/deathcost/deathcost.log",
+  "pattern": "^SUMMARY",
+  "by": "scripts/death_cost.py"
  }
 ]

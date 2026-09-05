@@ -139,12 +139,12 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 132 | `losing_replays=GAME_OVER witness_replays=WIN` | `../artifacts/realdenial/realdenial.log` | `^SETUP tu93` | scripts/real_env_denial.py |
 | 133 | `0.087046682` | `../artifacts/realdenial/realdenial.log` | `^PAIR tu93 L1 deaths=1 chosen=95` | scripts/real_env_denial.py |
 | 134 | `width=1 predicted=1 holds=True` | `../artifacts/realdenial/realdenial.log` | `^WINDOW tu93` | scripts/real_env_denial.py |
-| 135 | `exposed=17` | `../artifacts/deathcost/deathcost.log` | `^SUMMARY` | scripts/death_cost.py |
-| 136 | `all_witnesses_replay=True` | `../artifacts/deathcost/deathcost.log` | `^SUMMARY` | scripts/death_cost.py |
-| 137 | `shortest_observed_loss=129` | `../artifacts/deathcost/deathcost.log` | `^DEATH ls20 L1` | scripts/death_cost.py |
-| 138 | `shortest_loss=129` | `../artifacts/deathcost/exhaustive.log` | `^EXHAUSTIVE ls20 L1` | scripts/death_cost.py |
-| 139 | `median_forced_share_of_counted=0.006267806000000001` | `../artifacts/tax/tax.log` | `^TAX runs=60` | scripts/random_agent_tax.py |
-| 140 | `max_forced_share_of_counted=0.010526316` | `../artifacts/tax/tax.log` | `^TAX runs=60` | scripts/random_agent_tax.py |
-| 141 | `runs_where_a_level_differs=0` | `../artifacts/tax/tax.log` | `^OUTCOME` | scripts/random_agent_tax.py |
-| 142 | `runs_where_exit_differs=0` | `../artifacts/tax/tax.log` | `^OUTCOME` | scripts/random_agent_tax.py |
-| 143 | `total_extra_actions_when_uncharged=70` | `../artifacts/tax/tax.log` | `^OUTCOME` | scripts/random_agent_tax.py |
+| 135 | `all_witnesses_replay=True` | `../artifacts/deathcost/deathcost.log` | `^SUMMARY` | scripts/death_cost.py |
+| 136 | `shortest_loss=129` | `../artifacts/deathcost/exhaustive.log` | `^EXHAUSTIVE ls20 L1` | scripts/death_cost.py |
+| 137 | `median_forced_share_of_counted=0.006267806000000001` | `../artifacts/tax/tax.log` | `^TAX runs=60` | scripts/random_agent_tax.py |
+| 138 | `max_forced_share_of_counted=0.010526316` | `../artifacts/tax/tax.log` | `^TAX runs=60` | scripts/random_agent_tax.py |
+| 139 | `runs_where_a_level_differs=0` | `../artifacts/tax/tax.log` | `^OUTCOME` | scripts/random_agent_tax.py |
+| 140 | `runs_where_exit_differs=0` | `../artifacts/tax/tax.log` | `^OUTCOME` | scripts/random_agent_tax.py |
+| 141 | `total_extra_actions_when_uncharged=70` | `../artifacts/tax/tax.log` | `^OUTCOME` | scripts/random_agent_tax.py |
+| 142 | `exposed=148 not_established=35` | `../artifacts/deathcost/deathcost.log` | `^SUMMARY` | scripts/death_cost.py |
+| 143 | `levels=183` | `../artifacts/deathcost/deathcost.log` | `^SUMMARY` | scripts/death_cost.py |

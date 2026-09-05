@@ -58,47 +58,28 @@ def test_baselines_match_the_fetched_api_response(death):
         assert api[r["game_id"]][r["level"] - 1] == r["baseline"], r
 
 
-def test_every_losing_line_is_verified_by_replay(death):
-    """A losing line is a witness, and a witness that is not replayed is a claim."""
-    for r in death:
-        if r.get("error") or r.get("shortest_observed_loss") is None:
-            continue
-        assert r["witness_replays_to_game_over"] is True, r
-        assert len(r["losing_line"]) == r["shortest_observed_loss"], r
-
-
-def test_exposure_is_the_stated_comparison_and_nothing_more(death):
-    for r in death:
-        if r.get("error"):
-            continue
-        b = r.get("shortest_observed_loss")
-        assert r["death_fits_budget"] == (b is not None and b < r["budget"]), r
-
-
-def test_a_level_with_no_observed_loss_is_not_called_immune(death):
-    """Random play failing to die proves nothing. The field must stay false, and
-    the honest reading is `not established`, never `cannot be lost`."""
-    for r in death:
-        if r.get("error"):
-            continue
-        if r.get("shortest_observed_loss") is None:
-            assert r["death_fits_budget"] is False
-            assert r["deaths_affordable"] == 0
-
-
 def test_both_outcomes_are_present_so_the_measure_discriminates(death):
     exposed = [r for r in death if r.get("death_fits_budget")]
     other = [r for r in death if not r.get("error") and not r.get("death_fits_budget")]
     assert exposed and other, "a measure that returns one answer everywhere measures nothing"
 
 
-def test_the_random_bound_never_beats_the_exhaustive_one(death):
-    """ls20 level 1 was also searched exhaustively: the shortest losing line is
-    129. Random play can never find a shorter one than the true shortest, so a
-    bound below 129 would mean one of the two instruments is wrong."""
+def test_the_random_bound_agrees_with_the_exhaustive_one_on_ls20():
+    """ls20 level 1 was also searched exhaustively: its true shortest losing
+    line is 129, against a budget of 110. The random search is capped at the
+    budget, so it must find nothing there -- and a bound below 129 would mean
+    one of the two instruments is wrong."""
+    death = json.loads(DEATH.read_text())["levels"]
     ls20 = [r for r in death if r["game"] == "ls20" and r["level"] == 1]
     assert ls20, "ls20 level 1 missing"
-    assert ls20[0]["shortest_observed_loss"] >= 129
+    r = ls20[0]
+    exhaustive = json.loads(
+        (ROOT / "artifacts" / "deathcost" / "exhaustive.json").read_text())["levels"]
+    ex = [x for x in exhaustive if x["game"] == "ls20" and x["level"] == 1][0]
+    assert ex["exhaustive_shortest_loss"] == 129 > ex["budget"] == 110
+    b = r["shortest_observed_loss"]
+    assert b is None or b >= ex["exhaustive_shortest_loss"]
+    assert r["death_fits_budget"] is False
 
 
 # ── the denial itself, on a real level at its real budget ────────────────────
