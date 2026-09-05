@@ -866,7 +866,7 @@
      0
     ],
     "max_actions": 3740,
-    "seconds": 0.15
+    "seconds": 0.16
    },
    "uncharged": {
     "baselines": [
@@ -1137,7 +1137,7 @@
      0
     ],
     "max_actions": 3740,
-    "seconds": 0.15
+    "seconds": 0.16
    }
   },
   {
@@ -1252,7 +1252,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.28
+    "seconds": 0.29
    }
   },
   {
@@ -1322,7 +1322,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.27
+    "seconds": 0.28
    },
    "uncharged": {
     "baselines": [
@@ -1367,7 +1367,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.23
+    "seconds": 0.24
    }
   },
   {
@@ -1437,7 +1437,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.29
+    "seconds": 0.3
    },
    "uncharged": {
     "baselines": [
@@ -1482,7 +1482,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.29
+    "seconds": 0.3
    }
   },
   {
@@ -1552,7 +1552,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.22
+    "seconds": 0.24
    },
    "uncharged": {
     "baselines": [
@@ -1597,7 +1597,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.27
+    "seconds": 0.3
    }
   },
   {
@@ -1667,7 +1667,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.23
+    "seconds": 0.24
    },
    "uncharged": {
     "baselines": [
@@ -1712,7 +1712,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.29
+    "seconds": 0.3
    }
   },
   {
@@ -1782,7 +1782,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.21
+    "seconds": 0.22
    },
    "uncharged": {
     "baselines": [
@@ -1897,7 +1897,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.27
+    "seconds": 0.29
    },
    "uncharged": {
     "baselines": [
@@ -1942,7 +1942,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.23
+    "seconds": 0.24
    }
   },
   {
@@ -2012,7 +2012,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.29
+    "seconds": 0.31
    },
    "uncharged": {
     "baselines": [
@@ -2057,7 +2057,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.24
+    "seconds": 0.26
    }
   },
   {
@@ -2127,7 +2127,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.29
+    "seconds": 0.3
    },
    "uncharged": {
     "baselines": [
@@ -2172,7 +2172,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.29
+    "seconds": 0.3
    }
   },
   {
@@ -2242,7 +2242,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.23
+    "seconds": 0.24
    },
    "uncharged": {
     "baselines": [
@@ -2287,7 +2287,7 @@
      0
     ],
     "max_actions": 3255,
-    "seconds": 0.29
+    "seconds": 0.31
    }
   },
   {
@@ -2344,7 +2344,7 @@
      1
     ],
     "max_actions": 855,
-    "seconds": 0.15
+    "seconds": 0.16
    },
    "uncharged": {
     "baselines": [
@@ -2381,7 +2381,7 @@
      1
     ],
     "max_actions": 855,
-    "seconds": 0.1
+    "seconds": 0.11
    }
   },
   {
@@ -2486,7 +2486,7 @@
      0
     ],
     "max_actions": 855,
-    "seconds": 0.4
+    "seconds": 0.42
    }
   },
   {
@@ -2552,7 +2552,7 @@
      0
     ],
     "max_actions": 855,
-    "seconds": 0.33
+    "seconds": 0.34
    },
    "uncharged": {
     "baselines": [
@@ -2591,7 +2591,7 @@
      0
     ],
     "max_actions": 855,
-    "seconds": 0.32
+    "seconds": 0.34
    }
   },
   {
@@ -2657,7 +2657,7 @@
      0
     ],
     "max_actions": 855,
-    "seconds": 0.35
+    "seconds": 0.37
    },
    "uncharged": {
     "baselines": [
@@ -2696,7 +2696,7 @@
      0
     ],
     "max_actions": 855,
-    "seconds": 0.39
+    "seconds": 0.41
    }
   },
   {
@@ -2753,7 +2753,7 @@
      1
     ],
     "max_actions": 855,
-    "seconds": 0.13
+    "seconds": 0.14
    },
    "uncharged": {
     "baselines": [
@@ -2790,7 +2790,7 @@
      1
     ],
     "max_actions": 855,
-    "seconds": 0.19
+    "seconds": 0.21
    }
   },
   {
@@ -2856,7 +2856,7 @@
      0
     ],
     "max_actions": 855,
-    "seconds": 0.36
+    "seconds": 0.37
    },
    "uncharged": {
     "baselines": [
@@ -2895,7 +2895,7 @@
      0
     ],
     "max_actions": 855,
-    "seconds": 0.37
+    "seconds": 0.38
    }
   },
   {
@@ -2961,7 +2961,7 @@
      0
     ],
     "max_actions": 855,
-    "seconds": 0.42
+    "seconds": 0.45
    },
    "uncharged": {
     "baselines": [
@@ -3000,7 +3000,7 @@
      0
     ],
     "max_actions": 855,
-    "seconds": 0.39
+    "seconds": 0.41
    }
   },
   {
@@ -3066,7 +3066,7 @@
      0
     ],
     "max_actions": 855,
-    "seconds": 0.35
+    "seconds": 0.37
    },
    "uncharged": {
     "baselines": [
@@ -3105,7 +3105,7 @@
      0
     ],
     "max_actions": 855,
-    "seconds": 0.34
+    "seconds": 0.37
    }
   },
   {
@@ -3265,7 +3265,7 @@
      0
     ],
     "max_actions": 855,
-    "seconds": 0.45
+    "seconds": 0.47
    },
    "uncharged": {
     "baselines": [
@@ -3409,7 +3409,7 @@
      0
     ],
     "max_actions": 3945,
-    "seconds": 0.08
+    "seconds": 0.07
    }
   },
   {
@@ -3514,7 +3514,7 @@
      0
     ],
     "max_actions": 3945,
-    "seconds": 0.07
+    "seconds": 0.08
    }
   },
   {
@@ -3580,7 +3580,7 @@
      0
     ],
     "max_actions": 3945,
-    "seconds": 0.07
+    "seconds": 0.08
    },
    "uncharged": {
     "baselines": [
@@ -3685,7 +3685,7 @@
      0
     ],
     "max_actions": 3945,
-    "seconds": 0.12
+    "seconds": 0.13
    },
    "uncharged": {
     "baselines": [
@@ -3895,7 +3895,7 @@
      0
     ],
     "max_actions": 3945,
-    "seconds": 0.07
+    "seconds": 0.08
    },
    "uncharged": {
     "baselines": [
@@ -4039,7 +4039,7 @@
      0
     ],
     "max_actions": 3945,
-    "seconds": 0.08
+    "seconds": 0.07
    }
   },
   {
@@ -4210,7 +4210,7 @@
      0
     ],
     "max_actions": 3945,
-    "seconds": 0.12
+    "seconds": 0.13
    },
    "uncharged": {
     "baselines": [
@@ -4562,7 +4562,7 @@
      0
     ],
     "max_actions": 6140,
-    "seconds": 0.18
+    "seconds": 0.19
    }
   },
   {
@@ -4731,7 +4731,7 @@
      0
     ],
     "max_actions": 6140,
-    "seconds": 0.18
+    "seconds": 0.19
    },
    "uncharged": {
     "baselines": [
@@ -4770,7 +4770,7 @@
      0
     ],
     "max_actions": 6140,
-    "seconds": 0.24
+    "seconds": 0.25
    }
   },
   {
@@ -5290,7 +5290,7 @@
      0
     ],
     "max_actions": 6140,
-    "seconds": 0.24
+    "seconds": 0.25
    }
   },
   {
@@ -5446,7 +5446,7 @@
      0
     ],
     "max_actions": 1040,
-    "seconds": 0.41
+    "seconds": 0.42
    },
    "uncharged": {
     "baselines": [
@@ -5535,7 +5535,7 @@
      0
     ],
     "max_actions": 1040,
-    "seconds": 0.48
+    "seconds": 0.5
    },
    "uncharged": {
     "baselines": [
@@ -5572,7 +5572,7 @@
      0
     ],
     "max_actions": 1040,
-    "seconds": 0.44
+    "seconds": 0.46
    }
   },
   {
@@ -5624,7 +5624,7 @@
      0
     ],
     "max_actions": 1040,
-    "seconds": 0.45
+    "seconds": 0.46
    },
    "uncharged": {
     "baselines": [
@@ -5661,7 +5661,7 @@
      0
     ],
     "max_actions": 1040,
-    "seconds": 0.43
+    "seconds": 0.46
    }
   },
   {
@@ -5678,540 +5678,6 @@
    "same_chosen_actions": true,
    "score_differs": false,
    "seed": 3,
-   "shipped": {
-    "baselines": [
-     43,
-     12,
-     23,
-     28,
-     65,
-     37
-    ],
-    "budgets": [
-     215,
-     60,
-     115,
-     140,
-     325,
-     185
-    ],
-    "card_actions": [
-     215
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 215,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 215,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 1040,
-    "seconds": 0.48
-   },
-   "uncharged": {
-    "baselines": [
-     43,
-     12,
-     23,
-     28,
-     65,
-     37
-    ],
-    "budgets": [
-     215,
-     60,
-     115,
-     140,
-     325,
-     185
-    ],
-    "card_actions": [
-     215
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 215,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 215,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 1040,
-    "seconds": 0.44
-   }
-  },
-  {
-   "advertised_actions": [
-    6
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 0,
-   "forced_share_of_counted": 0.0,
-   "forced_share_of_max_actions": 0.0,
-   "game": "ft09",
-   "level_tax": [],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 4,
-   "shipped": {
-    "baselines": [
-     43,
-     12,
-     23,
-     28,
-     65,
-     37
-    ],
-    "budgets": [
-     215,
-     60,
-     115,
-     140,
-     325,
-     185
-    ],
-    "card_actions": [
-     215
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 215,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 215,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 1040,
-    "seconds": 0.44
-   },
-   "uncharged": {
-    "baselines": [
-     43,
-     12,
-     23,
-     28,
-     65,
-     37
-    ],
-    "budgets": [
-     215,
-     60,
-     115,
-     140,
-     325,
-     185
-    ],
-    "card_actions": [
-     215
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 215,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 215,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 1040,
-    "seconds": 0.44
-   }
-  },
-  {
-   "advertised_actions": [
-    6
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 0,
-   "forced_share_of_counted": 0.0,
-   "forced_share_of_max_actions": 0.0,
-   "game": "ft09",
-   "level_tax": [],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 5,
-   "shipped": {
-    "baselines": [
-     43,
-     12,
-     23,
-     28,
-     65,
-     37
-    ],
-    "budgets": [
-     215,
-     60,
-     115,
-     140,
-     325,
-     185
-    ],
-    "card_actions": [
-     215
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 215,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 215,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 1040,
-    "seconds": 0.44
-   },
-   "uncharged": {
-    "baselines": [
-     43,
-     12,
-     23,
-     28,
-     65,
-     37
-    ],
-    "budgets": [
-     215,
-     60,
-     115,
-     140,
-     325,
-     185
-    ],
-    "card_actions": [
-     215
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 215,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 215,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 1040,
-    "seconds": 0.48
-   }
-  },
-  {
-   "advertised_actions": [
-    6
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 0,
-   "forced_share_of_counted": 0.0,
-   "forced_share_of_max_actions": 0.0,
-   "game": "ft09",
-   "level_tax": [],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 6,
-   "shipped": {
-    "baselines": [
-     43,
-     12,
-     23,
-     28,
-     65,
-     37
-    ],
-    "budgets": [
-     215,
-     60,
-     115,
-     140,
-     325,
-     185
-    ],
-    "card_actions": [
-     215
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 215,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 215,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 1040,
-    "seconds": 0.45
-   },
-   "uncharged": {
-    "baselines": [
-     43,
-     12,
-     23,
-     28,
-     65,
-     37
-    ],
-    "budgets": [
-     215,
-     60,
-     115,
-     140,
-     325,
-     185
-    ],
-    "card_actions": [
-     215
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 215,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 215,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 1040,
-    "seconds": 0.45
-   }
-  },
-  {
-   "advertised_actions": [
-    6
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 0,
-   "forced_share_of_counted": 0.0,
-   "forced_share_of_max_actions": 0.0,
-   "game": "ft09",
-   "level_tax": [],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 7,
-   "shipped": {
-    "baselines": [
-     43,
-     12,
-     23,
-     28,
-     65,
-     37
-    ],
-    "budgets": [
-     215,
-     60,
-     115,
-     140,
-     325,
-     185
-    ],
-    "card_actions": [
-     215
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 215,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 215,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 1040,
-    "seconds": 0.44
-   },
-   "uncharged": {
-    "baselines": [
-     43,
-     12,
-     23,
-     28,
-     65,
-     37
-    ],
-    "budgets": [
-     215,
-     60,
-     115,
-     140,
-     325,
-     185
-    ],
-    "card_actions": [
-     215
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 215,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 215,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 1040,
-    "seconds": 0.48
-   }
-  },
-  {
-   "advertised_actions": [
-    6
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 0,
-   "forced_share_of_counted": 0.0,
-   "forced_share_of_max_actions": 0.0,
-   "game": "ft09",
-   "level_tax": [],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 8,
-   "shipped": {
-    "baselines": [
-     43,
-     12,
-     23,
-     28,
-     65,
-     37
-    ],
-    "budgets": [
-     215,
-     60,
-     115,
-     140,
-     325,
-     185
-    ],
-    "card_actions": [
-     215
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 215,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 215,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 1040,
-    "seconds": 0.44
-   },
-   "uncharged": {
-    "baselines": [
-     43,
-     12,
-     23,
-     28,
-     65,
-     37
-    ],
-    "budgets": [
-     215,
-     60,
-     115,
-     140,
-     325,
-     185
-    ],
-    "card_actions": [
-     215
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 215,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 215,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 1040,
-    "seconds": 0.45
-   }
-  },
-  {
-   "advertised_actions": [
-    6
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 0,
-   "forced_share_of_counted": 0.0,
-   "forced_share_of_max_actions": 0.0,
-   "game": "ft09",
-   "level_tax": [],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 9,
    "shipped": {
     "baselines": [
      43,
@@ -6289,6 +5755,540 @@
   },
   {
    "advertised_actions": [
+    6
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ft09",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 4,
+   "shipped": {
+    "baselines": [
+     43,
+     12,
+     23,
+     28,
+     65,
+     37
+    ],
+    "budgets": [
+     215,
+     60,
+     115,
+     140,
+     325,
+     185
+    ],
+    "card_actions": [
+     215
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 215,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 215,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 1040,
+    "seconds": 0.45
+   },
+   "uncharged": {
+    "baselines": [
+     43,
+     12,
+     23,
+     28,
+     65,
+     37
+    ],
+    "budgets": [
+     215,
+     60,
+     115,
+     140,
+     325,
+     185
+    ],
+    "card_actions": [
+     215
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 215,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 215,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 1040,
+    "seconds": 0.45
+   }
+  },
+  {
+   "advertised_actions": [
+    6
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ft09",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 5,
+   "shipped": {
+    "baselines": [
+     43,
+     12,
+     23,
+     28,
+     65,
+     37
+    ],
+    "budgets": [
+     215,
+     60,
+     115,
+     140,
+     325,
+     185
+    ],
+    "card_actions": [
+     215
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 215,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 215,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 1040,
+    "seconds": 0.46
+   },
+   "uncharged": {
+    "baselines": [
+     43,
+     12,
+     23,
+     28,
+     65,
+     37
+    ],
+    "budgets": [
+     215,
+     60,
+     115,
+     140,
+     325,
+     185
+    ],
+    "card_actions": [
+     215
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 215,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 215,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 1040,
+    "seconds": 0.5
+   }
+  },
+  {
+   "advertised_actions": [
+    6
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ft09",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 6,
+   "shipped": {
+    "baselines": [
+     43,
+     12,
+     23,
+     28,
+     65,
+     37
+    ],
+    "budgets": [
+     215,
+     60,
+     115,
+     140,
+     325,
+     185
+    ],
+    "card_actions": [
+     215
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 215,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 215,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 1040,
+    "seconds": 0.47
+   },
+   "uncharged": {
+    "baselines": [
+     43,
+     12,
+     23,
+     28,
+     65,
+     37
+    ],
+    "budgets": [
+     215,
+     60,
+     115,
+     140,
+     325,
+     185
+    ],
+    "card_actions": [
+     215
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 215,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 215,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 1040,
+    "seconds": 0.46
+   }
+  },
+  {
+   "advertised_actions": [
+    6
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ft09",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 7,
+   "shipped": {
+    "baselines": [
+     43,
+     12,
+     23,
+     28,
+     65,
+     37
+    ],
+    "budgets": [
+     215,
+     60,
+     115,
+     140,
+     325,
+     185
+    ],
+    "card_actions": [
+     215
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 215,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 215,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 1040,
+    "seconds": 0.45
+   },
+   "uncharged": {
+    "baselines": [
+     43,
+     12,
+     23,
+     28,
+     65,
+     37
+    ],
+    "budgets": [
+     215,
+     60,
+     115,
+     140,
+     325,
+     185
+    ],
+    "card_actions": [
+     215
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 215,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 215,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 1040,
+    "seconds": 0.49
+   }
+  },
+  {
+   "advertised_actions": [
+    6
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ft09",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 8,
+   "shipped": {
+    "baselines": [
+     43,
+     12,
+     23,
+     28,
+     65,
+     37
+    ],
+    "budgets": [
+     215,
+     60,
+     115,
+     140,
+     325,
+     185
+    ],
+    "card_actions": [
+     215
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 215,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 215,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 1040,
+    "seconds": 0.47
+   },
+   "uncharged": {
+    "baselines": [
+     43,
+     12,
+     23,
+     28,
+     65,
+     37
+    ],
+    "budgets": [
+     215,
+     60,
+     115,
+     140,
+     325,
+     185
+    ],
+    "card_actions": [
+     215
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 215,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 215,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 1040,
+    "seconds": 0.52
+   }
+  },
+  {
+   "advertised_actions": [
+    6
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ft09",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 9,
+   "shipped": {
+    "baselines": [
+     43,
+     12,
+     23,
+     28,
+     65,
+     37
+    ],
+    "budgets": [
+     215,
+     60,
+     115,
+     140,
+     325,
+     185
+    ],
+    "card_actions": [
+     215
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 215,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 215,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 1040,
+    "seconds": 0.51
+   },
+   "uncharged": {
+    "baselines": [
+     43,
+     12,
+     23,
+     28,
+     65,
+     37
+    ],
+    "budgets": [
+     215,
+     60,
+     115,
+     140,
+     325,
+     185
+    ],
+    "card_actions": [
+     215
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 215,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 215,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 1040,
+    "seconds": 0.49
+   }
+  },
+  {
+   "advertised_actions": [
     1,
     2,
     3,
@@ -6312,6 +6312,330 @@
    "same_chosen_actions": true,
    "score_differs": false,
    "seed": 0,
+   "shipped": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     390
+    ],
+    "card_resets": [
+     2
+    ],
+    "clicks_issued": 0,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 388,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 1.0
+   },
+   "uncharged": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     392
+    ],
+    "card_resets": [
+     2
+    ],
+    "clicks_issued": 0,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 390,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.96
+   }
+  },
+  {
+   "advertised_actions": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.005128205,
+   "forced_share_of_max_actions": 0.000455063,
+   "game": "g50t",
+   "level_tax": [
+    {
+     "budget": 390,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.005128205
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 1,
+   "shipped": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     390
+    ],
+    "card_resets": [
+     2
+    ],
+    "clicks_issued": 0,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 388,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.94
+   },
+   "uncharged": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     392
+    ],
+    "card_resets": [
+     2
+    ],
+    "clicks_issued": 0,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 390,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.98
+   }
+  },
+  {
+   "advertised_actions": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.005128205,
+   "forced_share_of_max_actions": 0.000455063,
+   "game": "g50t",
+   "level_tax": [
+    {
+     "budget": 390,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.005128205
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 2,
+   "shipped": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     390
+    ],
+    "card_resets": [
+     2
+    ],
+    "clicks_issued": 0,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 388,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.94
+   },
+   "uncharged": {
+    "baselines": [
+     78,
+     175,
+     179,
+     230,
+     96,
+     54,
+     67
+    ],
+    "budgets": [
+     390,
+     875,
+     895,
+     1150,
+     480,
+     270,
+     335
+    ],
+    "card_actions": [
+     392
+    ],
+    "card_resets": [
+     2
+    ],
+    "clicks_issued": 0,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 390,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 2
+    },
+    "forced_total": 2,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 4395,
+    "seconds": 0.94
+   }
+  },
+  {
+   "advertised_actions": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 2,
+   "forced_share_of_counted": 0.005128205,
+   "forced_share_of_max_actions": 0.000455063,
+   "game": "g50t",
+   "level_tax": [
+    {
+     "budget": 390,
+     "forced": 2,
+     "level": 0,
+     "share_of_budget": 0.005128205
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 3,
    "shipped": {
     "baselines": [
      78,
@@ -6392,331 +6716,7 @@
      0
     ],
     "max_actions": 4395,
-    "seconds": 0.94
-   }
-  },
-  {
-   "advertised_actions": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 2,
-   "forced_share_of_counted": 0.005128205,
-   "forced_share_of_max_actions": 0.000455063,
-   "game": "g50t",
-   "level_tax": [
-    {
-     "budget": 390,
-     "forced": 2,
-     "level": 0,
-     "share_of_budget": 0.005128205
-    }
-   ],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 1,
-   "shipped": {
-    "baselines": [
-     78,
-     175,
-     179,
-     230,
-     96,
-     54,
-     67
-    ],
-    "budgets": [
-     390,
-     875,
-     895,
-     1150,
-     480,
-     270,
-     335
-    ],
-    "card_actions": [
-     390
-    ],
-    "card_resets": [
-     2
-    ],
-    "clicks_issued": 0,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 388,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 2
-    },
-    "forced_total": 2,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 4395,
-    "seconds": 0.94
-   },
-   "uncharged": {
-    "baselines": [
-     78,
-     175,
-     179,
-     230,
-     96,
-     54,
-     67
-    ],
-    "budgets": [
-     390,
-     875,
-     895,
-     1150,
-     480,
-     270,
-     335
-    ],
-    "card_actions": [
-     392
-    ],
-    "card_resets": [
-     2
-    ],
-    "clicks_issued": 0,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 390,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 2
-    },
-    "forced_total": 2,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 4395,
-    "seconds": 0.93
-   }
-  },
-  {
-   "advertised_actions": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 2,
-   "forced_share_of_counted": 0.005128205,
-   "forced_share_of_max_actions": 0.000455063,
-   "game": "g50t",
-   "level_tax": [
-    {
-     "budget": 390,
-     "forced": 2,
-     "level": 0,
-     "share_of_budget": 0.005128205
-    }
-   ],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 2,
-   "shipped": {
-    "baselines": [
-     78,
-     175,
-     179,
-     230,
-     96,
-     54,
-     67
-    ],
-    "budgets": [
-     390,
-     875,
-     895,
-     1150,
-     480,
-     270,
-     335
-    ],
-    "card_actions": [
-     390
-    ],
-    "card_resets": [
-     2
-    ],
-    "clicks_issued": 0,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 388,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 2
-    },
-    "forced_total": 2,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 4395,
-    "seconds": 0.92
-   },
-   "uncharged": {
-    "baselines": [
-     78,
-     175,
-     179,
-     230,
-     96,
-     54,
-     67
-    ],
-    "budgets": [
-     390,
-     875,
-     895,
-     1150,
-     480,
-     270,
-     335
-    ],
-    "card_actions": [
-     392
-    ],
-    "card_resets": [
-     2
-    ],
-    "clicks_issued": 0,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 390,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 2
-    },
-    "forced_total": 2,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 4395,
-    "seconds": 0.93
-   }
-  },
-  {
-   "advertised_actions": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 2,
-   "forced_share_of_counted": 0.005128205,
-   "forced_share_of_max_actions": 0.000455063,
-   "game": "g50t",
-   "level_tax": [
-    {
-     "budget": 390,
-     "forced": 2,
-     "level": 0,
-     "share_of_budget": 0.005128205
-    }
-   ],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 3,
-   "shipped": {
-    "baselines": [
-     78,
-     175,
-     179,
-     230,
-     96,
-     54,
-     67
-    ],
-    "budgets": [
-     390,
-     875,
-     895,
-     1150,
-     480,
-     270,
-     335
-    ],
-    "card_actions": [
-     390
-    ],
-    "card_resets": [
-     2
-    ],
-    "clicks_issued": 0,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 388,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 2
-    },
-    "forced_total": 2,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 4395,
-    "seconds": 0.96
-   },
-   "uncharged": {
-    "baselines": [
-     78,
-     175,
-     179,
-     230,
-     96,
-     54,
-     67
-    ],
-    "budgets": [
-     390,
-     875,
-     895,
-     1150,
-     480,
-     270,
-     335
-    ],
-    "card_actions": [
-     392
-    ],
-    "card_resets": [
-     2
-    ],
-    "clicks_issued": 0,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 390,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 2
-    },
-    "forced_total": 2,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 4395,
-    "seconds": 0.96
+    "seconds": 0.98
    }
   },
   {
@@ -6824,7 +6824,7 @@
      0
     ],
     "max_actions": 4395,
-    "seconds": 0.89
+    "seconds": 0.91
    }
   },
   {
@@ -6891,7 +6891,7 @@
      0
     ],
     "max_actions": 4395,
-    "seconds": 0.96
+    "seconds": 0.97
    },
    "uncharged": {
     "baselines": [
@@ -6932,7 +6932,7 @@
      0
     ],
     "max_actions": 4395,
-    "seconds": 0.88
+    "seconds": 0.92
    }
   },
   {
@@ -6999,7 +6999,7 @@
      0
     ],
     "max_actions": 4395,
-    "seconds": 0.92
+    "seconds": 0.98
    },
    "uncharged": {
     "baselines": [
@@ -7040,7 +7040,7 @@
      0
     ],
     "max_actions": 4395,
-    "seconds": 0.97
+    "seconds": 1.03
    }
   },
   {
@@ -7107,7 +7107,7 @@
      0
     ],
     "max_actions": 4395,
-    "seconds": 0.88
+    "seconds": 0.91
    },
    "uncharged": {
     "baselines": [
@@ -7148,7 +7148,7 @@
      0
     ],
     "max_actions": 4395,
-    "seconds": 0.92
+    "seconds": 0.96
    }
   },
   {
@@ -7215,7 +7215,7 @@
      0
     ],
     "max_actions": 4395,
-    "seconds": 0.96
+    "seconds": 0.99
    },
    "uncharged": {
     "baselines": [
@@ -7256,7 +7256,7 @@
      0
     ],
     "max_actions": 4395,
-    "seconds": 0.98
+    "seconds": 1.01
    }
   },
   {
@@ -7323,7 +7323,7 @@
      0
     ],
     "max_actions": 4395,
-    "seconds": 0.85
+    "seconds": 0.86
    },
    "uncharged": {
     "baselines": [
@@ -7364,7 +7364,7 @@
      0
     ],
     "max_actions": 4395,
-    "seconds": 0.84
+    "seconds": 0.86
    }
   },
   {
@@ -7472,7 +7472,7 @@
      0
     ],
     "max_actions": 3650,
-    "seconds": 0.16
+    "seconds": 0.17
    }
   },
   {
@@ -7539,7 +7539,7 @@
      0
     ],
     "max_actions": 3650,
-    "seconds": 0.07
+    "seconds": 0.08
    },
    "uncharged": {
     "baselines": [
@@ -7647,7 +7647,7 @@
      0
     ],
     "max_actions": 3650,
-    "seconds": 0.07
+    "seconds": 0.08
    },
    "uncharged": {
     "baselines": [
@@ -7688,7 +7688,7 @@
      0
     ],
     "max_actions": 3650,
-    "seconds": 0.07
+    "seconds": 0.08
    }
   },
   {
@@ -7755,7 +7755,7 @@
      0
     ],
     "max_actions": 3650,
-    "seconds": 0.12
+    "seconds": 0.13
    },
    "uncharged": {
     "baselines": [
@@ -7904,7 +7904,7 @@
      0
     ],
     "max_actions": 3650,
-    "seconds": 0.08
+    "seconds": 0.07
    }
   },
   {
@@ -8079,7 +8079,7 @@
      0
     ],
     "max_actions": 3650,
-    "seconds": 0.07
+    "seconds": 0.08
    },
    "uncharged": {
     "baselines": [
@@ -8120,7 +8120,7 @@
      0
     ],
     "max_actions": 3650,
-    "seconds": 0.07
+    "seconds": 0.08
    }
   },
   {
@@ -8295,7 +8295,7 @@
      0
     ],
     "max_actions": 3650,
-    "seconds": 0.12
+    "seconds": 0.13
    },
    "uncharged": {
     "baselines": [
@@ -8518,7 +8518,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.28
+    "seconds": 0.29
    },
    "uncharged": {
     "baselines": [
@@ -8565,7 +8565,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.27
+    "seconds": 0.3
    }
   },
   {
@@ -8686,7 +8686,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.29
+    "seconds": 0.3
    }
   },
   {
@@ -8760,7 +8760,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.26
+    "seconds": 0.27
    },
    "uncharged": {
     "baselines": [
@@ -8807,7 +8807,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.26
+    "seconds": 0.27
    }
   },
   {
@@ -8881,7 +8881,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.28
+    "seconds": 0.3
    },
    "uncharged": {
     "baselines": [
@@ -8928,7 +8928,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.29
+    "seconds": 0.3
    }
   },
   {
@@ -9002,7 +9002,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.3
+    "seconds": 0.31
    },
    "uncharged": {
     "baselines": [
@@ -9123,7 +9123,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.34
+    "seconds": 0.36
    },
    "uncharged": {
     "baselines": [
@@ -9170,7 +9170,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.23
+    "seconds": 0.24
    }
   },
   {
@@ -9244,7 +9244,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.35
+    "seconds": 0.37
    },
    "uncharged": {
     "baselines": [
@@ -9291,7 +9291,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.31
+    "seconds": 0.33
    }
   },
   {
@@ -9365,7 +9365,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.31
+    "seconds": 0.32
    },
    "uncharged": {
     "baselines": [
@@ -9412,7 +9412,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.31
+    "seconds": 0.32
    }
   },
   {
@@ -9486,7 +9486,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.21
+    "seconds": 0.22
    },
    "uncharged": {
     "baselines": [
@@ -9533,7 +9533,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.28
+    "seconds": 0.29
    }
   },
   {
@@ -9607,7 +9607,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.26
+    "seconds": 0.27
    },
    "uncharged": {
     "baselines": [
@@ -9654,7 +9654,7 @@
      0
     ],
     "max_actions": 6695,
-    "seconds": 0.26
+    "seconds": 0.27
    }
   },
   {
@@ -9945,7 +9945,7 @@
      0
     ],
     "max_actions": 1940,
-    "seconds": 0.04
+    "seconds": 0.05
    }
   },
   {
@@ -10098,7 +10098,7 @@
      0
     ],
     "max_actions": 1940,
-    "seconds": 0.09
+    "seconds": 0.1
    },
    "uncharged": {
     "baselines": [
@@ -10389,7 +10389,7 @@
      0
     ],
     "max_actions": 1940,
-    "seconds": 0.09
+    "seconds": 0.1
    },
    "uncharged": {
     "baselines": [
@@ -10681,7 +10681,7 @@
      0
     ],
     "max_actions": 3880,
-    "seconds": 0.14
+    "seconds": 0.15
    },
    "uncharged": {
     "baselines": [
@@ -10720,7 +10720,7 @@
      0
     ],
     "max_actions": 3880,
-    "seconds": 0.09
+    "seconds": 0.1
    }
   },
   {
@@ -10969,7 +10969,7 @@
      0
     ],
     "max_actions": 3880,
-    "seconds": 0.09
+    "seconds": 0.1
    },
    "uncharged": {
     "baselines": [
@@ -11104,7 +11104,7 @@
      0
     ],
     "max_actions": 3880,
-    "seconds": 0.14
+    "seconds": 0.15
    }
   },
   {
@@ -11161,7 +11161,7 @@
      0
     ],
     "max_actions": 3880,
-    "seconds": 0.09
+    "seconds": 0.1
    },
    "uncharged": {
     "baselines": [
@@ -11200,7 +11200,7 @@
      0
     ],
     "max_actions": 3880,
-    "seconds": 0.09
+    "seconds": 0.1
    }
   },
   {
@@ -11353,7 +11353,7 @@
      0
     ],
     "max_actions": 3880,
-    "seconds": 0.09
+    "seconds": 0.1
    },
    "uncharged": {
     "baselines": [
@@ -11392,7 +11392,7 @@
      0
     ],
     "max_actions": 3880,
-    "seconds": 0.09
+    "seconds": 0.1
    }
   },
   {
@@ -11449,7 +11449,103 @@
      0
     ],
     "max_actions": 3880,
-    "seconds": 0.12
+    "seconds": 0.1
+   },
+   "uncharged": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 0,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.1
+   }
+  },
+  {
+   "advertised_actions": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 0,
+   "forced_share_of_counted": 0.0,
+   "forced_share_of_max_actions": 0.0,
+   "game": "ls20",
+   "level_tax": [],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 9,
+   "shipped": {
+    "baselines": [
+     22,
+     123,
+     73,
+     84,
+     96,
+     192,
+     186
+    ],
+    "budgets": [
+     110,
+     615,
+     365,
+     420,
+     480,
+     960,
+     930
+    ],
+    "card_actions": [
+     110
+    ],
+    "card_resets": [
+     0
+    ],
+    "clicks_issued": 0,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 110,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {},
+    "forced_total": 0,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 3880,
+    "seconds": 0.16
    },
    "uncharged": {
     "baselines": [
@@ -11496,102 +11592,6 @@
     1,
     2,
     3,
-    4
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 0,
-   "forced_share_of_counted": 0.0,
-   "forced_share_of_max_actions": 0.0,
-   "game": "ls20",
-   "level_tax": [],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 9,
-   "shipped": {
-    "baselines": [
-     22,
-     123,
-     73,
-     84,
-     96,
-     192,
-     186
-    ],
-    "budgets": [
-     110,
-     615,
-     365,
-     420,
-     480,
-     960,
-     930
-    ],
-    "card_actions": [
-     110
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 0,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 110,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 3880,
-    "seconds": 0.22
-   },
-   "uncharged": {
-    "baselines": [
-     22,
-     123,
-     73,
-     84,
-     96,
-     192,
-     186
-    ],
-    "budgets": [
-     110,
-     615,
-     365,
-     420,
-     480,
-     960,
-     930
-    ],
-    "card_actions": [
-     110
-    ],
-    "card_resets": [
-     0
-    ],
-    "clicks_issued": 0,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 110,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {},
-    "forced_total": 0,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 3880,
-    "seconds": 0.16
-   }
-  },
-  {
-   "advertised_actions": [
-    1,
-    2,
-    3,
     4,
     5,
     6
@@ -11641,7 +11641,7 @@
      0
     ],
     "max_actions": 5535,
-    "seconds": 0.09
+    "seconds": 0.08
    },
    "uncharged": {
     "baselines": [
@@ -11678,7 +11678,7 @@
      0
     ],
     "max_actions": 5535,
-    "seconds": 0.09
+    "seconds": 0.08
    }
   },
   {
@@ -11735,7 +11735,7 @@
      0
     ],
     "max_actions": 5535,
-    "seconds": 0.15
+    "seconds": 0.14
    },
    "uncharged": {
     "baselines": [
@@ -11772,7 +11772,7 @@
      0
     ],
     "max_actions": 5535,
-    "seconds": 0.09
+    "seconds": 0.08
    }
   },
   {
@@ -11829,7 +11829,7 @@
      0
     ],
     "max_actions": 5535,
-    "seconds": 0.09
+    "seconds": 0.08
    },
    "uncharged": {
     "baselines": [
@@ -12148,7 +12148,7 @@
      0
     ],
     "max_actions": 5535,
-    "seconds": 0.14
+    "seconds": 0.13
    }
   },
   {
@@ -12336,7 +12336,7 @@
      0
     ],
     "max_actions": 5535,
-    "seconds": 0.09
+    "seconds": 0.08
    }
   },
   {
@@ -12430,7 +12430,7 @@
      0
     ],
     "max_actions": 5535,
-    "seconds": 0.09
+    "seconds": 0.08
    }
   },
   {
@@ -12524,7 +12524,7 @@
      0
     ],
     "max_actions": 5535,
-    "seconds": 0.13
+    "seconds": 0.08
    }
   },
   {
@@ -12585,7 +12585,7 @@
      0
     ],
     "max_actions": 1165,
-    "seconds": 0.17
+    "seconds": 0.16
    },
    "uncharged": {
     "baselines": [
@@ -12785,7 +12785,7 @@
      1
     ],
     "max_actions": 1165,
-    "seconds": 0.64
+    "seconds": 0.63
    },
    "uncharged": {
     "baselines": [
@@ -12824,7 +12824,7 @@
      1
     ],
     "max_actions": 1165,
-    "seconds": 0.69
+    "seconds": 0.68
    }
   },
   {
@@ -12885,7 +12885,7 @@
      0
     ],
     "max_actions": 1165,
-    "seconds": 0.11
+    "seconds": 0.1
    },
    "uncharged": {
     "baselines": [
@@ -12924,7 +12924,7 @@
      0
     ],
     "max_actions": 1165,
-    "seconds": 0.2
+    "seconds": 0.18
    }
   },
   {
@@ -12992,7 +12992,7 @@
      1
     ],
     "max_actions": 1165,
-    "seconds": 0.56
+    "seconds": 0.55
    },
    "uncharged": {
     "baselines": [
@@ -13032,7 +13032,7 @@
      1
     ],
     "max_actions": 1165,
-    "seconds": 0.62
+    "seconds": 0.6
    }
   },
   {
@@ -13093,7 +13093,7 @@
      1
     ],
     "max_actions": 1165,
-    "seconds": 0.48
+    "seconds": 0.47
    },
    "uncharged": {
     "baselines": [
@@ -13393,7 +13393,7 @@
      0
     ],
     "max_actions": 1165,
-    "seconds": 0.12
+    "seconds": 0.11
    },
    "uncharged": {
     "baselines": [
@@ -13432,7 +13432,7 @@
      0
     ],
     "max_actions": 1165,
-    "seconds": 0.21
+    "seconds": 0.2
    }
   },
   {
@@ -13500,7 +13500,7 @@
      1
     ],
     "max_actions": 1165,
-    "seconds": 0.57
+    "seconds": 0.55
    },
    "uncharged": {
     "baselines": [
@@ -13540,7 +13540,7 @@
      1
     ],
     "max_actions": 1165,
-    "seconds": 0.56
+    "seconds": 0.54
    }
   },
   {
@@ -13721,7 +13721,7 @@
      0
     ],
     "max_actions": 6275,
-    "seconds": 0.14
+    "seconds": 0.15
    },
    "uncharged": {
     "baselines": [
@@ -13988,7 +13988,7 @@
      0
     ],
     "max_actions": 6275,
-    "seconds": 0.13
+    "seconds": 0.12
    }
   },
   {
@@ -14100,7 +14100,7 @@
      0
     ],
     "max_actions": 6275,
-    "seconds": 0.08
+    "seconds": 0.07
    }
   },
   {
@@ -14617,7 +14617,7 @@
      0
     ],
     "max_actions": 6275,
-    "seconds": 0.13
+    "seconds": 0.12
    },
    "uncharged": {
     "baselines": [
@@ -15798,7 +15798,7 @@
      0
     ],
     "max_actions": 1065,
-    "seconds": 0.52
+    "seconds": 0.53
    },
    "uncharged": {
     "baselines": [
@@ -16037,7 +16037,7 @@
      0
     ],
     "max_actions": 1065,
-    "seconds": 0.31
+    "seconds": 0.3
    }
   },
   {
@@ -16095,7 +16095,7 @@
      0
     ],
     "max_actions": 1065,
-    "seconds": 0.42
+    "seconds": 0.43
    },
    "uncharged": {
     "baselines": [
@@ -16235,7 +16235,7 @@
      0
     ],
     "max_actions": 1065,
-    "seconds": 0.4
+    "seconds": 0.41
    }
   },
   {
@@ -16293,7 +16293,7 @@
      0
     ],
     "max_actions": 1065,
-    "seconds": 0.5
+    "seconds": 0.49
    },
    "uncharged": {
     "baselines": [
@@ -16433,7 +16433,7 @@
      0
     ],
     "max_actions": 1065,
-    "seconds": 0.47
+    "seconds": 0.48
    }
   },
   {
@@ -16491,7 +16491,7 @@
      0
     ],
     "max_actions": 1065,
-    "seconds": 0.49
+    "seconds": 0.47
    },
    "uncharged": {
     "baselines": [
@@ -16532,7 +16532,7 @@
      0
     ],
     "max_actions": 1065,
-    "seconds": 0.47
+    "seconds": 0.49
    }
   },
   {
@@ -16590,7 +16590,7 @@
      0
     ],
     "max_actions": 1065,
-    "seconds": 0.59
+    "seconds": 0.58
    },
    "uncharged": {
     "baselines": [
@@ -16631,7 +16631,7 @@
      0
     ],
     "max_actions": 1065,
-    "seconds": 0.55
+    "seconds": 0.54
    }
   },
   {
@@ -16834,7 +16834,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.31
+    "seconds": 0.32
    }
   },
   {
@@ -16899,7 +16899,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.31
+    "seconds": 0.3
    },
    "uncharged": {
     "baselines": [
@@ -17042,7 +17042,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.33
+    "seconds": 0.31
    }
   },
   {
@@ -17107,7 +17107,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.31
+    "seconds": 0.32
    },
    "uncharged": {
     "baselines": [
@@ -17146,7 +17146,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.32
+    "seconds": 0.31
    }
   },
   {
@@ -17211,7 +17211,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.34
+    "seconds": 0.33
    },
    "uncharged": {
     "baselines": [
@@ -17250,7 +17250,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.34
+    "seconds": 0.33
    }
   },
   {
@@ -17315,7 +17315,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.31
+    "seconds": 0.3
    },
    "uncharged": {
     "baselines": [
@@ -17354,7 +17354,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.35
+    "seconds": 0.29
    }
   },
   {
@@ -17419,7 +17419,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.31
+    "seconds": 0.29
    },
    "uncharged": {
     "baselines": [
@@ -17523,7 +17523,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.34
+    "seconds": 0.33
    },
    "uncharged": {
     "baselines": [
@@ -17562,7 +17562,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.35
+    "seconds": 0.34
    }
   },
   {
@@ -17627,7 +17627,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.32
+    "seconds": 0.31
    },
    "uncharged": {
     "baselines": [
@@ -17666,7 +17666,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.26
+    "seconds": 0.24
    }
   },
   {
@@ -17731,7 +17731,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.32
+    "seconds": 0.31
    },
    "uncharged": {
     "baselines": [
@@ -17770,7 +17770,7 @@
      0
     ],
     "max_actions": 1750,
-    "seconds": 0.3
+    "seconds": 0.29
    }
   },
   {
@@ -17883,7 +17883,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.24
+    "seconds": 0.23
    }
   },
   {
@@ -17944,7 +17944,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.31
+    "seconds": 0.29
    },
    "uncharged": {
     "baselines": [
@@ -17985,7 +17985,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.24
+    "seconds": 0.23
    }
   },
   {
@@ -18098,7 +18098,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.29
+    "seconds": 0.28
    }
   },
   {
@@ -18168,7 +18168,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.24
+    "seconds": 0.23
    },
    "uncharged": {
     "baselines": [
@@ -18211,7 +18211,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.31
+    "seconds": 0.36
    }
   },
   {
@@ -18272,7 +18272,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.22
+    "seconds": 0.21
    },
    "uncharged": {
     "baselines": [
@@ -18313,7 +18313,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.29
+    "seconds": 0.28
    }
   },
   {
@@ -18383,7 +18383,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.24
+    "seconds": 0.23
    },
    "uncharged": {
     "baselines": [
@@ -18496,7 +18496,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.29
+    "seconds": 0.28
    },
    "uncharged": {
     "baselines": [
@@ -18609,7 +18609,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.3
+    "seconds": 0.31
    },
    "uncharged": {
     "baselines": [
@@ -18722,7 +18722,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.3
+    "seconds": 0.29
    },
    "uncharged": {
     "baselines": [
@@ -18765,7 +18765,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.29
+    "seconds": 0.28
    }
   },
   {
@@ -18835,7 +18835,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.24
+    "seconds": 0.23
    },
    "uncharged": {
     "baselines": [
@@ -18878,7 +18878,7 @@
      0
     ],
     "max_actions": 5350,
-    "seconds": 0.3
+    "seconds": 0.29
    }
   },
   {
@@ -18944,7 +18944,7 @@
      1
     ],
     "max_actions": 2590,
-    "seconds": 0.48
+    "seconds": 0.47
    },
    "uncharged": {
     "baselines": [
@@ -18983,7 +18983,7 @@
      1
     ],
     "max_actions": 2590,
-    "seconds": 0.55
+    "seconds": 0.53
    }
   },
   {
@@ -19169,7 +19169,7 @@
      1
     ],
     "max_actions": 2590,
-    "seconds": 0.65
+    "seconds": 0.64
    },
    "uncharged": {
     "baselines": [
@@ -19275,7 +19275,7 @@
      0
     ],
     "max_actions": 2590,
-    "seconds": 0.24
+    "seconds": 0.23
    },
    "uncharged": {
     "baselines": [
@@ -19314,7 +19314,7 @@
      0
     ],
     "max_actions": 2590,
-    "seconds": 0.33
+    "seconds": 0.34
    }
   },
   {
@@ -19387,7 +19387,7 @@
      1
     ],
     "max_actions": 2590,
-    "seconds": 0.67
+    "seconds": 0.64
    },
    "uncharged": {
     "baselines": [
@@ -19427,7 +19427,7 @@
      1
     ],
     "max_actions": 2590,
-    "seconds": 0.69
+    "seconds": 0.7
    }
   },
   {
@@ -19500,7 +19500,7 @@
      1
     ],
     "max_actions": 2590,
-    "seconds": 0.57
+    "seconds": 0.56
    },
    "uncharged": {
     "baselines": [
@@ -19540,7 +19540,7 @@
      1
     ],
     "max_actions": 2590,
-    "seconds": 0.56
+    "seconds": 0.55
    }
   },
   {
@@ -19613,7 +19613,7 @@
      1
     ],
     "max_actions": 2590,
-    "seconds": 0.72
+    "seconds": 0.69
    },
    "uncharged": {
     "baselines": [
@@ -19653,7 +19653,7 @@
      1
     ],
     "max_actions": 2590,
-    "seconds": 0.74
+    "seconds": 0.7
    }
   },
   {
@@ -19726,7 +19726,7 @@
      1
     ],
     "max_actions": 2590,
-    "seconds": 0.59
+    "seconds": 0.57
    },
    "uncharged": {
     "baselines": [
@@ -19766,7 +19766,7 @@
      1
     ],
     "max_actions": 2590,
-    "seconds": 0.54
+    "seconds": 0.51
    }
   },
   {
@@ -19832,7 +19832,7 @@
      0
     ],
     "max_actions": 2590,
-    "seconds": 0.4
+    "seconds": 0.39
    },
    "uncharged": {
     "baselines": [
@@ -19871,7 +19871,7 @@
      0
     ],
     "max_actions": 2590,
-    "seconds": 0.35
+    "seconds": 0.34
    }
   },
   {
@@ -19944,7 +19944,7 @@
      1
     ],
     "max_actions": 2590,
-    "seconds": 0.67
+    "seconds": 0.66
    },
    "uncharged": {
     "baselines": [
@@ -19984,7 +19984,7 @@
      1
     ],
     "max_actions": 2590,
-    "seconds": 0.64
+    "seconds": 0.63
    }
   },
   {
@@ -20052,7 +20052,7 @@
      0
     ],
     "max_actions": 1805,
-    "seconds": 0.2
+    "seconds": 0.19
    },
    "uncharged": {
     "baselines": [
@@ -20165,7 +20165,7 @@
      0
     ],
     "max_actions": 1805,
-    "seconds": 0.18
+    "seconds": 0.17
    },
    "uncharged": {
     "baselines": [
@@ -20210,7 +20210,7 @@
      0
     ],
     "max_actions": 1805,
-    "seconds": 0.12
+    "seconds": 0.11
    }
   },
   {
@@ -20391,7 +20391,7 @@
      0
     ],
     "max_actions": 1805,
-    "seconds": 0.12
+    "seconds": 0.11
    },
    "uncharged": {
     "baselines": [
@@ -20617,7 +20617,7 @@
      0
     ],
     "max_actions": 1805,
-    "seconds": 0.11
+    "seconds": 0.1
    },
    "uncharged": {
     "baselines": [
@@ -20662,7 +20662,7 @@
      0
     ],
     "max_actions": 1805,
-    "seconds": 0.11
+    "seconds": 0.1
    }
   },
   {
@@ -20843,7 +20843,7 @@
      0
     ],
     "max_actions": 1805,
-    "seconds": 0.13
+    "seconds": 0.12
    },
    "uncharged": {
     "baselines": [
@@ -21069,7 +21069,7 @@
      0
     ],
     "max_actions": 1805,
-    "seconds": 0.16
+    "seconds": 0.15
    },
    "uncharged": {
     "baselines": [
@@ -21114,7 +21114,7 @@
      0
     ],
     "max_actions": 1805,
-    "seconds": 0.11
+    "seconds": 0.1
    }
   },
   {
@@ -21218,7 +21218,7 @@
      0
     ],
     "max_actions": 1585,
-    "seconds": 0.16
+    "seconds": 0.15
    }
   },
   {
@@ -21281,7 +21281,7 @@
      0
     ],
     "max_actions": 1585,
-    "seconds": 0.1
+    "seconds": 0.09
    },
    "uncharged": {
     "baselines": [
@@ -21385,7 +21385,7 @@
      0
     ],
     "max_actions": 1585,
-    "seconds": 0.09
+    "seconds": 0.1
    },
    "uncharged": {
     "baselines": [
@@ -21842,7 +21842,7 @@
      0
     ],
     "max_actions": 1585,
-    "seconds": 0.09
+    "seconds": 0.1
    }
   },
   {
@@ -21946,7 +21946,7 @@
      0
     ],
     "max_actions": 1585,
-    "seconds": 0.1
+    "seconds": 0.09
    }
   },
   {
@@ -22257,7 +22257,7 @@
      0
     ],
     "max_actions": 2070,
-    "seconds": 0.19
+    "seconds": 0.18
    }
   },
   {
@@ -22321,7 +22321,7 @@
      0
     ],
     "max_actions": 2070,
-    "seconds": 0.25
+    "seconds": 0.24
    },
    "uncharged": {
     "baselines": [
@@ -22360,7 +22360,7 @@
      0
     ],
     "max_actions": 2070,
-    "seconds": 0.19
+    "seconds": 0.18
    }
   },
   {
@@ -22424,7 +22424,7 @@
      0
     ],
     "max_actions": 2070,
-    "seconds": 0.19
+    "seconds": 0.18
    },
    "uncharged": {
     "baselines": [
@@ -22566,7 +22566,7 @@
      0
     ],
     "max_actions": 2070,
-    "seconds": 0.24
+    "seconds": 0.23
    }
   },
   {
@@ -22733,7 +22733,7 @@
      0
     ],
     "max_actions": 2070,
-    "seconds": 0.24
+    "seconds": 0.23
    },
    "uncharged": {
     "baselines": [
@@ -22836,7 +22836,7 @@
      0
     ],
     "max_actions": 2070,
-    "seconds": 0.24
+    "seconds": 0.23
    },
    "uncharged": {
     "baselines": [
@@ -22875,7 +22875,7 @@
      0
     ],
     "max_actions": 2070,
-    "seconds": 0.19
+    "seconds": 0.18
    }
   },
   {
@@ -22978,7 +22978,7 @@
      0
     ],
     "max_actions": 2070,
-    "seconds": 0.25
+    "seconds": 0.24
    }
   },
   {
@@ -23081,7 +23081,7 @@
      0
     ],
     "max_actions": 2070,
-    "seconds": 0.19
+    "seconds": 0.18
    }
   },
   {
@@ -23145,7 +23145,7 @@
      0
     ],
     "max_actions": 2070,
-    "seconds": 0.25
+    "seconds": 0.24
    },
    "uncharged": {
     "baselines": [
@@ -23254,7 +23254,7 @@
      0
     ],
     "max_actions": 2310,
-    "seconds": 0.22
+    "seconds": 0.2
    },
    "uncharged": {
     "baselines": [
@@ -23529,7 +23529,7 @@
      0
     ],
     "max_actions": 2310,
-    "seconds": 0.19
+    "seconds": 0.18
    }
   },
   {
@@ -23599,7 +23599,7 @@
      0
     ],
     "max_actions": 2310,
-    "seconds": 0.15
+    "seconds": 0.14
    },
    "uncharged": {
     "baselines": [
@@ -23644,7 +23644,7 @@
      0
     ],
     "max_actions": 2310,
-    "seconds": 0.21
+    "seconds": 0.2
    }
   },
   {
@@ -23874,7 +23874,7 @@
      0
     ],
     "max_actions": 2310,
-    "seconds": 0.22
+    "seconds": 0.21
    }
   },
   {
@@ -23944,7 +23944,7 @@
      0
     ],
     "max_actions": 2310,
-    "seconds": 0.22
+    "seconds": 0.21
    },
    "uncharged": {
     "baselines": [
@@ -23989,7 +23989,7 @@
      0
     ],
     "max_actions": 2310,
-    "seconds": 0.17
+    "seconds": 0.16
    }
   },
   {
@@ -24059,7 +24059,7 @@
      0
     ],
     "max_actions": 2310,
-    "seconds": 0.21
+    "seconds": 0.2
    },
    "uncharged": {
     "baselines": [
@@ -24174,7 +24174,7 @@
      0
     ],
     "max_actions": 2310,
-    "seconds": 0.18
+    "seconds": 0.17
    },
    "uncharged": {
     "baselines": [
@@ -24289,7 +24289,7 @@
      0
     ],
     "max_actions": 2310,
-    "seconds": 0.28
+    "seconds": 0.22
    },
    "uncharged": {
     "baselines": [
@@ -24334,7 +24334,7 @@
      0
     ],
     "max_actions": 2310,
-    "seconds": 0.17
+    "seconds": 0.16
    }
   },
   {
@@ -24706,7 +24706,7 @@
      0
     ],
     "max_actions": 2235,
-    "seconds": 0.08
+    "seconds": 0.09
    }
   },
   {
@@ -25335,587 +25335,7 @@
      0
     ],
     "max_actions": 9215,
-    "seconds": 0.18
-   },
-   "uncharged": {
-    "baselines": [
-     71,
-     119,
-     183,
-     98,
-     368,
-     68,
-     79,
-     442,
-     415
-    ],
-    "budgets": [
-     355,
-     595,
-     915,
-     490,
-     1840,
-     340,
-     395,
-     2210,
-     2075
-    ],
-    "card_actions": [
-     356
-    ],
-    "card_resets": [
-     1
-    ],
-    "clicks_issued": 0,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 355,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 1
-    },
-    "forced_total": 1,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 9215,
-    "seconds": 0.24
-   }
-  },
-  {
-   "advertised_actions": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 1,
-   "forced_share_of_counted": 0.002816901,
-   "forced_share_of_max_actions": 0.000108519,
-   "game": "wa30",
-   "level_tax": [
-    {
-     "budget": 355,
-     "forced": 1,
-     "level": 0,
-     "share_of_budget": 0.002816901
-    }
-   ],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 1,
-   "shipped": {
-    "baselines": [
-     71,
-     119,
-     183,
-     98,
-     368,
-     68,
-     79,
-     442,
-     415
-    ],
-    "budgets": [
-     355,
-     595,
-     915,
-     490,
-     1840,
-     340,
-     395,
-     2210,
-     2075
-    ],
-    "card_actions": [
-     355
-    ],
-    "card_resets": [
-     1
-    ],
-    "clicks_issued": 0,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 354,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 1
-    },
-    "forced_total": 1,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 9215,
-    "seconds": 0.18
-   },
-   "uncharged": {
-    "baselines": [
-     71,
-     119,
-     183,
-     98,
-     368,
-     68,
-     79,
-     442,
-     415
-    ],
-    "budgets": [
-     355,
-     595,
-     915,
-     490,
-     1840,
-     340,
-     395,
-     2210,
-     2075
-    ],
-    "card_actions": [
-     356
-    ],
-    "card_resets": [
-     1
-    ],
-    "clicks_issued": 0,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 355,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 1
-    },
-    "forced_total": 1,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 9215,
-    "seconds": 0.24
-   }
-  },
-  {
-   "advertised_actions": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 1,
-   "forced_share_of_counted": 0.002816901,
-   "forced_share_of_max_actions": 0.000108519,
-   "game": "wa30",
-   "level_tax": [
-    {
-     "budget": 355,
-     "forced": 1,
-     "level": 0,
-     "share_of_budget": 0.002816901
-    }
-   ],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 2,
-   "shipped": {
-    "baselines": [
-     71,
-     119,
-     183,
-     98,
-     368,
-     68,
-     79,
-     442,
-     415
-    ],
-    "budgets": [
-     355,
-     595,
-     915,
-     490,
-     1840,
-     340,
-     395,
-     2210,
-     2075
-    ],
-    "card_actions": [
-     355
-    ],
-    "card_resets": [
-     1
-    ],
-    "clicks_issued": 0,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 354,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 1
-    },
-    "forced_total": 1,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 9215,
-    "seconds": 0.18
-   },
-   "uncharged": {
-    "baselines": [
-     71,
-     119,
-     183,
-     98,
-     368,
-     68,
-     79,
-     442,
-     415
-    ],
-    "budgets": [
-     355,
-     595,
-     915,
-     490,
-     1840,
-     340,
-     395,
-     2210,
-     2075
-    ],
-    "card_actions": [
-     356
-    ],
-    "card_resets": [
-     1
-    ],
-    "clicks_issued": 0,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 355,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 1
-    },
-    "forced_total": 1,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 9215,
-    "seconds": 0.24
-   }
-  },
-  {
-   "advertised_actions": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 1,
-   "forced_share_of_counted": 0.002816901,
-   "forced_share_of_max_actions": 0.000108519,
-   "game": "wa30",
-   "level_tax": [
-    {
-     "budget": 355,
-     "forced": 1,
-     "level": 0,
-     "share_of_budget": 0.002816901
-    }
-   ],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 3,
-   "shipped": {
-    "baselines": [
-     71,
-     119,
-     183,
-     98,
-     368,
-     68,
-     79,
-     442,
-     415
-    ],
-    "budgets": [
-     355,
-     595,
-     915,
-     490,
-     1840,
-     340,
-     395,
-     2210,
-     2075
-    ],
-    "card_actions": [
-     355
-    ],
-    "card_resets": [
-     1
-    ],
-    "clicks_issued": 0,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 354,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 1
-    },
-    "forced_total": 1,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 9215,
-    "seconds": 0.18
-   },
-   "uncharged": {
-    "baselines": [
-     71,
-     119,
-     183,
-     98,
-     368,
-     68,
-     79,
-     442,
-     415
-    ],
-    "budgets": [
-     355,
-     595,
-     915,
-     490,
-     1840,
-     340,
-     395,
-     2210,
-     2075
-    ],
-    "card_actions": [
-     356
-    ],
-    "card_resets": [
-     1
-    ],
-    "clicks_issued": 0,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 355,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 1
-    },
-    "forced_total": 1,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 9215,
-    "seconds": 0.24
-   }
-  },
-  {
-   "advertised_actions": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 1,
-   "forced_share_of_counted": 0.002816901,
-   "forced_share_of_max_actions": 0.000108519,
-   "game": "wa30",
-   "level_tax": [
-    {
-     "budget": 355,
-     "forced": 1,
-     "level": 0,
-     "share_of_budget": 0.002816901
-    }
-   ],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 4,
-   "shipped": {
-    "baselines": [
-     71,
-     119,
-     183,
-     98,
-     368,
-     68,
-     79,
-     442,
-     415
-    ],
-    "budgets": [
-     355,
-     595,
-     915,
-     490,
-     1840,
-     340,
-     395,
-     2210,
-     2075
-    ],
-    "card_actions": [
-     355
-    ],
-    "card_resets": [
-     1
-    ],
-    "clicks_issued": 0,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 354,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 1
-    },
-    "forced_total": 1,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 9215,
-    "seconds": 0.18
-   },
-   "uncharged": {
-    "baselines": [
-     71,
-     119,
-     183,
-     98,
-     368,
-     68,
-     79,
-     442,
-     415
-    ],
-    "budgets": [
-     355,
-     595,
-     915,
-     490,
-     1840,
-     340,
-     395,
-     2210,
-     2075
-    ],
-    "card_actions": [
-     356
-    ],
-    "card_resets": [
-     1
-    ],
-    "clicks_issued": 0,
-    "count_forced": false,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 355,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 1
-    },
-    "forced_total": 1,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 9215,
-    "seconds": 0.24
-   }
-  },
-  {
-   "advertised_actions": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
-   "exit_differs": false,
-   "extra_actions_when_uncharged": 1,
-   "forced_share_of_counted": 0.002816901,
-   "forced_share_of_max_actions": 0.000108519,
-   "game": "wa30",
-   "level_tax": [
-    {
-     "budget": 355,
-     "forced": 1,
-     "level": 0,
-     "share_of_budget": 0.002816901
-    }
-   ],
-   "levels_differ": [],
-   "same_chosen_actions": true,
-   "score_differs": false,
-   "seed": 5,
-   "shipped": {
-    "baselines": [
-     71,
-     119,
-     183,
-     98,
-     368,
-     68,
-     79,
-     442,
-     415
-    ],
-    "budgets": [
-     355,
-     595,
-     915,
-     490,
-     1840,
-     340,
-     395,
-     2210,
-     2075
-    ],
-    "card_actions": [
-     355
-    ],
-    "card_resets": [
-     1
-    ],
-    "clicks_issued": 0,
-    "count_forced": true,
-    "environment_score": 0.0,
-    "error": null,
-    "executed_from_script": 354,
-    "exit_reason": "ACTION_BUDGET",
-    "forced_per_level": {
-     "0": 1
-    },
-    "forced_total": 1,
-    "levels_completed": [
-     0
-    ],
-    "max_actions": 9215,
-    "seconds": 0.18
+    "seconds": 0.17
    },
    "uncharged": {
     "baselines": [
@@ -25987,6 +25407,586 @@
    "levels_differ": [],
    "same_chosen_actions": true,
    "score_differs": false,
+   "seed": 1,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "clicks_issued": 0,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.17
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "clicks_issued": 0,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.23
+   }
+  },
+  {
+   "advertised_actions": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 2,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "clicks_issued": 0,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.16
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "clicks_issued": 0,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.23
+   }
+  },
+  {
+   "advertised_actions": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 3,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "clicks_issued": 0,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.17
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "clicks_issued": 0,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.23
+   }
+  },
+  {
+   "advertised_actions": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 4,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "clicks_issued": 0,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.17
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "clicks_issued": 0,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.23
+   }
+  },
+  {
+   "advertised_actions": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
+   "seed": 5,
+   "shipped": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     355
+    ],
+    "card_resets": [
+     1
+    ],
+    "clicks_issued": 0,
+    "count_forced": true,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 354,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.17
+   },
+   "uncharged": {
+    "baselines": [
+     71,
+     119,
+     183,
+     98,
+     368,
+     68,
+     79,
+     442,
+     415
+    ],
+    "budgets": [
+     355,
+     595,
+     915,
+     490,
+     1840,
+     340,
+     395,
+     2210,
+     2075
+    ],
+    "card_actions": [
+     356
+    ],
+    "card_resets": [
+     1
+    ],
+    "clicks_issued": 0,
+    "count_forced": false,
+    "environment_score": 0.0,
+    "error": null,
+    "executed_from_script": 355,
+    "exit_reason": "ACTION_BUDGET",
+    "forced_per_level": {
+     "0": 1
+    },
+    "forced_total": 1,
+    "levels_completed": [
+     0
+    ],
+    "max_actions": 9215,
+    "seconds": 0.24
+   }
+  },
+  {
+   "advertised_actions": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "exit_differs": false,
+   "extra_actions_when_uncharged": 1,
+   "forced_share_of_counted": 0.002816901,
+   "forced_share_of_max_actions": 0.000108519,
+   "game": "wa30",
+   "level_tax": [
+    {
+     "budget": 355,
+     "forced": 1,
+     "level": 0,
+     "share_of_budget": 0.002816901
+    }
+   ],
+   "levels_differ": [],
+   "same_chosen_actions": true,
+   "score_differs": false,
    "seed": 6,
    "shipped": {
     "baselines": [
@@ -26031,7 +26031,7 @@
      0
     ],
     "max_actions": 9215,
-    "seconds": 0.18
+    "seconds": 0.17
    },
    "uncharged": {
     "baselines": [
@@ -26147,7 +26147,7 @@
      0
     ],
     "max_actions": 9215,
-    "seconds": 0.24
+    "seconds": 0.23
    },
    "uncharged": {
     "baselines": [
@@ -26192,7 +26192,7 @@
      0
     ],
     "max_actions": 9215,
-    "seconds": 0.18
+    "seconds": 0.17
    }
   },
   {
@@ -26263,7 +26263,7 @@
      0
     ],
     "max_actions": 9215,
-    "seconds": 0.24
+    "seconds": 0.23
    },
    "uncharged": {
     "baselines": [
@@ -26308,7 +26308,7 @@
      0
     ],
     "max_actions": 9215,
-    "seconds": 0.18
+    "seconds": 0.17
    }
   },
   {
@@ -26379,7 +26379,7 @@
      0
     ],
     "max_actions": 9215,
-    "seconds": 0.24
+    "seconds": 0.23
    },
    "uncharged": {
     "baselines": [
@@ -26424,7 +26424,7 @@
      0
     ],
     "max_actions": 9215,
-    "seconds": 0.18
+    "seconds": 0.17
    }
   }
  ]

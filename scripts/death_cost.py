@@ -197,6 +197,7 @@ def main(argv=None) -> int:
     lines.append(
         f"SUMMARY environments={len({r['game'] for r in rows})} levels={len(rows)} "
         f"exposed={len(exposed)} not_established={len(rows) - len(exposed)} "
+        f"environments_with_an_exposed_level={len({r['game'] for r in exposed})} "
         f"all_witnesses_replay={all(r.get('witness_replays_to_game_over') is not False for r in rows)} "
         f"peak_rss_mb_under_{int(RSS_CAP_MB)}={rss < RSS_CAP_MB}")
     (a.out / "deathcost.log").write_text("\n".join(lines) + "\n")

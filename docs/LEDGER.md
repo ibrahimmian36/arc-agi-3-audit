@@ -119,3 +119,16 @@ runs complete a level and still nothing differs. The exposure cross-check agrees
 across all 25 in both directions.
 
 Peak RSS 422 MB against a 900 MB ceiling, 124 seconds, no network.
+
+## 2026-09-04 — Phase 15: the paper audited the way we audited them
+
+Built `paper/consistency_check.py`. It found one unsupported number: the paper
+said the announced replay link returned "HTTP 429 and then 403", where the
+artefact records only 403. The claim is cut to what the artefact carries. Ten
+further figures were traced by adding claims, three by logging figures the
+probes had computed but not written down, and the rest exempted with written
+reasons that name what each number is. Reading the abstract against the body
+found it asserting the denial without the null; one sentence added.
+
+Now: 227 tests, 91 paper figures, 144 claims, and every number in the paper
+either traced or explained. Text processing only, no sweep, no network.

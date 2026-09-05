@@ -71,3 +71,44 @@ def test_the_paper_compiles(tmp_path):
                        capture_output=True, text=True, cwd=str(tmp_path), timeout=900)
     assert p.returncode == 0, p.stderr[-2000:]
     assert (tmp_path / "main.pdf").stat().st_size > 40_000
+
+
+def test_the_consistency_check_passes():
+    """Every number in the paper traces to an artefact or carries a written
+    exemption, the documents agree, and no superseded wording survives."""
+    import subprocess, sys
+    r = subprocess.run([sys.executable, str(PAPER / "consistency_check.py")],
+                       capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout + r.stderr
+
+
+def test_every_exemption_carries_a_reason_that_could_be_wrong():
+    """An exemption table is only worth having if its reasons are specific. A
+    reason must name what the number is, not merely assert that it is fine."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("cc", PAPER / "consistency_check.py")
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    for number, reason in m.EXEMPT.items():
+        assert len(reason) > 20, (number, reason)
+        assert not reason.lower().startswith(("fine", "ok", "safe", "harmless")), number
+
+
+def test_the_quoted_baseline_vector_matches_the_fetched_api_response():
+    """The paper quotes ar25's published baselines. They are exempted from the
+    number check as quotation, so the quotation itself must be checked."""
+    import json, re
+    text = (PAPER / "main.txt").read_text()
+    m = re.search(r"ar25 is \[([0-9, ]+)\]", text)
+    assert m, "the ar25 baseline vector is no longer quoted; drop its exemptions"
+    quoted = [int(x) for x in m.group(1).split(",")]
+    api = json.loads((PAPER.parent / "artifacts" / "api" / "games.json").read_text())
+    real = [g["baseline_actions"] for g in api if g["game_id"].startswith("ar25")][0]
+    assert quoted == real, (quoted, real)
+
+
+def test_the_paper_makes_no_claim_about_the_server():
+    text = (PAPER / "main.tex").read_text().lower()
+    for bad in ("the server does charge", "the server counts", "the server enforces",
+                "the leaderboard is wrong", "models are scored wrongly"):
+        assert bad not in text, bad

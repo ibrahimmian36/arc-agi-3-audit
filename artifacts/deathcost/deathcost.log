@@ -181,4 +181,4 @@ DEATH wa30 L6 baseline=68 budget=340 shortest_observed_loss=75 replays=True fits
 DEATH wa30 L7 baseline=79 budget=395 shortest_observed_loss=125 replays=True fits_budget=True deaths_affordable=3 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
 DEATH wa30 L8 baseline=442 budget=2210 shortest_observed_loss=150 replays=True fits_budget=True deaths_affordable=14 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
 DEATH wa30 L9 baseline=415 budget=2075 shortest_observed_loss=70 replays=True fits_budget=True deaths_affordable=29 died=8/8 outcomes={'game_over': 8, 'left_play': 0, 'hit_cap': 0}
-SUMMARY environments=25 levels=183 exposed=148 not_established=35 all_witnesses_replay=True peak_rss_mb_under_600=True
+SUMMARY environments=25 levels=183 exposed=148 not_established=35 environments_with_an_exposed_level=23 all_witnesses_replay=True peak_rss_mb_under_600=True

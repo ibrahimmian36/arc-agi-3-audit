@@ -23,6 +23,28 @@ ART = HERE.parent / "artifacts"
 
 # (phrase as printed in the paper, value it asserts, log file, regex capturing it)
 CLAIMS: list[tuple[str, str, Path, str]] = [
+    # --- figures the consistency check found untraced (Phase 15) ---
+    ("returning HTTP 403", "403", ART / "replays/availability.log",
+     r"announced_link_status=(\d+)"),
+    ("23 of the 25 environments have at least one such", "23",
+     ART / "deathcost/deathcost.log", r"^SUMMARY .*environments_with_an_exposed_level=(\d+)"),
+    ("which is 234 of the 250", "234", ART / "tax/tax.log",
+     r"^OUTCOME .*runs_where_neither_completed_a_level=(\d+)"),
+    ("did not choose is 0.69", "0.006896552", ART / "tax/tax.log",
+     r"^TAX .*median_forced_share_of_counted=([0-9.]+)"),
+    ("costs a level between 0.03 and", "0.000346021", ART / "budget/budget.log",
+     r"^TAX .*min_share=([0-9.]+)"),
+    ("3.33 per cent of its budget", "0.033333333", ART / "budget/budget.log",
+     r"^TAX .*max_share=([0-9.]+)"),
+    ("4732/4731/4731", "4731", ART / "env/ls20/granularity.log",
+     r"^L1 .*rule_by_lives=\{'3': \d+, '2': (\d+)"),
+    ("7400/7399/7399", "7399", ART / "env/ls20/granularity.log",
+     r"^L2 .*rule_by_lives=\{'3': \d+, '2': (\d+)"),
+    ("chooses 16 actions", "16", ART / "wire/wire.log", r"^W3 .*chosen=(\d+)"),
+    ("on 30 recorded", "30", ART / "env/ls20/env_L1.log", r"TRACES traces=(\d+)"),
+    ("against a budget of 110", "110", ART / "deathcost/deathcost.log",
+     r"^DEATH ls20 L1 .*budget=(\d+)"),
+
     # --- what the forced resets cost a policy that simply plays ---
 
     ("On 148 of the 183 levels that bound falls", "148", ART / "deathcost/deathcost.log",

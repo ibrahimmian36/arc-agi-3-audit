@@ -229,6 +229,7 @@ def main(argv=None) -> int:
         f"perfect={w['score_perfect']} after_one={w['score_after_one_forced_reset']} "
         f"fall={w['fall']} share={round(w['share_of_budget'], 9)} "
         f"median_fall={tax['median_fall']} median_share={tax['median_share_of_budget']} "
+        f"min_share={round(min(r['share_of_budget'] for r in tax['rows']), 9)} "
         f"max_share={tax['max_share_of_budget']} smallest_budget={tax['deaths_to_exhaust_smallest_budget']}")
     rss = peak_rss_mb()
     lines.append(

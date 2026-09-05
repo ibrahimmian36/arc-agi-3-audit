@@ -183,8 +183,8 @@ environment's advertised actions --- clicks included, with coordinates inside
 the declared contract --- through the harness's own loop, twice per seed: once
 as shipped and once with the forced reset uncharged. Because the sequence is
 fixed in advance the two runs choose the same actions as far as both go, and the
-only difference is the charged reset. Two hundred and fifty paired runs over all
-`games=25` environments and ten seeds give
+only difference is the charged reset. A sweep of `runs=250` paired runs over all
+`games=25` environments and ten seeds gives
 `median_forced_share_of_counted=0.006896552` and
 `max_forced_share_of_counted=0.062801932`: about one action in a hundred of what
 such a policy is charged is an action it did not choose at the median, and up to
@@ -896,6 +896,7 @@ done
 .venv/bin/python scripts/real_env_denial.py --games tu93 --deaths 1
 .venv/bin/python scripts/random_agent_tax.py --smoke
 .venv/bin/python scripts/random_agent_tax.py --seeds 10
+.venv/bin/python paper/consistency_check.py
 .venv/bin/python scripts/aggregation_probe.py
 .venv/bin/python scripts/wire_probe.py
 .venv/bin/python scripts/limits_probe.py

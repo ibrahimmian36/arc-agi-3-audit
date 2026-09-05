@@ -263,6 +263,7 @@ def main(argv=None) -> int:
         f"OUTCOME runs={n} runs_where_a_level_differs={outcome_changes} "
         f"runs_where_exit_differs={sum(1 for r in rows if r['exit_differs'])} "
         f"total_extra_actions_when_uncharged={sum(r['extra_actions_when_uncharged'] for r in rows)} "
+        f"runs_where_neither_completed_a_level={sum(1 for r in rows if not any(r['shipped']['levels_completed']) and not any(r['uncharged']['levels_completed']))} "
         f"all_pairs_same_chosen_actions={all(r['same_chosen_actions'] for r in rows)}")
     lines.append(
         f"SUMMARY elapsed_seconds={round(elapsed,1)} "

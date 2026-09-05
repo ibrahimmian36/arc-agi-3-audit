@@ -42,7 +42,13 @@ predicted before measuring, and confirm, that the set of budgets on which the
 two disagree is exactly as wide as the number of game overs, so an agent's
 effective per-level budget is $\lceil 5b \rceil$ minus the number of times it
 died. No published document states that these resets happen or that they are
-charged. We also find one arithmetic defect above the scoring formula and four
+charged. We bound the finding as carefully as we make it: 148 of the 183 public
+levels can be lost inside their own budget, which is what the mechanism needs,
+but across 250 paired runs of a policy that simply plays, no level's completion
+and no run's exit reason ever differed. Its practical reach therefore depends on
+an agent good enough to finish close to its budget, and how often a capable
+agent is in that position cannot be measured from outside the server. We also
+find one arithmetic defect above the scoring formula and four
 documentation problems. On the toolkit's local scoring path --- the one its own quickstart uses ---
 environment scores are averaged over the environments a scorecard contains,
 where the report defines the total as divided by the total number of
@@ -731,7 +737,7 @@ the 25 public environments. We were unable to find them. Checked on 4 September
 human-replay dataset; the \code{arcprize} HuggingFace author lists three
 datasets, of which the only human-testing one is for ARC-AGI-2; and the single
 link the announcement provides is a shortener that did not resolve for us,
-returning HTTP 429 and then 403.
+returning HTTP 403.
 
 This is a statement about what these checks found on that date, not a claim that
 the data does not exist; it may well be reachable by a route we did not try. We
