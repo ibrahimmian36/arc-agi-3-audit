@@ -16,7 +16,7 @@ reports "no disagreement". Nothing certifies.
 ## 0. The documented rule (what the artefacts are checked against)
 
 Sources, pinned: technical report v2 (arXiv 2603.24621v2, revised 2026-04-17;
-text saved to `artifacts/docs/report_v2.txt`), docs.arcprize.org `methodology`
+identified by hash in `artifacts/docs/SNAPSHOT.md`; not redistributed), docs.arcprize.org `methodology`
 page (fetched 2026-09-03), the toolkit README changelog 0.9.7 (2026-04-14,
 vendored at `vendor/ARC-AGI/README.md`), the human-dataset blog post
 (2026-04-14).

@@ -908,5 +908,8 @@ bash scripts/report_check.sh docs/claims.json
 
 The ARC Prize Foundation publishes the toolkit, harness, agents, report and
 docs under MIT and open documentation; that openness is what makes this audit
-possible. Findings are shared with them first (`notice/notice.DRAFT.md`).
+possible. These findings are published without prior private notice to the
+Foundation: everything examined is already public and every defect is in
+published material or in the client an entrant runs locally, so there is no
+exploitable secret to withhold. The paper says the same.
 Contact: ibrahimnmian@gmail.com

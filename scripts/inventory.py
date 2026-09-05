@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 # Public environments whose MECHANIC is described in the technical report v2 or the
-# docs (checked by hand against artifacts/docs/report_v2.txt, 2026-09-04). A mention
+# docs (checked by hand against the report's HTML rendering, 2026-09-04; see artifacts/docs/SNAPSHOT.md). A mention
 # of a score or an action count is not a mechanic description.
 DOCUMENTED = {
     "ls20": "report v2 Fig. 2 (screenshot), Fig. 3 (level-1 state graph, three-life mechanic, P_win = 1/355), Fig. 8 (actions by level)",
