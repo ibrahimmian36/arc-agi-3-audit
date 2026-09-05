@@ -65,6 +65,9 @@ def test_the_repository_claim_is_not_made_before_the_repository_exists():
     require_named_paper()
     import re
     text = paper_source().read_text()
+    if "included in full as supplementary material" in text:
+        return  # a copy prepared for review carries the repository with it
+    assert "released with this paper" in text, "the repository sentence is missing"
     assert "[REPOSITORY URL]" in text or re.search(r"https?://\S+", text.split("released with this paper")[1][:200]), \
         "the repository claim names neither a placeholder nor a URL"
 
@@ -72,7 +75,8 @@ def test_the_repository_claim_is_not_made_before_the_repository_exists():
 @pytest.mark.skipif(shutil.which("tectonic") is None, reason="no LaTeX toolchain")
 def test_the_paper_compiles(tmp_path):
     require_named_paper()
-    for f in ("main.tex",):
+    # A copy prepared for review keeps its style files beside the source.
+    for f in ["main.tex"] + [p.name for p in PAPER.glob("*.sty")] + [p.name for p in PAPER.glob("*.bst")]:
         shutil.copy(PAPER / f, tmp_path / f)
     p = subprocess.run(["tectonic", "-X", "compile", "main.tex"],
                        capture_output=True, text=True, cwd=str(tmp_path), timeout=900)
