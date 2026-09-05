@@ -30,3 +30,21 @@ def test_a_fresh_clone_can_rebuild_the_vendored_trees():
     first = [l for l in reproduce.splitlines() if l.startswith(".venv/") or l.startswith("scripts/")]
     assert first and first[0] == "scripts/setup_vendor.sh", \
         "the vendor step must be the first command in Reproduce"
+
+
+def test_the_shipped_claims_checker_is_the_kit_s_own():
+    """scripts/report_check.sh is a verbatim copy of the audit kit's checker,
+    shipped so a stranger can run it. It must never drift from the original:
+    whenever the kit is present beside this repository, the two are compared
+    byte for byte below the header that records the copy's origin."""
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[1]
+    ours = (root / "scripts" / "report_check.sh").read_text().splitlines()
+    kit = root.parent / "audit-kit" / "scripts" / "report_check.sh"
+    body_start = next(i for i, l in enumerate(ours) if l.startswith("# Millennium Research audit kit"))
+    assert body_start > 0, "the origin header is missing"
+    if not kit.exists():
+        import pytest
+        pytest.skip("audit kit not present beside the repository; cannot compare")
+    theirs = kit.read_text().splitlines()
+    assert ours[body_start:] == theirs[1:], "scripts/report_check.sh has drifted from the kit"

@@ -857,7 +857,7 @@ the observed state is that they agree.
    reachable transition, so it is either unreachable on these levels or
    invisible in position, rotation, lives, steps, pickups and status.
 10. Every number in this file is registered in `docs/claims.json` and checked
-   by `../audit-kit/scripts/report_check.sh`; scripts and artefacts ship in
+   by `scripts/report_check.sh`; scripts and artefacts ship in
    this repository; the audited origins have Software Heritage save requests
    accepted (`artifacts/intake/swh_snapshot.log`).
 11. What a reader must still trust: Dafny 4.11.0 and its JavaScript backend,
@@ -901,7 +901,7 @@ done
 .venv/bin/python scripts/wire_probe.py
 .venv/bin/python scripts/limits_probe.py
 .venv/bin/python scripts/search_comparison.py --games ls20 g50t --level 1
-../audit-kit/scripts/report_check.sh docs/claims.json
+scripts/report_check.sh docs/claims.json
 ```
 
 ## Credit

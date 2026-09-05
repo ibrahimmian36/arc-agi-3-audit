@@ -26,7 +26,7 @@ not a proof of correctness.
 | `docs/PREREGISTRATION.md` | Bar, planted traces, predictions and readings, written before any run. |
 | `docs/DECISIONS.md` | Dated deviations from the preregistration. |
 | `docs/LEDGER.md` | Dated rows: predicted / measured / what changed. |
-| `docs/CLAIMS.md`, `docs/claims.json` | Every number in a document, tied to a script and an artefact (`audit-kit/scripts/report_check.sh`). |
+| `docs/CLAIMS.md`, `docs/claims.json` | Every number in a document, tied to a script and an artefact (`scripts/report_check.sh`, a verbatim copy of the audit kit's checker). |
 | `model/` | Dafny model of the documented scoring rule, compiled to a JavaScript oracle. |
 | `scripts/` | Inventory, trace recorder (OFFLINE), differential runner, scorer probes, harness probes. |
 | `artifacts/` | Generated outputs. Never hand-edited; fix the generator and rerun. |
@@ -35,7 +35,7 @@ not a proof of correctness.
 | `FINDINGS.md` | Audit-kit format findings, including honest negatives. |
 | `notice/` | DRAFT notice only. Nothing here is sent by this repository. |
 
-Tooling: audit kit v0.2.1 (`../audit-kit`, private), Dafny 4.11.0, Node 24,
+Tooling: audit kit v0.2.1 (its claims checker ships verbatim as `scripts/report_check.sh`), Dafny 4.11.0, Node 24,
 Python 3.12 venv with the vendored toolkit installed editable.
 
 Contact: ibrahimnmian@gmail.com
