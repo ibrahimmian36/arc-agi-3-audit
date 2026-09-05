@@ -42,7 +42,7 @@ installs the pinned dependencies in `requirements.txt`, and verifies the
 imports.
 
 ```
-scripts/setup.sh
+bash scripts/setup.sh
 .venv/bin/python -m pytest -q
 ```
 
@@ -59,7 +59,7 @@ Every number in `FINDINGS.md` and in the paper is tied to the artefact line
 that produced it, and three checkers enforce it:
 
 ```
-scripts/report_check.sh docs/claims.json
+bash scripts/report_check.sh docs/claims.json
 .venv/bin/python paper/verify_numbers.py
 .venv/bin/python paper/consistency_check.py
 ```

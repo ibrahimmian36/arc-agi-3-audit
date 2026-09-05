@@ -14,7 +14,9 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-scripts/setup_vendor.sh
+# Invoked through bash: a zip archive does not preserve execute bits, and a
+# reviewer unpacking the supplementary material must still be able to run this.
+bash scripts/setup_vendor.sh
 
 if [ ! -x .venv/bin/python ]; then
   if command -v uv >/dev/null 2>&1; then

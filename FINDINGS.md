@@ -872,17 +872,17 @@ lives in those trees rather than in `artifacts/`, so both checkers need it. A
 clean-clone run without it fails one claim, which is how the omission was found.
 
 ```
-scripts/setup_vendor.sh
+bash scripts/setup_vendor.sh
 .venv/bin/python -m pytest -q
-scripts/check_model.sh
+bash scripts/check_model.sh
 .venv/bin/python scripts/scorer_probe.py
 .venv/bin/python scripts/harness_probe.py --environments-dir vendor/ARC-AGI/test_environment_files
-scripts/run_machinery.sh
+bash scripts/run_machinery.sh
 for L in 1 2; do
   .venv/bin/python scripts/extract_level.py --game ls20 --level $L
   .venv/bin/python scripts/state_graph.py --game ls20 --level $L --max-states 400000 --max-seconds 1500 --max-rss-mb 3500
   .venv/bin/python scripts/gen_level_model.py --game ls20 --level $L
-  scripts/check_model.sh model/ls20_level$L.dfy artifacts/oracle_env
+  bash scripts/check_model.sh model/ls20_level$L.dfy artifacts/oracle_env
   .venv/bin/python scripts/env_probe.py --game ls20 --level $L
 done
 .venv/bin/python scripts/action_census.py
@@ -901,7 +901,7 @@ done
 .venv/bin/python scripts/wire_probe.py
 .venv/bin/python scripts/limits_probe.py
 .venv/bin/python scripts/search_comparison.py --games ls20 g50t --level 1
-scripts/report_check.sh docs/claims.json
+bash scripts/report_check.sh docs/claims.json
 ```
 
 ## Credit
