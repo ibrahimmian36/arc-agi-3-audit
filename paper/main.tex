@@ -98,17 +98,19 @@ so at the same length as where we found something.
       environments (Section~\ref{sec:forced}).
 \item A machine-verified model of the published scoring rule, compiled and run
       differentially against the shipped scorer on preregistered planted traces
-      (Section~\ref{sec:scoring}). The scorer implements the rule as the report's
-      prose states it; four documentation problems and one unreached code edge
-      are reported.
+      (Section~\ref{sec:scoring}). On every planted trace but one the scorer agrees with
+      our model of the rule as the report's prose states it, and the one
+      disagreement is an unreached edge; four documentation problems are
+      reported: the equation's cap, the budget's location, the unstated reset
+      accounting, and an omitted schema field.
 \item Machine-verified models of two levels of a public environment, agreeing
       with the shipped implementation on every transition of their complete
       reachable state graphs (Section~\ref{sec:env}). We also give the first
       published exhaustive state counts for those levels, under a stated
       identity function, and check the report's
       own stated win probability against them.
-\item A measurement of which environments admit state-graph methods at all
-      (six of 25), and reset and level-accounting probes covering all 25
+\item A measurement of which environments our enumerator can exhaust over the
+      advertised action space (six of 25), and reset and level-accounting probes covering all 25
       (Sections~\ref{sec:sweep} and~\ref{sec:play}).
 \item A check on the published human baselines that requires no access to the
       human data: a baseline cannot be below the level's optimum, and
@@ -117,6 +119,7 @@ so at the same length as where we found something.
 \end{enumerate}
 
 \section{Scope, and what we did not do}
+\label{sec:scope}
 
 In scope: the 25 public demonstration environments, the toolkit
 \code{arcprize/ARC-AGI} at commit \code{f12822c}, the harness
@@ -149,7 +152,8 @@ anything. ``No disagreement on $N$ fixtures'' is a statement about $N$ fixtures.
 possible outcome were written down and committed before each measurement.
 The preregistration was committed (\code{8e0f70b}) before the first measurement
 (\code{08b4f2e}), and each later phase's plan precedes its runs in the same
-history. Deviations are dated in a decisions file and disclosed. One preregistered
+history; commit order in a history we control is evidence of sequence, not
+proof, and we state it as such. Deviations are dated in a decisions file and disclosed. One preregistered
 prediction was wrong and is reported as such in Section~\ref{sec:scoring}.
 
 \paragraph{Machine-verified models, run differentially.} For each rule under
@@ -233,7 +237,11 @@ an overall score, and there the denominator is the number of environments the
 scorecard contains --- the number actually played --- rather than the number in
 the set. The report defines the total as ``the sum of individual environment
 scores divided by the total number of environments'', and the documentation's
-methodology page describes it as the average of all game scores.
+methodology page describes it as the average of all game scores. Neither says
+whether ``all'' means the environments in the set or the environments played, so
+what follows is a discrepancy between two readings of an underspecified rule, of
+which the implementation takes one; we report which reading the code takes and
+what the other would give.
 
 On a planted scorecard covering three environments of a set of 135, each
 completed at exactly the human baseline on every level, the toolkit reports a
@@ -312,7 +320,7 @@ test environment the toolkit ships for its own unit tests), an
 agent that loses a level three times and then solves it chooses 16 actions and
 is counted 19, and the level is scored on all 19. Against that level's baseline
 of four, being scored on 19 rather than on the 16 the agent chose lowers that level's
-score by roughly three tenths, relative to the score on 16.
+score by 29 per cent relative to the score on 16 (the ratio $(16/19)^2$).
 
 A fall in a completed level's score is the mild consequence. The counter these
 resets increment is also the one the harness stops on. The per-level budget is
@@ -369,9 +377,9 @@ uncharged; because the sequence is fixed in advance the two runs choose the same
 actions as far as both go. Across 250 paired runs over all 25 environments and
 ten seeds, the median share of charged actions that the agent did not choose is
 $0.69\%$ and the maximum is $6.28\%$. The six environments that could be played
-without clicks gave a maximum near one per cent, so the click-based environments
-carry a materially higher tax, and measuring only those six would have
-understated it.
+without clicks gave a maximum near one per cent; the largest observed tax is on a
+click-only environment, so measuring only those six would have understated the
+maximum. We report maxima, not a class comparison.
 
 Where neither run completes a level, which is 234 of the 250, the extra actions
 the uncharged run earns are exactly the forced resets the shipped run was
@@ -384,7 +392,8 @@ denial. No level's completion and no run's exit reason differs between the
 charged and uncharged runs, in any of the 250. This is stronger than what six
 environments could support: there the null could be explained by a policy that
 never completes a level, whereas here sixteen runs do complete one and the
-outcome still never differs. The practical reach of this mechanism therefore
+outcome still never differs; we do not claim those sixteen were near their
+budgets, only that the trivial explanation no longer covers every run. The practical reach of this mechanism therefore
 depends on an agent good enough to finish close to its budget, and we cannot say
 how often a capable agent is in that position without runs against the server.
 
@@ -410,7 +419,9 @@ On 148 of the 183 levels that bound falls below the budget, which proves the
 level can be lost within it, and 23 of the 25 environments have at least one such
 level. On the exposed levels the median recorded losing line is about a third of the
 budget and the median number of deaths it affords is three; both are statistics
-of upper bounds on the shortest loss, so the deaths affordable are lower bounds. On the remaining 35
+of upper bounds on the shortest loss. ``Deaths affordable'' is the budget divided
+by the recorded line's length: how many copies of that line fit in the budget,
+not a demonstration that the line repeats after each forced reset. On the remaining 35
 no rollout died, and we report those as not established rather than as immunity,
 since random play failing to lose says nothing about the shortest line.
 
@@ -433,7 +444,8 @@ search correctly finds nothing there. That is why our first attempt to
 demonstrate the denial there failed, and we record it rather than dropping it.
 
 Applied to the real public set, one such reset costs a level between $0.035$ and
-$3.33$ per cent of its budget, and lowers an otherwise perfect completion by a
+$3.33$ per cent of its budget, and lowers an otherwise perfect completion (every level solved in exactly its
+baseline, a level score of 100) by a
 median of \code{3.251814028} points across the 183 levels of the 25 public
 environments. The worst case is the smallest baseline in the set, \code{sc25}
 level 1 at $b = 6$, where one forced reset takes a perfect completion from
@@ -612,7 +624,8 @@ absorption probability, but it is a caveat on any published state count for
 these environments, including the report's figure and our own: a frame hash, an
 engine-state hash and a rule-level abstraction give three different answers.
 
-\section{Which environments admit state-graph methods}
+\section{Which environments our enumerator can exhaust}
+\label{sec:enumerable}
 \label{sec:sweep}
 
 Before enumerating anything we measured what is enumerable. Nineteen of the 25
@@ -624,8 +637,10 @@ remaining six --- \code{ls20}, \code{tr87}, \code{tu93}, \code{g50t},
 \code{re86}, \code{wa30} --- advertise four or five simple actions.
 
 This is a measured property of the advertised action space, taken from the
-shipped games, and it bounds any state-graph method applied to ARC-AGI-3, ours
-and the published ones alike.
+shipped games. It bounds enumeration over that space, which is what we do; a
+method that quotients actions by their effect, or builds a partial or abstract
+graph, is not bounded by it, and published agents do build graphs over these
+environments.
 
 For those six we enumerated level 1 by depth-first search, which holds only the
 objects along one path and so is bounded by depth rather than by the width of a
@@ -774,7 +789,8 @@ A reader should hold the following in mind.
 \item Everything here concerns the public toolkit, harness and documents at the
       pinned commits. The server-side scorer behind the official leaderboard is
       not observable to us and is not claimed to match. This bears hardest on
-      \S\ref{sec:denominator}: we report a defect in a public artefact, not a
+      \S\ref{sec:denominator}: we report how a public artefact resolves an
+      underspecified rule, not a
       claim about anyone's published result, and we do not compute what any
       particular reported score would have been.
 \item ``No disagreement'' is over the fixtures and transitions we ran, chosen by
@@ -845,6 +861,142 @@ exploitable secret to withhold. And the findings that change a number are
 properties of the shipped client, which any entrant can verify against their own
 run today. We have no reason to think the Foundation would disagree with any of
 them, and the repository contains everything needed to check every one.
+
+
+\appendix
+\section{Protocols, identities and resources}
+\label{app:protocol}
+
+Everything in this appendix is also in the repository; it is repeated here so
+that each result can be interpreted from the paper alone.
+
+\subsection{Environment identity}
+
+Every public environment is identified by the game id the ARC API returns,
+which carries a version hash (\code{ls20-9607627b}), and by the SHA-256 of the
+source file the API served on 2026-09-04, of which Table~\ref{tab:envs} gives the
+first sixteen hexadecimal digits. The sources are not redistributed; a reader
+who fetches the same ids can confirm they hold the same files.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lrl}
+\toprule
+Game id & Levels & Source SHA-256 (first 16) \\
+\midrule
+\code{ar25-0c556536} & 8 & \code{b965d2faaa4a4d91} \\
+\code{bp35-0a0ad940} & 9 & \code{e9aecb52c629c3e7} \\
+\code{cd82-fb555c5d} & 6 & \code{dafeabff60a3a99b} \\
+\code{cn04-2fe56bfb} & 6 & \code{29977e145a0374b5} \\
+\code{dc22-fdcac232} & 6 & \code{74abe3523bd6bc8a} \\
+\code{ft09-0d8bbf25} & 6 & \code{aa5b54f48a29da9f} \\
+\code{g50t-5849a774} & 7 & \code{6f21f2065744e484} \\
+\code{ka59-38d34dbb} & 7 & \code{3e8341f4c317ceb9} \\
+\code{lf52-271a04aa} & 10 & \code{a6b01973a0905a44} \\
+\code{lp85-305b61c3} & 8 & \code{7d10baec7dd29d07} \\
+\code{ls20-9607627b} & 7 & \code{298c810da2850d55} \\
+\code{m0r0-492f87ba} & 6 & \code{fc3954236f712759} \\
+\code{r11l-495a7899} & 6 & \code{95d58ebaa8c758e9} \\
+\code{re86-8af5384d} & 8 & \code{cf3c1520e17f0b70} \\
+\code{s5i5-18d95033} & 8 & \code{341f85bac1fb5ca7} \\
+\code{sb26-7fbdac44} & 8 & \code{dbb4877853a8d30f} \\
+\code{sc25-635fd71a} & 6 & \code{871a507cf340d1e4} \\
+\code{sk48-d8078629} & 8 & \code{b6ca05eed7ba81fe} \\
+\code{sp80-589a99af} & 6 & \code{2306d62311a3cc02} \\
+\code{su15-1944f8ab} & 9 & \code{a5f91f7c963d6ca6} \\
+\code{tn36-ef4dde99} & 7 & \code{43c30052cdeb2300} \\
+\code{tr87-cd924810} & 6 & \code{3274657a6499af5c} \\
+\code{tu93-0768757b} & 9 & \code{80e41888f9f7b1a0} \\
+\code{vc33-5430563c} & 7 & \code{8afa9f55054b2a24} \\
+\code{wa30-ee6fef47} & 9 & \code{0c8b63caee2d092d} \\
+\bottomrule
+\end{tabular}
+\caption{The 25 public environments as audited.}
+\label{tab:envs}
+\end{table}
+
+\subsection{State identity}
+\label{app:key}
+
+The enumerator's raw key is a 128-bit BLAKE2b digest of, in order: every sprite
+of the current level in list order (name, tags, position, visibility, rotation
+and pixel array; order matters because collision scans iterate in order and can
+break early); the engine's state name, score and level index; and every
+instance attribute of the game object in sorted name order, serialised by
+content to depth six, with dictionary keys and set members ordered by their own
+content digests rather than by memory address. Excluded are the five per-action
+bookkeeping fields (\code{\_action}, \code{\_action\_complete},
+\code{\_action\_count}, \code{\_full\_reset}, \code{\_next\_level}) and the two
+level containers (the other levels, which no action mutates, and the immutable
+templates from which a reset re-clones a level). The key therefore covers every
+mutable field of the game object, so equal keys are identical engine states.
+The engine is deterministic given its state: 23 of the 25 sources use no
+randomness, and the two that do (\code{lf52}, \code{tr87}) seed it from the
+level index. Equal keys thus have equal futures, and an enumeration over keys is
+exhaustive with respect to the engine's own state. The two hashing errors of
+Limitation~7 were in the canonicalisation --- ordering by memory address, and
+hashing numeric scalars by type rather than value --- and were caught by an
+address-independence test before every run reported here. Engine-state identity
+in Section~\ref{sec:play} is equality of this key; frame identity is equality
+of the rendered grid. The rule-level counts of \S\ref{sec:state} use a
+hand-written abstraction of the level (position, orientation, colour, shape,
+lives, steps, goals and consumed pickups) and are reported for comparison only.
+
+\subsection{Exposure protocol (\S\ref{sec:forced})}
+
+For each of the 183 levels the shipped game is started at that level. Actions
+are drawn uniformly from the environment's advertised set; a click carries
+coordinates drawn uniformly from $0$ to $63$ in each axis. A rollout stops at
+\code{GAME\_OVER}, at a win or level advance (not a losing line), or after
+$\lceil 5b \rceil$ actions, since a loss that takes longer is not exposure.
+Eight rollouts per level, each with its own generator, Python's
+\code{random.Random} seeded with the string \code{"<game>:<level>:0:<i>"} for
+$i=0,\dots,7$. The shortest recorded losing line is kept with its coordinates
+and replayed on the shipped game to confirm it ends in \code{GAME\_OVER}. The
+per-level outputs are the line, its length, how each rollout ended, and the
+budget.
+
+\subsection{Blind-policy sweep (\S\ref{sec:forced})}
+
+For each environment and each of ten seeds, a script of $\sum_l \lceil 5 b_l
+\rceil + 8$ actions is drawn in advance, uniformly over the advertised actions
+with click coordinates as above, from \code{random.Random} seeded with
+\code{"<game>:<seed>"}. The harness's own control loop runs it against the
+shipped environment offline, with the budgets the harness derives from the
+published baselines. The paired run uses the identical script; its only
+difference is that the increment of the per-level budget counter for a forced
+reset is undone immediately after the harness applies it, with the reset itself
+still sent and still counted by the scorecard. A script of that length cannot
+be exhausted, because chosen actions never exceed the sum of the budgets. The
+per-run outputs are the chosen and forced counts, the scorecard's action and
+reset counts, the levels completed, the exit reason and the environment score.
+
+\subsection{Enumeration and search caps}
+
+The two complete \code{ls20} graphs were enumerated breadth-first under caps of
+$400{,}000$ states, $1{,}500$ seconds and $3{,}500$~MB of resident memory, and
+completed well inside them. The breadth sweep of \S\ref{sec:enumerable} ran
+depth-first with caps of $150{,}000$ states, $1{,}200$ seconds and $2{,}500$~MB;
+the baseline search of \S\ref{sec:baselines} breadth-first with $400{,}000$
+states, $120$ seconds and $2{,}500$~MB per level; the reset probes of
+\S\ref{sec:play} with $20{,}000$ actions and $60$ seconds per environment at seed
+$0$. Every artefact records the peak resident memory of the run that produced
+it. All runs were made on one laptop.
+
+\subsection{Tools and proof obligations}
+
+Dafny 4.11.0 with its JavaScript backend, Node 24.16, Python 3.12.13,
+\code{arcengine} 0.9.3, and the three audited repositories at the commits of
+Section~\ref{sec:scope}. The supplementary archive records the commit it was built from in its
+\code{COMMIT} file. The scoring model's 50 obligations comprise the definitions of
+the prose and equation readings and lemmas S1--S6: both caps bound the level
+score (S1), a level solved in exactly its baseline scores 100 (S2), the level
+score is monotone non-increasing in the action count (S3), the environment score
+is capped at the weighted completed share (S4), every level at baseline gives
+100 (S5), and nothing completed gives 0 (S6), with the arithmetic lemmas they
+rest on. Each environment model discharges E1 (the level is winnable by the
+witness, with every intermediate state asserted equal to the shipped game's),
+E2 (no action leaves the legal state space) and E3 (reset restores the start).
 
 \section*{Acknowledgements}
 

@@ -24,6 +24,13 @@ ART = HERE.parent / "artifacts"
 # (phrase as printed in the paper, value it asserts, log file, regex capturing it)
 CLAIMS: list[tuple[str, str, Path, str]] = [
     # --- figures the consistency check found untraced (Phase 15) ---
+    ("under caps of 400000 states", "400000", ART / "env/ls20/graph_L1.json", r'"max_states": (\d+)'),
+    ("3500~MB of resident memory", "3500", ART / "env/ls20/graph_L1.json", r'"max_rss_mb_cap": (\d+)'),
+    ("depth-first with caps of 150000 states", "150000", ART / "sweep/tr87_L1.json", r'"max_states": (\d+)'),
+    ("1200 seconds and 2500~MB", "2500", ART / "sweep/tr87_L1.json", r'"max_rss_mb_cap": (\d+)'),
+    ("Eight rollouts per level", "8", ART / "deathcost/deathcost.log", r"died=\d+/(\d+)"),
+    ("each of ten seeds", "10", ART / "tax/tax.log", r"^TAX .*seeds=(\d+)"),
+    ("25 public environments as audited", "25", ART / "api/environment_sources.log", r"^SUMMARY environments=(\d+)"),
     ("143 on level~1", "143", ART / "env/ls20/graph_L1.json", r'"game_over_states": (\d+)'),
     ("1291 on level~2", "1291", ART / "env/ls20/graph_L2.json", r'"game_over_states": (\d+)'),
     ("returning HTTP 403", "403", ART / "replays/availability.log",

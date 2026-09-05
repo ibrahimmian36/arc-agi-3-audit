@@ -1,0 +1,127 @@
+[
+ {
+  "game_id": "ar25-0c556536",
+  "source_sha256_16": "b965d2faaa4a4d91",
+  "levels": 8
+ },
+ {
+  "game_id": "bp35-0a0ad940",
+  "source_sha256_16": "e9aecb52c629c3e7",
+  "levels": 9
+ },
+ {
+  "game_id": "cd82-fb555c5d",
+  "source_sha256_16": "dafeabff60a3a99b",
+  "levels": 6
+ },
+ {
+  "game_id": "cn04-2fe56bfb",
+  "source_sha256_16": "29977e145a0374b5",
+  "levels": 6
+ },
+ {
+  "game_id": "dc22-fdcac232",
+  "source_sha256_16": "74abe3523bd6bc8a",
+  "levels": 6
+ },
+ {
+  "game_id": "ft09-0d8bbf25",
+  "source_sha256_16": "aa5b54f48a29da9f",
+  "levels": 6
+ },
+ {
+  "game_id": "g50t-5849a774",
+  "source_sha256_16": "6f21f2065744e484",
+  "levels": 7
+ },
+ {
+  "game_id": "ka59-38d34dbb",
+  "source_sha256_16": "3e8341f4c317ceb9",
+  "levels": 7
+ },
+ {
+  "game_id": "lf52-271a04aa",
+  "source_sha256_16": "a6b01973a0905a44",
+  "levels": 10
+ },
+ {
+  "game_id": "lp85-305b61c3",
+  "source_sha256_16": "7d10baec7dd29d07",
+  "levels": 8
+ },
+ {
+  "game_id": "ls20-9607627b",
+  "source_sha256_16": "298c810da2850d55",
+  "levels": 7
+ },
+ {
+  "game_id": "m0r0-492f87ba",
+  "source_sha256_16": "fc3954236f712759",
+  "levels": 6
+ },
+ {
+  "game_id": "r11l-495a7899",
+  "source_sha256_16": "95d58ebaa8c758e9",
+  "levels": 6
+ },
+ {
+  "game_id": "re86-8af5384d",
+  "source_sha256_16": "cf3c1520e17f0b70",
+  "levels": 8
+ },
+ {
+  "game_id": "s5i5-18d95033",
+  "source_sha256_16": "341f85bac1fb5ca7",
+  "levels": 8
+ },
+ {
+  "game_id": "sb26-7fbdac44",
+  "source_sha256_16": "dbb4877853a8d30f",
+  "levels": 8
+ },
+ {
+  "game_id": "sc25-635fd71a",
+  "source_sha256_16": "871a507cf340d1e4",
+  "levels": 6
+ },
+ {
+  "game_id": "sk48-d8078629",
+  "source_sha256_16": "b6ca05eed7ba81fe",
+  "levels": 8
+ },
+ {
+  "game_id": "sp80-589a99af",
+  "source_sha256_16": "2306d62311a3cc02",
+  "levels": 6
+ },
+ {
+  "game_id": "su15-1944f8ab",
+  "source_sha256_16": "a5f91f7c963d6ca6",
+  "levels": 9
+ },
+ {
+  "game_id": "tn36-ef4dde99",
+  "source_sha256_16": "43c30052cdeb2300",
+  "levels": 7
+ },
+ {
+  "game_id": "tr87-cd924810",
+  "source_sha256_16": "3274657a6499af5c",
+  "levels": 6
+ },
+ {
+  "game_id": "tu93-0768757b",
+  "source_sha256_16": "80e41888f9f7b1a0",
+  "levels": 9
+ },
+ {
+  "game_id": "vc33-5430563c",
+  "source_sha256_16": "8afa9f55054b2a24",
+  "levels": 7
+ },
+ {
+  "game_id": "wa30-ee6fef47",
+  "source_sha256_16": "0c8b63caee2d092d",
+  "levels": 9
+ }
+]

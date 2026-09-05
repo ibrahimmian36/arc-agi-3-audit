@@ -63,9 +63,18 @@ EXEMPT: dict[str, str] = {
     "89": "an element of ar25's published baseline vector, as above",
     "159": "an element of ar25's published baseline vector, as above",
     "233": "an element of ar25's published baseline vector, as above",
-    "4743": "the first characters of a pinned git commit hash, not a quantity",
-    "08": "the first two characters of a git commit hash (08b4f2e), not a quantity",
     "15": "the sum of the level weights 1 to 5 of a five-level planted trace, arithmetic stated in the text",
+    "256": "part of the algorithm name SHA-256",
+    "29": "1 minus (16/19) squared, expressed as a percentage; both inputs are traced",
+    "128": "the digest size in bits of the BLAKE2b state key",
+    "23": "the count of environment sources using no randomness, 25 less the two named",
+    "7": "Limitation 7, a cross-reference",
+    "24.16": "the Node version used",
+    "1500": "the wall-clock cap in seconds of the ls20 enumeration, a run parameter recorded in the reproduce sequence",
+    "1200": "the wall-clock cap in seconds of the breadth sweep, a run parameter recorded in the reproduce sequence",
+    "120": "the wall-clock cap in seconds per level of the baseline search, a run parameter recorded in the reproduce sequence",
+    "60": "the wall-clock cap in seconds per environment of the reset probes, a run parameter recorded in the reproduce sequence",
+    "20000": "the action cap per environment of the reset probes, a run parameter recorded in the reproduce sequence",
     "51": "one action past the 5.0x cutoff on a baseline of 10, which is what "
           "probe P3b's own description in artifacts/scorer/probes.log records; "
           "both the baseline and the multiplier are themselves traced",
@@ -136,6 +145,11 @@ def tokens(text: str) -> list[str]:
     """Numeric tokens, with thousands separators joined and a version string or
     an identifier like `ls20` or `v2` never mistaken for a figure."""
     text = re.sub(r"(?<=\d),(?=\d{3}\b)", "", text)
+    # Identifiers are not figures: game ids and hash prefixes (hex words with
+    # at least one letter, seven or more characters) and x.y.z version strings.
+    text = re.sub(r"\b(?=[0-9a-f]*[a-f])[0-9a-f]{7,}\b", " ", text)
+    text = re.sub(r"\b\d+\.\d+\.\d+\b", " ", text)
+    text = re.sub(r"\b\d{4}-\d{2}-\d{2}\b", " ", text)      # ISO dates
     return re.findall(r"(?<![A-Za-z0-9_.\\])\d+(?:\.\d+)?", text)
 
 
