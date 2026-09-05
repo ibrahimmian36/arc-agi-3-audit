@@ -866,13 +866,13 @@ the observed state is that they agree.
 
 ## Reproduce
 
-The vendored repositories are not redistributed here. Step 0 fetches them from
-their own upstreams at the commits pinned in `vendor/PINS.json`; some evidence
-lives in those trees rather than in `artifacts/`, so both checkers need it. A
-clean-clone run without it fails one claim, which is how the omission was found.
+Step 0 is the bootstrap: it fetches the three audited repositories at the
+commits pinned in `vendor/PINS.json` (they are not redistributed here, and some
+evidence lives in those trees), creates `.venv`, installs the pinned
+dependencies and verifies the imports. Everything below assumes it has run.
 
 ```
-bash scripts/setup_vendor.sh
+bash scripts/setup.sh
 .venv/bin/python -m pytest -q
 bash scripts/check_model.sh
 .venv/bin/python scripts/scorer_probe.py

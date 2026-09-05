@@ -27,9 +27,12 @@ def test_a_fresh_clone_can_rebuild_the_vendored_trees():
     assert "--depth 1" in body, "the clone must stay shallow"
     reproduce = (root / "FINDINGS.md").read_text()
     reproduce = reproduce[reproduce.index("## Reproduce"):]
-    first = [l for l in reproduce.splitlines() if l.startswith(".venv/") or l.startswith("scripts/")]
-    assert first and first[0] == "scripts/setup_vendor.sh", \
-        "the vendor step must be the first command in Reproduce"
+    first = [l for l in reproduce.splitlines()
+             if l.startswith((".venv/", "scripts/", "bash scripts/"))]
+    assert first and first[0] == "bash scripts/setup.sh", \
+        "the bootstrap must be the first command in Reproduce"
+    assert "bash scripts/setup_vendor.sh" in (root / "scripts" / "setup.sh").read_text(), \
+        "the bootstrap must fetch the vendored sources"
 
 
 def test_the_shipped_claims_checker_is_the_kit_s_own():
