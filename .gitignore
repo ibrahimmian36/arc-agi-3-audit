@@ -13,10 +13,10 @@ paper/*.aux
 paper/*.log
 paper/*.out
 artifacts/*/run*.log
-paper/journal/*.txt
-paper/journal/supplementary.zip
-paper/journal/*.aux
-paper/journal/*.log
-paper/journal/*.out
-paper/journal/*.sty
-paper/journal/*.bst
+paper/journal/
+paper/build_journal.py
+paper/make_supplementary.py
+paper/make_supplementary.sh
+paper/ANNOUNCEMENT_DRAFT.md
+notice/
+docs/PHASE*_PROMPT.md

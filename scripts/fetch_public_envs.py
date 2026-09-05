@@ -1,4 +1,4 @@
-"""ONE-TIME fetch of the PUBLIC environments (the lead author runs this; it downloads and
+"""ONE-TIME fetch of the PUBLIC environments (run once by hand; it downloads and
 executes third-party game code and talks to the ARC API with HER key).
 
 Requires ARC_API_KEY in the environment (refuses to run on the anonymous key,

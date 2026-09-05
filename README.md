@@ -72,10 +72,9 @@ probe, is the `Reproduce` section of `FINDINGS.md`.
 
 ## Paper
 
-`paper/main.tex` is the source and `paper/main.pdf` the preprint.
-`paper/build_journal.py` generates the journal builds in `paper/journal/` from that
-source, so they cannot drift from it; `paper/make_supplementary.sh` packages the
-tracked files as supplementary material.
+`paper/main.tex` is the source and `paper/main.pdf` the preprint. The paper is
+under review; the submission build is generated from this source and is not
+part of the public repository until the review concludes.
 
 ## Layout
 

@@ -172,8 +172,6 @@ def main() -> int:
 
     # S3 -- no superseded wording outside a passage that narrates the correction
     tex_path = ROOT / "paper" / "main.tex"
-    if not tex_path.exists():            # the anonymised archive: same body, the journal source
-        tex_path = ROOT / "paper" / "journal" / "journal.tex"
     tex = tex_path.read_text()
     for needle, allowed_near in SUPERSEDED:
         if needle in tex and (allowed_near is None or allowed_near not in tex):
@@ -197,13 +195,9 @@ def main() -> int:
     # The repository claim is in exactly one of two states: a visible placeholder
     # while the repository is private, or a real URL once it is public. Both at
     # once, or neither, means the sentence is asserting something unchecked.
-    anonymous = tex_path.name == "journal.tex"
-    placeholder = 0 if anonymous else tex.count("[REPOSITORY URL]")
+    placeholder = tex.count("[REPOSITORY URL]")
     url = len(re.findall(r"github\.com/[A-Za-z0-9_.-]+/arc-agi-3-audit", tex))
-    if anonymous:
-        if url:
-            fails.append("the anonymous source names the repository")
-    elif placeholder and url:
+    if placeholder and url:
         fails.append("the repository claim carries both a placeholder and a URL")
     elif not placeholder and not url:
         fails.append("the repository claim names neither a placeholder nor a URL")

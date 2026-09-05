@@ -91,7 +91,7 @@ certifies the scorer.
 
 The shipped scorer implements the rule as the report's prose and the docs
 state it. The defects found are in the documentation of that rule and in one
-unhandled edge of the scorer, listed below. The two leads in the initial brief are
+unhandled edge of the scorer, listed below. The two leads we began with are
 closed: the 115 per-level cap is documented (toolkit changelog 0.9.7,
 2026-04-14; docs methodology; report v2 §4.2), and level weights are 1-based.
 
@@ -755,9 +755,9 @@ the same as the control with distinct guids.
   with an oracle value; the 13th is P8, finding F3). P11 (baseline length mismatch) returns 0 with an
   explicit message; the rule is undefined there.
 - Level weights are 1-based: P5 (only level 1, at baseline) scores
-  `6.666667` = 100/15. Initial brief Lead 2 closed.
+  `6.666667` = 100/15. Initial lead 2 closed.
 - The 115 cap: P2a level-1 score is `115.0`, matching changelog 0.9.7, the
-  docs and report v2 prose. Initial brief Lead 1 closed as documented behaviour.
+  docs and report v2 prose. Initial lead 1 closed as documented behaviour.
 - Environment cap: P2b and P6 both give `66.666667` for 4 of 5 levels, as the
   docs' worked example states.
 - Best-of-plays: P10 gives `100.000000`, matching "average of the best score

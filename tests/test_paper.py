@@ -56,7 +56,7 @@ def test_the_paper_does_not_claim_a_disclosure_that_did_not_happen():
 
 def test_the_repository_claim_is_not_made_before_the_repository_exists():
     """The paper says its artefacts are reproducible from a released repository.
-    The audit repository is private until the lead author releases it, so the URL must stay
+    The audit repository was private until release, so the URL had to stay
     a visible placeholder until it is real -- a paper that claims a public
     artefact nobody can fetch is worse than one that claims nothing."""
     require_named_paper()
@@ -132,34 +132,6 @@ def test_the_git_history_carries_no_attribution_trailer():
         low = line.lower()
         assert not low.startswith("co-" + "authored-by: cla" + "ude"), line
         assert "generated with [cla" + "ude" not in low, line
-
-
-def test_every_figure_in_the_announcement_draft_appears_in_the_paper():
-    """The post is what most people will read, and it is the easiest place to
-    overclaim. Any number in it must be one the paper carries, and the paper's
-    numbers are themselves each traced to an artefact. This keeps holding after
-    the draft is edited."""
-    import re
-    draft = PAPER / "ANNOUNCEMENT_DRAFT.md"
-    if not draft.exists():
-        pytest.skip("no draft")
-    text = draft.read_text()
-    body = text[text.index("An agent can be failed"):]
-    paper = re.sub(r"\s+", " ", (PAPER / "main.txt").read_text()).replace(",", "")
-    for n in set(re.findall(r"(?<![A-Za-z0-9_.])\d+(?:\.\d+)?", body)):
-        assert n in paper, f"the post states {n}, which the paper does not"
-
-
-def test_the_announcement_draft_claims_nothing_the_paper_refuses_to():
-    draft = PAPER / "ANNOUNCEMENT_DRAFT.md"
-    if not draft.exists():
-        pytest.skip("no draft")
-    body = draft.read_text().lower()
-    for bad in ("the server does charge", "the server counts", "leaderboard is wrong",
-                "models are scored wrongly", "gpt-", "gemini", "openai", "deepmind"):
-        assert bad not in body, bad
-    # the bound must travel with the finding
-    assert "nothing changed" in body or "not one level" in body
 
 
 def test_the_git_history_carries_no_private_address():

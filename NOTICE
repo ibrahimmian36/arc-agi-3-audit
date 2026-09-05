@@ -15,11 +15,13 @@ sources by scripts in this repository:
   * The audited repositories (arcprize/ARC-AGI, arcprize/arc-agi-3-benchmarking,
     arcprize/ARC-AGI-3-Agents), each MIT-licensed, are fetched at the commits
     pinned in vendor/PINS.json by scripts/setup_vendor.sh.
-  * The journal LaTeX style files (journal.sty, Apache 2.0; fancyhdr.sty, LPPL 1.3;
-    journal.bst, (c) Hal Daume III and Patrick W Daly) are fetched from
-    JmlrOrg/journal-style-file by paper/build_journal.py.
   * The public environment sources are fetched from the ARC API by
     scripts/fetch_public_envs.py and are not redistributed.
 
 This repository documents defects in software published by the ARC Prize
 Foundation. Nothing here is endorsed by, or affiliated with, that organisation.
+
+The Dafny models under model/ and the state graphs under artifacts/env/ are
+analyses of publicly playable demonstration environments. They encode constants
+and transition rules observed in those environments; no environment source is
+redistributed.
