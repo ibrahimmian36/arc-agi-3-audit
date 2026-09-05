@@ -252,7 +252,7 @@ The exposure is the local path, and it is not hypothetical. The toolkit's own
 minimal example constructs \code{Arcade()} --- the default mode is
 \code{normal} --- plays a single environment and prints \code{scorecard.score}.
 Following the quickstart on one environment prints that environment's score
-where the report's definition gives it divided by the size of the set.
+where the report's definition gives that score divided by the size of the set.
 
 A second aspect sharpens it. Our first reading supposed that covering the whole
 set is safe; on the local path it is not, because the divisor counts
@@ -304,7 +304,7 @@ Driving the harness's own control loop against the toolkit's fixture game, an
 agent that loses a level three times and then solves it chooses 16 actions and
 is counted 19, and the level is scored on all 19. Against that level's baseline
 of four, being scored on 19 rather than on the 16 the agent chose lowers the
-level's contribution by about a fifth.
+level's contribution by roughly three tenths.
 
 A fall in a completed level's score is the mild consequence. The counter these
 resets increment is also the one the harness stops on. The per-level budget is
@@ -377,7 +377,7 @@ depends on an agent good enough to finish close to its budget, and we cannot say
 how often a capable agent is in that position without runs against the server.
 
 The sweep also cross-checks the exposure measurement across the whole set, and
-they agree in both directions: an environment whose first level cannot be lost
+the two agree in both directions: an environment whose first level cannot be lost
 inside its budget never incurs a forced reset in any seed, and one that can
 always does in some seed. The comparison has to be made per environment across
 its seeds rather than per run, because a single seed may complete the level
@@ -489,7 +489,7 @@ no errors and no timeouts.
 Two smaller documentation items: the code comments beside the cap still say
 ``max 100'', predating the change to $115$; and the published response schema for
 \code{/api/games} omits \code{baseline\_actions}, a field the endpoint does
-return and the toolkit reads from it.
+return and the toolkit reads.
 
 \paragraph{A wrong prediction, disclosed.} We preregistered that the harness
 would issue and count an initial reset, making it one action stricter than the
@@ -566,8 +566,8 @@ one structure, one per remaining life, and under the reading that seems intended
 actions reaches the win before a game over, starting from the level's reset
 state --- we compute \code{0.002813847150161035}, that is 1 in
 \code{355.38533070027296}. That agrees to three significant figures; ``exactly''
-is a rounding. Two other readings we computed, one over the number of states and
-the winning fraction of states, both give 1 in $14{,}337$. We report this as a
+is a rounding. Two other readings we computed, the reciprocal of the state count and the
+winning fraction of states, both give 1 in $14{,}337$. We report this as a
 definitional gap rather than an error: the environment agrees with the claim
 under its natural reading.
 
