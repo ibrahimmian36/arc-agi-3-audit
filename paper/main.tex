@@ -542,19 +542,15 @@ total of $100.0$ where the set-size reading gives $2.222222222$, a factor of
 $45.0$. Played over a whole set with every environment producing a card, the two agree exactly, so the difference is
 precisely the partial-coverage case.
 
-\begin{sloppypar}
-Which runs this reaches is measured rather than assumed. Calling
-\code{Arcade.get\_scorecard} under each operation mode, with a transport that
-refuses to open a socket, identifies where the number comes from: \code{offline}
-and \code{normal} compute it locally through this arithmetic, while
-\code{online} and \code{competition} take a
-\emph{remote fetch (server supplies the scorecard)}. The official benchmarking
-harness constructs the toolkit with \code{operation\_mode} set to
-\code{OperationMode.ONLINE}, so this arithmetic does not run for an official
-run at all. The server-side scorer is not observable to us
-and we make no claim about it, about the official leaderboard, or about any
-published result.
-\end{sloppypar}
+Which runs this reaches is measured rather than assumed. We call the toolkit's
+scorecard function, \code{get\_scorecard}, under each operation mode, with a transport that refuses to
+open a socket, to see where the number comes from. The \code{offline} and
+\code{normal} modes compute it locally through this arithmetic, while the
+\code{online} and \code{competition} modes take what the toolkit calls a
+\emph{remote fetch (server supplies the scorecard)}. The official benchmarking harness constructs the
+toolkit in \code{ONLINE} mode, so this arithmetic does not run for an official
+run at all. The server-side scorer is not observable to us and we make no claim
+about it, about the official leaderboard, or about any published result.
 
 The exposure is the local path, and it is not hypothetical. The toolkit's own
 minimal example constructs \code{Arcade()} --- the default mode is
@@ -1159,17 +1155,21 @@ human replay data is used without redistribution and reported only as
 aggregates, so no participant is identifiable from this paper. No models were
 trained and no new data was collected from people.
 
-\section*{Use of AI tools}
+\section{Use of AI tools}
+\label{sec:ai}
 
-Large language models (LLMs) were used throughout this work: to write and debug
-the audit's code, and to run blind reviews of drafts, with models from two
-different providers. We have used an LLM to generate portions of the text of
-this paper, and we take full intellectual responsibility for all of it,
-including every claim, number and reference. No claim rests on a model's
-judgement: every number in the paper is produced by a script in the repository
-and checked against the paper by the claims checker (Section~\ref{sec:method}),
-every reference was checked at its source, and every disagreement the
-instruments reported was read by a person before it was called anything.
+A large language model (LLM) was used extensively in this work: Claude
+(Anthropic), in September 2026. Under the authors' direction the LLM wrote most
+of the audit's code, scripts and Dafny models, and it generated much of the text
+of this paper, which the authors reviewed and revised. Blind reviews of drafts
+were run with Claude and, once, with OpenAI's GPT-5.6 Sol model. The authors
+take full intellectual responsibility for the entire content of the paper,
+including the text, the references and every claim. The claims rest on scripts
+the LLM wrote, so they do not rest on trusting it: the scripts are checked by
+the test suite, by differential comparison against the shipped implementation
+and by the claims checker (Section~\ref{sec:method}), which verifies every
+number in the paper against the artefact that produced it; every reference was
+checked at its source; and the scripts are public, so any reader can rerun them.
 
 \section*{Acknowledgements}
 

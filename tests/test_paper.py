@@ -33,9 +33,27 @@ def test_the_paper_names_no_private_address_and_no_tool_attribution():
                  "shayaan@millenniumresearch.ai"}
     for addr in set(re.findall(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", text)):
         assert addr in permitted or addr.endswith("arcprize.org"), addr
-    for word in ("Anthropic", "Generated with", "Co-" + "Authored"):
+    for word in ("Generated with", "Co-" + "Authored"):
         assert word not in text, word
-    assert "Cla" + "ude" not in text
+    # the tool is named only inside the AI-use disclosure
+    a = text.index("\\section{Use of AI tools}")
+    b = text.index("\\section", a + 1)
+    outside = text[:a] + text[b:]
+    assert "Anthropic" not in outside
+    assert "Cla" + "ude" not in outside
+
+
+def test_the_ai_disclosure_says_what_arxiv_moderation_asked_for():
+    """arXiv returned the authors' earlier paper until it stated that an LLM
+    generated portions of the text and that the authors take full intellectual
+    responsibility; the accepted version also said the authors reviewed and
+    revised the text. All three must stay."""
+    text = paper_source().read_text()
+    a = text.index("\\section{Use of AI tools}")
+    sec = " ".join(text[a:text.index("\\section", a + 1)].split())
+    assert "generated much of the text" in sec
+    assert "reviewed and revised" in sec
+    assert "take full intellectual responsibility" in sec
 
 
 def test_the_paper_does_not_claim_a_disclosure_that_did_not_happen():

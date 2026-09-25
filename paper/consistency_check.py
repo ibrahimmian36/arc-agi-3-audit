@@ -29,6 +29,7 @@ ART = ROOT / "artifacts"
 # Numbers that are structural rather than findings. Each needs a reason that
 # would be wrong if it were wrong: "it is fine" is not a reason.
 EXEMPT: dict[str, str] = {
+    "5.6": "the version name of a model used for one blind review, named in the AI-use disclosure",
     "429": "the HTTP status the draft stated without an artefact, named in the limitations as our error",
     "59": "the full-reset probe's script length, 13 + 1 + 45, each part traced",
     "300": "the stated memory ceiling the replay scripts stayed under; the measured peaks vary by run and live in the JSON artefacts",
@@ -213,7 +214,16 @@ def main() -> int:
         for addr in set(re.findall(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", doc)):
             if addr not in permitted and not addr.endswith("arcprize.org"):
                 fails.append(f"unexpected mail address {addr!r} in {name}")
-    for word in ("Claude", "Anthropic", "Co-Authored", "Generated with"):
+    # The tool is named in the paper's AI-use disclosure, as arXiv's moderation
+    # asked of the authors' earlier paper, and nowhere else; co-author and
+    # "generated with" trailers are never permitted.
+    ai0 = tex.find("\\section{Use of AI tools}")
+    ai1 = tex.find("\\section", ai0 + 1) if ai0 >= 0 else -1
+    outside = tex[:ai0] + tex[ai1:] if ai0 >= 0 else tex
+    for word in ("Claude", "Anthropic"):
+        if word in outside:
+            fails.append(f"tool name {word!r} appears outside the AI-use disclosure")
+    for word in ("Co-Authored", "Generated with"):
         if word in tex:
             fails.append(f"attribution {word!r} appears in the paper")
     # The repository claim is in exactly one of two states: a visible placeholder
