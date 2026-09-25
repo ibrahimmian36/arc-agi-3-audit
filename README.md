@@ -85,7 +85,8 @@ probe, is the `Reproduce` section of `FINDINGS.md`.
 
 `paper/main.tex` is the source and `paper/main.pdf` the preprint. The paper is
 under review; the submission build is generated from this source and is not
-part of the public repository until the review concludes.
+part of the public repository until the review concludes. To cite the work, use
+`CITATION.cff`; GitHub shows it as "Cite this repository".
 
 ## Layout
 
