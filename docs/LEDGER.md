@@ -224,3 +224,8 @@ statement on AI use, a data appendix. A blind review under the journal's
 criteria and a copy edit followed; every item was checked before
 it was applied. Phase 19 measured the harness budget on human play:
 `completions=1614`, `over_budget=29`, `cut_only_by_post_game_over_resets=0`.
+
+Phase 20 (preregistered): bootstrap stability of every baseline from the derived
+counts, `resamples=2000`, `median_rel_width_pct=84.6`, `published_inside=179`,
+`median_score_low=50.6`. Second blind review applied; the human-baselines
+section now follows Method.

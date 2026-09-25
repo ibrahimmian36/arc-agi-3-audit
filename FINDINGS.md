@@ -835,6 +835,15 @@ produces those seven numbers, so for those environments the release is not the d
 were computed from. Splitting the sessions by month does not help. We report
 it as not reproduced, not as wrong.
 
+*How stable the baselines are (Phase 20, preregistered).* Resampling each
+cell's plays and recomputing the upper median (`scripts/baseline_uncertainty.py`,
+`resamples=2000`): the median cell's 95% interval is `median_rel_width_pct=84.6`
+per cent of its published value, the published value lies inside its interval
+in `published_inside=179` of 183 cells, and an agent finishing exactly at a
+median cell's baseline would score between `median_score_low=50.6` and the cap
+of 115 on that level depending on the draw. For the 21 cells with fewer than 5
+plays the resampling understates the uncertainty.
+
 *Every baseline is consistent with its level's optimum.* A human count bounds
 the optimum from above. In all 183 cells the smallest human count is at or
 below the published baseline (`bound_consistent=183`, `bound_undetermined=0`),

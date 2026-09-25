@@ -268,3 +268,22 @@ c − g ≤ B; per-cell play counts (minimum, median, maximum). Reading: any cou
 is reported as measured. Humans are not agents, so this is the reach of the
 mechanism on human-like play, not a prediction for any model. No prediction of
 the counts is made.
+
+## 8. Phase 20 — how stable the baselines are (registered 2026-09-25, before running)
+
+Question: how much would each published baseline move if a different set of
+humans had played, and what would that do to the score of an agent that
+finishes exactly at the published baseline?
+
+Instrument: `scripts/baseline_uncertainty.py`, reading only the per-cell sorted
+counts already derived (`artifacts/replays/human_baselines.json`, charged, all
+plays). For each of the 183 cells, 2,000 bootstrap resamples of its plays, each
+with its own generator seeded from the cell's name, give a 95% percentile
+interval for the upper median. Reported: the median and maximum of the
+interval's width relative to the published value; how many published values lie
+inside their interval; and, for an agent finishing in exactly the published
+baseline b (level score 100), the level score it would receive if the true
+baseline were the interval's lower or upper end, 100·(end/b)² capped at 115,
+summarised by its median over cells. The same summaries are given for the 21
+cells with fewer than 5 plays. Reading: reported as measured; no bar, no
+prediction.

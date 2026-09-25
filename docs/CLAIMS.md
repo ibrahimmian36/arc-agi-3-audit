@@ -210,3 +210,7 @@ Every load-bearing number in FINDINGS.md, tied to the artefact line that produce
 | 203 | `completions=1614` | `../artifacts/replays/human_budget.log` | `^HUMANBUDGET` | scripts/human_budget.py |
 | 204 | `over_budget=29` | `../artifacts/replays/human_budget.log` | `^HUMANBUDGET` | scripts/human_budget.py |
 | 205 | `cut_only_by_post_game_over_resets=0` | `../artifacts/replays/human_budget.log` | `^HUMANBUDGET` | scripts/human_budget.py |
+| 206 | `resamples=2000` | `../artifacts/replays/baseline_uncertainty.log` | `^BASEUNC all` | scripts/baseline_uncertainty.py |
+| 207 | `median_rel_width_pct=84.6` | `../artifacts/replays/baseline_uncertainty.log` | `^BASEUNC all` | scripts/baseline_uncertainty.py |
+| 208 | `published_inside=179` | `../artifacts/replays/baseline_uncertainty.log` | `^BASEUNC all` | scripts/baseline_uncertainty.py |
+| 209 | `median_score_low=50.6` | `../artifacts/replays/baseline_uncertainty.log` | `^BASEUNC all` | scripts/baseline_uncertainty.py |

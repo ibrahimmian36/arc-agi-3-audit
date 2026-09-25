@@ -1440,5 +1440,33 @@
   "log": "../artifacts/replays/human_budget.log",
   "pattern": "^HUMANBUDGET",
   "by": "scripts/human_budget.py"
+ },
+ {
+  "value": "resamples=2000",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/baseline_uncertainty.log",
+  "pattern": "^BASEUNC all",
+  "by": "scripts/baseline_uncertainty.py"
+ },
+ {
+  "value": "median_rel_width_pct=84.6",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/baseline_uncertainty.log",
+  "pattern": "^BASEUNC all",
+  "by": "scripts/baseline_uncertainty.py"
+ },
+ {
+  "value": "published_inside=179",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/baseline_uncertainty.log",
+  "pattern": "^BASEUNC all",
+  "by": "scripts/baseline_uncertainty.py"
+ },
+ {
+  "value": "median_score_low=50.6",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/baseline_uncertainty.log",
+  "pattern": "^BASEUNC all",
+  "by": "scripts/baseline_uncertainty.py"
  }
 ]

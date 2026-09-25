@@ -37,10 +37,12 @@ differentially against the implementation.
 
 The 340 released recordings reproduce 165 of the 183 published baselines
 exactly as the upper median of per-play action counts with resets charged, and
-on the 72 cells that tell the charged and uncharged readings apart the
+on the 72 levels that tell the charged and uncharged readings apart the
 published value is the charged one on 65: humans paid for their resets as
-agents do. Sixteen cells, in three environments, cannot be reproduced from the
-release. All 340 recordings reproduce state and level at every one of their
+agents do. Of the other 18 baselines, two carry an earlier recorder's tally, one
+action low, and 16, in three environments, are not reproduced by the release.
+Most baselines rest on few plays: under resampling, the median baseline's 95\%
+interval is 84.6\% as wide as the baseline itself. All 340 recordings reproduce state and level at every one of their
 $180{,}496$ steps through the shipped environments, 19 of them only under an
 engine switch the default does not set: on the engine the humans played, a
 reset never leaves the level, while on the shipped default a reset at the start
@@ -52,10 +54,10 @@ per-level budget, so the effective budget is $\lceil 5b \rceil$ minus the number
 of deaths, and a paired counterfactual shows this can end a level on a real
 public environment. Its reach is small: applied to the 1,614 level completions
 in the human replays, the budget cuts off 29, none of them because of those
-resets. We also report a discrepancy between the documented and the
-implemented aggregation rule, and an equation in the technical report that
-permits a per-level score of $132.25\%$ where every other source caps it at
-$115\%$. Two environment models agree with the shipped implementation on all
+resets, and no finding in this paper is shown to change a published score. We also report an under-specified aggregation rule, of which the
+toolkit implements one reading, and an equation in the technical report that
+permits a per-level score of $132.25\%$ where the report's own stated range,
+the documentation and the code cap it at $115\%$. Two environment models agree with the shipped implementation on all
 $190{,}560$ transitions of their levels. The code, models, preregistrations and
 derived data are public at pinned commits.
 \end{abstract}
@@ -93,14 +95,17 @@ service an outside reader can perform is to say precisely which parts have been
 checked, by what method, and what survived. Where we found nothing wrong we say
 so at the same length as where we found something.
 
-\paragraph{Contributions.}
+\paragraph{Contributions.} None of the findings below is shown to change a
+published score; each is reported with the reach we could measure.
 \begin{enumerate}
 \item An audit of the published human baselines as data
       (Section~\ref{sec:baselines}). The 340 released human replays reproduce
       165 of the 183 baselines exactly under one stated rule, settle that
       human resets were charged, show every baseline at or above its level's
-      optimum, and leave 16 cells in three environments that the release
-      cannot have produced.
+      optimum, and leave 16 levels in three environments that the release does
+      not reproduce, seven of whose published values occur in no released play.
+      Resampling the plays shows how noisy the baselines are: the median
+      baseline's 95\% interval is 84.6\% as wide as the baseline itself.
 \item The conditions under which the baselines were collected
       (Section~\ref{sec:humanengine}): the humans played under reset semantics
       equivalent to the engine's \code{ONLY\_RESET\_LEVELS} switch, on which a
@@ -190,6 +195,269 @@ script into an artefact and registered in a claims file, and a checker verifies
 that each value appears both in the text and on a matching line of the log that
 produced it. The repository ships the scripts, the artefacts and the checker.
 
+\section{The human baselines}
+\label{sec:baselines}
+
+Throughout, a \emph{cell} is one level of one environment, 183 in all, and the
+\emph{upper median} of $n$ sorted counts is the one at position
+$\lfloor n/2 \rfloor$ counting from zero, the statistic the report names for its
+baselines.
+
+\subsection{A check that needs no human data}
+
+Every ARC-AGI-3 score is a ratio against \code{baseline\_actions[l]}. A human
+cannot complete a level in fewer actions than the level's optimum, so a
+published baseline must be at least that optimum. Breadth-first search supplies
+the optimum, and supplies a sound bound on it even when it does not finish:
+having expanded every state at depth $d$ without reaching a win, it has proved
+no solution exists in $d+1$ actions or fewer.
+
+Two things were settled before measuring, either of which would have made a
+contradiction spurious. The scorer pairs \code{baseline\_actions[level\_idx]}
+with that level's own action count, computed as a difference between cumulative
+counts, so the published values are per level. And the published values are not
+monotone --- \code{ar25} is $[32, 50, 75, 37, 89, 159, 233, 73]$ --- so they
+cannot be cumulative.
+
+\subsection{Result}
+
+Of 18 levels attempted across the six enumerable environments (Section~\ref{sec:enumerable}), six resolved and
+all six are consistent; none is impossible; twelve were stopped by a time or
+memory cap after completing depths between 8 and 16 against baselines between 26
+and 183, and establish nothing either way.
+
+\begin{table}[t]
+\centering
+\begin{tabular}{llrr}
+\toprule
+Environment & Level & Minimum actions & Published baseline \\
+\midrule
+\code{ls20} & 1 & 13 & 22 \\
+\code{ls20} & 2 & 45 & 123 \\
+\code{ls20} & 3 & 39 & 73 \\
+\code{tu93} & 1 & 18 & 19 \\
+\code{tu93} & 2 & 10 & 16 \\
+\code{tu93} & 3 & 19 & 34 \\
+\bottomrule
+\end{tabular}
+\caption{Exact optima against published human baselines, for the levels where
+the search completed. Every optimum is replayed through the shipped game and
+shown to complete its level.}
+\label{tab:baselines}
+\end{table}
+
+Table~\ref{tab:baselines} gives the resolved levels. The tightest margin is
+\code{tu93} level 1, where the upper-median human used one action
+more than the optimum on an environment whose rules are stated nowhere.
+
+We then attempted to resolve the remaining levels by changing the search, and
+could not. Breadth-first holds a whole layer of game objects, so memory was the
+obvious suspect; we added depth-limited depth-first search with shallowest-depth
+memoisation, which gives the same completeness guarantee to a stated depth while
+holding only the objects along one path, and an iterative-deepening form that
+banks a bound after each completed depth. Memory fell by roughly a factor of
+seven on \code{g50t} level 1, where we measured it. It resolved nothing: in the same time budget
+breadth-first reached a greater depth on both levels compared, because deepening
+re-explores, and on levels breadth-first can finish it is strictly better. The
+binding constraint is not memory but the size of the state space at the depths
+these baselines occupy, and on those twelve levels neither exhaustive search we
+tried reaches depth 26 within the caps of Appendix~\ref{sec:caps}, let alone
+183. The human replays settle them from the
+other side (Section~\ref{sec:replays}): a human's count is an upper bound on the
+optimum, and every one of the twelve has a human count at or below its
+baseline.
+
+These optima are proved against the shipped local environment at the pinned
+version. The replays show that the humans played that code, under one engine
+switch the default does not set (Section~\ref{sec:humanengine}).
+
+\subsection{The replays, and an error of ours}
+\label{sec:replays}
+
+An April 2026 post \cite{humandataset} states that the ARC Prize Foundation open-sourced
+the Public Demo dataset, ``which includes 342 human step-by-step replays'' across
+the 25 public environments. An earlier version of this work, published in its
+repository, said we could not locate them. That was wrong, and the error was ours. Our scripted check of the
+Foundation's public channels found no replay dataset among the \code{arcprize}
+GitHub repositories or Hugging Face datasets, and the one link the announcement
+gives, a link shortener, refused our request with HTTP 403 whether or not it
+carried a browser user-agent; we reported the refusal as the link not resolving.
+Two automated blind reviews of that version pointed out that a 403 from a
+shortener is what a scripted request gets. Opened in a real browser on 5 September 2026, the link
+resolves to a Google Drive folder holding the dataset: a folder with one
+subfolder per public environment, an archive of the same, and a ratings file,
+dated 13 to 15 April 2026. The observation is recorded as such in the
+repository, with its provenance stated.
+
+We record the error rather than deleting the trace of it, because it is the
+same class of defect this audit reports in others' work: an instrument's limit
+reported as a fact about the world.
+
+\paragraph{The data.} The archive the link resolves to ($111{,}142{,}305$
+bytes; its SHA-256 is in the repository) was downloaded by the first author,
+read from the zip one line at a time, never extracted and never redistributed;
+nothing from it enters the repository but sorted per-cell counts and tallies.
+It holds 340 recordings, not 342, one per session, each in the toolkit's own
+recording format: one frame record per action, the first being the
+construction reset, and a final line carrying the toolkit's scorecard for the
+session with per-play cumulative action counts at each level boundary and a
+reset count. Every frame names the environment version we audited. The
+parser would split a session at any full reset after its first action; none of
+the 340 contains one, so recordings, sessions and plays all number 340. The
+archive carries no participant identifier, so the report's ``first-time
+players'' cannot be filtered for and every statistic below is over all 340.
+Cells rest on between 2 and 40 plays (median 8), and 21 of the 183 on fewer
+than 5.
+Twenty-three recordings, all from March 2026, are from an earlier recorder
+that wrote action names rather than ids and no construction line; 22 of them
+complete at least one level.
+
+\paragraph{They are plays of the shipped code.} We replayed every recording
+action by action, with its recorded click coordinates, through the
+environments in the repository, comparing rendered frame, state and level
+after every step. All 340 reproduce state and level at every one of
+$180{,}496$ steps: 321 under the shipped engine as configured, and 19 only
+under the engine's \code{ONLY\_RESET\_LEVELS} switch
+(Section~\ref{sec:humanengine}). 284 reproduce the rendered frame at every step under the
+shipped engine as configured; 15 do so only under the switch; the remaining 41,
+in four environments, agree on state and level throughout while $6{,}844$
+frames differ in decoration --- for example, a pixel or two changing colour on most frames
+of one environment, animation frames in another, a colour-swapped flash frame
+in a third --- which the game logic does not read.
+
+\paragraph{What the published baseline is.} For every play and every level it
+completed we counted actions two ways: \emph{charged}, every action the scorer
+counts, level resets included and the construction reset excluded; and
+\emph{uncharged}, level resets excluded. Our charged count agrees with the
+toolkit's own tally in the recording's final line on 316 plays; on the 22
+old-recorder plays that complete a level the stored tally is exactly one below
+ours at every level boundary, and the same recordings replay through the
+shipped code with no shift, so it is the old tally that is off; two
+\code{lp85} cards record a total and a level count but no boundaries. Over the
+183 published integers, the upper median of the charged counts reproduces 165
+exactly and four more within one; the upper median of the stored tallies
+reproduces 166 --- it gains the two old-tally cells below and loses
+\code{lp85} level 6, where the two boundary-less cards drop out and move the
+median by one; the uncharged reading reproduces 101, with 42 within one. Lower
+median, plain median and mean do far worse. The documented rule --- the upper
+median of players' counts --- is the rule, and it charges resets. Because it reproduces over all 340 sessions,
+it suggests either that every released session was a first play or that the
+published baselines were not restricted to first-time players as the
+documentation states; the release cannot distinguish the two. On the 72
+cells where a human reset and the two readings differ, the published value
+equals the charged reading on 65, the uncharged on one, and neither on six;
+all seven cells that are not the charged reading lie in the three
+environments the release does not reproduce.
+
+\paragraph{Two level-1 cells carry the old recorder's tally.} The published
+level-1 baselines for \code{cn04} and \code{tr87}, 29 and 54, equal the upper
+median of the stored tallies and sit one below the upper median of the actions
+those humans took by the current scorer's rule, 30 and 55. The discrepancy is
+one action in two of the 183 cells; we record it because it is exact.
+
+\paragraph{Three environments are not reproduced from the release.} Under the
+rule that fits everywhere else, \code{g50t} reproduces four of seven cells,
+\code{lp85} one of eight and \code{vc33} one of seven. Eight published values
+occur in no released play of their cell at all. One is \code{cn04} level 1,
+whose value is the old recorder's tally above. The other seven are two of
+\code{g50t}'s --- level 4's baseline of 230 sits over two released plays that
+took 31 and 52 actions --- and five of \code{vc33}'s seven. No statistic over
+these recordings produces those seven numbers, so for those environments the
+release is not the data the baselines were computed from. Splitting the
+sessions by testing month does not help. One explanation is ruled out: the announcement's 342 against the
+archive's 340 is a shortfall of two sessions, too few to account for seven
+cells. Another we cannot test: a
+revision of the environment after its human testing, which a version string
+that matches would not exclude. We report this as not reproduced, not as
+wrong.
+
+\paragraph{Every baseline is at or above its optimum.} A human count bounds
+the optimum from above. In all 183 cells the smallest human count is at or
+below the published baseline, so every baseline is at or above its level's
+optimum, the twelve the search could not resolve included. And in every cell
+our search had bounded from below, no human beat the bound: the two
+instruments agree. For the 165 reproduced cells this is close to automatic,
+since the published value is itself a human count on the same engine; it
+carries information for the other 18, whose values the release does not
+reproduce but which still lie at or above a human count for their level.
+
+\paragraph{How stable the baselines are.} Most cells rest on few plays, so we
+asked how far each baseline would move under a different draw of players, a
+question we registered before computing it. Resampling each cell's plays 2,000
+times and recomputing the upper median each time, the median cell's 95\%
+interval is 84.6\% as wide as its published value, and the published value
+lies inside its own interval in 179 of the 183 cells. For an agent that
+finishes a level in exactly its published baseline, and so scores 100 on it, the
+median cell's interval corresponds to a level score between 50.6 and the cap of
+115. The squared ratio passes the baseline's noise to the score with its
+relative size doubled. For the 21 cells with fewer than 5 plays the resampling
+understates the uncertainty, since it can only redraw the few counts it has. A
+baseline measured from a median of eight people is a noisy yardstick, and the
+per-level scores built on it inherit that noise.
+
+\subsection{The engine the humans played}
+\label{sec:humanengine}
+
+The engine's \code{handle\_reset} performs a \emph{full} reset --- every level
+re-cloned, score and level index zero, a new play opened on the scorecard ---
+whenever its per-level action counter is zero and the game is not won, and a
+level reset otherwise. That counter is zeroed by \code{set\_level}, which runs
+at the start of every level and inside every level reset. So a \code{RESET}
+issued as the first action of a level, or a second \code{RESET} straight after
+a first, is a full reset. The engine's own switch \code{ONLY\_RESET\_LEVELS}
+removes both cases: under it a reset never leaves the level except after a win.
+
+The recordings show which reset semantics the humans played under. Across
+the 340 plays, 29 resets fall at a zeroed counter, in 24 of the plays: 28 are
+a reset straight after a reset --- a game over, a reset, then another --- and
+one is a reset at the start of a level. On level 1 a full reset and a level
+reset produce the same frame, state and level, so the replay can tell the two
+settings apart only beyond level 1, where 24 of those 29 resets fall, in 19
+plays. Those 19 recordings are exactly the ones that reproduce the humans'
+state and level only under the switch; 15 of them also match every frame under
+it, and four, in environments whose frames carry decoration, match on state
+and level. Under the engine the humans played, each of the 29 resets cost one
+action. Under the shipped default each of the 24 beyond level 1 would have been
+a trip back to level 1. Whether the humans'
+server ran the switch or the guard described below, the trace is the same;
+what the replays establish is that their resets never left the level.
+
+What that costs under the real harness we measured with the same
+scripted-agent driver as Section~\ref{sec:forced}, on \code{ls20}: the 13-action
+level-1 witness, one \code{RESET} as the first action of level 2, then the
+45-action level-2 witness. Under the humans' setting the reset is a no-op
+level reset; the play completes two levels and the environment scores
+$10.714286$. Under the default the reset opens a second play at level 1, the
+level-2 witness is spent on level 1, the card reads one level completed then
+none, and the environment scores $3.571429$; the harness's own tracker still
+records one level completed while the frame reports none, so its counter,
+never reset and now at 46, is judged against level 1's budget. An agent that notices and re-clears level 1 recovers
+the score at the price of a second play and 13 more charged actions.
+
+Which of the two cases an agent can meet through the harness is settled by
+the harness's own code. It offers \code{RESET} to the model on every turn
+except the first and except immediately after a \code{RESET}, its own forced
+one after a game over included, and it executes only actions it offered. So
+the reset-after-reset case --- 28 of the 29 human events --- cannot occur
+through the harness, and the forced reset of Section~\ref{sec:forced}, which leaves
+the counter at zero, cannot be followed by a chosen one. A \code{RESET} as
+the first action of a newly reached level is offered, and that is the case
+the probe above measures.
+
+Whether the server that scores agents runs the switch is not observable to
+us. The toolkit's own API server carries a guard for exactly this case --- in
+``competition mode'' a reset that would cause a full reset is not sent to the
+game at all --- and the toolkit's changelog, for its own version 0.9.5 (the
+toolkit package, distinct from the engine we pin at 0.9.3), fixes scorecards ``when
+\code{ONLY\_RESET\_LEVELS} envvar was set'', so the Foundation knows the case
+and handles it on at least two paths. The benchmarking harness sets neither,
+and an agent run through it against the shipped environments meets the
+default. The finding is the asymmetry that can be shown, on the shipped
+engine: the reset semantics under which every baseline was gathered are not
+the semantics the shipped default gives an agent run against those
+environments. The budget finding of Section~\ref{sec:forced} is different in kind:
+it is a property of the client, which by the code applies to online runs too.
+
 \section{The scoring rule}
 \label{sec:scoring}
 
@@ -199,7 +467,8 @@ Report v2 \S4.1 defines the level efficiency score for level $l$ of environment
 $e$, with $a_{l,e}$ the agent's action count and $h_{l,e}$ the human baseline,
 and gives the environment score as a level-index-weighted average subject to a
 cap at the weighted fraction of levels completed. The human baseline is the
-upper-median (the report's term) action count of first-time human players; report v1 said
+upper median (the report's term, defined in Section~\ref{sec:baselines}) of
+first-time human players' action counts; report v1 said
 second-best, and the change is documented in an April 2026 post
 \cite{humandataset}.
 
@@ -211,11 +480,12 @@ S_{l,e} \;=\; \min\!\left(1.15,\ \frac{h_{l,e}}{a_{l,e}}\right)^{\!2},
 \]
 which caps the \emph{ratio} before squaring and therefore admits a per-level
 score of $1.15^2 = 1.3225$. The same section's prose says the per-level
-efficiency is capped ``at 1.15x human baseline'' and that a level score lies
-between $0\%$ and $115\%$; the documentation says the same; the toolkit's
-changelog records the change from a $100\%$ cap to a $115\%$ cap; and the
-shipped code applies \code{min(score, 115.0)} after squaring. Every artefact
-except the equation caps the score.
+efficiency is capped ``at 1.15x human baseline'', which can be read as the
+equation's ratio cap, and also that a level score lies between $0\%$ and
+$115\%$, which cannot; the documentation says the score lies in that range; the
+toolkit's changelog records the change from a $100\%$ cap to a $115\%$ cap; and
+the shipped code applies \code{min(score, 115.0)} after squaring. Apart from the
+equation, and one reading of that phrase, every artefact caps the score.
 
 The difference is observable. Every planted trace has five levels with a
 baseline of 10 on each, so the level weights sum to 15, and a level not listed
@@ -324,7 +594,7 @@ without charging human resets while agents are charged for theirs, every ratio
 would be biased against the agent by an amount depending on how often each side
 reset. The replays settle it (Section~\ref{sec:replays}): the published baselines are
 the upper median of the toolkit's own per-play tallies, which charge every level
-reset, and on the 72 cells (a cell being one level of one environment) where a
+reset, and on the 72 cells (Section~\ref{sec:baselines}) where a
 human reset and the two readings differ, the published value equals the
 charged reading on 65, the uncharged reading on one, and neither on six. Humans paid for their resets as agents do. What remains is
 a documentation gap: the rule is symmetric, and nothing says so.
@@ -369,7 +639,7 @@ completes the level and scores \code{1.316872428}. The agent's play is identical
 in both. The reset it did not choose is the entire difference between a
 completed level and a failed one.
 
-This is not a knife edge. The width of the disagreement follows from the
+The window is narrow, one budget value per death, but not accidental. Its width follows from the
 mechanism as read from the code, and we wrote the prediction down before
 measuring rather than assuming it. The counterfactual completes the level as soon as the budget covers the agent's
 chosen actions, while the shipped harness additionally needs one action per game
@@ -488,9 +758,9 @@ level 1 at $b = 6$, where one forced reset takes a perfect completion from
 \code{100.0} to \code{73.469387755}.
 
 Two things this is not. It is not a claim about how the server scores such a
-reset, which is not observable to us; the budget itself is enforced by the
-harness, the one its own README calls the official benchmarking agent, online
-or offline. And it is not a design criticism: the harness has to
+reset, which is not observable to us. By the code, the budget itself is
+enforced by the harness, the one its own README calls the official benchmarking
+agent, and so would apply to online runs too; every run we made was offline. And it is not a design criticism: the harness has to
 send something after a game over. What is absent is any statement to an entrant
 that these resets happen, that they consume the per-level action budget, and
 that they can end a level the agent would otherwise have completed. The humans' resets after a game over were forced by the game in the same way
@@ -574,7 +844,9 @@ of transition logic among environments with at least six levels and a mechanic
 described in the report or documentation. Only \code{ls20} satisfies the last
 clause --- the report shows its first level as a state graph and states a win
 probability for it --- so it was selected even though eleven environments have
-smaller sources. All 25 environment sources are identifier-obfuscated, so the
+smaller sources. In effect the rule selects the one environment whose mechanic
+the report describes; we state it as a rule because it was written before we
+knew that. All 25 environment sources are identifier-obfuscated, so the
 models are written from behaviour and structure rather than from names.
 
 For each level we extract the constants from the shipped level object by script
@@ -634,7 +906,7 @@ Figure~3 of the report shows the first level of \code{ls20} as a graph, notes
 ``three repeating states -- an artifact of the three-life mechanic'', and states
 that the win probability for that level is ``exactly 1 in 355''. The term is not
 defined. Our exhaustive enumeration gives a graph that is indeed three copies of
-one structure, one per remaining life, and under the reading that seems intended
+one structure, one per remaining life, and under the most natural reading
 --- the probability that a uniformly random policy over the four movement
 actions reaches the win before a game over, starting from the level's reset
 state --- we compute \code{0.002813847150161035}, that is 1 in
@@ -707,7 +979,8 @@ Across $18{,}663$ probes in all 25 environments, the rendered frame after a leve
 reset was identical to the frame the level began with every single time. Engine
 state matched on $15{,}440$ of the same probes; in seven environments
 (\code{cd82}, \code{ft09}, \code{m0r0}, \code{r11l}, \code{sb26}, \code{sc25},
-\code{sp80}) a small number of the game object's own attributes survive a level
+\code{sp80}) some of the game object's own attributes, which account for every
+probe on which engine state differed, survive a level
 reset. Several are read back by the games' own code, so they could in principle
 influence later behaviour, but none is visible in the frame at reset time.
 
@@ -733,247 +1006,6 @@ that a reset does not restore, the probe reports a mismatch while the frame
 still matches; with a reset made to leave a visible change, the count of frame
 matches falls; and with the engine made to advance two levels in one action, the
 detector catches it.
-
-\section{The human baselines}
-\label{sec:baselines}
-
-\subsection{A check that needs no human data}
-
-Every ARC-AGI-3 score is a ratio against \code{baseline\_actions[l]}. A human
-cannot complete a level in fewer actions than the level's optimum, so a
-published baseline must be at least that optimum. Breadth-first search supplies
-the optimum, and supplies a sound bound on it even when it does not finish:
-having expanded every state at depth $d$ without reaching a win, it has proved
-no solution exists in $d+1$ actions or fewer.
-
-Two things were settled before measuring, either of which would have made a
-contradiction spurious. The scorer pairs \code{baseline\_actions[level\_idx]}
-with that level's own action count, computed as a difference between cumulative
-counts, so the published values are per level. And the published values are not
-monotone --- \code{ar25} is $[32, 50, 75, 37, 89, 159, 233, 73]$ --- so they
-cannot be cumulative.
-
-\subsection{Result}
-
-Of 18 levels attempted across the six enumerable environments, six resolved and
-all six are consistent; none is impossible; twelve were stopped by a time or
-memory cap after completing depths between 8 and 16 against baselines between 26
-and 183, and establish nothing either way.
-
-\begin{table}[t]
-\centering
-\begin{tabular}{llrr}
-\toprule
-Environment & Level & Minimum actions & Published baseline \\
-\midrule
-\code{ls20} & 1 & 13 & 22 \\
-\code{ls20} & 2 & 45 & 123 \\
-\code{ls20} & 3 & 39 & 73 \\
-\code{tu93} & 1 & 18 & 19 \\
-\code{tu93} & 2 & 10 & 16 \\
-\code{tu93} & 3 & 19 & 34 \\
-\bottomrule
-\end{tabular}
-\caption{Exact optima against published human baselines, for the levels where
-the search completed. Every optimum is replayed through the shipped game and
-shown to complete its level.}
-\label{tab:baselines}
-\end{table}
-
-Table~\ref{tab:baselines} gives the resolved levels. The tightest margin is
-\code{tu93} level 1, where the upper-median human used one action
-more than the optimum on an environment whose rules are stated nowhere.
-
-We then attempted to resolve the remaining levels by changing the search, and
-could not. Breadth-first holds a whole layer of game objects, so memory was the
-obvious suspect; we added depth-limited depth-first search with shallowest-depth
-memoisation, which gives the same completeness guarantee to a stated depth while
-holding only the objects along one path, and an iterative-deepening form that
-banks a bound after each completed depth. Memory fell by roughly a factor of
-seven on \code{g50t} level 1, where we measured it. It resolved nothing: in the same time budget
-breadth-first reached a greater depth on both levels compared, because deepening
-re-explores, and on levels breadth-first can finish it is strictly better. The
-binding constraint is not memory but the size of the state space at the depths
-these baselines occupy, and on those twelve levels no exhaustive search we can
-tried reaches depth 26 within the caps of Appendix~\ref{sec:caps}, let alone
-183. The human replays settle them from the
-other side (Section~\ref{sec:replays}): a human's count is an upper bound on the
-optimum, and every one of the twelve has a human count at or below its
-baseline.
-
-These optima are proved against the shipped local environment at the pinned
-version. The replays show that the humans played that code, under one engine
-switch the default does not set (Section~\ref{sec:humanengine}).
-
-\subsection{The replays, and an error of ours}
-\label{sec:replays}
-
-An April 2026 post \cite{humandataset} states that the ARC Prize Foundation open-sourced
-the Public Demo dataset, ``which includes 342 human step-by-step replays'' across
-the 25 public environments. An earlier version of this work, published in its
-repository, said we could not locate them. That was wrong, and the error was ours. Our scripted check of the
-Foundation's public channels found no replay dataset among the \code{arcprize}
-GitHub repositories or Hugging Face datasets, and the one link the announcement
-gives, a link shortener, refused our request with HTTP 403 whether or not it
-carried a browser user-agent; we reported the refusal as the link not resolving.
-Two automated blind reviews of that version pointed out that a 403 from a
-shortener is what a scripted request gets. Opened in a real browser on 5 September 2026, the link
-resolves to a Google Drive folder holding the dataset: a folder with one
-subfolder per public environment, an archive of the same, and a ratings file,
-dated 13 to 15 April 2026. The observation is recorded as such in the
-repository, with its provenance stated.
-
-We record the error rather than deleting the trace of it, because it is the
-same class of defect this audit reports in others' work: an instrument's limit
-reported as a fact about the world.
-
-\paragraph{The data.} The archive the link resolves to ($111{,}142{,}305$
-bytes; its SHA-256 is in the repository) was downloaded by the first author,
-read from the zip one line at a time, never extracted and never redistributed;
-nothing from it enters the repository but sorted per-cell counts and tallies.
-It holds 340 recordings, not 342, one per session, each in the toolkit's own
-recording format: one frame record per action, the first being the
-construction reset, and a final line carrying the toolkit's scorecard for the
-session with per-play cumulative action counts at each level boundary and a
-reset count. Every frame names the environment version we audited. The
-parser would split a session at any full reset after its first action; none of
-the 340 contains one, so recordings, sessions and plays all number 340. The
-archive carries no participant identifier, so the report's ``first-time
-players'' cannot be filtered for and every statistic below is over all 340.
-Cells rest on between 2 and 40 plays (median 8), and 21 of the 183 on fewer
-than 5.
-Twenty-three recordings, all from March 2026, are from an earlier recorder
-that wrote action names rather than ids and no construction line; 22 of them
-complete at least one level.
-
-\paragraph{They are plays of the shipped code.} We replayed every recording
-action by action, with its recorded click coordinates, through the
-environments in the repository, comparing rendered frame, state and level
-after every step. All 340 reproduce state and level at every one of
-$180{,}496$ steps: 321 under the shipped engine as configured, and 19 only
-under the engine's \code{ONLY\_RESET\_LEVELS} switch
-(Section~\ref{sec:humanengine}). 284 reproduce the rendered frame at every step under the
-shipped engine as configured; 15 do so only under the switch; the remaining 41,
-in four environments, agree on state and level throughout while $6{,}844$
-frames differ in decoration --- for example, a pixel or two changing colour on most frames
-of one environment, animation frames in another, a colour-swapped flash frame
-in a third --- which the game logic does not read.
-
-\paragraph{What the published baseline is.} For every play and every level it
-completed we counted actions two ways: \emph{charged}, every action the scorer
-counts, level resets included and the construction reset excluded; and
-\emph{uncharged}, level resets excluded. Our charged count agrees with the
-toolkit's own tally in the recording's final line on 316 plays; on the 22
-old-recorder plays that complete a level the stored tally is exactly one below
-ours at every level boundary, and the same recordings replay through the
-shipped code with no shift, so it is the old tally that is off; two
-\code{lp85} cards record a total and a level count but no boundaries. Over the
-183 published integers, the upper median of the charged counts reproduces 165
-exactly and four more within one; the upper median of the stored tallies
-reproduces 166 --- it gains the two old-tally cells below and loses
-\code{lp85} level 6, where the two boundary-less cards drop out and move the
-median by one; the uncharged reading reproduces 101, with 42 within one. Lower
-median, plain median and mean do far worse. The documented rule --- the upper
-median of players' counts --- is the rule, and it charges resets. Because it reproduces over all 340 sessions,
-either every released session was a first play or the published baselines were
-not restricted to first-time players as the documentation states; the release
-does not say which. On the 72
-cells where a human reset and the two readings differ, the published value
-equals the charged reading on 65, the uncharged on one, and neither on six;
-all seven cells that are not the charged reading lie in the three
-environments the release does not reproduce.
-
-\paragraph{Two level-1 cells carry the old recorder's tally.} The published
-level-1 baselines for \code{cn04} and \code{tr87}, 29 and 54, equal the upper
-median of the stored tallies and sit one below the upper median of the actions
-those humans took by the current scorer's rule, 30 and 55. The discrepancy is
-one action in two of the 183 cells; we record it because it is exact.
-
-\paragraph{Three environments are not reproduced from the release.} Under the
-rule that fits everywhere else, \code{g50t} reproduces four of seven cells,
-\code{lp85} one of eight and \code{vc33} one of seven. Eight published values
-occur in no released play of their cell at all. One is \code{cn04} level 1,
-whose value is the old recorder's tally above. The other seven are two of
-\code{g50t}'s --- level 4's baseline of 230 sits over two released plays that
-took 31 and 52 actions --- and five of \code{vc33}'s seven. No statistic over
-these recordings produces those seven numbers, so for those environments the
-release is not the data the baselines were computed from. Splitting the
-sessions by testing month does not help. One explanation is ruled out: the announcement's 342 against the
-archive's 340 is a shortfall of two sessions, too few to account for seven
-cells. Another we cannot test: a
-revision of the environment after its human testing, which a version string
-that matches would not exclude. We report this as not reproduced, not as
-wrong.
-
-\paragraph{Every baseline is at or above its optimum.} A human count bounds
-the optimum from above. In all 183 cells the smallest human count is at or
-below the published baseline, so every baseline is at or above its level's
-optimum, the twelve the search could not resolve included. And in every cell
-our search had bounded from below, no human beat the bound: the two
-instruments agree.
-
-\subsection{The engine the humans played}
-\label{sec:humanengine}
-
-The engine's \code{handle\_reset} performs a \emph{full} reset --- every level
-re-cloned, score and level index zero, a new play opened on the scorecard ---
-whenever its per-level action counter is zero and the game is not won, and a
-level reset otherwise. That counter is zeroed by \code{set\_level}, which runs
-at the start of every level and inside every level reset. So a \code{RESET}
-issued as the first action of a level, or a second \code{RESET} straight after
-a first, is a full reset. The engine's own switch \code{ONLY\_RESET\_LEVELS}
-removes both cases: under it a reset never leaves the level except after a win.
-
-The recordings show which reset semantics the humans played under. Across
-the 340 plays, 29 resets fall at a zeroed counter, in 24 of the plays: 28 are
-a reset straight after a reset --- a game over, a reset, then another --- and
-one is a reset at the start of a level. On level 1 a full reset and a level
-reset produce the same frame, state and level, so the replay can tell the two
-settings apart only beyond level 1, where 24 of those 29 resets fall, in 19
-plays. Those 19 recordings are exactly the ones that reproduce the humans'
-state and level only under the switch; 15 of them also match every frame under
-it, and four, in environments whose frames carry decoration, match on state
-and level. Under the engine the humans played, each of the 29 resets cost one
-action. Under the shipped default each of the 24 beyond level 1 would have been
-a trip back to level 1. Whether the humans'
-server ran the switch or the guard described below, the trace is the same;
-what the replays establish is that their resets never left the level.
-
-What that costs under the real harness we measured with the same
-scripted-agent driver as Section~\ref{sec:forced}, on \code{ls20}: the 13-action
-level-1 witness, one \code{RESET} as the first action of level 2, then the
-45-action level-2 witness. Under the humans' setting the reset is a no-op
-level reset; the play completes two levels and the environment scores
-$10.714286$. Under the default the reset opens a second play at level 1, the
-level-2 witness is spent on level 1, the card reads one level completed then
-none, and the environment scores $3.571429$; the harness's own tracker still
-records one level completed while the frame reports none, so its counter,
-never reset and now at 46, is judged against level 1's budget. An agent that notices and re-clears level 1 recovers
-the score at the price of a second play and 13 more charged actions.
-
-Which of the two cases an agent can meet through the harness is settled by
-the harness's own code. It offers \code{RESET} to the model on every turn
-except the first and except immediately after a \code{RESET}, its own forced
-one after a game over included, and it executes only actions it offered. So
-the reset-after-reset case --- 28 of the 29 human events --- cannot occur
-through the harness, and the forced reset of Section~\ref{sec:forced}, which leaves
-the counter at zero, cannot be followed by a chosen one. A \code{RESET} as
-the first action of a newly reached level is offered, and that is the case
-the probe above measures.
-
-Whether the server that scores agents runs the switch is not observable to
-us. The toolkit's own API server carries a guard for exactly this case --- in
-``competition mode'' a reset that would cause a full reset is not sent to the
-game at all --- and the toolkit's changelog, for its own version 0.9.5 (the
-toolkit package, distinct from the engine we pin at 0.9.3), fixes scorecards ``when
-\code{ONLY\_RESET\_LEVELS} envvar was set'', so the Foundation knows the case
-and handles it on at least two paths. The benchmarking harness sets neither,
-and an agent run through it against the shipped environments meets the
-default. The finding is the asymmetry that can be shown, on the shipped
-engine: the reset semantics under which every baseline was gathered are not
-the semantics the shipped default gives an agent run against those
-environments. The budget finding of Section~\ref{sec:forced} is different in kind:
-it is a property of the client and holds online as well.
 
 \section{Limitations}
 
@@ -1046,10 +1078,11 @@ Wirbel and Moutarde \cite{toromanoff} argue that claims of superhuman play
 depend on which human baseline is used. Documentation standards such as datasheets \cite{datasheets} ask that
 a dataset record how it was collected; the collection condition recovered in
 Section~\ref{sec:humanengine}, the reset semantics the humans played under, is
-the kind of fact such documentation exists to record. We differ from this work
-in method: every check here is either a machine-verified model run against the
-shipped implementation or a script whose output is registered against the
-paper's claims.
+the kind of fact such documentation exists to record. Our checks differ in kind: differential comparison
+against the shipped implementation, exhaustive enumeration where the state space
+allows it, and scripts whose outputs are registered against the paper's claims.
+The machine-verified models cover the scoring rule and two levels of one
+environment; the rest rests on testing, and we say which is which.
 
 
 Rudakov, Shock and Cowley \cite{graphexplore} build hash-identified state graphs

@@ -208,3 +208,15 @@ def test_human_budget_tallies_forced_and_voluntary_resets():
     assert level_tallies([f(0, 0), f(1, 2)]) == [(0, 1, 0), (1, 0, 0)]
     # a level never completed produces no tally
     assert level_tallies([f(0, 0), f(1, 0), f(1, 0)]) == []
+
+
+# ── baseline stability (Phase 20) ───────────────────────────────────────────
+def test_bootstrap_interval_is_deterministic_and_bounded():
+    from baseline_uncertainty import interval, score_at, upper_median
+    xs = [5, 9, 12, 20, 31, 44, 60, 90]
+    a, b = interval(xs, "cell"), interval(xs, "cell")
+    assert a == b                                   # seeded by the cell's name
+    assert min(xs) <= a[0] <= a[1] <= max(xs)
+    assert upper_median(xs) == 31
+    assert interval([7, 7, 7], "c") == (7, 7)       # no spread, no interval
+    assert score_at(10, 10) == 100.0 and score_at(20, 10) == 115.0 and score_at(5, 10) == 25.0

@@ -1,0 +1,2 @@
+BASEUNC all resamples=2000 cells=183 median_rel_width=0.846 median_rel_width_pct=84.6 max_rel_width=5.375 published_inside=179 median_score_low=50.6 median_score_high=115.0
+BASEUNC under5 cells=21 median_rel_width=0.705 median_rel_width_pct=70.5 max_rel_width=5.375 published_inside=20 median_score_low=36.9 median_score_high=115.0

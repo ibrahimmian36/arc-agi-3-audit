@@ -23,6 +23,14 @@ ART = HERE.parent / "artifacts"
 
 # (phrase as printed in the paper, value it asserts, log file, regex capturing it)
 CLAIMS: list[tuple[str, str, Path, str]] = [
+    # --- Phase 20: baseline stability ---
+    ("Resampling each cell's plays 2,000\ntimes", "2000", ART / "replays/baseline_uncertainty.log", r"^BASEUNC all resamples=(\d+)"),
+    ("interval is 84.6% as wide as the baseline itself", "84.6", ART / "replays/baseline_uncertainty.log", r"^BASEUNC all .*median_rel_width_pct=([0-9.]+)"),
+    ("interval is 84.6% as wide as its published value", "84.6", ART / "replays/baseline_uncertainty.log", r"^BASEUNC all .*median_rel_width_pct=([0-9.]+)"),
+    ("inside its own interval in 179 of the 183 cells", "179", ART / "replays/baseline_uncertainty.log", r"^BASEUNC all .*published_inside=(\d+)"),
+    ("level score between 50.6 and the cap", "50.6", ART / "replays/baseline_uncertainty.log", r"^BASEUNC all .*median_score_low=([0-9.]+)"),
+    ("between 50.6 and the cap of\n115", "115.0", ART / "replays/baseline_uncertainty.log", r"^BASEUNC all .*median_score_high=([0-9.]+)"),
+    ("For the 21 cells with fewer than 5 plays the resampling", "21", ART / "replays/baseline_uncertainty.log", r"^BASEUNC under5 cells=(\d+)"),
     # --- Phase 19: the harness budget applied to human play ---
     ("the budget cuts off 29 of the 1,614 completions", "1614", ART / "replays/human_budget.log", r"completions=(\d+)"),
     ("the budget cuts off 29 of the 1,614 completions", "29", ART / "replays/human_budget.log", r"over_budget=(\d+)"),
