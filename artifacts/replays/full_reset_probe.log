@@ -1,0 +1,3 @@
+FULLRESET A_reset_then_continue default card_plays=2 card_levels=[1, 0] card_actions=[13, 45] levels_final=0 harness_counter=46 harness_last_levels=1 exit=AGENT_ERROR score=3.571429
+FULLRESET A_reset_then_continue level_only card_plays=1 card_levels=[2] card_actions=[59] levels_final=2 harness_counter=46 harness_last_levels=2 exit=AGENT_ERROR score=10.714286
+FULLRESET B_reset_reclear_continue default card_plays=2 card_levels=[1, 2] card_actions=[13, 58] levels_final=2 harness_counter=59 harness_last_levels=2 exit=AGENT_ERROR score=10.714286

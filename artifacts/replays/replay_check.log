@@ -1,0 +1,4 @@
+REPLAY recordings=340 steps=180496 full_default=284 full_levelonly=15 frame_only=41 divergent=0 state_faithful=340
+REPLAY state_and_level_default=321 state_and_level_levelonly=340 state_and_level_only_under_switch=19
+REPLAY frames_differing=6844 frame_only_envs=bp35,lf52,s5i5,vc33
+REPLAY plays_with_trap=24 double_reset=28 reset_at_level_start=1 trap_beyond_level1=24 plays_with_trap_beyond_level1=19 trap_envs=cn04,ft09,lf52,lp85,m0r0,r11l,s5i5,sc25,sk48,sp80,tn36,tu93,vc33,wa30

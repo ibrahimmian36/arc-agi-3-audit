@@ -29,6 +29,9 @@ ART = ROOT / "artifacts"
 # Numbers that are structural rather than findings. Each needs a reason that
 # would be wrong if it were wrong: "it is fine" is not a reason.
 EXEMPT: dict[str, str] = {
+    "429": "the HTTP status the draft stated without an artefact, named in the limitations as our error",
+    "59": "the full-reset probe's script length, 13 + 1 + 45, each part traced",
+    "300": "the stated memory ceiling the replay scripts stayed under; the measured peaks vary by run and live in the JSON artefacts",
     # document structure and citation years
     "1": "section, equation and footnote references",
     "2": "section references and report v2",
@@ -134,9 +137,15 @@ def body_text() -> str:
     # The preamble is typesetting, not prose: 11pt and 1.2in are not figures.
     if "\\begin{document}" in text:
         text = text[text.index("\\begin{document}"):]
-    for marker in ("References", "Acknowledgements"):
-        if marker in text:
-            text = text[:text.index(marker)]
+    # The acknowledgements and the bibliography are not claims; the appendix
+    # after them is, so only the span between is cut.
+    # The anonymous build has no acknowledgements, so the cut starts at
+    # whichever of the two comes first.
+    end = "\\end{thebibliography}"
+    starts = [text.index(m) for m in ("\\section*{Acknowledgements}", "\\begin{thebibliography}")
+              if m in text]
+    if starts and end in text:
+        text = text[:min(starts)] + text[text.index(end) + len(end):]
     return text
 
 

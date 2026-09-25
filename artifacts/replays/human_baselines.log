@@ -1,0 +1,8 @@
+HUMAN recordings=340 plays=340 cells=183 card_agree=316 card_old_tally_offset=22 card_disagree=2 version_mismatch=0
+HUMAN rule=upper_median charged_exact=165 charged_off_by_one=4 card_exact=166 uncharged_exact=101 uncharged_off_by_one=42
+HUMAN decisive_cells=72 charged=65 uncharged=1 neither=6
+HUMAN not_reproduced_envs=cn04,g50t,lp85,tr87,vc33 published_absent_from_release=8
+HUMAN bound_consistent=183 bound_undetermined=0 bound_no_play=0 minactions_now_consistent=18 minactions_bounds_respected=True
+HUMAN not_reproduced cn04=5/6 g50t=4/7 lp85=1/8 tr87=5/6 vc33=1/7
+HUMAN old_tally_cells=cn04/L1:published=29:card=29:stream=30,tr87/L1:published=54:card=54:stream=55
+ARCHIVE name=arc_agi_3_public_demo_human_testing.zip bytes=111142305 sha256=99a32ffc3b9e55bc3077b979d00906f256c26354b5fada0b052690b2f5cd634a recordings=340 announced=342 empty_card_plays=0 old_recorder_recordings=23

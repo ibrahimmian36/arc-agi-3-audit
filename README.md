@@ -31,6 +31,17 @@ a policy that simply plays, no outcome ever differed. Full detail, every
 negative, and the corrections to our own work are in `FINDINGS.md`; the paper is
 `paper/main.pdf`.
 
+The 340 released human replays, read against the shipped code, reproduce 165 of
+the 183 published baselines exactly as the upper median of per-play action
+counts with resets charged, so humans paid for resets as agents do. They also
+show the humans played under the engine's `ONLY_RESET_LEVELS` switch, on which
+a reset never leaves the level; the shipped default turns a reset at the start
+of a level, or straight after another, into a full reset to level 1, and 24 of
+the 340 human plays contain one. The archive is not redistributed:
+`scripts/fetch_replays.sh` downloads it outside the repository, and
+`scripts/human_baselines.py` and `scripts/replay_check.py` read it from the
+zip a line at a time.
+
 Nothing here is a claim about the server-side scorer, the official leaderboard,
 or any published result. None of those is observable from outside.
 

@@ -159,3 +159,68 @@ the announcement. Abstract cut from 669 words. Four stale passages corrected.
 The supplementary archive anonymised and searched file by file.
 
 Nothing in `artifacts/` changed. Scratch clones deleted.
+
+## 2026-09-05 — Phase 18: the human replays
+
+The correction first: the replays are public, our instrument had reported a
+shortener's refusal as the link not resolving, and the false sentence was
+replaced everywhere before any analysis (DECISIONS, 2026-09-05). The lead
+author downloaded the archive (`bytes=111142305`, sha256 `99a32ffc…`) to a
+directory outside the repository; it was read from the zip one line at a
+time, never extracted, never redistributed. Peak resident memory: 106 MB for
+the baseline sweep, 285 MB for the replay.
+
+Preregistered before any result was read (PREREGISTRATION §6): the rule
+candidates, the decisive-cell reading of F9, and the prediction that if the
+Foundation computed the baselines from the toolkit's own tallies the charged
+reading would win.
+
+Measured. Format: one toolkit `FrameData` per action and a final scorecard
+line per session; 340 recordings, not 342; 21 from an earlier recorder
+(2026-03) with action names and no construction line. Parser cross-checked
+against the toolkit's own per-level tallies: `card_agree=316`,
+`card_old_tally_offset=22` (the old recorder tallies one low at every level
+boundary), `card_disagree=2`. Published baselines reproduced as the upper
+median of per-play counts with resets charged: `charged_exact=165` of
+`cells=183` from the streams, `card_exact=166` from the stored tallies,
+against `uncharged_exact=101`. Decisive cells: `charged=65 uncharged=1
+neither=6`. F9 closed: humans were charged for resets. The two level-1 cells
+the stream misses (`cn04`, `tr87`) are the old recorder's tally, one action
+low. Three environments (`g50t`, `lp85`, `vc33`) are not reproduced and eight
+published values occur in no released play: the release is not the data those
+baselines came from. Every baseline is at or above a human count, so at or
+above its optimum: `bound_consistent=183`, the twelve open search cells
+included; no human beat any of our proven lower bounds.
+
+Replay: all 340 recordings reproduce state and level at every one of 180,496
+steps through the shipped environments, but 15 only under the engine's
+`ONLY_RESET_LEVELS=true`; 41 differ in decoration only. The humans played an
+engine on which a RESET never leaves the level. The shipped default makes a
+RESET at a zeroed counter (start of a level, or straight after a level reset)
+a full reset to level 1; 24 human plays contain one (`double_reset=28`,
+`reset_at_level_start=1`). Probed under the real harness on `ls20`: the same
+59 actions score `10.714286` with two levels under the humans' setting and
+`3.571429` with one under the default. Recorded as F13. The toolkit's API
+server carries a competition-mode guard for exactly this case; the harness
+sets neither.
+
+Suite 253 tests green; report check PASS on 196 claims.
+
+Fourth blind review (fresh reader, PDF text only): accept with minor
+revisions. Applied as recorded in DECISIONS: abstract and contribution 6 at
+the body's strength; the level-1 coincidence measured
+(`trap_beyond_level1=24`, `plays_with_trap_beyond_level1=19`); the harness
+offers RESET except first and after a RESET, so only the level-start case is
+reachable through it; `old_recorder_recordings=23`; `harness_counter=46`.
+Suite 253 green; report check PASS on 200 claims; paper 147 figures traced,
+consistency PASS. Anonymous package rebuilt.
+
+## 2026-09-25 — Journal preparation and Phase 19
+
+The paper was revised for a second journal. Its acceptance criteria were read
+and the paper revised to meet each: data-first framing, related work (ten
+references added, each checked at its source), a broader impact statement, a
+statement on AI use, a data appendix. A blind review under the journal's
+criteria and a copy edit followed; every item was checked before
+it was applied. Phase 19 measured the harness budget on human play:
+`completions=1614`, `over_budget=29`, `cut_only_by_post_game_over_resets=0`.

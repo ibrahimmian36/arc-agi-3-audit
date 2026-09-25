@@ -1,0 +1,108 @@
+{
+ "A_reset_then_continue": {
+  "default": {
+   "level_only": false,
+   "script_len": 59,
+   "executed": 59,
+   "full_resets_seen": 3,
+   "levels_completed_final": 0,
+   "max_levels_seen": 1,
+   "harness_counter_final": 46,
+   "harness_last_levels": 1,
+   "budgets": [
+    110,
+    615,
+    365,
+    420,
+    480,
+    960,
+    930
+   ],
+   "exit_reason": "AGENT_ERROR",
+   "card_plays": 2,
+   "card_actions": [
+    13,
+    45
+   ],
+   "card_resets": [
+    0,
+    0
+   ],
+   "card_levels": [
+    1,
+    0
+   ],
+   "environment_score": 3.571429,
+   "error": "script exhausted"
+  },
+  "level_only": {
+   "level_only": true,
+   "script_len": 59,
+   "executed": 59,
+   "full_resets_seen": 0,
+   "levels_completed_final": 2,
+   "max_levels_seen": 2,
+   "harness_counter_final": 46,
+   "harness_last_levels": 2,
+   "budgets": [
+    110,
+    615,
+    365,
+    420,
+    480,
+    960,
+    930
+   ],
+   "exit_reason": "AGENT_ERROR",
+   "card_plays": 1,
+   "card_actions": [
+    59
+   ],
+   "card_resets": [
+    1
+   ],
+   "card_levels": [
+    2
+   ],
+   "environment_score": 10.714286,
+   "error": "script exhausted"
+  }
+ },
+ "B_reset_reclear_continue": {
+  "default": {
+   "level_only": false,
+   "script_len": 72,
+   "executed": 72,
+   "full_resets_seen": 3,
+   "levels_completed_final": 2,
+   "max_levels_seen": 2,
+   "harness_counter_final": 59,
+   "harness_last_levels": 2,
+   "budgets": [
+    110,
+    615,
+    365,
+    420,
+    480,
+    960,
+    930
+   ],
+   "exit_reason": "AGENT_ERROR",
+   "card_plays": 2,
+   "card_actions": [
+    13,
+    58
+   ],
+   "card_resets": [
+    0,
+    0
+   ],
+   "card_levels": [
+    1,
+    2
+   ],
+   "environment_score": 10.714286,
+   "error": "script exhausted"
+  }
+ }
+}

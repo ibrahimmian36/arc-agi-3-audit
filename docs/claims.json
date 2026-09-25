@@ -1034,5 +1034,411 @@
   "log": "../artifacts/replays/browser_observation.log",
   "pattern": "^BROWSER",
   "by": "scripts/replay_browser_record.py"
+ },
+ {
+  "value": "recordings=340",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN recordings",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "cells=183",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN recordings",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "card_agree=316",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN recordings",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "card_old_tally_offset=22",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN recordings",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "card_disagree=2",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN recordings",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "version_mismatch=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN recordings",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "charged_exact=165",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN rule",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "charged_off_by_one=4",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN rule",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "card_exact=166",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN rule",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "uncharged_exact=101",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN rule",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "uncharged_off_by_one=42",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN rule",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "decisive_cells=72",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN decisive",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "charged=65",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN decisive",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "uncharged=1",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN decisive",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "neither=6",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN decisive",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "published_absent_from_release=8",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN not_reproduced_envs",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "bound_consistent=183",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN bound",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "bound_undetermined=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN bound",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "minactions_now_consistent=18",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN bound",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "minactions_bounds_respected=True",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN bound",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "old_tally_cells=cn04/L1:published=29:card=29:stream=30,tr87/L1:published=54:card=54:stream=55",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN old_tally",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "bytes=111142305",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^ARCHIVE",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "sha256=99a32ffc3b9e55bc3077b979d00906f256c26354b5fada0b052690b2f5cd634a",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^ARCHIVE",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "announced=342",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^ARCHIVE",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "steps=180496",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY recordings",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "full_default=284",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY recordings",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "full_levelonly=15",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY recordings",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "frame_only=41",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY recordings",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "divergent=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY recordings",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "state_faithful=340",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY recordings",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "frames_differing=6844",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY frames",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "frame_only_envs=bp35,lf52,s5i5,vc33",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY frames",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "plays_with_trap=24",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY plays",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "double_reset=28",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY plays",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "reset_at_level_start=1",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY plays",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "card_plays=2",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/full_reset_probe.log",
+  "pattern": "^FULLRESET A_reset_then_continue default",
+  "by": "scripts/full_reset_probe.py"
+ },
+ {
+  "value": "card_levels=[1, 0]",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/full_reset_probe.log",
+  "pattern": "^FULLRESET A_reset_then_continue default",
+  "by": "scripts/full_reset_probe.py"
+ },
+ {
+  "value": "score=3.571429",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/full_reset_probe.log",
+  "pattern": "^FULLRESET A_reset_then_continue default",
+  "by": "scripts/full_reset_probe.py"
+ },
+ {
+  "value": "harness_last_levels=1",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/full_reset_probe.log",
+  "pattern": "^FULLRESET A_reset_then_continue default",
+  "by": "scripts/full_reset_probe.py"
+ },
+ {
+  "value": "harness_counter=46",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/full_reset_probe.log",
+  "pattern": "^FULLRESET A_reset_then_continue default",
+  "by": "scripts/full_reset_probe.py"
+ },
+ {
+  "value": "card_levels=[2]",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/full_reset_probe.log",
+  "pattern": "^FULLRESET A_reset_then_continue level_only",
+  "by": "scripts/full_reset_probe.py"
+ },
+ {
+  "value": "score=10.714286",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/full_reset_probe.log",
+  "pattern": "^FULLRESET A_reset_then_continue level_only",
+  "by": "scripts/full_reset_probe.py"
+ },
+ {
+  "value": "card_actions=[13, 58]",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/full_reset_probe.log",
+  "pattern": "^FULLRESET B_reset",
+  "by": "scripts/full_reset_probe.py"
+ },
+ {
+  "value": "cn04=5/6",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN not_reproduced ",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "g50t=4/7",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN not_reproduced ",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "lp85=1/8",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN not_reproduced ",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "tr87=5/6",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN not_reproduced ",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "vc33=1/7",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN not_reproduced ",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "plays=340",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^HUMAN recordings",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "old_recorder_recordings=23",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_baselines.log",
+  "pattern": "^ARCHIVE",
+  "by": "scripts/human_baselines.py"
+ },
+ {
+  "value": "trap_beyond_level1=24",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY plays",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "plays_with_trap_beyond_level1=19",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY plays",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "state_and_level_levelonly=340",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY state_and_level",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "state_and_level_default=321",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY state_and_level",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "state_and_level_only_under_switch=19",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/replay_check.log",
+  "pattern": "^REPLAY state_and_level",
+  "by": "scripts/replay_check.py"
+ },
+ {
+  "value": "completions=1614",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_budget.log",
+  "pattern": "^HUMANBUDGET",
+  "by": "scripts/human_budget.py"
+ },
+ {
+  "value": "over_budget=29",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_budget.log",
+  "pattern": "^HUMANBUDGET",
+  "by": "scripts/human_budget.py"
+ },
+ {
+  "value": "cut_only_by_post_game_over_resets=0",
+  "report": "../FINDINGS.md",
+  "log": "../artifacts/replays/human_budget.log",
+  "pattern": "^HUMANBUDGET",
+  "by": "scripts/human_budget.py"
  }
 ]

@@ -206,3 +206,65 @@ their licence permits).
 Every number above and in `FINDINGS.md` is produced by a script into
 `artifacts/` and registered in `docs/claims.json`; `audit-kit/scripts/report_check.sh`
 must pass on the final state. Re-runs must be byte-identical.
+
+## 6. Phase 18 — the human replays (registered 2026-09-05, before any result was read)
+
+Data: the archive the announced link resolves to in a browser, downloaded by
+the lead author, 111,142,305 bytes, sha256 `99a32ffc3b9e55bc…`, read from the
+zip one line at a time and never extracted or redistributed. Each recording is
+the toolkit's own log: one FrameData per action and a final scorecard summary
+carrying the toolkit's per-play `actions_by_level` and `resets`.
+
+Instrument: `scripts/human_baselines.py`. For every play and every level the
+play completed, two counts: charged (every action the scorer counts, level
+resets included, the construction reset excluded) and uncharged (level resets
+excluded). Parser cross-checked play by play against the recording's own
+scorecard tally; the number of disagreements is reported, and a disagreement
+rate above zero is read as a parser fault first.
+
+Candidate rules for the published integer: upper median, lower median,
+median, mean, each over all plays and over first plays only, each on charged
+and on uncharged counts. The rule that reproduces the most cells exactly is
+reported with its tally; no rule is called "the" definition unless it
+reproduces a clear majority of cells.
+
+The preregistered question (F9): on cells where at least one human reset and
+the charged and uncharged statistics differ under the best rule, a published
+baseline equal to the uncharged value and not the charged one means humans
+were not charged for resets and the asymmetry against agents is real; equal to
+the charged value and not the uncharged one refutes it; equal to both or to
+neither is reported as neither. Cells without a human reset, or where the two
+statistics coincide, cannot decide the question and are not counted either
+way. Predictions: the toolkit tally includes resets (it is the same scorer),
+so if the Foundation computed the baselines from these tallies the charged
+value wins and F9 closes as "symmetric". We do not predict which.
+
+Twelve unresolved baselines (§8.2): the human counts give an upper bound on
+each optimum. A published baseline below every human count in its cell is
+reported; a baseline above the optimum bound is consistent, not confirmed.
+
+Ceilings: resident memory under 1 GB, one line of one file in memory at a time,
+thirty minutes per script. Nothing from the archive enters the repository but
+sorted count lists per cell and tallies: no recording name, participant
+identifier or timestamp.
+
+## 7. Phase 19 — the harness budget applied to human play (registered 2026-09-25, before running)
+
+Question: how often would the harness's per-level budget, ⌈5b⌉ counted actions,
+cut off a level that a human in the released recordings completed, and how
+often only because resets after a game over are counted?
+
+Instrument: `scripts/human_budget.py`, reading the same archive the same way as
+`human_baselines.py`. For every completed level of every play: c = actions the
+scorer charges (resets included, construction reset excluded); g = resets
+issued immediately after a GAME_OVER frame, the case the harness forces; the
+budget B = ⌈5b⌉ from the published baseline. A level completion survives the
+harness iff c ≤ B (the boundary measured on tu93 level 1: completion at exactly
+B counted actions succeeds, one more fails). It is cut off only by post-game-over
+resets iff c > B and c − g ≤ B.
+
+Reported: completions, completions with c > B, and completions with c > B but
+c − g ≤ B; per-cell play counts (minimum, median, maximum). Reading: any count
+is reported as measured. Humans are not agents, so this is the reach of the
+mechanism on human-like play, not a prediction for any model. No prediction of
+the counts is made.

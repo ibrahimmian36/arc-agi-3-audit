@@ -9,8 +9,10 @@ wire, then the run-level policies around a run, then an attempt to resolve the
 remaining baselines with a different search). Status: the scoring rule (reference 3), the benchmarking
 harness's action budget, and two levels of one public environment (reference
 1) are audited and written up below; the per-level baselines (reference 2)
-are recovered and characterised; ls20 levels 3–7, the other 24 public
-environments and the human-replay check are not done (see "Not done").
+are recovered, characterised and, on 2026-09-05, checked against the released
+human replays, which also settle F9 and expose a reset behaviour the humans
+never met (F13); ls20 levels 3–7 and the state graphs of the other 24 public
+environments are not done (see "Not done").
 
 Related work, checked before building and not duplicated: Rudakov, Shock and
 Cowley (arXiv 2512.24156, December 2025) build hash-identified state graphs to
@@ -69,6 +71,11 @@ certifies the scorer.
 | Play probe: one action advancing the level counter by two | `actions_taken=479040` in all 25 | `double_advance_actions=0`, `level_regressions=0` | `artifacts/play/summary.log` |
 | Baselines: is any published baseline below the level's optimum? | 18 levels attempted | `consistent=6 impossible=0 not_established=12` | `artifacts/minactions/summary.log` |
 | The 342 human replays announced 2026-04-14 | scripted check of GitHub, HuggingFace and the announced link; then a browser | script: `located=False`, `announced_link_status=403`; browser: `located=True`, `environment_folders=25`, `archive_size=106MB` | `artifacts/replays/availability.log`, `artifacts/replays/browser_observation.log` |
+| The released human replays against the shipped code | `recordings=340` (`announced=342`), `steps=180496` | `state_faithful=340` under the engine's `ONLY_RESET_LEVELS` switch, `divergent=0`; `full_default=284`, `full_levelonly=15`, `frame_only=41` (decoration only) | `artifacts/replays/replay_check.log` |
+| Published baselines against the human plays that set them | `cells=183` | upper median with resets charged: `charged_exact=165` from the action streams, `card_exact=166` from the toolkit's own tallies; resets uncharged: `uncharged_exact=101`; on the `decisive_cells=72`: `charged=65`, `uncharged=1`, `neither=6` | `artifacts/replays/human_baselines.log` |
+| Every baseline against its level's optimum, through a human's count | 183 | `bound_consistent=183`, `bound_undetermined=0`; the twelve the search left open: `minactions_now_consistent=18`; `minactions_bounds_respected=True` | `artifacts/replays/human_baselines.log` |
+| Human resets the shipped default would turn into full resets | 340 plays | `plays_with_trap=24`: `double_reset=28`, `reset_at_level_start=1` | `artifacts/replays/replay_check.log` |
+| A RESET at the start of level 2 under the real harness, both engine settings | 2 scripts on ls20 | default: `card_plays=2`, `card_levels=[1, 0]`, `score=3.571429`; humans' setting: `card_levels=[2]`, `score=10.714286`; recovery under the default: `card_actions=[13, 58]` | `artifacts/replays/full_reset_probe.log` |
 | Aggregation denominator: 3 environments played of a 135-environment set | 1 planted scorecard | toolkit reports `toolkit_total=100.0`, the documented rule gives `documented_total=2.222222222`, a `ratio=45.0` | `artifacts/pipeline/pipeline.log` |
 | A level RESET charged to the agent's per-level action count | 1 planted scorecard | four resets take an otherwise perfect environment from 100 to `83.801652893` | `artifacts/pipeline/pipeline.log` |
 | Which code path scores a run | 4 operation modes | offline and normal compute locally; `online` and `competition` are `remote fetch (server supplies the scorecard)` | `artifacts/aggregation/aggregation.log` |
@@ -117,8 +124,16 @@ costs three. With that level's baseline of four, the difference between being
 scored on 19 actions and on the 16 the agent chose is a fall of about 29\% in
 that level's contribution.
 
-It compounds F9: the human baselines' treatment of resets is unknown, and here
-the agent is charged for resets it never chose.
+Human resets were charged too (F9, closed), and a human who died also had to
+reset to continue, so the fall in a completed level's score has a counterpart in
+the baselines. What has none is the budget: the humans played without one.
+
+**Reach on human play (Phase 19, preregistered).** Applying the budget rule to
+every level a human completed in the released replays (`scripts/human_budget.py`):
+of `completions=1614`, the budget cuts off `over_budget=29`, and
+`cut_only_by_post_game_over_resets=0` of them are cut off only because resets
+after a game over are counted. On human-like play the budget binds rarely and
+the counted resets never decide it.
 
 **The denial.** The cost above is a fall in a completed level's score. The
 sharper consequence is that the same counter is the one the harness stops on.
@@ -268,8 +283,8 @@ that it can therefore end a level the agent would otherwise have completed. We
 searched the report and the harness documentation and found nothing on forced
 resets or on resets counting as actions.
 
-**F9 — Documentation gap with a score effect: resets are charged to the agent,
-and the human side is unknown.** `Card.inc_reset_count` increments both the reset
+**F9 — Resets are charged to the agent, and, settled on 2026-09-05, to the
+humans as well: the question is closed.** `Card.inc_reset_count` increments both the reset
 count and the action count, and the action lands on the level in progress, so a
 level reset lowers that level's efficiency score. On an otherwise perfect
 five-level play, one reset before each of levels two to five takes the
@@ -283,8 +298,78 @@ to reset a level at any time, and the report notes that some "reset levels after
 reaching a solution in order to improve efficiency". If the published baselines
 were computed without charging human resets while agents are charged for theirs,
 the ratio is biased against agents by an amount that depends on how often each
-side reset. We cannot settle this: it needs the human replays (located; see Reference 2). We report it as the sharpest open question in the scoring
-rule.
+side reset. The replays settle it. The published integers are the upper median
+of the toolkit's own per-play tallies, which charge every level reset: on the
+`decisive_cells=72` where a human reset and the two readings differ, the
+published value equals the charged one on `charged=65`, the uncharged one on
+`uncharged=1`, and neither on `neither=6` (Reference 2 below). Humans paid for
+their resets as agents pay for theirs. What was the sharpest open question in
+the scoring rule is a documentation gap only: the rule is symmetric, and no
+document says so.
+
+**F13 --- The humans who set the baselines played an engine on which a RESET
+never leaves the level; the shipped default sends an agent that resets at the
+wrong moment back to level 1.** The engine's `handle_reset` performs a full
+reset --- every level re-cloned, score and level index zero, a new play on the
+scorecard --- whenever its per-level action counter is zero and the game is not
+won, and a level reset otherwise (`base_game.py`). That counter is zeroed by
+`set_level`, which runs at the start of every level and inside every level
+reset. So a RESET issued as the first action of a level, or a second RESET
+straight after a first, is a full reset. The engine's own switch
+`ONLY_RESET_LEVELS=true` removes both cases.
+
+The human recordings reproduce state and level through the shipped code only
+under that switch: `state_and_level_levelonly=340` of `recordings=340` with it,
+`state_and_level_default=321` without, so `state_and_level_only_under_switch=19`
+need it. Frame for frame, `full_default=284` match under the default and
+`full_levelonly=15` more only under the switch. Across the 340 plays, `plays_with_trap=24`
+contain one: `double_reset=28` occurrences (a reset after a game over, then
+another) and `reset_at_level_start=1`. On level 1 a full reset and a level
+reset coincide in frame, state and level, so the replay can tell the settings
+apart only beyond level 1, where `trap_beyond_level1=24` of the 29 events
+occur, in `plays_with_trap_beyond_level1=19` plays. Those 19 are exactly the
+recordings that need the switch for state and level (the counts agree
+environment by environment); 15 of them also match every frame under it, and
+four, in decoration-differing environments, match on state and level. Under the engine the humans played, each of the 29 was a
+level reset costing one action. Under the shipped default each of the 24
+beyond level 1 would have been a full reset. The trace is the same whether
+the humans' server ran the switch or the competition-mode guard below; what
+the replays establish is the semantics.
+
+What that costs under the real harness, measured with the same scripted-agent
+driver as the budget probes on `ls20`: the 13-action level-1 witness, one
+RESET as the first action of level 2, then the 45-action level-2 witness.
+With the humans' setting the RESET is a no-op level reset, the play completes
+two levels (`card_levels=[2]`) and scores `score=10.714286`. With the default
+the RESET opens a second play at level 1 (`card_plays=2`), the level-2 witness
+is spent on level 1, the card reads `card_levels=[1, 0]` and the environment
+scores `score=3.571429`; the harness's own level tracker stays at
+`harness_last_levels=1` while the frame reports level 0, so its counter, at
+`harness_counter=46`, is now judged against level 1's budget. An agent that
+notices and re-clears level 1 recovers the score at the price of a second play
+and thirteen more charged actions (`card_actions=[13, 58]`).
+
+Which case an agent can meet through the harness, the harness's own code
+settles: `_get_actions` offers `RESET` on every turn except the first and
+except immediately after a `RESET` (`is_reset_a_valid_action`:
+`action_counter > 0 and _previous_action != RESET`, and the forced reset sets
+`_previous_action` through `do_action_request`), and `_parse_action` executes
+only offered actions. So the reset-after-reset case (28 of the 29 human
+events) cannot occur through the harness, and the forced reset of F12, which
+leaves the engine counter at zero, cannot be followed by a chosen one. A
+`RESET` as the first action of a newly reached level is offered; that is the
+case the probe measures.
+
+Whether the server that scores agents runs the switch is not observable. The
+toolkit's own API server carries a guard for exactly this case --- in
+"competition mode" a RESET that would cause a full reset is not sent to the
+game at all (`api.py`) --- and its changelog for 0.9.5 fixes scorecards "when
+`ONLY_RESET_LEVELS` envvar was set", so the Foundation knows the case and
+handles it on at least two paths. The benchmarking harness sets neither: an
+agent run through it against the shipped environments meets the default. The
+finding is the asymmetry that can be shown: the reset semantics under which
+every baseline was gathered are not the semantics the shipped default gives
+the agent measured against it.
 
 **F8 — Scorer defect in the public toolkit: the aggregation denominator.**
 `EnvironmentScorecard.from_scorecard` computes the overall score as the sum of
@@ -650,9 +735,9 @@ where deepening times out at depth 28.
 So the premise was wrong. The binding constraint is not memory but the size of
 the state space at the depths these baselines live at, and no exhaustive search
 we can write reaches depth 26, let alone 183. The twelve unresolved levels are
-unresolved for a reason rather than for want of effort, and settling them would
-need the human replays (now located; see below), or a solver for these environments,
-which is outside this audit's scope by its own rules. Breadth-first remains the
+unresolved for a reason rather than for want of effort. The human replays
+settled them (below): a human's count is an upper bound on the optimum, and
+every one of the twelve has a human count at or below its baseline. Breadth-first remains the
 default because it resolves more; the depth-first modes stay available for a
 level where memory rather than time is the wall.
 
@@ -665,7 +750,7 @@ consistent, and it is the tightest margin in the set.
 Foundation open-sourced the Public Demo dataset with 342 human step-by-step
 replays. Our scripted check (`scripts/replay_availability.py`) found no replay
 dataset among the `arcprize` GitHub repositories (`github_repos=10`) or
-HuggingFace datasets (`huggingface_datasets=3`), and
+Hugging Face datasets (`huggingface_datasets=3`), and
 the announcement's one link, a shortener, refused the request
 (`announced_link_status=403`, 429 under repetition, with or without a browser
 user-agent), so it recorded `located=False`. We reported that as the replays not
@@ -682,11 +767,83 @@ redistributed. This is the same defect class this audit reports in others' work
 --- an instrument's limit reported as a fact about the world --- and it is
 recorded rather than erased.
 
-That is a statement about what these checks found on that date, not a claim that
-the data does not exist. It is worth passing on because a broken or rate-limited
-link is the kind of thing an owner would want to fix, and because until the
-replays are reachable the baselines that every score depends on cannot be
-checked against the plays that produced them.
+**The replays, checked (2026-09-05).** The archive the link resolves to,
+`arc_agi_3_public_demo_human_testing.zip` (`bytes=111142305`,
+`sha256=99a32ffc3b9e55bc3077b979d00906f256c26354b5fada0b052690b2f5cd634a`),
+was downloaded by the lead author and read from the zip one line at a time,
+never extracted and never redistributed; nothing from it enters this
+repository but sorted per-cell counts and tallies. It holds `recordings=340`
+(the announcement said `announced=342`), one per session, each a toolkit
+recording: one `FrameData` per action, the first the construction RESET, and a
+final line carrying the toolkit's own scorecard for the session with per-play
+`actions_by_level` and `resets`. Every frame's `game_id` is the version we
+audited (`version_mismatch=0`). Each session is one play (`plays=340`), the
+archive carries no participant identifier, so "first-time players" cannot be
+filtered for; `old_recorder_recordings=23` are from the 2026-03 recorder, 22
+of them completing a level.
+
+*They are plays of the shipped code.* Replayed action by action through the
+environments in `environment_files/`, with their recorded click coordinates,
+`state_faithful=340` of 340 reproduce state and level at every one of
+`steps=180496` steps, and `divergent=0`: `state_and_level_default=321` under
+the shipped engine as is, and 19 only under `ONLY_RESET_LEVELS=true`.
+`full_default=284` reproduce the
+rendered frame at every step under the shipped engine as is; `full_levelonly=15`
+do so only under `ONLY_RESET_LEVELS=true` (F13); `frame_only=41`, in
+`frame_only_envs=bp35,lf52,s5i5,vc33`, agree on state and level throughout
+while `frames_differing=6844` frames differ in decoration --- a pixel or two of
+changing colour in `s5i5` on most frames, animation frames in `bp35`, a
+colour-swapped flash frame in `lf52` --- none of which the game logic reads.
+
+*What the published baseline is.* For every play and every level it completed
+we counted actions two ways: charged (every action the scorer counts, level
+resets included, the construction reset excluded) and uncharged (level resets
+excluded). Our count agrees with the toolkit's own per-level tally on
+`card_agree=316` plays; on `card_old_tally_offset=22` plays recorded by an
+earlier recorder (2026-03, action names rather than ids, no construction line)
+the tally sits exactly one below ours at every level boundary; `card_disagree=2`
+are `lp85` cards that record the play's total and levels but no boundaries.
+Over the `cells=183` published integers, the upper median of the charged
+counts reproduces `charged_exact=165` exactly and `charged_off_by_one=4` within
+one; the upper median of the toolkit's stored tallies reproduces
+`card_exact=166`; the uncharged reading reproduces `uncharged_exact=101` with
+`uncharged_off_by_one=42` within one; the stored-tally rule gains the two
+old-tally cells below and loses `lp85` level 6, where the two boundary-less
+cards drop out and move the median by one. Lower median, plain median and mean
+do far worse. The documented rule --- upper median of players' counts --- is
+the rule, and it charges resets. On the `decisive_cells=72` cells where a
+human reset and the two readings differ: `charged=65`, `uncharged=1`,
+`neither=6`; all seven non-charged cells lie in the three environments the
+release does not reproduce (`g50t` levels 2–4, `lp85` levels 2, 7 and 8,
+`vc33` level 3). F9 is closed.
+
+*Two level-1 cells carry the old recorder's tally.* The published level-1
+baselines for `cn04` and `tr87` equal the upper median of the stored tallies
+and sit one below the upper median of the actions those humans took by the
+current scorer's rule (`old_tally_cells=cn04/L1:published=29:card=29:stream=30,tr87/L1:published=54:card=54:stream=55`).
+One action in two of 183 cells; recorded because it is exact, not because it
+matters.
+
+*Three environments are not reproduced from the release.* Under the rule that
+fits everywhere else, `g50t=4/7`, `lp85=1/8` and `vc33=1/7` cells are
+reproduced (with `cn04=5/6` and `tr87=5/6` explained above). Eight published values occur in no
+released play of their cell at all (`published_absent_from_release=8`). One is
+`cn04` level 1, the old recorder's tally above. The other seven are two of
+`g50t`'s (level 4's baseline of 230 sits over two released plays that took 31
+and 52) and five of `vc33`'s seven. No statistic over these recordings
+produces those seven numbers, so for those environments the release is not the data the baselines
+were computed from. Splitting the sessions by month does not help. We report
+it as not reproduced, not as wrong.
+
+*Every baseline is consistent with its level's optimum.* A human count bounds
+the optimum from above. In all 183 cells the smallest human count is at or
+below the published baseline (`bound_consistent=183`, `bound_undetermined=0`),
+so every baseline is at or above its optimum, including the twelve the search
+could not resolve (`minactions_now_consistent=18` of 18). And in every cell our
+search had bounded, no human beat the bound (`minactions_bounds_respected=True`):
+the two instruments agree.
+
+The ratings file beside the archive was not downloaded and is not used.
 
 **Observation, not a finding — a reported score and a reported level count can
 come from different plays.** For an environment played more than once,
@@ -818,14 +975,11 @@ the observed state is that they agree.
   (5–7), two goals (6), fog (7). Nothing is claimed about those levels. The
   other 24 public environments are identifier-obfuscated and undocumented; the
   preregistered rule selected ls20 (`INVENTORY.md`).
-- Reference 2, the replay check itself: the 342 replays were not located (see
-  above), so no baseline has been compared against the plays that produced it.
-  Only the lower-bound check was possible.
-- The lower-bound check on the twelve levels where the search was capped, and on
-  every level of the nineteen click-based environments, where the method does
-  not apply at all.
-- Whether the published human baselines charge human resets as actions. This is
-  what would settle F9, and it needs the replays.
+- The baselines of `g50t`, `lp85` and `vc33`, which the released recordings do
+  not reproduce; the ratings file beside the archive; the two announced
+  recordings the archive does not contain.
+- Whether the server that scores agents runs `ONLY_RESET_LEVELS` or competition
+  mode (F13). Not observable from outside.
 - Anything at all about the server-side scorer behind the official leaderboard.
   It is not observable from outside, and every statement here is about the
   public toolkit at the pinned commit.
@@ -850,9 +1004,9 @@ the observed state is that they agree.
    here supports a statement about ARC-AGI-3 as a whole, and in particular the
    nineteen click-based environments are untouched by it.
 5. The optima are proved against the SHIPPED LOCAL environment at the pinned
-   version. That is not necessarily the environment the human study measured,
-   and a baseline consistent with the local optimum says nothing about how the
-   number was gathered.
+   version. The replays show the humans played that code (every recording
+   reproduces state and level at every step), under one engine switch the
+   shipped default does not set (F13).
 6. The play probe is random and shallow: it won nothing anywhere and mostly
    stayed on level 1, so its negatives cover the states it visited and no more.
 7. A truncated enumeration is a sample of a larger graph, not a survey of it:
@@ -901,6 +1055,10 @@ done
 .venv/bin/python scripts/play_probe.py --max-actions 20000 --max-seconds 60 --seed 0
 .venv/bin/python scripts/min_actions.py --levels 1 2 3 --max-states 400000 --max-seconds 120 --max-rss-mb 2500
 .venv/bin/python scripts/replay_availability.py
+bash scripts/fetch_replays.sh                      # the lead author's download; 106 MB, outside the repository
+.venv/bin/python scripts/human_baselines.py ~/Desktop/3kvc/replays_data/arc_agi_3_public_demo_human_testing.zip
+.venv/bin/python scripts/replay_check.py ~/Desktop/3kvc/replays_data/arc_agi_3_public_demo_human_testing.zip
+.venv/bin/python scripts/full_reset_probe.py
 .venv/bin/python scripts/score_pipeline_probe.py
 .venv/bin/python scripts/budget_probe.py
 .venv/bin/python scripts/death_cost.py --rollouts 8 --all-levels

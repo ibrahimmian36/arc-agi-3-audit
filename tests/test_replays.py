@@ -78,3 +78,133 @@ def test_shape_bounds_its_own_output():
     wide = {f"k{i}": i for i in range(40)}
     s = shape(wide)
     assert s.endswith("…}") and s.count(":") == 12
+
+
+# ── the recording parser ────────────────────────────────────────────────────
+from replays import RESET, parse_recording, per_level_counts, card_counts  # noqa: E402
+
+
+def _frame(action, levels, state="NOT_FINISHED", full_reset=False, gid="ls20-9607627b"):
+    return {"data": {"game_id": gid, "frame": [[[0]]], "state": state, "levels_completed": levels,
+                     "win_levels": 7, "action_input": {"id": action, "data": {}},
+                     "guid": "g", "full_reset": full_reset, "available_actions": [1]}}
+
+
+def _card(gid, actions, abl, resets, levels, state):
+    return {"data": {"won": 0, "played": 1, "total_actions": actions, "levels_completed": levels,
+                     "cards": {gid: {"game_id": gid, "total_plays": 1, "guids": ["g"],
+                                     "levels_completed": [levels], "states": [state],
+                                     "actions": [actions], "actions_by_level": [abl],
+                                     "resets": [resets], "total_actions": actions}}}}
+
+
+def _run(frames):
+    return parse_recording((i + 1, f) for i, f in enumerate(frames))
+
+
+def test_empty_recording():
+    rec = _run([])
+    assert rec["game_id"] is None and rec["plays"] == [[]] and rec["card"] is None
+    assert per_level_counts([])["charged"] == {}
+
+
+def test_construction_reset_is_not_charged():
+    rec = _run([_frame(RESET, 0), _frame(1, 0), _frame(2, 1)])
+    c = per_level_counts(rec["plays"][0])
+    assert c["charged"] == {0: 2} and c["uncharged"] == {0: 2} and c["resets"] == {}
+    assert c["completed"] == [0]
+
+
+def test_level_never_completed_is_not_credited():
+    rec = _run([_frame(RESET, 0), _frame(1, 0), _frame(1, 0)])
+    c = per_level_counts(rec["plays"][0])
+    assert c["completed"] == [] and c["charged"] == {0: 2}
+
+
+def test_one_reset_counts_charged_not_uncharged():
+    frames = [_frame(RESET, 0), _frame(1, 0), _frame(1, 0, "GAME_OVER"), _frame(RESET, 0), _frame(3, 1)]
+    c = per_level_counts(_run(frames)["plays"][0])
+    assert c["charged"] == {0: 4} and c["uncharged"] == {0: 3} and c["resets"] == {0: 1}
+
+
+def test_reset_after_win_lands_on_next_level():
+    frames = [_frame(RESET, 0), _frame(1, 1), _frame(RESET, 1), _frame(1, 2, "WIN")]
+    c = per_level_counts(_run(frames)["plays"][0])
+    assert c["charged"] == {0: 1, 1: 2} and c["resets"] == {1: 1} and c["completed"] == [0, 1]
+    assert c["final_state"] == "WIN"
+
+
+def test_two_levels_in_one_frame_both_credited():
+    c = per_level_counts(_run([_frame(RESET, 0), _frame(1, 2)])["plays"][0])
+    assert c["completed"] == [0, 1] and c["charged"] == {0: 1}
+
+
+def test_full_reset_splits_plays():
+    frames = [_frame(RESET, 0), _frame(1, 1), _frame(RESET, 0, full_reset=True), _frame(1, 0)]
+    rec = _run(frames)
+    assert len(rec["plays"]) == 2 and len(rec["plays"][0]) == 2 and len(rec["plays"][1]) == 2
+    assert per_level_counts(rec["plays"][1])["charged"] == {0: 1}
+
+
+def test_card_is_recognised_and_decoded():
+    gid = "ls20-9607627b"
+    frames = [_frame(RESET, 0), _frame(1, 0), _frame(1, 1), _frame(RESET, 1), _frame(1, 2)]
+    frames.append(_card(gid, 4, [[1, 2], [2, 4]], 1, 2, "NOT_FINISHED"))
+    rec = _run(frames)
+    assert rec["card"] is not None and len(rec["plays"]) == 1 and len(rec["plays"][0]) == 5
+    cc = card_counts(rec["card"], gid)
+    assert cc == [dict(actions=4, per_level=[2, 2], resets=1, levels_completed=2, state="NOT_FINISHED")]
+    mine = per_level_counts(rec["plays"][0])
+    assert [mine["charged"][l] for l in mine["completed"]] == cc[0]["per_level"]
+
+
+def test_card_for_other_game_is_ignored():
+    assert card_counts(_card("x", 1, [], 0, 0, "WIN")["data"], "ls20-9607627b") == []
+    assert card_counts(None, "ls20-9607627b") == []
+
+
+def test_non_frame_non_card_lines_are_skipped():
+    rec = _run([{"data": {"note": 1}}, _frame(RESET, 0), {"timestamp": "t"}, _frame(1, 1)])
+    assert len(rec["plays"][0]) == 2
+
+
+def test_action_names_are_normalised():
+    from replays import action_id
+    assert action_id("RESET") == 0 and action_id("ACTION6") == 6 and action_id(3) == 3
+    import pytest
+    with pytest.raises(ValueError):
+        action_id("ACTION9")
+
+
+def test_old_schema_recording_is_flagged_and_counted():
+    frames = [_frame("ACTION1", 0), _frame("ACTION1", 1), _frame("RESET", 1), _frame("ACTION2", 2)]
+    rec = _run(frames)
+    assert rec["old_schema"] is True
+    c = per_level_counts(rec["plays"][0])
+    # no construction line: the first action is a real one and is charged
+    assert c["charged"] == {0: 2, 1: 2} and c["resets"] == {1: 1}
+
+
+# ── the replay checker's classifier and trap counter (no environment needed) ─
+def test_replay_classifier():
+    from replay_check import classify
+    full = dict(steps=10, frames_ok=10, state_ok=10)
+    assert classify(full, None) == "full_default"
+    assert classify(dict(steps=10, frames_ok=9, state_ok=9), full) == "full_levelonly"
+    assert classify(dict(steps=10, frames_ok=9, state_ok=9), dict(steps=10, frames_ok=8, state_ok=10)) == "frame_only"
+    assert classify(dict(steps=10, frames_ok=9, state_ok=9), dict(steps=10, frames_ok=8, state_ok=9)) == "divergent"
+    assert classify(dict(steps=0, frames_ok=0, state_ok=0), dict(steps=0, frames_ok=0, state_ok=0)) == "divergent"
+
+
+# ── the budget applied to human play (Phase 19) ─────────────────────────────
+def test_human_budget_tallies_forced_and_voluntary_resets():
+    from human_budget import level_tallies
+    f = lambda a, l, s="NOT_FINISHED": dict(action=a, levels=l, state=s, full_reset=False, line=0)
+    # construction, two moves, a death, the reset that follows it, a winning move
+    assert level_tallies([f(0, 0), f(1, 0), f(1, 0, "GAME_OVER"), f(0, 0), f(2, 1)]) == [(0, 4, 1)]
+    # a reset not preceded by a game over is charged but is not a forced one
+    assert level_tallies([f(0, 0), f(1, 0), f(0, 0), f(2, 1)]) == [(0, 3, 0)]
+    # a frame that completes two levels credits the second with nothing
+    assert level_tallies([f(0, 0), f(1, 2)]) == [(0, 1, 0), (1, 0, 0)]
+    # a level never completed produces no tally
+    assert level_tallies([f(0, 0), f(1, 0), f(1, 0)]) == []
