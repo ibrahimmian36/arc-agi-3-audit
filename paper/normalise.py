@@ -1,5 +1,5 @@
 """Render main.tex as plain text with LaTeX number formatting removed, so the
-audit kit's claims checker can verify every figure in the paper against the log
+claims checker (`scripts/report_check.sh`) can verify every figure in the paper against the log
 that produced it. Reading the numbers by eye is not a check."""
 import re
 from pathlib import Path

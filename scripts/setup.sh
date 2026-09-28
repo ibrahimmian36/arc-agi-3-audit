@@ -9,13 +9,13 @@
 # means `.venv/bin/python -m pytest -q` will run.
 #
 # Optional tools, not installed here: Dafny (to re-verify the models; their
-# artefacts are committed), node (to load the compiled oracles), tectonic (to
-# rebuild the PDFs), and poppler's pdftotext (for the anonymity tests).
+# artefacts are committed), node (to load the compiled oracles) and tectonic (to
+# rebuild the PDF).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Invoked through bash: a zip archive does not preserve execute bits, and a
-# reviewer unpacking the supplementary material must still be able to run this.
+# reader unpacking an archive of the repository must still be able to run this.
 bash scripts/setup_vendor.sh
 
 if [ ! -x .venv/bin/python ]; then

@@ -35,21 +35,21 @@ def test_a_fresh_clone_can_rebuild_the_vendored_trees():
         "the bootstrap must fetch the vendored sources"
 
 
-def test_the_shipped_claims_checker_is_the_kit_s_own():
-    """scripts/report_check.sh is a verbatim copy of the audit kit's checker,
-    shipped so a stranger can run it. It must never drift from the original:
-    whenever the kit is present beside this repository, the two are compared
-    byte for byte below the header that records the copy's origin."""
-    from conftest import require_git_checkout
-    require_git_checkout()
+def test_the_shipped_claims_checker_matches_its_upstream():
+    """scripts/report_check.sh is a copy of the authors' claims checker, shipped
+    so a stranger can run it. It must never drift from the original: whenever
+    an upstream copy is supplied (REPORT_CHECK_UPSTREAM=/path/to/report_check.sh),
+    the two are compared line for line below their title lines."""
+    import os
     from pathlib import Path
     root = Path(__file__).resolve().parents[1]
     ours = (root / "scripts" / "report_check.sh").read_text().splitlines()
-    kit = root.parent / "audit-kit" / "scripts" / "report_check.sh"
-    body_start = next(i for i, l in enumerate(ours) if l.startswith("# Millennium Research audit kit"))
-    assert body_start > 0, "the origin header is missing"
-    if not kit.exists():
+    title = next((i for i, l in enumerate(ours) if l.startswith("# Report number enforcement")), -1)
+    assert title > 0, "the origin header is missing"
+    upstream = os.environ.get("REPORT_CHECK_UPSTREAM", "")
+    if not upstream or not Path(upstream).is_file():
         import pytest
-        pytest.skip("audit kit not present beside the repository; cannot compare")
-    theirs = kit.read_text().splitlines()
-    assert ours[body_start:] == theirs[1:], "scripts/report_check.sh has drifted from the kit"
+        pytest.skip("no upstream copy supplied (set REPORT_CHECK_UPSTREAM); cannot compare")
+    theirs = Path(upstream).read_text().splitlines()
+    their_title = next(i for i, l in enumerate(theirs) if l.startswith("# ") and "report number enforcement" in l.lower())
+    assert ours[title + 1:] == theirs[their_title + 1:], "scripts/report_check.sh has drifted from its upstream"

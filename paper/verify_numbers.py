@@ -1,7 +1,7 @@
 """Verify every load-bearing figure in the paper against the artefact that
 produced it.
 
-The audit kit's report checker matches a literal string in both the report and
+The claims checker (`scripts/report_check.sh`) matches a literal string in both the report and
 the log. That works for an internal findings file, which quotes artefact syntax
 verbatim, but a paper states numbers in prose. So each entry here carries three
 things: the phrase as it appears in the paper, the value that phrase asserts,

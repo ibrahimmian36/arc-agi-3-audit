@@ -15,6 +15,14 @@ ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "paper"
 
 
+def _consistency_module():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("cc", PAPER / "consistency_check.py")
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+
 def test_every_figure_in_the_paper_traces_to_an_artefact():
     p = subprocess.run([sys.executable, str(PAPER / "verify_numbers.py")],
                        capture_output=True, text=True, cwd=str(PAPER), timeout=300)
@@ -24,23 +32,25 @@ def test_every_figure_in_the_paper_traces_to_an_artefact():
 
 def test_the_paper_names_no_private_address_and_no_tool_attribution():
     """Stated positively: the only mail addresses permitted in the paper are
-    the public contact and the authors' institutional ones, so this file never
-    has to contain what it guards against."""
+    the public contact and the authors' institutional domain, and the tool
+    names are read from the disclosure itself, so this file never has to
+    contain what it guards against."""
     require_named_paper()
     import re
+    cc = _consistency_module()
     text = paper_source().read_text()
-    permitted = {"ibrahimnmian@gmail.com", "ibby@millenniumresearch.ai",
-                 "shayaan@millenniumresearch.ai"}
     for addr in set(re.findall(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", text)):
-        assert addr in permitted or addr.endswith("arcprize.org"), addr
-    for word in ("Generated with", "Co-" + "Authored"):
+        assert cc.permitted_address(addr), addr
+    for word in ("Generated with", "Co-Authored"):
         assert word not in text, word
     # the tool is named only inside the AI-use disclosure
     a = text.index("\\section{Use of AI tools}")
     b = text.index("\\section", a + 1)
     outside = text[:a] + text[b:]
-    assert "Anthropic" not in outside
-    assert "Cla" + "ude" not in outside
+    names = cc.disclosed_tool_names(text[a:b])
+    assert names, "the disclosure no longer names its tool as 'Tool (Vendor)'"
+    for name in names:
+        assert name not in outside, name
 
 
 def test_the_ai_disclosure_says_what_arxiv_moderation_asked_for():
@@ -77,14 +87,14 @@ def test_the_paper_does_not_claim_a_disclosure_that_did_not_happen():
 
 def test_the_repository_claim_is_not_made_before_the_repository_exists():
     """The paper says its artefacts are reproducible from a released repository.
-    The audit repository was private until release, so the URL had to stay
+    The audit repository had no public URL until release, so the URL had to stay
     a visible placeholder until it is real -- a paper that claims a public
     artefact nobody can fetch is worse than one that claims nothing."""
     require_named_paper()
     import re
     text = paper_source().read_text()
     if "included in full as supplementary material" in text:
-        return  # a copy prepared for review carries the repository with it
+        return  # a self-contained copy carries the repository with it
     assert "released with this paper" in text, "the repository sentence is missing"
     assert "[REPOSITORY URL]" in text or re.search(r"https?://\S+", text.split("released with this paper")[1][:200]), \
         "the repository claim names neither a placeholder nor a URL"
@@ -93,7 +103,7 @@ def test_the_repository_claim_is_not_made_before_the_repository_exists():
 @pytest.mark.skipif(shutil.which("tectonic") is None, reason="no LaTeX toolchain")
 def test_the_paper_compiles(tmp_path):
     require_named_paper()
-    # A copy prepared for review keeps its style files beside the source.
+    # A self-contained copy keeps its style files beside the source.
     for f in ["main.tex"] + [p.name for p in PAPER.glob("*.sty")] + [p.name for p in PAPER.glob("*.bst")]:
         shutil.copy(PAPER / f, tmp_path / f)
     p = subprocess.run(["tectonic", "-X", "compile", "main.tex"],
@@ -153,10 +163,15 @@ def test_the_git_history_carries_no_attribution_trailer():
     log = subprocess.run(["git", "log", "--format=%an <%ae>%n%b"],
                          cwd=PAPER.parent, capture_output=True, text=True)
     assert log.returncode == 0, log.stderr
+    cc = _consistency_module()
     for line in log.stdout.splitlines():
-        low = line.lower()
-        assert not low.startswith("co-" + "authored-by: cla" + "ude"), line
-        assert "generated with [cla" + "ude" not in low, line
+        low = line.strip().lower()
+        # No co-author trailer other than an author's own address, and no
+        # "generated with" tool line at all.
+        if low.startswith("co-authored-by:"):
+            addr = low.rsplit("<", 1)[-1].rstrip(">").strip()
+            assert cc.permitted_address(addr), line
+        assert not low.startswith("generated with") and "generated with [" not in low, line
 
 
 def test_the_git_history_carries_no_private_address():
@@ -169,12 +184,12 @@ def test_the_git_history_carries_no_private_address():
     log = subprocess.run(["git", "log", "HEAD", "-p"], cwd=PAPER.parent,
                          capture_output=True, text=True, errors="ignore")
     assert log.returncode == 0, log.stderr
-    permitted = {"ibrahimnmian@gmail.com", "ibby@millenniumresearch.ai",
-                 "shayaan@millenniumresearch.ai", "anonymous@example.org",
-                 "noreply@github.com"}
+    cc = _consistency_module()
+    permitted = {"anonymous@example.org", "noreply@github.com"}
     found = set(re.findall(r"(?<![\w+.-])[A-Za-z0-9][A-Za-z0-9._%-]*@[A-Za-z0-9.-]+\.[A-Za-z]{2,}",
                            log.stdout))
-    bad = {a for a in found if a not in permitted and not a.endswith(("arcprize.org", "example.org", "example.com"))}
+    bad = {a for a in found if a not in permitted and not cc.permitted_address(a)
+           and not a.endswith(("example.org", "example.com"))}
     assert not bad, f"unexpected addresses in history: {sorted(bad)}"
 
 def test_the_false_replay_claim_never_returns():

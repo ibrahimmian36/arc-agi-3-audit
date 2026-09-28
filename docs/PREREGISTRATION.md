@@ -204,13 +204,13 @@ their licence permits).
 ## 5. Numbers and artefacts
 
 Every number above and in `FINDINGS.md` is produced by a script into
-`artifacts/` and registered in `docs/claims.json`; `audit-kit/scripts/report_check.sh`
+`artifacts/` and registered in `docs/claims.json`; the claims checker (`scripts/report_check.sh`)
 must pass on the final state. Re-runs must be byte-identical.
 
 ## 6. Phase 18 — the human replays (registered 2026-09-05, before any result was read)
 
 Data: the archive the announced link resolves to in a browser, downloaded by
-the lead author, 111,142,305 bytes, sha256 `99a32ffc3b9e55bc…`, read from the
+one of the authors, 111,142,305 bytes, sha256 `99a32ffc3b9e55bc…`, read from the
 zip one line at a time and never extracted or redistributed. Each recording is
 the toolkit's own log: one FrameData per action and a final scorecard summary
 carrying the toolkit's per-play `actions_by_level` and `resets`.

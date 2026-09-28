@@ -26,6 +26,24 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 ART = ROOT / "artifacts"
 
+INSTITUTION_DOMAIN = "@millenniumresearch.ai"
+PUBLIC_CONTACT = "ibrahimnmian@gmail.com"
+
+
+def permitted_address(addr: str) -> bool:
+    """The public contact, the authors' institutional domain, or the audited
+    organisation's own addresses."""
+    return addr == PUBLIC_CONTACT or addr.endswith(INSTITUTION_DOMAIN) or addr.endswith("arcprize.org")
+
+
+def disclosed_tool_names(section: str) -> set[str]:
+    """Tool and vendor names as the disclosure states them, 'Tool (Vendor)'."""
+    names = set()
+    for tool, vendor in re.findall(r"\b([A-Z][A-Za-z]+)\s*\(([A-Z][A-Za-z]+)\)", section):
+        names.update((tool, vendor))
+    return names
+
+
 # Numbers that are structural rather than findings. Each needs a reason that
 # would be wrong if it were wrong: "it is fine" is not a reason.
 EXEMPT: dict[str, str] = {
@@ -205,33 +223,35 @@ def main() -> int:
     # S4 -- discipline that must never regress
     if "without prior private notice" not in tex:
         fails.append("the disclosure statement no longer says what is true")
-    # Stated as a POSITIVE check so this file never has to contain the private
-    # address it guards: the only permitted mail addresses are the public
-    # contact and the authors' institutional ones.
-    permitted = {"ibrahimnmian@gmail.com", "ibby@millenniumresearch.ai",
-                 "shayaan@millenniumresearch.ai"}
+    # Stated as a POSITIVE check so this file never has to contain an address
+    # it guards against: the only permitted mail addresses are the public
+    # contact and the authors' institutional domain.
     for doc, name in ((tex, "the paper"), (findings, "FINDINGS.md")):
         for addr in set(re.findall(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", doc)):
-            if addr not in permitted and not addr.endswith("arcprize.org"):
+            if not permitted_address(addr):
                 fails.append(f"unexpected mail address {addr!r} in {name}")
     # The tool is named in the paper's AI-use disclosure, as arXiv's moderation
     # asked of the authors' earlier paper, and nowhere else; co-author and
-    # "generated with" trailers are never permitted.
+    # "generated with" trailers are never permitted. The names are read from the
+    # disclosure itself ("Tool (Vendor)"), so this file names none of them.
     ai0 = tex.find("\\section{Use of AI tools}")
     ai1 = tex.find("\\section", ai0 + 1) if ai0 >= 0 else -1
     outside = tex[:ai0] + tex[ai1:] if ai0 >= 0 else tex
-    for word in ("Claude", "Anthropic"):
+    names = disclosed_tool_names(tex[ai0:ai1]) if ai0 >= 0 else set()
+    if ai0 >= 0 and not names:
+        fails.append("the AI-use disclosure no longer names its tool as 'Tool (Vendor)'")
+    for word in sorted(names):
         if word in outside:
             fails.append(f"tool name {word!r} appears outside the AI-use disclosure")
     for word in ("Co-Authored", "Generated with"):
         if word in tex:
             fails.append(f"attribution {word!r} appears in the paper")
     # The repository claim is in exactly one of two states: a visible placeholder
-    # while the repository is private, or a real URL once it is public. Both at
+    # before the repository URL exists, or a real URL once it is public. Both at
     # once, or neither, means the sentence is asserting something unchecked.
     placeholder = tex.count("[REPOSITORY URL]")
     url = len(re.findall(r"github\.com/[A-Za-z0-9_.-]+/arc-agi-3-audit", tex))
-    # A copy prepared for review carries the repository as supplementary material
+    # A self-contained copy carries the repository as supplementary material
     # and names no URL; that is the third valid state of the sentence.
     supplementary = "included in full as supplementary material" in tex
     if supplementary and not url and not placeholder:

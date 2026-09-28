@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# VERBATIM COPY of scripts/report_check.sh from the Millennium Research audit kit,
-# v0.2.1 (git describe: v0.2.1-2-g2515ea8), shipped here so the claims check runs
-# from this repository alone. tests/test_pins.py asserts this file is byte-identical
-# to the kit's whenever the kit is present, so it cannot drift.
+# Copy of the claims checker from the authors' audit tooling, v0.2.1 (git
+# describe: v0.2.1-2-g2515ea8), shipped here so the claims check runs from this
+# repository alone. Below the title line the body is the upstream file, unchanged;
+# tests/test_pins.py compares it with an upstream copy whenever one is supplied
+# (REPORT_CHECK_UPSTREAM=/path/to/report_check.sh), so it cannot drift.
 #
-# Millennium Research audit kit — report number enforcement.
+# Report number enforcement.
 #
 # A report may not finalize unless every load-bearing number in it is tied
 # to a shipped log. Convention: the audit ships a claims.json next to the

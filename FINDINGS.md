@@ -770,7 +770,7 @@ recorded rather than erased.
 **The replays, checked (2026-09-05).** The archive the link resolves to,
 `arc_agi_3_public_demo_human_testing.zip` (`bytes=111142305`,
 `sha256=99a32ffc3b9e55bc3077b979d00906f256c26354b5fada0b052690b2f5cd634a`),
-was downloaded by the lead author and read from the zip one line at a time,
+was downloaded by one of the authors and read from the zip one line at a time,
 never extracted and never redistributed; nothing from it enters this
 repository but sorted per-cell counts and tallies. It holds `recordings=340`
 (the announcement said `announced=342`), one per session, each a toolkit
@@ -1064,9 +1064,9 @@ done
 .venv/bin/python scripts/play_probe.py --max-actions 20000 --max-seconds 60 --seed 0
 .venv/bin/python scripts/min_actions.py --levels 1 2 3 --max-states 400000 --max-seconds 120 --max-rss-mb 2500
 .venv/bin/python scripts/replay_availability.py
-bash scripts/fetch_replays.sh                      # the lead author's download; 106 MB, outside the repository
-.venv/bin/python scripts/human_baselines.py ~/Desktop/3kvc/replays_data/arc_agi_3_public_demo_human_testing.zip
-.venv/bin/python scripts/replay_check.py ~/Desktop/3kvc/replays_data/arc_agi_3_public_demo_human_testing.zip
+bash scripts/fetch_replays.sh <file-id-or-share-url> # downloaded separately; 106 MB, outside the repository
+.venv/bin/python scripts/human_baselines.py "${REPLAYS_DIR:-$HOME/arc-agi-3-replays}"/arc_agi_3_public_demo_human_testing.zip
+.venv/bin/python scripts/replay_check.py "${REPLAYS_DIR:-$HOME/arc-agi-3-replays}"/arc_agi_3_public_demo_human_testing.zip
 .venv/bin/python scripts/full_reset_probe.py
 .venv/bin/python scripts/score_pipeline_probe.py
 .venv/bin/python scripts/budget_probe.py

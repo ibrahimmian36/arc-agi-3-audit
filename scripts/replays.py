@@ -6,7 +6,7 @@ one line at a time and never held in memory together; a file that is truncated
 mid-line yields its complete lines and reports the partial one.
 
 The record schema is learned from the data with `inspect`, after the archive is
-fetched with the lead author's explicit go-ahead. Nothing here fetches anything,
+fetched separately (scripts/fetch_replays.sh). Nothing here fetches anything,
 and nothing here writes any participant identifier into an artefact: the
 file's uuid is replaced by its position in a sorted listing.
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Fetch the Foundation's human replay archive into a directory OUTSIDE the
 # repository, verify it is a zip, record its hash, and list it WITHOUT
-# extracting. Run only with the lead author's explicit go-ahead; nothing here
-# runs automatically, and nothing from the archive is ever committed.
+# extracting. Run deliberately; nothing here runs automatically, and nothing
+# from the archive is ever committed.
 #
 #   bash scripts/fetch_replays.sh <google-drive-file-id-or-share-url>
 #
@@ -10,7 +10,7 @@
 # arc_agi_3_public_demo_human_testing.zip (106 MB). Drive's "confirm" step for
 # large files is handled by following its redirect with a cookie jar.
 set -euo pipefail
-DEST="${REPLAYS_DIR:-$HOME/Desktop/3kvc/replays_data}"
+DEST="${REPLAYS_DIR:-$HOME/arc-agi-3-replays}"
 mkdir -p "$DEST"
 ID="${1:?file id or share url}"
 ID="$(echo "$ID" | sed -E 's#.*/d/([^/]+).*#\1#; s#.*id=([^&]+).*#\1#')"
